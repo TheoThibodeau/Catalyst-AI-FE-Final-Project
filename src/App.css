@@ -40,3 +40,19 @@
 .read-the-docs {
   color: #888;
 }
+
+h2{
+    text-decoration: underline;
+    font-size: 30px;
+}
+button{
+    margin:4px;
+    border: solid, black, 2px;
+}
+
+.generate-button{
+    margin: 4px;
+    border: solid, black, 2px;
+    background-color: black;
+    color: white;
+}
