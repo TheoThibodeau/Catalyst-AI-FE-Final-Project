@@ -28,30 +28,42 @@ const Poetry = () => {
 
     const handleThemeChange = (selectedTheme) => {
         setThemes(selectedTheme);
+        console.log(selectedTheme)
         }
     
     const handleCategoriesChange = (selectedCategory) => {
         setCategories(selectedCategory);
+        console.log(selectedCategory)
     }
 
     const handleSentimentChange = (selectedSentiment) => {
         setSentiment(selectedSentiment);
+        console.log(selectedSentiment)
     }
 
     const handleEmotionChange = (selectedEmotion) => {
         setEmotion(selectedEmotion);
+        console.log(selectedEmotion)
     }
+
+const mappedThemes = ['Association','Emotion Exploration','Historical/Cultural','Conceptual']
 
 return (
 <>
     <h1>Poetry</h1>
     <h2>THEMES</h2>
-        <div> 
-            <button onClick={() => handleThemeChange('Association')}>Association</button>
-            <button onClick={() => handleThemeChange('Emotion Exploration')}>Emotion Exploration</button>
-            <button onClick={() => handleThemeChange('Historical/Cultural')}>Historical/Cultural</button>
-            <button onClick={() => handleThemeChange('Conceptual')}>Conceptual</button>
+        <div>
+            <h3> Selected Theme: <br></br> {themes}</h3>
         </div>
+        <div>
+            {mappedThemes.map((theme) => (
+                <button key={theme} onClick={() => handleThemeChange(theme)}>
+            {theme}
+            </button>
+            ))}
+
+            </div>    
+
         <br></br>
     <h2>CATEGORIES</h2>
         <div>
