@@ -1,8 +1,31 @@
 import React from "react";
-import useState from "react";
-
+import { useState } from "react";
+import axios from "axios";
 
 const Poetry = () => {
+    const [themes, setThemes] = useState("");
+    const [categories, setCategories] = useState("");
+    const [sentiment, setSentiment] = useState("");
+    const [emotion, setEmotion] = useState("");
+
+    const handlePost = (e) => {
+        e.preventDefault();
+        axios
+        .post('https://catalyst-x226.onrender.com/api/poem/generate',{
+            themes: themes,
+            categories: categories,
+            sentiment: sentiment,
+            emotion: emotion,
+        })
+        .then(() => {
+            setThemes("");
+            setCategories("");
+            setSentiment("");
+            setEmotion("");
+        })
+        .catch((error) => console.error(error));
+    }
+
 return (
 <>
     <h1>Poetry</h1>
@@ -58,7 +81,7 @@ return (
     <br></br>
     <br></br>
     <br></br>
-    <button class="generate-button">
+    <button className="generate-button" onClick={handlePost}>
         GENERATE
     </button>
         
