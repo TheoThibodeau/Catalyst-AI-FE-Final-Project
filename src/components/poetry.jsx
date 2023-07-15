@@ -31,7 +31,7 @@ const Poetry = () => {
         console.log(selectedTheme)
         }
     
-    const handleCategoriesChange = (selectedCategory) => {
+    const handleCategoryChange = (selectedCategory) => {
         setCategories(selectedCategory);
         console.log(selectedCategory)
     }
@@ -49,6 +49,8 @@ const Poetry = () => {
 const mappedThemes = ['association','emotion exploration','historical/cultural','conceptual']
 const mappedCategories = ['relationship and love','nature and environment','personal growth and reflection', 'social issues and advocay']
 const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transcience','connection','solitude','renewal']
+const mappedEmotion= ['joy','courage','melancholy','euphoria','longing','hope','awe','bliss','anguish','grief']
+
 
 return (
 <>
@@ -73,16 +75,15 @@ return (
             <h3>Selected Category : <br></br> {categories}</h3>
         </div>
         <div>
-            {mappedCategories.map((categoies) => (
-                <button key={categories} onClick={() => handleCategoriesChange(category)}>
+            {mappedCategories.map((category) => (
+                <button key={category} onClick={() => handleCategoryChange(category)}>
                 {category}
                 </button>
             ))}
             </div>
             
         <br></br>
-    
-    
+
     <h2>SENTIMENT</h2>
         <div>
             <h3>Selected Sentiment: <br></br> {sentiment}</h3>
@@ -96,23 +97,20 @@ return (
         </div>
 
         <br></br>
-             
-
-
 
     <h2>EMOTION</h2>
         <div>
-        <button onClick={() => handleEmotionChange('Joy')}>Joy</button>
-                <button onClick={() => handleEmotionChange('courage')}>Courage</button>
-                <button onClick={() => handleEmotionChange('Melancholy')}>Melancholy</button>
-                <button onClick={() => handleEmotionChange('Euphoria')}>Euphoria</button>
-                <button onClick={() => handleEmotionChange('Longing')}>Longing</button>
-                <button onClick={() => handleEmotionChange('Hope')}>Hope</button>
-                <button onClick={() => handleEmotionChange('Awe')}>Awe</button>
-                <button onClick={() => handleEmotionChange('Bliss')}>Bliss</button>
-                <button onClick={() => handleEmotionChange('Anguish')}>Anguish</button>
-                <button onClick={() => handleEmotionChange('Grief')}>Grief</button>
+            <h3>Selected Emotion: <br></br> {emotion}</h3>
+        </div>   
+        <div>
+            {mappedEmotion.map((emotion) => (
+                <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
+                    {emotion}
+                </button>
+            ))}
         </div>
+            
+
     <br></br>
     <br></br>
     <br></br>
