@@ -26,57 +26,73 @@ const Poetry = () => {
         .catch((error) => console.error(error));
     }
 
+    const handleThemeChange = (selectedTheme) => {
+        setThemes(selectedTheme);
+        }
+    
+    const handleCategoriesChange = (selectedCategory) => {
+        setCategories(selectedCategory);
+    }
+
+    const handleSentimentChange = (selectedSentiment) => {
+        setSentiment(selectedSentiment);
+    }
+
+    const handleEmotionChange = (selectedEmotion) => {
+        setEmotion(selectedEmotion);
+    }
+
 return (
 <>
     <h1>Poetry</h1>
     <h2>THEMES</h2>
         <div>
-            <button>Association</button>
-            <button>Emotion Exploration</button>
-            <button>Historical/Cultural</button>
-            <button>Conceptual</button>
+            <button onClick={() => handleThemeChange('Association')}>Association</button>
+            <button onClick={() => handleThemeChange('Emotion Exploration')}>Emotion Exploration</button>
+            <button onClick={() => handleThemeChange('Historical/Cultural')}>Historical/Cultural</button>
+            <button onClick={() => handleThemeChange('Conceptual')}>Conceptual</button>
         </div>
         <br></br>
     <h2>CATEGORIES</h2>
         <div>
-            <button>Relationship and Love</button>
-            <button>Nature and Environment</button>
-            <button>Personal Growth and Reflection</button>
-            <button>Social Issues and Advocacy</button>
-            <button>Advocacy</button>
-            <button>Mythology and Folklore</button>
-            <button>Surrealism and Dreams</button>
-            <button>History</button>
-            <button>Identity and Diversity</button>
-            <button>Imagery and Symbolism</button>
+            <button onClick={() => handleCategoriesChange('Relationship and Love')}>Relationship and Love</button>
+            <button onClick={() => handleCategoriesChange('Nature and Environment')}>Nature and Environment</button>
+            <button onClick={() => handleCategoriesChange('Personal Growth and Reflection')}>Personal Growth and Reflection</button>
+            <button onClick={() => handleCategoriesChange('Social Issues and Advocacy')}>Social Issues and Advocacy</button>
+            <button onClick={() => handleCategoriesChange('Advocacy')}>Advocacy</button>
+            <button onClick={() => handleCategoriesChange('Mythology and Folklore')}>Mythology and Folklore</button>
+            <button onClick={() => handleCategoriesChange('Surrealism and Dreams')}>Surrealism and Dreams</button>
+            <button onClick={() => handleCategoriesChange('History')}>History</button>
+            <button onClick={() => handleCategoriesChange('Identity and Diversity')}>Identity and Diversity</button>
+            <button onClick={() => handleCategoriesChange('Imagery and Symbolism')}>Imagery and Symbolism</button>
         </div>
         <br></br>
     <h2>SENTIMENT</h2>
         <div>
-            <button>Harmony</button>
-            <button>Resilience</button>
-            <button>Fragility</button>
-            <button>Majesty</button>
-            <button>Serenity</button>
-            <button>Wonder</button>
-            <button>Transience</button>
-            <button>Connection</button>
-            <button>Solitude</button>
-            <button>Renewal</button>
+            <button onClick={() => handleSentimentChange('Harmony')}>Harmony</button>
+            <button onClick={() => handleSentimentChange('Resilience')}>Resilience</button>
+            <button onClick={() => handleSentimentChange('Fragility')}>Fragility</button>
+            <button onClick={() => handleSentimentChange('Majesty')}>Majesty</button>
+            <button onClick={() => handleSentimentChange('Serenity')}>Serenity</button>
+            <button onClick={() => handleSentimentChange('Wonder')}>Wonder</button>
+            <button onClick={() => handleSentimentChange('Transience')}>Transience</button>
+            <button onClick={() => handleSentimentChange('Connection')}>Connection</button>
+            <button onClick={() => handleSentimentChange('Solitude')}>Solitude</button>
+            <button onClick={() => handleSentimentChange('Renewal')}>Renewal</button>
         </div>    
         <br></br>
     <h2>EMOTION</h2>
         <div>
-            <button>Joy</button>
-            <button>Courage</button>
-            <button>Melancholy</button>
-            <button>Euphoria</button>
-            <button>Longing</button>
-            <button>Hope</button>
-            <button>Awe</button>
-            <button>Bliss</button>
-            <button>Anguish</button>
-            <button>Greif</button>
+        <button onClick={() => handleEmotionChange('Joy')}>Joy</button>
+                <button onClick={() => handleEmotionChange('Courage')}>Courage</button>
+                <button onClick={() => handleEmotionChange('Melancholy')}>Melancholy</button>
+                <button onClick={() => handleEmotionChange('Euphoria')}>Euphoria</button>
+                <button onClick={() => handleEmotionChange('Longing')}>Longing</button>
+                <button onClick={() => handleEmotionChange('Hope')}>Hope</button>
+                <button onClick={() => handleEmotionChange('Awe')}>Awe</button>
+                <button onClick={() => handleEmotionChange('Bliss')}>Bliss</button>
+                <button onClick={() => handleEmotionChange('Anguish')}>Anguish</button>
+                <button onClick={() => handleEmotionChange('Grief')}>Grief</button>
         </div>
     <br></br>
     <br></br>
