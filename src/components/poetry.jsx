@@ -46,7 +46,7 @@ return (
 <>
     <h1>Poetry</h1>
     <h2>THEMES</h2>
-        <div>
+        <div> 
             <button onClick={() => handleThemeChange('Association')}>Association</button>
             <button onClick={() => handleThemeChange('Emotion Exploration')}>Emotion Exploration</button>
             <button onClick={() => handleThemeChange('Historical/Cultural')}>Historical/Cultural</button>
