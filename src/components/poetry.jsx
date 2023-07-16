@@ -28,72 +28,89 @@ const Poetry = () => {
 
     const handleThemeChange = (selectedTheme) => {
         setThemes(selectedTheme);
+        console.log(selectedTheme)
         }
     
-    const handleCategoriesChange = (selectedCategory) => {
+    const handleCategoryChange = (selectedCategory) => {
         setCategories(selectedCategory);
+        console.log(selectedCategory)
     }
 
     const handleSentimentChange = (selectedSentiment) => {
         setSentiment(selectedSentiment);
+        console.log(selectedSentiment)
     }
 
     const handleEmotionChange = (selectedEmotion) => {
         setEmotion(selectedEmotion);
+        console.log(selectedEmotion)
     }
+
+const mappedThemes = ['association','emotion exploration','historical/cultural','conceptual']
+const mappedCategories = ['relationship and love','nature and environment','personal growth and reflection', 'social issues and advocay']
+const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transcience','connection','solitude','renewal']
+const mappedEmotion= ['joy','courage','melancholy','euphoria','longing','hope','awe','bliss','anguish','grief']
+
 
 return (
 <>
     <h1>Poetry</h1>
     <h2>THEMES</h2>
+
         <div>
-            <button onClick={() => handleThemeChange('Association')}>Association</button>
-            <button onClick={() => handleThemeChange('Emotion Exploration')}>Emotion Exploration</button>
-            <button onClick={() => handleThemeChange('Historical/Cultural')}>Historical/Cultural</button>
-            <button onClick={() => handleThemeChange('Conceptual')}>Conceptual</button>
+            <h3> Selected Theme: <br></br> {themes}</h3>
         </div>
+        <div>
+            {mappedThemes.map((theme) => (
+                <button key={theme} onClick={() => handleThemeChange(theme)}>
+            {theme}
+            </button>
+            ))}
+
+            </div>    
         <br></br>
+
     <h2>CATEGORIES</h2>
         <div>
-            <button onClick={() => handleCategoriesChange('Relationship and Love')}>Relationship and Love</button>
-            <button onClick={() => handleCategoriesChange('Nature and Environment')}>Nature and Environment</button>
-            <button onClick={() => handleCategoriesChange('Personal Growth and Reflection')}>Personal Growth and Reflection</button>
-            <button onClick={() => handleCategoriesChange('Social Issues and Advocacy')}>Social Issues and Advocacy</button>
-            <button onClick={() => handleCategoriesChange('Advocacy')}>Advocacy</button>
-            <button onClick={() => handleCategoriesChange('Mythology and Folklore')}>Mythology and Folklore</button>
-            <button onClick={() => handleCategoriesChange('Surrealism and Dreams')}>Surrealism and Dreams</button>
-            <button onClick={() => handleCategoriesChange('History')}>History</button>
-            <button onClick={() => handleCategoriesChange('Identity and Diversity')}>Identity and Diversity</button>
-            <button onClick={() => handleCategoriesChange('Imagery and Symbolism')}>Imagery and Symbolism</button>
+            <h3>Selected Category : <br></br> {categories}</h3>
         </div>
+        <div>
+            {mappedCategories.map((category) => (
+                <button key={category} onClick={() => handleCategoryChange(category)}>
+                {category}
+                </button>
+            ))}
+            </div>
+            
         <br></br>
+
     <h2>SENTIMENT</h2>
         <div>
-            <button onClick={() => handleSentimentChange('Harmony')}>Harmony</button>
-            <button onClick={() => handleSentimentChange('Resilience')}>Resilience</button>
-            <button onClick={() => handleSentimentChange('Fragility')}>Fragility</button>
-            <button onClick={() => handleSentimentChange('Majesty')}>Majesty</button>
-            <button onClick={() => handleSentimentChange('Serenity')}>Serenity</button>
-            <button onClick={() => handleSentimentChange('Wonder')}>Wonder</button>
-            <button onClick={() => handleSentimentChange('Transience')}>Transience</button>
-            <button onClick={() => handleSentimentChange('Connection')}>Connection</button>
-            <button onClick={() => handleSentimentChange('Solitude')}>Solitude</button>
-            <button onClick={() => handleSentimentChange('Renewal')}>Renewal</button>
-        </div>    
+            <h3>Selected Sentiment: <br></br> {sentiment}</h3>
+        </div>   
+        <div>
+            {mappedSentiment.map((sentiment) => (
+                <button key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
+                    {sentiment}
+                </button>
+            ))}
+        </div>
+
         <br></br>
+
     <h2>EMOTION</h2>
         <div>
-        <button onClick={() => handleEmotionChange('Joy')}>Joy</button>
-                <button onClick={() => handleEmotionChange('Courage')}>Courage</button>
-                <button onClick={() => handleEmotionChange('Melancholy')}>Melancholy</button>
-                <button onClick={() => handleEmotionChange('Euphoria')}>Euphoria</button>
-                <button onClick={() => handleEmotionChange('Longing')}>Longing</button>
-                <button onClick={() => handleEmotionChange('Hope')}>Hope</button>
-                <button onClick={() => handleEmotionChange('Awe')}>Awe</button>
-                <button onClick={() => handleEmotionChange('Bliss')}>Bliss</button>
-                <button onClick={() => handleEmotionChange('Anguish')}>Anguish</button>
-                <button onClick={() => handleEmotionChange('Grief')}>Grief</button>
+            <h3>Selected Emotion: <br></br> {emotion}</h3>
+        </div>   
+        <div>
+            {mappedEmotion.map((emotion) => (
+                <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
+                    {emotion}
+                </button>
+            ))}
         </div>
+            
+
     <br></br>
     <br></br>
     <br></br>
