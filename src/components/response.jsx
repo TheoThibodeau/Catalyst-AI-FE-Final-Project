@@ -18,7 +18,7 @@ const Response = () => {
 
 return(
     <>
-        <h2>Hello werld!</h2>
+        <h2>We are ka-rushing it!</h2>
         <h2>{output}</h2>
     </>
 )
