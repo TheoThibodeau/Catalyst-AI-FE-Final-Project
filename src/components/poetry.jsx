@@ -11,7 +11,7 @@ const Poetry = () => {
     const handlePost = (e) => {
         e.preventDefault();
         axios
-        .post('https://catalyst-x226.onrender.com/api/poem/generate',{
+        .post('https://catalyst-x226.onrender.com/api/poem/generate/',{
             themes: themes,
             categories: categories,
             sentiment: sentiment,
@@ -24,6 +24,7 @@ const Poetry = () => {
             setEmotion("");
         })
         .catch((error) => console.error(error));
+        console.log('Generate')
     }
 
     const handleThemeChange = (selectedTheme) => {
@@ -47,8 +48,8 @@ const Poetry = () => {
     }
 
 const mappedThemes = ['association','emotion exploration','historical/cultural','conceptual']
-const mappedCategories = ['relationship and love','nature and environment','personal growth and reflection', 'social issues and advocay']
-const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transcience','connection','solitude','renewal']
+const mappedCategories = ['relationship and love','nature and environment','personal growth and reflection', 'social issues and advocacy']
+const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transience','connection','solitude','renewal']
 const mappedEmotion= ['joy','courage','melancholy','euphoria','longing','hope','awe','bliss','anguish','grief']
 
 
