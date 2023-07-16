@@ -111,7 +111,7 @@ return (
 
     <h2>EMOTION</h2>
         <div>
-            <h3>Selected Emotion!: <br></br> {emotion}</h3>
+            <h3>Selected Emotion: <br></br> {emotion}</h3>
         </div>   
         <div>
             {mappedEmotion.map((emotion) => (
@@ -121,6 +121,7 @@ return (
             ))}
         </div>
             
+            <h1>CHANGING SO IT WILL PUSH OMG TAKE THIS OUT LATER</h1>
 
     <br></br>
     <br></br>
