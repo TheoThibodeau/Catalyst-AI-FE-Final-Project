@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Poetry = () => {
@@ -7,6 +6,9 @@ const Poetry = () => {
     const [categories, setCategories] = useState("");
     const [sentiment, setSentiment] = useState("");
     const [emotion, setEmotion] = useState("");
+    const [output, setOutput] = useState("");
+    const [postId, setPostId] = useState();
+    
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -17,16 +19,24 @@ const Poetry = () => {
             sentiment: sentiment,
             emotion: emotion,
         })
-        .then(() => {
+        .then((response) => {
             setThemes("");
             setCategories("");
             setSentiment("");
             setEmotion("");
-        })
-        .catch((error) => console.error(error));
-        console.log('Generate')
-    }
-
+            console.log(response.data)
+            setPostId("");
+        
+            axios
+            .get (`https://catalyst-x226.onrender.com/api/response/poem/${postId}`)  
+               
+            .then((response) => {
+                setOutput(response.data.output)
+            })
+            .catch((error) => console.error(error));
+            console.log('Generate')
+})
+    
     const handleThemeChange = (selectedTheme) => {
         setThemes(selectedTheme);
         console.log(selectedTheme)
@@ -111,6 +121,7 @@ return (
             ))}
         </div>
             
+            <h1>CHANGING SO IT WILL PUSH OMG TAKE THIS OUT LATER</h1>
 
     <br></br>
     <br></br>
@@ -118,9 +129,9 @@ return (
     <button className="generate-button" onClick={handlePost}>
         GENERATE
     </button>
+    <h2>{output}</h2>
         
 </>
-)
-}
+)}}
 
-export default Poetry
+export default Poetry;
