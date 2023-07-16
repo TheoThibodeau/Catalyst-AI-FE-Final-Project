@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Poetry = () => {
@@ -7,26 +6,37 @@ const Poetry = () => {
     const [categories, setCategories] = useState("");
     const [sentiment, setSentiment] = useState("");
     const [emotion, setEmotion] = useState("");
+    const [output, setOutput] = useState("");
+    const [postId, setPostId] = useState ();
+    
 
-    const handlePost = (e) => {
-        e.preventDefault();
-        axios
-        .post('https://catalyst-x226.onrender.com/api/poem/generate/',{
-            themes: themes,
-            categories: categories,
-            sentiment: sentiment,
-            emotion: emotion,
-        })
-        .then(() => {
-            setThemes("");
-            setCategories("");
-            setSentiment("");
-            setEmotion("");
-        })
-        .catch((error) => console.error(error));
-        console.log('Generate')
-    }
-
+        const handlePost = (e) => {
+            e.preventDefault();
+            axios
+            .post('https://catalyst-x226.onrender.com/api/poem/generate/',{
+                themes: themes,
+                categories: categories,
+                sentiment: sentiment,
+                emotion: emotion,
+            })
+            .then((response) => {
+                setThemes("");
+                setCategories("");
+                setSentiment("");
+                setEmotion("");
+                console.log(response.data)
+                setPostId("");
+            
+                axios
+                .get (`https://catalyst-x226.onrender.com/api/response/poem/${postId}`)  
+                   
+                .then((response) => {
+                    setOutput(response.data.output)
+                })
+                .catch((error) => console.error(error));
+                console.log('Generate')
+    })
+    
     const handleThemeChange = (selectedTheme) => {
         setThemes(selectedTheme);
         console.log(selectedTheme)
@@ -118,9 +128,9 @@ return (
     <button className="generate-button" onClick={handlePost}>
         GENERATE
     </button>
+    <h2>{output}</h2>
         
 </>
-)
-}
+)}}
 
-export default Poetry
+export default Poetry;
