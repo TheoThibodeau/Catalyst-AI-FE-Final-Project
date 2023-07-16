@@ -10,32 +10,32 @@ const Poetry = () => {
     const [postId, setPostId] = useState();
     
 
-        const handlePost = (e) => {
-            e.preventDefault();
+    const handlePost = (e) => {
+        e.preventDefault();
+        axios
+        .post('https://catalyst-x226.onrender.com/api/poem/generate/',{
+            themes: themes,
+            categories: categories,
+            sentiment: sentiment,
+            emotion: emotion,
+        })
+        .then((response) => {
+            setThemes("");
+            setCategories("");
+            setSentiment("");
+            setEmotion("");
+            console.log(response.data)
+            setPostId("");
+        
             axios
-            .post('https://catalyst-x226.onrender.com/api/poem/generate/',{
-                themes: themes,
-                categories: categories,
-                sentiment: sentiment,
-                emotion: emotion,
-            })
+            .get (`https://catalyst-x226.onrender.com/api/response/poem/${postId}`)  
+               
             .then((response) => {
-                setThemes("");
-                setCategories("");
-                setSentiment("");
-                setEmotion("");
-                console.log(response.data)
-                setPostId("");
-            
-                axios
-                .get (`https://catalyst-x226.onrender.com/api/response/poem/${postId}`)  
-                   
-                .then((response) => {
-                    setOutput(response.data.output)
-                })
-                .catch((error) => console.error(error));
-                console.log('Generate')
-    })
+                setOutput(response.data.output)
+            })
+            .catch((error) => console.error(error));
+            console.log('Generate')
+})
     
     const handleThemeChange = (selectedTheme) => {
         setThemes(selectedTheme);
