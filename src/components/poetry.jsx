@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import PoetryPrompt from "./poetryresponse";
 
 const Poetry = () => {
     const [themes, setThemes] = useState("");
     const [categories, setCategories] = useState("");
     const [sentiment, setSentiment] = useState("");
     const [emotion, setEmotion] = useState("");
+    const [postId, setPostId] = useState(null);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -22,6 +24,7 @@ const Poetry = () => {
             setSentiment("");
             setEmotion("");
             console.log(response.data)
+            setPostId(response.data.id)
         })}
     
     const handleThemeChange = (selectedTheme) => {
@@ -113,7 +116,8 @@ return (
     <br></br>
     <button className="generate-button" onClick={handlePost}>
         GENERATE
-    </button>        
+    </button>      
+    {postId && <PoetryPrompt postId={postId} />}
 </>
 )}
 

@@ -1,16 +1,17 @@
 import { useState } from 'react'
 import './App.css'
 import Poetry from "./components/poetry"
-import Response from "./components/response"
+import PoetryPrompt from "./components/poetryresponse"
 
 function App() {
-
+    const [postId, setPostId] = useState(null);
   return (
     <>
         <Poetry/>
-        <Response/>
+        {postId !== null && <PoetryPrompt postId={postId} />}
     </>
   )
 }
 
 export default App
+
