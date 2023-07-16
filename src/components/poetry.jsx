@@ -7,7 +7,7 @@ const Poetry = () => {
     const [sentiment, setSentiment] = useState("");
     const [emotion, setEmotion] = useState("");
     const [output, setOutput] = useState("");
-    const [postId, setPostId] = useState ();
+    const [postId, setPostId] = useState();
     
 
         const handlePost = (e) => {
