@@ -1,0 +1,4 @@
+const mappedThemes = ['association','emotion', 'exploration','historical and cultural','conceptual']
+const mappedCategories = ['relationship and love','mythology and folklore', 'surrealism and dreams', 'history', 'identity and diversity', 'nature and environment','personal growth and reflection', 'social issues and advocacy', 'imagery and symbolism']
+const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transience','connection','solitude','renewal']
+const mappedEmotion= ['joy','courage','melancholy','euphoria','longing','hope','awe','bliss','anguish','grief']
