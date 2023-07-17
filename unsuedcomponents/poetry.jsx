@@ -13,8 +13,8 @@ const Poetry = () => {
         e.preventDefault();
         axios
         .post('https://catalyst-x226.onrender.com/api/poem/generate/',{
-            themes: themes,
-            categories: categories,
+            theme: themes,
+            category: categories,
             sentiment: sentiment,
             emotion: emotion,
         })
@@ -47,8 +47,8 @@ const Poetry = () => {
         console.log(selectedEmotion)
     }
 
-const mappedThemes = ['association','emotion exploration','historical/cultural','conceptual']
-const mappedCategories = ['relationship and love','nature and environment','personal growth and reflection', 'social issues and advocacy']
+const mappedThemes = ['association','emotion', 'exploration','historical and cultural','conceptual']
+const mappedCategories = ['relationship and love','mythology and folklore', 'surrealism and dreams', 'history', 'identity and diversity', 'nature and environment','personal growth and reflection', 'social issues and advocacy', 'imagery and symbolism']
 const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transience','connection','solitude','renewal']
 const mappedEmotion= ['joy','courage','melancholy','euphoria','longing','hope','awe','bliss','anguish','grief']
 
@@ -63,8 +63,8 @@ return (
         </div>
         <div>
             {mappedThemes.map((theme) => (
-                <button key={theme} onClick={() => handleThemeChange(theme)}>
-            {theme}
+            <button key={theme} onClick={() => handleThemeChange(theme)}>
+                {theme}
             </button>
             ))}
 
@@ -78,7 +78,7 @@ return (
         <div>
             {mappedCategories.map((category) => (
                 <button key={category} onClick={() => handleCategoryChange(category)}>
-                {category}
+                    {category}
                 </button>
             ))}
             </div>

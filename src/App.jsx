@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Poetry from "./components/poetry"
-import PoetryPrompt from "./components/poetryresponse"
+import Poetry from "./components/prompt"
+import PoetryPrompt from "./components/promptresponse"
 
 function App() {
     const [postId, setPostId] = useState(null);
@@ -14,4 +14,3 @@ function App() {
 }
 
 export default App
-
