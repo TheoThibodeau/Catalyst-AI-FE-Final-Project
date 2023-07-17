@@ -1,4 +1,176 @@
-const mappedThemes = ['association','emotion', 'exploration','historical and cultural','conceptual']
-const mappedCategories = ['relationship and love','mythology and folklore', 'surrealism and dreams', 'history', 'identity and diversity', 'nature and environment','personal growth and reflection', 'social issues and advocacy', 'imagery and symbolism']
-const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transience','connection','solitude','renewal']
-const mappedEmotion= ['joy','courage','melancholy','euphoria','longing','hope','awe','bliss','anguish','grief']
+{
+    "writingStyle": [
+        "stream of consciousness",
+        "time",
+        "character development",
+        "poetry",
+        "wordplay",
+        "story starter",
+        "image",
+        "storytelling through objects",
+        "flash",
+        "point of view shift",
+        "memoir",
+        "dialogue",
+        "descriptive"
+    ], 
+
+    "themes": [
+      "association",
+      "emotion",
+      "exploration",
+      "historical and cultural",
+      "conceptual"
+    ],
+
+    "categories": [
+      "relationship and love",
+      "mythology and folklore",
+      "surrealism and dreams",
+      "history",
+      "identity and diversity",
+      "nature and environment",
+      "personal growth and reflection",
+      "social issues and advocacy",
+      "imagery and symbolism"
+    ],
+    "sentiment": [
+      "harmony",
+      "resilience",
+      "fragility",
+      "majesty",
+      "serenity",
+      "wonder",
+      "transience",
+      "connection",
+      "solitude",
+      "renewal"
+    ],
+    "emotion": [
+      "joy",
+      "courage",
+      "melancholy",
+      "euphoria",
+      "longing",
+      "hope",
+      "awe",
+      "bliss",
+      "anguish",
+      "grief"
+    ],
+    
+    "visualArtMedium" :[
+    "painting",
+    "drawing",
+    "sculpture",
+    "printmaking",
+    "digital art",
+    "illustration",
+    "photography",
+    "mixed media"
+    ],
+
+    "visualArtThemes":[
+      "portraiture",
+      "abstraction",
+      "collage and mixed media",
+      "texture",
+      "experimentation",
+      "symbolism",
+      "social commentary",
+      "conceptual",
+      "minimalism",
+      "nature and landscapes",
+      "movement and energy",
+      "storytelling and narrative",
+      "light and shadow",
+      "harmony and balance"
+    ],
+
+    "movementThemes": [
+        "spacial awareness",
+        "rhythm and flow",
+        "nature in motion",
+        "emotional landscape",
+        "abstract expression",
+        "cultural fusion",
+        "expressive gestures",
+        "personal narratives",
+        "human connection"
+      ],
+
+      "movementSomatics": [
+        "spacial awareness",
+        "rhythm and flow",
+        "nature in motion",
+        "emotional landscape",
+        "abstract expression",
+        "cultural fusion",
+        "expressive gestures",
+        "personal narratives",
+        "human connection",
+        "embodied awareness",
+        "breath and movement",
+        "body-mind connection",
+        "anatomy",
+        "authentic movement",
+        "grounding and centering",
+        "body mapping",
+        "mindful movement",
+        "kenisthetics"
+      ],
+      "explorations": [
+        "Mood-based Composition",
+        "Genre Fusion",
+        "Musical Storytelling",
+        "Nature Soundscape",
+        "Rhythmic Exploration",
+        "Collaborative Composition",
+        "Minimalism",
+        "Mashup or Remix",
+        "Music for Visuals",
+        "Cinematic Score",
+        "Musical Haiku",
+        "One-Note Challenge",
+        "Incorporate Unconventional Instruments",
+        "Music Inspired by Art",
+        "Musical Time Travel"
+      ],
+      "theories": [
+        "Harmony",
+        "Melody",
+        "Rhythm",
+        "Counterpoint",
+        "Form",
+        "Chord progressions",
+        "Scales and modes",
+        "Tonal and modal systems",
+        "Music notation",
+        "Musical analysis"
+      ],
+
+      "concepts": [
+        "Dynamics",
+        "Tempo",
+        "Timbre",
+        "Melody",
+        "Rhythm",
+        "Texture",
+        "Form",
+        "Expression",
+        "Pitch"
+        ],
+        
+        "elements": [
+            "Fire",
+            "Water",
+            "Earth",
+            "Air",
+            "Light",
+            "Darkness",
+            "Sound",
+            "Movement",
+            "Time",
+            "Space"
+          ]
+}
