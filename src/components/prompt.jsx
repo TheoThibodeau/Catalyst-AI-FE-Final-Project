@@ -1,11 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
+import data from "/prompt.json";
 import PoetryPrompt from "./promptresponse";
 
 const Poetry = () => {
     const [themes, setThemes] = useState("");
     const [categories, setCategories] = useState("");
     const [sentiment, setSentiment] = useState("");
+    const [writingStyle, setWritingStyle] = useState("");
     const [emotion, setEmotion] = useState("");
     const [postId, setPostId] = useState(null);
 
@@ -13,6 +15,7 @@ const Poetry = () => {
         e.preventDefault();
         axios
         .post('https://catalyst-x226.onrender.com/api/write/generate/',{
+            style: writingStyle,
             theme: themes,
             category: categories,
             sentiment: sentiment,
@@ -22,6 +25,11 @@ const Poetry = () => {
             console.log(response.data)
             setPostId(response.data.id)
         })}
+
+    const handleWritingStyle = (selectedStyle) => {
+        setWritingStyle(selectedStyle);
+        console.log(selectedStyle)
+    }
     
     const handleThemeChange = (selectedTheme) => {
         setThemes(selectedTheme);
@@ -43,15 +51,30 @@ const Poetry = () => {
         console.log(selectedEmotion)
     }
 
-const mappedThemes = ['association','emotion', 'exploration','historical and cultural','conceptual']
-const mappedCategories = ['relationship and love','mythology and folklore', 'surrealism and dreams', 'history', 'identity and diversity', 'nature and environment','personal growth and reflection', 'social issues and advocacy', 'imagery and symbolism']
-const mappedSentiment = ['harmony','resilience','fragility','majesty','serenity','wonder','transience','connection','solitude','renewal']
-const mappedEmotion= ['joy','courage','melancholy','euphoria','longing','hope','awe','bliss','anguish','grief']
-
+const mappedWritingStyle = data.writingStyle
+const mappedThemes = data.themes
+const mappedCategories = data.categories
+const mappedSentiment = data.sentiment
+const mappedEmotion = data.emotion
 
 return (
 <>
-    <h1>Poetry</h1>
+    <h1>Creative Writing</h1>
+    <h2>MEDIUM</h2>
+
+    <div>
+            <h3> Selected Theme: <br></br> {writingStyle}</h3>
+        </div>
+        <div>
+            {mappedWritingStyle.map((style) => (
+            <button key={style} onClick={() => handleWritingStyle(style)}>
+                {style}
+            </button>
+            ))}
+
+            </div>    
+        <br></br>
+
     <h2>THEMES</h2>
 
         <div>
