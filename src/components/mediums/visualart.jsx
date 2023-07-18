@@ -2,23 +2,21 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 
-const CreativeWriting = () => {
-    const [themes, setThemes] = useState("");
-    const [categories, setCategories] = useState("");
-    const [writingStyle, setWritingStyle] = useState("");
-    const [postId, setPostId] = useState(null);
+const VisualArt = () => {
+    const [visualArtThemes, setVisualArtThemes] = useState("");
+    const [visualArtMedium, setVisualArtMedium] = useState("");
     const [emotion, setEmotion] = useState("");
     const [sentiment, setSentiment] = useState("");
     const [temperature, setTemperature] = useState("");
     const [promptLength, setPromptLength] = useState("");
+    const [postId, setPostId] = useState(null);
 
     const handlePost = (e) => {
         e.preventDefault();
         axios
-        .post('https://catalyst-x226.onrender.com/api/write/generate/',{
-            style: writingStyle,
-            theme: themes,
-            category: categories,
+        .post('https://catalyst-x226.onrender.com/api/visual_art/generate/',{
+            theme: visualArtThemes,
+            medium: visualArtMedium,
             sentiment: sentiment,
             emotion: emotion,
             temperature: temperature,
@@ -29,20 +27,15 @@ const CreativeWriting = () => {
             setPostId(response.data.id)
         })}
 
-    const handleWritingStyle = (selectedStyle) => {
-        setWritingStyle(selectedStyle);
-        console.log(selectedStyle)
-    }
-    
-    const handleThemeChange = (selectedTheme) => {
-        setThemes(selectedTheme);
-        console.log(selectedTheme)
+    const handleVisualArtThemes = (selectedVisualArtThemes) => {
+        setVisualArtThemes(selectedVisualArtThemes);
+        console.log(selectedVisualArtThemes)
         }
     
-    const handleCategoryChange = (selectedCategory) => {
-        setCategories(selectedCategory);
-        console.log(selectedCategory)
-    }
+    const handleVisualArtMedium = (selectedVisualArtMedium) => {
+        setVisualArtMedium(selectedVisualArtMedium);
+        console.log(selectedVisualArtMedium)
+        }
 
     const handleEmotionChange = (selectedEmotion) => {
         setEmotion(selectedEmotion);
@@ -63,9 +56,8 @@ const CreativeWriting = () => {
         console.log(selectedPromptLength)
     }
 
-const mappedWritingStyle = data.writingStyle
-const mappedThemes = data.themes
-const mappedCategories = data.categories
+const mappedVisualArtThemes = data.visualArtThemes
+const mappedVisualArtMedium = data.visualArtMedium
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
 const mappedTemperature = ['0.0 🫑', '0.2🌶', '0.4🌶🌶', '0.6🌶🌶🌶', '0.8🌶🌶🌶🌶', '1.0🌶🌶🌶🌶🌶',]
@@ -73,49 +65,37 @@ const mappedPromptLength = ['one word', 'three words', 'full prompt']
 
 return (
 <>
-    <h1>Creative Writing</h1>
-    <h2>MEDIUM</h2>
-
-    <div>
-            <h3> Selected Writing Style: <br></br> {writingStyle}</h3>
-        </div>
-        <div>
-            {mappedWritingStyle.map((style) => (
-            <button key={style} onClick={() => handleWritingStyle(style)}>
-                {style}
-            </button>
-            ))}
-
-            </div>    
-        <br></br>
-
+    <h1>VISUAL ART</h1>
     <h2>THEMES</h2>
 
+    <div>
+        <h3> Selected Theme: <br></br> {VisualArtThemes}</h3>
+    </div>
+    <div>
+    {mappedVisualArtThemes.map((theme) => (
+    <button key={theme} onClick={() => handleVisualArtThemes(VisualArtThemes)}>
+        {theme}
+    </button>
+    ))}
+
+    </div>    
+<br></br>
+
+    <h2>MEDIUM</h2>
+
         <div>
-            <h3> Selected Theme: <br></br> {themes}</h3>
+            <h3> Selected Medium: <br></br> {VisualArtMedium}</h3>
         </div>
         <div>
-            {mappedThemes.map((theme) => (
-            <button key={theme} onClick={() => handleThemeChange(theme)}>
-                {theme}
+            {mappedVisualArtMedium.map((medium) => (
+            <button key={medium} onClick={() => handleVisualArtMedium(VisualArtMedium)}>
+                {medium}
             </button>
             ))}
 
             </div>    
         <br></br>
 
-    <h2>CATEGORIES</h2>
-        <div>
-            <h3>Selected Category : <br></br> {categories}</h3>
-        </div>
-        <div>
-            {mappedCategories.map((category) => (
-                <button key={category} onClick={() => handleCategoryChange(category)}>
-                    {category}
-                </button>
-            ))}
-            </div>
-        <br></br>
     
     <h2>EMOTION</h2>
     <div>
@@ -177,4 +157,4 @@ return (
 </>
 )}
 
-export default CreativeWriting;
+export default VisualArt;
