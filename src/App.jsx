@@ -2,12 +2,15 @@ import { useState } from 'react'
 import './App.css'
 import CreativeWriting from './components/mediums/creativewriting.jsx'
 import { Routes, Route } from "react-router-dom";
-
+import PomodoroTimer from './components/create/pomodoro';
+import Stopwatch from './components/create/stopwatch';
+import Metronome from './components/create/metronome';
+import Audio from './components/create/audio'
 function App() {
     const [postId, setPostId] = useState(null);
   return (
     <>
-    <Routes>
+    {/* <Routes>
         <Route path="/" element={<Landing />} />
         <Route path ="/creativewriting" element={<CreativeWriting />} /> 
         <Route path ="/movement" element={<Movement />} /> 
@@ -15,8 +18,12 @@ function App() {
         <Route path ="/visualart" element={<VisualArt />} /> 
         <Route path ="/create" element={<Create />} /> 
         <Route path ="/archive" element={<Archive />} />
-    </Routes>
-   
+    </Routes> */}
+
+<Audio />
+ {/* <PomodoroTimer /> */}
+  {/* <Metronome /> */}
+   {/* < Stopwatch /> */}
     </>
   )
 }
