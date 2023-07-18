@@ -35,4 +35,4 @@ return (
 )
 }
 
-export default Landing
+export default Landing;

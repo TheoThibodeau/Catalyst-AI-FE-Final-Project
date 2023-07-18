@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
+import MusicPrompt from "../promtresponse/musicprompt.jsx";
 
 const Music = () => {
     const [explorations, setExplorations] = useState("");
@@ -165,7 +166,7 @@ return (
         GENERATE
     </button>      
     
-    {postId && <PoetryPrompt postId={postId} />}
+    {postId && <MusicPrompt postId={postId} />}
 </>
 )}
 

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import PoetryPrompt from "./promptresponse";
 
 const Poetry = () => {
     const [themes, setThemes] = useState("");
