@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
+import CreativeWritingPrompt from "./promptresponse/creativewritingprompt.jsx";
 
 const CreativeWriting = () => {
     const [themes, setThemes] = useState("");
@@ -173,7 +174,7 @@ return (
         GENERATE
     </button>      
     
-    {postId && <PoetryPrompt postId={postId} />}
+    {postId && <CreativeWritingPrompt postId={postId} />}
 </>
 )}
 

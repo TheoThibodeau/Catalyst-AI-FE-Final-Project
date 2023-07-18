@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
+import VisualArtPrompt from "./promtresponse/VisualArtPrompt.jsx";
 
 const VisualArt = () => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
@@ -153,7 +154,7 @@ return (
         GENERATE
     </button>      
     
-    {postId && <PoetryPrompt postId={postId} />}
+    {postId && <VisualArtPrompt postId={postId} />}
 </>
 )}
 

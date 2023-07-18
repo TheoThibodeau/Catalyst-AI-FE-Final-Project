@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import PoetryPrompt from "./promptresponse";
+import MovementPrompt from "../promtresponse/movementprompt.jsx";
 
 const Movement = () => {
-    const [movementSomatic, setMovementSomatic] = useState("");
+    const [movementSomatics, setMovementSomatics] = useState("");
     const [movementThemes, setMovementThemes] = useState("");
     const [emotion, setEmotion] = useState("");
     const [postId, setPostId] = useState(null);
@@ -16,7 +16,7 @@ const Movement = () => {
         e.preventDefault();
         axios
         .post('https://catalyst-x226.onrender.com/api/movement/generate/',{
-            somantic: movementSomatic,
+            somatic: movementSomatics,
             theme: movementThemes,
             sentiment: sentiment,
             emotion: emotion,
@@ -28,9 +28,9 @@ const Movement = () => {
             setPostId(response.data.id)
         })}
 
-    const handleMovementSomatic = (selectedMovementSomatic) => {
-        setMovementSomatic(selectedMovementSomatic);
-        console.log(selectedMovementSomatic)
+    const handleMovementSomatics = (selectedMovementSomatics) => {
+        setMovementSomatics(selectedMovementSomatics);
+        console.log(selectedMovementSomatics)
     }
     
     const handleMovementThemes = (selectedMovementThemes) => {
@@ -57,7 +57,7 @@ const Movement = () => {
         console.log(selectedPromptLength)
     }
 
-const mappedMovementSomatic = data.movementSomatic
+const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
@@ -70,12 +70,12 @@ return (
     <h2>MOVEMENT SOMATIC</h2>
 
     <div>
-        <h3> Selected Movement Somatic: <br></br> {MovementSomatic}</h3>
+        <h3> Selected Movement Somatics: <br></br> {movementSomatics}</h3>
         </div>
         <div>
-            {mappedMovementSomatic.map((MovementSomatic) => (
-            <button key={MovementSomatic} onClick={() => handleMovementSomatic(MovementSomatic)}>
-                {MovementSomatic}
+            {mappedMovementSomatics.map((movementSomatics) => (
+            <button key={movementSomatics} onClick={() => handleMovementSomatics(movementSomatics)}>
+                {movementSomatics}
             </button>
             ))}
 
@@ -85,11 +85,11 @@ return (
     <h2>MOVEMENT THEMES</h2>
 
         <div>
-            <h3> Selected Theme: <br></br> {MovementThemes}</h3>
+            <h3> Selected Theme: <br></br> {movementThemes}</h3>
         </div>
         <div>
             {mappedMovementThemes.map((theme) => (
-            <button key={theme} onClick={() => handleMovementThemes(MovementThemes)}>
+            <button key={theme} onClick={() => handleMovementThemes(movementThemes)}>
                 {theme}
             </button>
             ))}
@@ -138,11 +138,11 @@ return (
 
     <h2>PROMPT LENGTH</h2>
     <div>
-        <h3>Selected Prompt Length: <br></br> {PromptLength}</h3>
+        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
     </div>   
     <div>
         {mappedPromptLength.map((PromptLength) => (
-            <button key={PromptLength} onClick={() => handlePromptLength(PromptLength)}>
+            <button key={PromptLength} onClick={() => handlePromptLength(promptLength)}>
                 {PromptLength}
             </button>
         ))}
@@ -154,7 +154,8 @@ return (
         GENERATE
     </button>      
     
-    {postId && <PoetryPrompt postId={postId} />}
+    {postId && <MovementPrompt postId={postId} />}
+    
 </>
 )}
 
