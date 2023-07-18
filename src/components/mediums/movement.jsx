@@ -4,20 +4,17 @@ import data from "/prompt.json";
 import PoetryPrompt from "./promptresponse";
 
 const Movement = () => {
-    const [themes, setThemes] = useState("");
-    const [categories, setCategories] = useState("");
-    const [sentiment, setSentiment] = useState("");
-    const [writingStyle, setWritingStyle] = useState("");
+    const [movementSomatic, setMovementSomatic] = useState("");
+    const [movementThemes, setMovementThemes] = useState("");
     const [emotion, setEmotion] = useState("");
-    const [postId, setPostId] = useState(null);
+    const [sentiment, setSentiment] = useState("");
 
     const handlePost = (e) => {
         e.preventDefault();
         axios
-        .post('https://catalyst-x226.onrender.com/api/write/generate/',{
-            style: writingStyle,
-            theme: themes,
-            category: categories,
+        .post('https://catalyst-x226.onrender.com/api/movement/generate/',{
+            somantic: movementSomatic,
+            theme: movementThemes,
             sentiment: sentiment,
             emotion: emotion,
         })
@@ -26,24 +23,14 @@ const Movement = () => {
             setPostId(response.data.id)
         })}
 
-    const handleWritingStyle = (selectedStyle) => {
-        setWritingStyle(selectedStyle);
-        console.log(selectedStyle)
+    const handleMovementSomatic = (selectedMovementSomatic) => {
+        setMovementSomatic(selectedMovementSomatic);
+        console.log(selectedMovementSomatic)
     }
     
-    const handleThemeChange = (selectedTheme) => {
-        setThemes(selectedTheme);
-        console.log(selectedTheme)
-        }
-    
-    const handleCategoryChange = (selectedCategory) => {
-        setCategories(selectedCategory);
-        console.log(selectedCategory)
-    }
-
-    const handleSentimentChange = (selectedSentiment) => {
-        setSentiment(selectedSentiment);
-        console.log(selectedSentiment)
+    const handleMovementThemes = (selectedMovementThemes) => {
+        setMovementThemes(selectedMovementThemes);
+        console.log(selectedMovementThemes)
     }
 
     const handleEmotionChange = (selectedEmotion) => {
@@ -51,19 +38,23 @@ const Movement = () => {
         console.log(selectedEmotion)
     }
 
-const mappedWritingStyle = data.writingStyle
-const mappedThemes = data.themes
-const mappedCategories = data.categories
-const mappedSentiment = data.sentiment
+    const handleSentimentChange = (selectedSentiment) => {
+        setSentiment(selectedSentiment);
+        console.log(selectedSentiment)
+    }
+
+const mappedMovementSomatic = data.MovementSomatic
+const mappedMovementThemes = data.MovementThemes
 const mappedEmotion = data.emotion
+const mappedSentiment = data.sentiment
 
 return (
 <>
-    <h1>Creative Writing</h1>
-    <h2>MEDIUM</h2>
+    <h1>MOVEMENT</h1>
+    <h2>MOVEMENT Somatic</h2>
 
     <div>
-            <h3> Selected Theme: <br></br> {writingStyle}</h3>
+        <h3> Selected MOVEMENT Somatic: <br></br> {writingStyle}</h3>
         </div>
         <div>
             {mappedWritingStyle.map((style) => (
@@ -89,20 +80,19 @@ return (
 
             </div>    
         <br></br>
-
-    <h2>CATEGORIES</h2>
-        <div>
-            <h3>Selected Category : <br></br> {categories}</h3>
-        </div>
-        <div>
-            {mappedCategories.map((category) => (
-                <button key={category} onClick={() => handleCategoryChange(category)}>
-                    {category}
-                </button>
-            ))}
-            </div>
-            
-        <br></br>
+    
+        <h2>EMOTION</h2>
+    <div>
+        <h3>Selected Emotion: <br></br> {emotion}</h3>
+    </div>   
+    <div>
+        {mappedEmotion.map((emotion) => (
+            <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
+                {emotion}
+            </button>
+        ))}
+    </div>
+    <br></br>
 
     <h2>SENTIMENT</h2>
         <div>
@@ -117,20 +107,6 @@ return (
         </div>
         <br></br>
 
-    <h2>EMOTION</h2>
-        <div>
-            <h3>Selected Emotion: <br></br> {emotion}</h3>
-        </div>   
-        <div>
-            {mappedEmotion.map((emotion) => (
-                <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
-                    {emotion}
-                </button>
-            ))}
-        </div>
-            
-    <br></br>
-    <br></br>
     <br></br>
     <button className="generate-button" onClick={handlePost}>
         GENERATE
@@ -140,4 +116,4 @@ return (
 </>
 )}
 
-export default CreativeWriting;
+export default Movement;
