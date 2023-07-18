@@ -3,7 +3,7 @@ import axios from "axios";
 import data from "/prompt.json";
 import PoetryPrompt from "./promptresponse";
 
-const Poetry = () => {
+const Movement = () => {
     const [themes, setThemes] = useState("");
     const [categories, setCategories] = useState("");
     const [sentiment, setSentiment] = useState("");
@@ -140,4 +140,4 @@ return (
 </>
 )}
 
-export default Poetry;
+export default CreativeWriting;

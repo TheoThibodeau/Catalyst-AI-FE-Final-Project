@@ -1,14 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import Poetry from "./components/prompt"
-import PoetryPrompt from "./components/promptresponse"
+import CreativeWriting from './components/mediums/creativewriting.jsx'
 
 function App() {
     const [postId, setPostId] = useState(null);
   return (
     <>
-        <Poetry/>
-        {postId !== null && <PoetryPrompt postId={postId} />}
+        <CreativeWriting   postId={postId}/>
+        {/* {postId !== null && <PoetryPrompt postId={postId} />} */}
     </>
   )
 }

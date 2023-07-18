@@ -1,14 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import PoetryPrompt from "./promptresponse";
+import Emotion from "./components/mediums/emotion.jsx"
+import Sentiment from "./components/mediums/emotion.jsx"
 
-const Poetry = () => {
+const CreativeWriting = () => {
     const [themes, setThemes] = useState("");
     const [categories, setCategories] = useState("");
-    const [sentiment, setSentiment] = useState("");
     const [writingStyle, setWritingStyle] = useState("");
-    const [emotion, setEmotion] = useState("");
     const [postId, setPostId] = useState(null);
 
     const handlePost = (e) => {
@@ -41,21 +40,9 @@ const Poetry = () => {
         console.log(selectedCategory)
     }
 
-    const handleSentimentChange = (selectedSentiment) => {
-        setSentiment(selectedSentiment);
-        console.log(selectedSentiment)
-    }
-
-    const handleEmotionChange = (selectedEmotion) => {
-        setEmotion(selectedEmotion);
-        console.log(selectedEmotion)
-    }
-
 const mappedWritingStyle = data.writingStyle
 const mappedThemes = data.themes
 const mappedCategories = data.categories
-const mappedSentiment = data.sentiment
-const mappedEmotion = data.emotion
 
 return (
 <>
@@ -103,35 +90,10 @@ return (
             </div>
             
         <br></br>
+    
+    <Emotion />
+    <Sentiment />
 
-    <h2>SENTIMENT</h2>
-        <div>
-            <h3>Selected Sentiment: <br></br> {sentiment}</h3>
-        </div>   
-        <div>
-            {mappedSentiment.map((sentiment) => (
-                <button key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
-                    {sentiment}
-                </button>
-            ))}
-        </div>
-        <br></br>
-
-    <h2>EMOTION</h2>
-        <div>
-            <h3>Selected Emotion: <br></br> {emotion}</h3>
-        </div>   
-        <div>
-            {mappedEmotion.map((emotion) => (
-                <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
-                    {emotion}
-                </button>
-            ))}
-        </div>
-            
-    <br></br>
-    <br></br>
-    <br></br>
     <button className="generate-button" onClick={handlePost}>
         GENERATE
     </button>      
@@ -140,4 +102,4 @@ return (
 </>
 )}
 
-export default Poetry;
+export default CreativeWriting;
