@@ -7,7 +7,10 @@ const Movement = () => {
     const [movementSomatic, setMovementSomatic] = useState("");
     const [movementThemes, setMovementThemes] = useState("");
     const [emotion, setEmotion] = useState("");
+    const [postId, setPostId] = useState(null);
     const [sentiment, setSentiment] = useState("");
+    const [temperature, setTemperature] = useState("");
+    const [promptLength, setPromptLength] = useState("");
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -17,6 +20,8 @@ const Movement = () => {
             theme: movementThemes,
             sentiment: sentiment,
             emotion: emotion,
+            temperature: temperature,
+            prompt_length: promptLength,
         })
         .then((response) => {
             console.log(response.data)
@@ -43,37 +48,48 @@ const Movement = () => {
         console.log(selectedSentiment)
     }
 
-const mappedMovementSomatic = data.MovementSomatic
-const mappedMovementThemes = data.MovementThemes
+    const handleTemperature = (selectedTemperature) => {
+        setTemperature(selectedTemperature);
+        console.log(selectedTemperature)
+    }
+    const handlePromptLength = (selectedPromptLength) => {
+        setPromptLength(selectedPromptLength);
+        console.log(selectedPromptLength)
+    }
+
+const mappedMovementSomatic = data.movementSomatic
+const mappedMovementThemes = data.movementThemes
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
+const mappedTemperature = ['0.0 🫑', '0.2🌶', '0.4🌶🌶', '0.6🌶🌶🌶', '0.8🌶🌶🌶🌶', '1.0🌶🌶🌶🌶🌶',]
+const mappedPromptLength = ['one word', 'three words', 'full prompt']
 
 return (
 <>
     <h1>MOVEMENT</h1>
-    <h2>MOVEMENT Somatic</h2>
+    <h2>MOVEMENT SOMATIC</h2>
 
     <div>
-        <h3> Selected MOVEMENT Somatic: <br></br> {writingStyle}</h3>
+        <h3> Selected Movement Somatic: <br></br> {MovementSomatic}</h3>
         </div>
         <div>
-            {mappedWritingStyle.map((style) => (
-            <button key={style} onClick={() => handleWritingStyle(style)}>
-                {style}
+            {mappedMovementSomatic.map((MovementSomatic) => (
+            <button key={MovementSomatic} onClick={() => handleMovementSomatic(MovementSomatic)}>
+                {MovementSomatic}
             </button>
             ))}
 
             </div>    
         <br></br>
 
-    <h2>THEMES</h2>
+    <h2>MOVEMENT THEMES</h2>
 
         <div>
-            <h3> Selected Theme: <br></br> {themes}</h3>
+            <h3> Selected Theme: <br></br> {MovementThemes}</h3>
         </div>
         <div>
-            {mappedThemes.map((theme) => (
-            <button key={theme} onClick={() => handleThemeChange(theme)}>
+            {mappedMovementThemes.map((theme) => (
+            <button key={theme} onClick={() => handleMovementThemes(MovementThemes)}>
                 {theme}
             </button>
             ))}
@@ -106,6 +122,32 @@ return (
             ))}
         </div>
         <br></br>
+
+        <h2>On a scale of 🫑-🌶🌶🌶🌶🌶, how creative would you like the prompt to be?</h2>
+    <div>
+        <h3>{temperature}</h3>
+    </div>   
+    <div>
+        {mappedTemperature.map((temperature) => (
+            <button key={temperature} onClick={() => handleTemperature(temperature)}>
+                {temperature}
+            </button>
+        ))}
+    </div>
+    <br></br>
+
+    <h2>PROMPT LENGTH</h2>
+    <div>
+        <h3>Selected Prompt Length: <br></br> {PromptLength}</h3>
+    </div>   
+    <div>
+        {mappedPromptLength.map((PromptLength) => (
+            <button key={PromptLength} onClick={() => handlePromptLength(PromptLength)}>
+                {PromptLength}
+            </button>
+        ))}
+    </div>
+    <br></br>
 
     <br></br>
     <button className="generate-button" onClick={handlePost}>
