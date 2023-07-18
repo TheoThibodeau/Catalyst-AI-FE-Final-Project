@@ -1,15 +1,16 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import PoetryPrompt from "./promptresponse";
 
-const Poetry = () => {
+const CreativeWriting = () => {
     const [themes, setThemes] = useState("");
     const [categories, setCategories] = useState("");
-    const [sentiment, setSentiment] = useState("");
     const [writingStyle, setWritingStyle] = useState("");
-    const [emotion, setEmotion] = useState("");
     const [postId, setPostId] = useState(null);
+    const [emotion, setEmotion] = useState("");
+    const [sentiment, setSentiment] = useState("");
+    const [temperature, setTemperature] = useState("");
+    const [promptLength, setPromptLength] = useState("");
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -20,6 +21,8 @@ const Poetry = () => {
             category: categories,
             sentiment: sentiment,
             emotion: emotion,
+            temperature: temperature,
+            prompt_length: promptLength,
         })
         .then((response) => {
             console.log(response.data)
@@ -41,21 +44,32 @@ const Poetry = () => {
         console.log(selectedCategory)
     }
 
-    const handleSentimentChange = (selectedSentiment) => {
-        setSentiment(selectedSentiment);
-        console.log(selectedSentiment)
-    }
-
     const handleEmotionChange = (selectedEmotion) => {
         setEmotion(selectedEmotion);
         console.log(selectedEmotion)
     }
 
+    const handleSentimentChange = (selectedSentiment) => {
+        setSentiment(selectedSentiment);
+        console.log(selectedSentiment)
+    }
+
+    const handleTemperature = (selectedTemperature) => {
+        setTemperature(selectedTemperature);
+        console.log(selectedTemperature)
+    }
+    const handlePromptLength = (selectedPromptLength) => {
+        setPromptLength(selectedPromptLength);
+        console.log(selectedPromptLength)
+    }
+
 const mappedWritingStyle = data.writingStyle
 const mappedThemes = data.themes
 const mappedCategories = data.categories
-const mappedSentiment = data.sentiment
 const mappedEmotion = data.emotion
+const mappedSentiment = data.sentiment
+const mappedTemperature = ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0',]
+const mappedPromptLength = ['one word', 'three words', 'full prompt']
 
 return (
 <>
@@ -63,7 +77,7 @@ return (
     <h2>MEDIUM</h2>
 
     <div>
-            <h3> Selected Theme: <br></br> {writingStyle}</h3>
+            <h3> Selected Writing Style: <br></br> {writingStyle}</h3>
         </div>
         <div>
             {mappedWritingStyle.map((style) => (
@@ -101,8 +115,20 @@ return (
                 </button>
             ))}
             </div>
-            
         <br></br>
+    
+    <h2>EMOTION</h2>
+    <div>
+        <h3>Selected Emotion: <br></br> {emotion}</h3>
+    </div>   
+    <div>
+        {mappedEmotion.map((emotion) => (
+            <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
+                {emotion}
+            </button>
+        ))}
+    </div>
+    <br></br>
 
     <h2>SENTIMENT</h2>
         <div>
@@ -116,22 +142,20 @@ return (
             ))}
         </div>
         <br></br>
+    
+    <h2>On a scale of 0-1, how creative would you like the prompt to be?</h2>
+    <div>
+        <h3>Selected Sentiment: <br></br> {sentiment}</h3>
+    </div>   
+    <div>
+        {mappedTemperature.map((temperature) => (
+            <button key={temperature} onClick={() => handleSentimentChange(temperature)}>
+                {temperature}
+            </button>
+        ))}
+    </div>
+    <br></br>
 
-    <h2>EMOTION</h2>
-        <div>
-            <h3>Selected Emotion: <br></br> {emotion}</h3>
-        </div>   
-        <div>
-            {mappedEmotion.map((emotion) => (
-                <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
-                    {emotion}
-                </button>
-            ))}
-        </div>
-            
-    <br></br>
-    <br></br>
-    <br></br>
     <button className="generate-button" onClick={handlePost}>
         GENERATE
     </button>      
@@ -140,4 +164,4 @@ return (
 </>
 )}
 
-export default Poetry;
+export default CreativeWriting;
