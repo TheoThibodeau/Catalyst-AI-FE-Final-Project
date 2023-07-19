@@ -9,7 +9,6 @@ const Movement = () => {
     const [emotion, setEmotion] = useState("");
     const [postId, setPostId] = useState(null);
     const [sentiment, setSentiment] = useState("");
-    const [temperature, setTemperature] = useState("");
     const [promptLength, setPromptLength] = useState("");
 
     const handlePost = (e) => {
@@ -20,7 +19,6 @@ const Movement = () => {
             theme: movementThemes,
             sentiment: sentiment,
             emotion: emotion,
-            temperature: temperature,
             prompt_length: promptLength,
         })
         .then((response) => {
@@ -61,7 +59,7 @@ const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedTemperature = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+const mappedTemperature = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',]
 const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
@@ -122,19 +120,6 @@ return (
             ))}
         </div>
         <br></br>
-
-        <h2>On a scale of 🫑-🌶🌶🌶🌶🌶, how creative would you like the prompt to be?</h2>
-    <div>
-        <h3>{temperature}</h3>
-    </div>   
-    <div>
-        {mappedTemperature.map((temperature) => (
-            <button key={temperature} onClick={() => handleTemperature(temperature)}>
-                {temperature}
-            </button>
-        ))}
-    </div>
-    <br></br>
 
     <h2>PROMPT LENGTH</h2>
     <div>
