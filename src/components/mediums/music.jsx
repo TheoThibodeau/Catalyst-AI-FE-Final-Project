@@ -43,10 +43,6 @@ const Music = () => {
         console.log(selectedEmotion)
     }
 
-    const handleSentimentChange = (selectedSentiment) => {
-        selectedSentiment(selectedSentiment);
-        console.log(selectedSentiment)
-    }
     const handleElements = (selectedElements) => {
         setElements(selectedElements);
         console.log(selectedElements)
@@ -65,8 +61,8 @@ const mappedExplorations = data.explorations
 const mappedConcepts = data.concepts
 const mappedEmotion = data.emotion
 const mappedElements = data.elements
-const mappedTemperature = ['0.0 🫑', '0.2🌶', '0.4🌶🌶', '0.6🌶🌶🌶', '0.8🌶🌶🌶🌶', '1.0🌶🌶🌶🌶🌶',]
-const mappedPromptLength = ['one word', 'three words', 'full prompt']
+const mappedTemperature = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
 <>
@@ -103,11 +99,11 @@ return (
 
     <h2>CONCEPTS</h2>
         <div>
-            <h3>Selected Category : <br></br> {Concepts}</h3>
+            <h3>Selected Category : <br></br> {concepts}</h3>
         </div>
         <div>
             {mappedConcepts.map((concepts) => (
-                <button key={concepts} onClick={() => handleConcepts(Concepts)}>
+                <button key={concepts} onClick={() => handleConcepts(concepts)}>
                     {concepts}
                 </button>
             ))}
@@ -126,19 +122,6 @@ return (
         ))}
     </div>
     <br></br>
-
-    <h2>SENTIMENT</h2>
-        <div>
-            <h3>Selected Sentiment: <br></br> {sentiment}</h3>
-        </div>   
-        <div>
-        {mappedSentiment.map((sentiment) => (
-  <button key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
-    {sentiment}
-  </button>
-))}
-
-        <br></br>
     
     <h2>On a scale of 🫑-🌶🌶🌶🌶🌶, how creative would you like the prompt to be?</h2>
     <div>
@@ -155,12 +138,12 @@ return (
 
     <h2>PROMPT LENGTH</h2>
     <div>
-        <h3>Selected Prompt Length: <br></br> {PromptLength}</h3>
+        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
     </div>   
     <div>
-        {mappedPromptLength.map((PromptLength) => (
-            <button key={PromptLength} onClick={() => handlePromptLength(PromptLength)}>
-                {PromptLength}
+        {mappedPromptLength.map((promptLength) => (
+            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
+                {promptLength}
             </button>
         ))}
     </div>
@@ -171,8 +154,7 @@ return (
     </button>      
     
     {postId && <MusicPrompt postId={postId} />}
-    </div>
-        </>
+    </>
     );
 };
 

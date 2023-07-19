@@ -69,8 +69,8 @@ const mappedThemes = data.themes
 const mappedCategories = data.categories
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedTemperature = ['0.0 🫑', '0.2🌶', '0.4🌶🌶', '0.6🌶🌶🌶', '0.8🌶🌶🌶🌶', '1.0🌶🌶🌶🌶🌶',]
-const mappedPromptLength = ['one word', 'three words', 'full prompt']
+const mappedTemperature = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
 <>
@@ -159,12 +159,12 @@ return (
 
     <h2>PROMPT LENGTH</h2>
     <div>
-        <h3>Selected Prompt Length: <br></br> {PromptLength}</h3>
+        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
     </div>   
     <div>
-        {mappedPromptLength.map((PromptLength) => (
-            <button key={PromptLength} onClick={() => handlePromptLength(PromptLength)}>
-                {PromptLength}
+        {mappedPromptLength.map((promptLength) => (
+            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
+                {promptLength}
             </button>
         ))}
     </div>
