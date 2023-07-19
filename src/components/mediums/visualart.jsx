@@ -3,7 +3,6 @@ import axios from "axios";
 import data from "/prompt.json";
 // import VisualArtPrompt from "./components/promptresponse/visualartprompt.jsx";
 
-
 const VisualArt = () => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
     const [visualArtMedium, setVisualArtMedium] = useState("");
@@ -62,8 +61,8 @@ const mappedVisualArtThemes = data.visualArtThemes
 const mappedVisualArtMedium = data.visualArtMedium
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedTemperature = ['0.0 🫑', '0.2🌶', '0.4🌶🌶', '0.6🌶🌶🌶', '0.8🌶🌶🌶🌶', '1.0🌶🌶🌶🌶🌶',]
-const mappedPromptLength = ['one word', 'three words', 'full prompt']
+const mappedTemperature = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
 <>
@@ -71,12 +70,12 @@ return (
     <h2>THEMES</h2>
 
     <div>
-        <h3> Selected Theme: <br></br> {VisualArtThemes}</h3>
+        <h3> Selected Theme: <br></br> {visualArtThemes}</h3>
     </div>
     <div>
-    {mappedVisualArtThemes.map((theme) => (
-    <button key={theme} onClick={() => handleVisualArtThemes(VisualArtThemes)}>
-        {theme}
+    {mappedVisualArtThemes.map((visualArtThemes) => (
+    <button key={visualArtThemes} onClick={() => handleVisualArtThemes(visualArtThemes)}>
+        {visualArtThemes}
     </button>
     ))}
 
@@ -86,12 +85,12 @@ return (
     <h2>MEDIUM</h2>
 
         <div>
-            <h3> Selected Medium: <br></br> {VisualArtMedium}</h3>
+            <h3> Selected Medium: <br></br> {visualArtMedium}</h3>
         </div>
         <div>
-            {mappedVisualArtMedium.map((medium) => (
-            <button key={medium} onClick={() => handleVisualArtMedium(VisualArtMedium)}>
-                {medium}
+            {mappedVisualArtMedium.map((visualArtMedium) => (
+            <button key={visualArtMedium} onClick={() => handleVisualArtMedium(visualArtMedium)}>
+                {visualArtMedium}
             </button>
             ))}
 
@@ -140,12 +139,12 @@ return (
 
     <h2>PROMPT LENGTH</h2>
     <div>
-        <h3>Selected Prompt Length: <br></br> {PromptLength}</h3>
+        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
     </div>   
     <div>
-        {mappedPromptLength.map((PromptLength) => (
-            <button key={PromptLength} onClick={() => handlePromptLength(PromptLength)}>
-                {PromptLength}
+        {mappedPromptLength.map((promptLength) => (
+            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
+                {promptLength}
             </button>
         ))}
     </div>

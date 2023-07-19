@@ -61,8 +61,8 @@ const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedTemperature = ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0',]
-const mappedPromptLength = ['one word', 'three words', ' prompt']
+const mappedTemperature = [0.0, 0.2, 0.4, 0.6, 0.8, 1.0]
+const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
 <>
