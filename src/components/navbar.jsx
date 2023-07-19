@@ -21,7 +21,7 @@ const NavBar = () => {
         <Link to="/" onClick={handleClickPrompt}>PROMPT</Link>
         <Link to="/create" onClick={handleClickCreate}>CREATE</Link>
         <Link to="/notebook" onClick={handleClickNotebook}>NOTEBOOK</Link>
-        <Link to="/archive" onClick={handleClickArchive}>ARCHIVE</Link>
+        <Link to="/archive" onClick={handleClickArchive}>PROFILE</Link>
       </div>
       <h3>____________________________________________________</h3>
       <Outlet />
