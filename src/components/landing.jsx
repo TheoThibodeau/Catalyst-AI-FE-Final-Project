@@ -4,7 +4,7 @@ import {Navigate} from 'react-router-dom'
 const Landing = () => {
 
 const handleClickCreativeWriting = () => {
-    navigate('/components/mediums/creativewriting');
+    navigate('./components/mediums/creativewriting');
 }
 const handleClickMusic = () => {
     navigate('/components/mediums/music');
