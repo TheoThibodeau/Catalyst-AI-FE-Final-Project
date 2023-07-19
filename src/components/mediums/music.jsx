@@ -92,7 +92,7 @@ return (
 
     <h2>CONCEPTS</h2>
         <div>
-            <h3>Selected Category : <br></br> {concepts}</h3>
+            <h3>Selected Concept : <br></br> {concepts}</h3>
         </div>
         <div>
             {mappedConcepts.map((concepts) => (
@@ -129,12 +129,17 @@ return (
         ))}
     </div>
     <br></br>
-
+<div>
+    <div>
     <button className="generate-button" onClick={handlePost}>
         GENERATE
-    </button>      
-    
+    </button>     
+    </div> 
+    <div className="promptresponse">
     {postId && <MusicPrompt postId={postId} />}
+    </div>
+    
+    </div>
     </>
     );
 };
