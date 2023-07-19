@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import CreativeWritingPrompt from "./promptresponse/creativewritingprompt.jsx";
+// import CreativeWritingPrompt from "./components/promptresponse/creativewritingprompt.jsx";
 
 const CreativeWriting = () => {
     const [themes, setThemes] = useState("");

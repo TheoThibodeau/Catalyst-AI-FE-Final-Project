@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import MusicPrompt from "../promtresponse/musicprompt.jsx";
+// import MusicPrompt from ".components/promptresponse/musicprompt.jsx";
 
 const Music = () => {
     const [explorations, setExplorations] = useState("");
@@ -43,6 +43,10 @@ const Music = () => {
         console.log(selectedEmotion)
     }
 
+    const handleSentimentChange = (selectedSentiment) => {
+        selectedSentiment(selectedSentiment);
+        console.log(selectedSentiment)
+    }
     const handleElements = (selectedElements) => {
         setElements(selectedElements);
         console.log(selectedElements)
@@ -128,12 +132,12 @@ return (
             <h3>Selected Sentiment: <br></br> {sentiment}</h3>
         </div>   
         <div>
-            {mappedSentiment.map((sentiment) => (
-                <button key={sentiment} onClick={() => handleSentiment(sentiment)}>
-                    {sentiment}
-                </button>
-            ))}
-        </div>
+        {mappedSentiment.map((sentiment) => (
+  <button key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
+    {sentiment}
+  </button>
+))}
+
         <br></br>
     
     <h2>On a scale of 🫑-🌶🌶🌶🌶🌶, how creative would you like the prompt to be?</h2>
@@ -167,7 +171,9 @@ return (
     </button>      
     
     {postId && <MusicPrompt postId={postId} />}
-</>
-)}
+    </div>
+        </>
+    );
+};
 
 export default Music;
