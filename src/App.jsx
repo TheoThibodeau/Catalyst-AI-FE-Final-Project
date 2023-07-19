@@ -14,8 +14,6 @@ function App() {
     const [postId, setPostId] = useState(null);
   return (
     <>
-    {/* <Landing /> */}
-    {/* <Movement /> */}
     
    <BrowserRouter>
     <Routes>

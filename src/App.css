@@ -36,6 +36,14 @@ button{
 .generate-button{
     margin: 4px;
     border: solid, black, 2px;
-    background-color: black;
     color: white;
+    font-size: 50px;
+}
+
+.promptReturn{
+  border:black solid 2px;
+  padding:20px;
+  max-width= 200px;
+  justify-content: center;
+
 }
