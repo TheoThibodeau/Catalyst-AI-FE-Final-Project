@@ -1,9 +1,12 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+
 
 const NavBar = () => {
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
   const handleClickPrompt = () => {};
-  const hanleClickCreativeWriting = () => {};
+  const handleClickCreativeWriting = () => {};
   const handleClickMovement = () => {};
   const handleClickMusic = () => {};
   const handleClickVisualArt = () => {};
@@ -11,31 +14,41 @@ const NavBar = () => {
   const handleClickNotebook = () => {};
   const handleClickProfile = () => {};
 
-return (
+  return (
     <>
-  <div>
-    <ul>
-      <Link to="/" onClick={handleClickPrompt}>
-        Prompt
-      </Link>
-      <li className={isDropdownOpen ? "drowpdown-open" : ""}>
-        <Link to="/creative-writing" onClick={handleClickCreativeWriting}>
-          Creative Writing
-        </Link>
-        <Link to="/movement" onClick={handleClickMovement}>
-          Movement
-        </Link>
-        <Link to="/music" onClick={handleClickMusic}>
-          Music
-        </Link>
-        <Link to="/visual-art" onClick={handleClickVisualArt}>
-          Visual Art
-        </Link>
-      </li>
-    </ul>
-  </div>
-  </>
-);
+      <div className="navbar">
+        <Link to="/" onClick={handleClickPrompt}>Prompt</Link>
+        <Link to="/create" onClick={handleClickCreate}>Create</Link>
 
+      </div>
+      <Outlet />
+    </>
+  );
+};
 
 export default NavBar;
+
+
+  /* <li className={isDropdownOpen ? "drowpdown-open" : ""}>
+  <li>
+    <Link to="/creative-writing" onClick={handleClickCreativeWriting}>
+      Creative Writing
+    </Link>
+  </li>
+  <li>
+    <Link to="/movement" onClick={handleClickMovement}>
+      Movement
+    </Link>
+  </li>
+  <li>
+    <Link to="/music" onClick={handleClickMusic}>
+      Music
+    </Link>
+  </li>
+  <li>
+    <Link to="/visual-art" onClick={handleClickVisualArt}>
+      Visual Art
+    </Link>
+  </li>
+</li> */
+}
