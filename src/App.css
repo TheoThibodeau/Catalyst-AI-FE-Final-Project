@@ -14,6 +14,7 @@
 }
 .navbar a{
     text-decoration: none;
+    font: black;
 }
 .card {
   padding: 2em;

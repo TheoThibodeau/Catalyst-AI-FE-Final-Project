@@ -12,15 +12,18 @@ const NavBar = () => {
   const handleClickVisualArt = () => {};
   const handleClickCreate = () => {};
   const handleClickNotebook = () => {};
-  const handleClickProfile = () => {};
+  const handleClickArchive = () => {};
 
   return (
     <>
+    <h3>____________________________________________________</h3>
       <div className="navbar">
-        <Link to="/" onClick={handleClickPrompt}>Prompt</Link>
-        <Link to="/create" onClick={handleClickCreate}>Create</Link>
-
+        <Link to="/" onClick={handleClickPrompt}>PROMPT</Link>
+        <Link to="/create" onClick={handleClickCreate}>CREATE</Link>
+        <Link to="/notebook" onClick={handleClickNotebook}>NOTEBOOK</Link>
+        <Link to="/archive" onClick={handleClickArchive}>ARCHIVE</Link>
       </div>
+      <h3>____________________________________________________</h3>
       <Outlet />
     </>
   );
@@ -51,4 +54,4 @@ export default NavBar;
     </Link>
   </li>
 </li> */
-}
+
