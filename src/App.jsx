@@ -16,10 +16,10 @@ function App() {
    <BrowserRouter>
     <Routes>
         <Route path="/" element={<Landing />} />
-        {/* <Route path ="/creativewriting" element={<CreativeWriting postId={postId}/>} />  */}
-        {/* <Route path ="/movement" element={<Movement postId={postId}/>} />  */}
-        {/* <Route path ="/music" element={<Music postId={postId}/>} />  */}
-        {/* <Route path ="/visualart" element={<VisualArt postId={postId}/>} />   */}
+        <Route path ="/creativewriting" element={<CreativeWriting postId={postId} />} />  */}
+        <Route path ="/movement" element={<Movement postId={postId}/>} /> 
+        <Route path ="/music" element={<Music postId={postId}/>} /> 
+        <Route path ="/visualart" element={<VisualArt postId={postId}/>} />  
         {/* <Route path ="/create" element={<Create postId={postId}/>} />  */}
         {/* <Route path ="/archive" element={<Archive postId={postId}/>} /> */}
     </Routes>
@@ -29,4 +29,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
