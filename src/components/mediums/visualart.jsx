@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import VisualArtPrompt from "./promtresponse/VisualArtPrompt.jsx";
+// import VisualArtPrompt from "./components/promptresponse/visualartprompt.jsx";
+
 
 const VisualArt = () => {
     const [visualArtThemes, setVisualArtThemes] = useState("");

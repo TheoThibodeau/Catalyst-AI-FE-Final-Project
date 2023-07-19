@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import MovementPrompt from "../promtresponse/movementprompt.jsx";
+import MovementPrompt from "../promptresponse/movementprompt.jsx";
 
 const Movement = () => {
     const [movementSomatics, setMovementSomatics] = useState("");
@@ -89,7 +89,7 @@ return (
         </div>
         <div>
             {mappedMovementThemes.map((theme) => (
-            <button key={theme} onClick={() => handleMovementThemes(movementThemes)}>
+            <button key={theme} onClick={() => handleMovementThemes(theme)}>
                 {theme}
             </button>
             ))}
