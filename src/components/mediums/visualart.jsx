@@ -1,22 +1,22 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
-import MovementPrompt from "../promptresponse/movementprompt.jsx";
+import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
 
-const Movement = () => {
-    const [movementSomatics, setMovementSomatics] = useState("");
-    const [movementThemes, setMovementThemes] = useState("");
+const VisualArt = () => {
+    const [visualArtThemes, setVisualArtThemes] = useState("");
+    const [visualArtMedium, setVisualArtMedium] = useState("");
     const [emotion, setEmotion] = useState("");
-    const [postId, setPostId] = useState(null);
     const [sentiment, setSentiment] = useState("");
     const [promptLength, setPromptLength] = useState("");
+    const [postId, setPostId] = useState(null);
 
     const handlePost = (e) => {
         e.preventDefault();
         axios
-        .post('https://catalyst-x226.onrender.com/api/movement/generate/',{
-            somatic: movementSomatics,
-            theme: movementThemes,
+        .post('https://catalyst-x226.onrender.com/api/visual_art/generate/',{
+            theme: visualArtThemes,
+            medium: visualArtMedium,
             sentiment: sentiment,
             emotion: emotion,
             prompt_length: promptLength,
@@ -26,15 +26,15 @@ const Movement = () => {
             setPostId(response.data.id)
         })}
 
-    const handleMovementSomatics = (selectedMovementSomatics) => {
-        setMovementSomatics(selectedMovementSomatics);
-        console.log(selectedMovementSomatics)
-    }
+    const handleVisualArtThemes = (selectedVisualArtThemes) => {
+        setVisualArtThemes(selectedVisualArtThemes);
+        console.log(selectedVisualArtThemes)
+        }
     
-    const handleMovementThemes = (selectedMovementThemes) => {
-        setMovementThemes(selectedMovementThemes);
-        console.log(selectedMovementThemes)
-    }
+    const handleVisualArtMedium = (selectedVisualArtMedium) => {
+        setVisualArtMedium(selectedVisualArtMedium);
+        console.log(selectedVisualArtMedium)
+        }
 
     const handleEmotionChange = (selectedEmotion) => {
         setEmotion(selectedEmotion);
@@ -46,17 +46,13 @@ const Movement = () => {
         console.log(selectedSentiment)
     }
 
-    const handleTemperature = (selectedTemperature) => {
-        setTemperature(selectedTemperature);
-        console.log(selectedTemperature)
-    }
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
     }
 
-const mappedMovementSomatics = data.movementSomatics
-const mappedMovementThemes = data.movementThemes
+const mappedVisualArtThemes = data.visualArtThemes
+const mappedVisualArtMedium = data.visualArtMedium
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
 const mappedTemperature = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',]
@@ -64,38 +60,39 @@ const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
 <>
-    <h1>MOVEMENT</h1>
-    <h2>MOVEMENT SOMATIC</h2>
+    <h1>VISUAL ART</h1>
+    <h2>THEMES</h2>
 
     <div>
-        <h3> Selected Movement Somatics: <br></br> {movementSomatics}</h3>
+        <h3> Selected Theme: <br></br> {visualArtThemes}</h3>
+    </div>
+    <div>
+    {mappedVisualArtThemes.map((visualArtThemes) => (
+    <button key={visualArtThemes} onClick={() => handleVisualArtThemes(visualArtThemes)}>
+        {visualArtThemes}
+    </button>
+    ))}
+
+    </div>    
+<br></br>
+
+    <h2>MEDIUM</h2>
+
+        <div>
+            <h3> Selected Medium: <br></br> {visualArtMedium}</h3>
         </div>
         <div>
-            {mappedMovementSomatics.map((movementSomatics) => (
-            <button key={movementSomatics} onClick={() => handleMovementSomatics(movementSomatics)}>
-                {movementSomatics}
+            {mappedVisualArtMedium.map((visualArtMedium) => (
+            <button key={visualArtMedium} onClick={() => handleVisualArtMedium(visualArtMedium)}>
+                {visualArtMedium}
             </button>
             ))}
 
             </div>    
         <br></br>
 
-    <h2>MOVEMENT THEMES</h2>
-
-        <div>
-            <h3> Selected Theme: <br></br> {movementThemes}</h3>
-        </div>
-        <div>
-            {mappedMovementThemes.map((theme) => (
-            <button key={theme} onClick={() => handleMovementThemes(theme)}>
-                {theme}
-            </button>
-            ))}
-
-            </div>    
-        <br></br>
     
-        <h2>EMOTION</h2>
+    <h2>EMOTION</h2>
     <div>
         <h3>Selected Emotion: <br></br> {emotion}</h3>
     </div>   
@@ -134,14 +131,12 @@ return (
     </div>
     <br></br>
 
-    <br></br>
     <button className="generate-button" onClick={handlePost}>
         GENERATE
     </button>      
     
-    {postId && <MovementPrompt postId={postId} />}
-    
+    {postId && <VisualArtPrompt postId={postId} />}
 </>
 )}
 
-export default Movement;
+export default VisualArt;

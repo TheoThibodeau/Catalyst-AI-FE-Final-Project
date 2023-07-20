@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
+import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 
 const CreativeWriting = () => {
     const [themes, setThemes] = useState("");
@@ -9,7 +10,6 @@ const CreativeWriting = () => {
     const [postId, setPostId] = useState(null);
     const [emotion, setEmotion] = useState("");
     const [sentiment, setSentiment] = useState("");
-    const [temperature, setTemperature] = useState("");
     const [promptLength, setPromptLength] = useState("");
 
     const handlePost = (e) => {
@@ -21,7 +21,6 @@ const CreativeWriting = () => {
             category: categories,
             sentiment: sentiment,
             emotion: emotion,
-            temperature: temperature,
             prompt_length: promptLength,
         })
         .then((response) => {
@@ -54,10 +53,6 @@ const CreativeWriting = () => {
         console.log(selectedSentiment)
     }
 
-    const handleTemperature = (selectedTemperature) => {
-        setTemperature(selectedTemperature);
-        console.log(selectedTemperature)
-    }
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
@@ -68,8 +63,7 @@ const mappedThemes = data.themes
 const mappedCategories = data.categories
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedTemperature = ['0.0', '0.2', '0.4', '0.6', '0.8', '1.0',]
-const mappedPromptLength = ['one word', 'three words', 'full prompt']
+const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
 <>
@@ -142,15 +136,15 @@ return (
             ))}
         </div>
         <br></br>
-    
-    <h2>On a scale of 0-1, how creative would you like the prompt to be?</h2>
+
+    <h2>PROMPT LENGTH</h2>
     <div>
-        <h3>Selected Sentiment: <br></br> {sentiment}</h3>
+        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
     </div>   
     <div>
-        {mappedTemperature.map((temperature) => (
-            <button key={temperature} onClick={() => handleSentimentChange(temperature)}>
-                {temperature}
+        {mappedPromptLength.map((promptLength) => (
+            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
+                {promptLength}
             </button>
         ))}
     </div>
@@ -160,7 +154,7 @@ return (
         GENERATE
     </button>      
     
-    {postId && <PoetryPrompt postId={postId} />}
+    {postId && <CreativeWritingPrompt postId={postId} />}
 </>
 )}
 

@@ -1,25 +1,39 @@
 import React from 'react'
-import {Navigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
-const Landing = () => {
+const Landing = () => { 
 
-const handleClickCreativeWriting = () => {
-    navigate('/components/mediums/creativewriting');
-}
-const handleClickMusic = () => {
-    navigate('/components/mediums/music');
-}
-const handleClickMovement = () => {
-    navigate('/components/mediums/movement');
-}
-const handleClickVisualArt = () => {
-    navigate('/components/mediums/visualart');
-}
+    // useEffect(() => {
+        
+    //     axios
+    //     .post('https://catalyst-x226.onrender.com/api/welcome/generate/',{
+            
+    //     })
+    //     .get(` https://catalyst-x226.onrender.com/api/welcome/<int:pk>`)
+    //       .then((response) => {}
+    //       })
+    //       .catch((error) => console.error(error));
+    //   },
+
+    const Navigate = useNavigate()
+
+    const handleClickCreativeWriting = () => {
+        Navigate('/creativewriting');
+    }
+    const handleClickMusic = () => {
+        Navigate('/music');
+    }
+    const handleClickMovement = () => {
+        Navigate('/movement');
+    }
+    const handleClickVisualArt = () => {
+        Navigate('/visualart');
+    }
 
 return (
 <div>
 <div>
-    <h2>Generated Welcome Satement</h2>
+    <h2>Generated Welcome Statement</h2>
 </div>
 <div>
     <h4>What medium are you working in today? </h4>
@@ -35,4 +49,4 @@ return (
 )
 }
 
-export default Landing
+export default Landing;
