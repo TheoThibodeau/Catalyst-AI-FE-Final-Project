@@ -1,20 +1,32 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Landing = () => { 
 
-    // useEffect(() => {
-        
-    //     axios
-    //     .post('https://catalyst-x226.onrender.com/api/welcome/generate/',{
-            
-    //     })
-    //     .get(` https://catalyst-x226.onrender.com/api/welcome/<int:pk>`)
-    //       .then((response) => {}
-    //       })
-    //       .catch((error) => console.error(error));
-    //   },
+    const [output, setOutput] = useState("");
+    const [responseID, setResponseID] = useState("");
 
+    useEffect(() => {
+        axios
+        .post('https://catalyst-x226.onrender.com/api/welcome/generate/', {
+            id: responseID,
+            output_text: output,
+        })
+        .then((response) => {
+            setResponseID(response.data.ID)
+        })
+    }, [responseID, output]);
+
+    useEffect(() => {
+        axios
+        .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`)
+        .then((response) => {
+            setOutput(response.data.output)
+        })
+    }, [responseID]);
+    
     const Navigate = useNavigate()
 
     const handleClickCreativeWriting = () => {
@@ -33,7 +45,7 @@ const Landing = () => {
 return (
 <div>
 <div>
-    <h2>Generated Welcome Statement</h2>
+    <h2>{output}</h2>
 </div>
 <div>
     <h4>What medium are you working in today? </h4>
