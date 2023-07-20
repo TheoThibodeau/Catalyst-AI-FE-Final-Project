@@ -8,25 +8,25 @@ const Landing = () => {
     const [output, setOutput] = useState("");
     const [responseID, setResponseID] = useState("");
 
-    useEffect(() => {
-        axios
-        .post('https://catalyst-x226.onrender.com/api/welcome/generate/', {
-        })
-        .then((response) => {
-            setResponseID(response.data.ID)
-        })
-    }, [responseID, output]);
+    // useEffect(() => {
+    //     axios
+    //     .post('https://catalyst-x226.onrender.com/api/welcome/generate/', {
+    //     })
+    //     .then((response) => {
+    //         setResponseID(response.data.ID)
+    //     })
+    // }, [responseID, output]);
 
-    useEffect(() => {
-        axios
-        .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`,{
-            id: responseID,
-            output_text: output,
-        })
-        .then((response) => {
-            setOutput(response.data.output)
-        })
-    }, [responseID]);
+    // useEffect(() => {
+    //     axios
+    //     .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`,{
+    //         id: responseID,
+    //         output_text: output,
+    //     })
+    //     .then((response) => {
+    //         setOutput(response.data.output)
+    //     })
+    // }, [responseID]);
     
     const Navigate = useNavigate()
 

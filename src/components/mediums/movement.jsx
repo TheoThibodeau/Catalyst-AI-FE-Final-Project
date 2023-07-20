@@ -138,9 +138,9 @@ return (
     <button className="generate-button" onClick={handlePost}>
         GENERATE
     </button>      
-    
+    <div className="promptbox">
     {postId && <MovementPrompt postId={postId} />}
-    
+    </div>
 </>
 )}
 
