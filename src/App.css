@@ -54,3 +54,23 @@ button{
     min-height: 200px;
     margin:50px;
 }
+
+.create-box{
+    border: 2px solid black;
+    width: 500px; 
+    height:400px;
+    margin: 0 auto; 
+ font-family: monospace;
+    
+  }
+
+  .create-box input{
+    font-family: monospace;
+
+  }
+
+  .create-display {
+    border: 1px solid black;
+    padding-bottom: 38px;
+    margin: 20px;
+  }
