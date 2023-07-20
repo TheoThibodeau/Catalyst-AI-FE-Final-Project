@@ -7,7 +7,7 @@ import Movement from './components/mediums/movement.jsx';
 import Music from './components/mediums/music';
 import VisualArt from './components/mediums/visualart';
 import CreativeWriting from './components/mediums/creativewriting.jsx'
-import NavBar from './components/navbar';
+import NavBar from './components/navbar.jsx';
 
 
 
