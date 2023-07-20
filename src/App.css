@@ -4,6 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+body{
+  cursor: pointer;
+}
+
 .navbar{
     margin: 1px;
     padding: 1px;
@@ -60,7 +64,7 @@ button{
     width: 500px; 
     height:400px;
     margin: 0 auto; 
- font-family: monospace;
+    font-family: monospace;
     
   }
 
@@ -70,7 +74,6 @@ button{
   }
 
   .create-display {
-    border: 1px solid black;
-    padding-bottom: 38px;
+    padding: 38px;
     margin: 20px;
   }

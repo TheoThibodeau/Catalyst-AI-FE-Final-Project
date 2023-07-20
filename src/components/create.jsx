@@ -1,37 +1,25 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState } from 'react';
 import PomodoroTimer from "../components/create/pomodoro";
 import Stopwatch from "../components/create/stopwatch";
 import Metronome from "../components/create/metronome";
 import Audio from "../components/create/audio";
+import Notebook from "../components/create/notebook";
 
 const Create = () => {
-  const [value, setValue] = useState("");
-  const inputRef = useRef(null);
-  const [activeComponent, setActiveComponent] = useState("Stopwatch")
+  const [activeComponent, setActiveComponent] = useState("")
   const components = {
     Audio: <Audio />,
     Metronome: <Metronome />,
     Stopwatch: <Stopwatch />,
     PomodoroTimer: <PomodoroTimer />,
+    Notebook: <Notebook />,
   };
-
-  useEffect(() => {
-    inputRef.current.focus();
-    // input.current.selectionStart = 0;
-  }, []);
 
   return (
       <div>
-        <h1>Create page</h1>
+       
         <h2>Prompt will display here </h2>
         
-      <input
-        ref={inputRef}
-        className="create-box"
-        type="text"
-        value={value}
-        onChange={(event) => setValue(event.target.value)}
-      />
       <div>
         <br></br>
         <br></br>
@@ -39,10 +27,13 @@ const Create = () => {
         <button onClick={() => setActiveComponent("Audio")}>Audio Play</button>
         <button onClick={() => setActiveComponent("Metronome")}>Metronome</button>
         <button onClick={() => setActiveComponent("PomodoroTimer")}>Pomodoro Timer</button>
+        <button onClick={() => setActiveComponent("Notebook")}>Notebook</button>
+        <button>Dictionary</button>
       </div>
       <div className="create-display">
       {components[activeComponent]}
     </div>
+    <h2>Upload your creation</h2>
     </div>
   );
 };
