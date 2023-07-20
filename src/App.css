@@ -47,3 +47,10 @@ button{
   justify-content: center;
 
 }
+
+.promptbox {
+    border: black solid 2px;
+    min-width: 200px;
+    min-height: 200px;
+    margin:50px;
+}
