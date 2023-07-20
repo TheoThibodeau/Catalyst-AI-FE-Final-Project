@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
+import {useNavigate} from 'react-router-dom'
 
 const CreativeWriting = () => {
     const [themes, setThemes] = useState("");
@@ -56,6 +57,12 @@ const CreativeWriting = () => {
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
+    }
+
+    const Navigate = useNavigate()
+
+    const handleClickCreatePage = () => {
+        Navigate('/create');
     }
 
 const mappedWritingStyle = data.writingStyle
@@ -152,10 +159,14 @@ return (
 
     <button className="generate-button" onClick={handlePost}>
         GENERATE
-    </button>      
+    </button>   
+   <br></br>   
     <div className="promptbox">
     {postId && <CreativeWritingPrompt postId={postId} />}
     </div>
+    <button className="begin-button" onClick={handleClickCreatePage}>
+        BEGIN
+    </button> 
 </>
 )}
 
