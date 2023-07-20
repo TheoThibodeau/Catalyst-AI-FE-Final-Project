@@ -11,8 +11,6 @@ const Landing = () => {
     useEffect(() => {
         axios
         .post('https://catalyst-x226.onrender.com/api/welcome/generate/', {
-            id: responseID,
-            output_text: output,
         })
         .then((response) => {
             setResponseID(response.data.ID)
@@ -21,7 +19,10 @@ const Landing = () => {
 
     useEffect(() => {
         axios
-        .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`)
+        .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`,{
+            id: responseID,
+            output_text: output,
+        })
         .then((response) => {
             setOutput(response.data.output)
         })
