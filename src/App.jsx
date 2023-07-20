@@ -7,11 +7,10 @@ import Movement from './components/mediums/movement.jsx';
 import Music from './components/mediums/music';
 import VisualArt from './components/mediums/visualart';
 import CreativeWriting from './components/mediums/creativewriting.jsx'
-import { Routes, Route } from "react-router-dom";
-import PomodoroTimer from './components/create/pomodoro';
-import Stopwatch from './components/create/stopwatch';
-import Metronome from './components/create/metronome';
-import Audio from './components/create/audio'
+import NavBar from './components/navbar';
+
+
+
 function App() {
     const [postId, setPostId] = useState(null);
   return (

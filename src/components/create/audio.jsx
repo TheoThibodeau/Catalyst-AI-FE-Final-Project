@@ -17,6 +17,7 @@ const Audio = () => {
 
   return (
     <div>
+        <h2>Audio Player</h2>
       <button onClick={playAudio}>Play</button>
       <button onClick={pauseAudio}>Pause</button>
       <audio ref={setAudio} src="audio.mp3" controls></audio>

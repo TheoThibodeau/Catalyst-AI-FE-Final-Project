@@ -41,7 +41,7 @@ const Metronome = () => {
 
   return (
     <div>
-      <h1>Metronome</h1>
+      <h2>Metronome</h2>
       <div>
         <label htmlFor="bpm">BPM:</label>
         <input

@@ -7,24 +7,16 @@ const PomodoroTimer = () => {
   const [isWorking, setIsWorking] = useState(true);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (secondsLeft <= 0) {
-        clearInterval(intervalId);
-        setTimer(null);
-        if (isWorking) {
-          setRound((prevRound) => prevRound + 1);
-        }
-        setIsWorking(!isWorking);
-        setSecondsLeft(isWorking ? 5 * 60 : 25 * 60);
-      } else {
-        setSecondsLeft((prevSeconds) => prevSeconds - 1);
+    if (secondsLeft <= 0) {
+      clearInterval(timer);
+      setTimer(null);
+      if (isWorking) {
+        setRound((prevRound) => prevRound + 1);
       }
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [secondsLeft, isWorking]);
+      setIsWorking(!isWorking);
+      setSecondsLeft(isWorking ? 5 * 60 : 25 * 60);
+    }
+  }, [secondsLeft, timer, isWorking]);
 
   const startTimer = () => {
     if (timer) {
@@ -35,17 +27,7 @@ const PomodoroTimer = () => {
     setIsWorking(true);
     setSecondsLeft(25 * 60);
     setTimer(setInterval(() => {
-      if (secondsLeft <= 0) {
-        clearInterval(timer);
-        setTimer(null);
-        if (isWorking) {
-          setRound((prevRound) => prevRound + 1);
-        }
-        setIsWorking(!isWorking);
-        setSecondsLeft(isWorking ? 5 * 60 : 25 * 60);
-      } else {
-        setSecondsLeft((prevSeconds) => prevSeconds - 1);
-      }
+      setSecondsLeft((prevSeconds) => prevSeconds - 1);
     }, 1000));
   };
 
@@ -76,14 +58,14 @@ const PomodoroTimer = () => {
     <div>
       <h2>Pomodoro Timer</h2>
       <div>
-        <button onClick={startTimer}>Start</button>
-        <button onClick={stopTimer}>Stop</button>
-      </div>
-      <div>
         <span>Time remaining: {formatTime(secondsLeft)}</span>
       </div>
       <div>
         <span>Round: {round}</span>
+      </div>
+      <div>
+        <button onClick={startTimer}>Start</button>
+        <button onClick={stopTimer}>Stop</button>
       </div>
       {renderMessage()}
     </div>
