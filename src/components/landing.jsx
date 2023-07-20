@@ -1,8 +1,20 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 
-const Landing = () => {
-    
+const Landing = () => { 
+
+    // useEffect(() => {
+        
+    //     axios
+    //     .post('https://catalyst-x226.onrender.com/api/welcome/generate/',{
+            
+    //     })
+    //     .get(` https://catalyst-x226.onrender.com/api/welcome/<int:pk>`)
+    //       .then((response) => {}
+    //       })
+    //       .catch((error) => console.error(error));
+    //   },
+
     const Navigate = useNavigate()
 
     const handleClickCreativeWriting = () => {
