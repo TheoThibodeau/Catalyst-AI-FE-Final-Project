@@ -10,24 +10,18 @@ const Landing = () => {
 
     useEffect(() => {
         axios
-        .post('https://catalyst-x226.onrender.com/api/welcome/generate/', {
-        })
-        .then((response) => {
-            setResponseID(response.data.ID)
-        })
-    }, [responseID, output]);
+        .post('https://catalyst-x226.onrender.com/api/welcome/generate/')
+            .then((response) => {
+                setResponseID(response.data.id)
+                .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`,{
+            })
+                .then((response) => {
+                setOutput(response.data.output)
+            })
+            .catch((error) => {console.log(error)})
+        }, [responseID, output])
+    })
 
-    useEffect(() => {
-        axios
-        .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`,{
-            id: responseID,
-            output_text: output,
-        })
-        .then((response) => {
-            setOutput(response.data.output)
-        })
-    }, [responseID]);
-    
     const Navigate = useNavigate()
 
     const handleClickCreativeWriting = () => {
@@ -46,7 +40,7 @@ const Landing = () => {
 return (
 <div>
 <div>
-    <h2>{output}</h2>
+    <h2> 🌶{output}</h2>
 </div>
 <div>
     <h4>What medium are you working in today? </h4>
