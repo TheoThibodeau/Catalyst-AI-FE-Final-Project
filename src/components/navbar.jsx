@@ -11,7 +11,7 @@ const NavBar = () => {
   const handleClickMusic = () => {};
   const handleClickVisualArt = () => {};
   const handleClickCreate = () => {};
-  const handleClickNotebook = () => {};
+  const handleClickFolio = () => {};
   const handleClickArchive = () => {};
 
   const toggleDropdown = () => {
@@ -37,8 +37,8 @@ const NavBar = () => {
               )}
             </div>
         <Link to="/create" onClick={handleClickCreate}>CREATE</Link>
-        <Link to="/notebook" onClick={handleClickNotebook}>NOTEBOOK</Link>
-        <Link to="/archive" onClick={handleClickArchive}>PROFILE</Link>
+        <Link to="/folio" onClick={handleClickFolio}>FOLIO</Link>
+        {/* <Link to="/archive" onClick={handleClickArchive}>PROFILE</Link> */}
       </div>
       <h3>____________________________________________________</h3>
       <Outlet />
