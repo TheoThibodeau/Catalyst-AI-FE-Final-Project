@@ -40,7 +40,7 @@ const Landing = () => {
 return (
 <div>
 <div>
-    <h2> 🌶{output}</h2>
+    <h2> Generated Welcome {output}</h2>
 </div>
 <div>
     <h4>What medium are you working in today? </h4>
