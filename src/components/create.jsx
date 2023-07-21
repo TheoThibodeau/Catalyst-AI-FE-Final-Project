@@ -33,7 +33,6 @@ const Create = () => {
       <div className="create-display">
       {components[activeComponent]}
     </div>
-    <Stopwatch />
     </div>
   );
 };
