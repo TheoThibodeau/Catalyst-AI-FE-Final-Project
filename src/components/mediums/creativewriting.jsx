@@ -4,7 +4,7 @@ import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 import {useNavigate} from 'react-router-dom'
 
-const CreativeWriting = () => {
+const CreativeWriting = ( { setOutput, output, setGenerativeSpace } ) => {
     const [themes, setThemes] = useState("");
     const [categories, setCategories] = useState("");
     const [writingStyle, setWritingStyle] = useState("");
@@ -59,18 +59,16 @@ const CreativeWriting = () => {
         console.log(selectedPromptLength)
     }
 
-    const Navigate = useNavigate()
-
     const handleClickCreatePage = () => {
-        Navigate('/create');
+        setGenerativeSpace(true)
     }
 
-const mappedWritingStyle = data.writingStyle
-const mappedThemes = data.themes
-const mappedCategories = data.categories
-const mappedEmotion = data.emotion
-const mappedSentiment = data.sentiment
-const mappedPromptLength = ['one word', 'three words', 'prompt']
+    const mappedWritingStyle = data.writingStyle
+    const mappedThemes = data.themes
+    const mappedCategories = data.categories
+    const mappedEmotion = data.emotion
+    const mappedSentiment = data.sentiment
+    const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
 <>
@@ -162,7 +160,7 @@ return (
     </button>   
    <br></br>   
     <div className="promptbox">
-    {postId && <CreativeWritingPrompt postId={postId} />}
+    {postId && <CreativeWritingPrompt postId={postId} setOutput={setOutput} output={output}/>}
     </div>
     <button className="begin-button" onClick={handleClickCreatePage}>
         BEGIN

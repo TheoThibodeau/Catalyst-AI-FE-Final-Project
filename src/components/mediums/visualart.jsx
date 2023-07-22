@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
+import {useNavigate} from 'react-router-dom'
 
-const VisualArt = () => {
+const VisualArt = ({ setOutput, output, setGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
     const [visualArtMedium, setVisualArtMedium] = useState("");
     const [emotion, setEmotion] = useState("");
@@ -51,11 +52,14 @@ const VisualArt = () => {
         console.log(selectedPromptLength)
     }
 
+    const handleClickCreatePage = () => {
+        setGenerativeSpace(true)
+    }
+
 const mappedVisualArtThemes = data.visualArtThemes
 const mappedVisualArtMedium = data.visualArtMedium
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedTemperature = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',]
 const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
@@ -133,9 +137,12 @@ return (
 
     <button className="generate-button" onClick={handlePost}>
         GENERATE
-    </button>      
+    </button>    
+    <button className="begin-button" onClick={handleClickCreatePage}>
+        BEGIN
+    </button>   
     
-    {postId && <VisualArtPrompt postId={postId} />}
+    {postId && <VisualArtPrompt  postId={postId} setOutput={setOutput} output={output} />}
 </>
 )}
 

@@ -5,7 +5,8 @@ import Metronome from "../components/create/metronome";
 import Audio from "../components/create/audio";
 import Notebook from "../components/create/notebook";
 
-const Create = () => {
+const Create = ( {postId, output} ) => {
+
   const [activeComponent, setActiveComponent] = useState("")
   const components = {
     Audio: <Audio />,
@@ -16,11 +17,9 @@ const Create = () => {
   };
 
   return (
+      <div>   
       <div>
-       
-        <h2>Prompt will display here </h2>
-        
-      <div>
+        <p>Output: {output}</p>
         <br></br>
         <br></br>
         <button onClick={() => setActiveComponent("Stopwatch")}>Stopwatch</button>
