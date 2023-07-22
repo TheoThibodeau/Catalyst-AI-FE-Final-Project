@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 import MovementPrompt from "../promptresponse/movementprompt.jsx";
+import {useNavigate} from 'react-router-dom'
 
-const Movement = () => {
+const Movement = ({ setOutput, output, setGenerativeSpace }) => {
     const [movementSomatics, setMovementSomatics] = useState("");
     const [movementThemes, setMovementThemes] = useState("");
     const [emotion, setEmotion] = useState("");
@@ -53,6 +54,10 @@ const Movement = () => {
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
+    }
+
+    const handleClickCreatePage = () => {
+        setGenerativeSpace(true)
     }
 
 const mappedMovementSomatics = data.movementSomatics
@@ -139,8 +144,11 @@ return (
         GENERATE
     </button>      
     <div className="promptbox">
-    {postId && <MovementPrompt postId={postId} />}
+    {postId && <MovementPrompt  postId={postId} setOutput={setOutput} output={output} />}
     </div>
+    <button className="begin-button" onClick={handleClickCreatePage}>
+        BEGIN
+    </button> 
 </>
 )}
 

@@ -2,8 +2,9 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 import MusicPrompt from "../promptresponse/musicprompt.jsx";
+import {useNavigate} from 'react-router-dom'
 
-const Music = () => {
+const Music = ({ setOutput, output, setGenerativeSpace }) => {
     const [explorations, setExplorations] = useState("");
     const [concepts, setConcepts] = useState("");
     const [elements, setElements] = useState("");
@@ -49,6 +50,10 @@ const Music = () => {
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
+    }
+
+    const handleClickCreatePage = () => {
+        setGenerativeSpace(true)
     }
 
 const mappedExplorations = data.explorations
@@ -136,10 +141,12 @@ return (
     </button>     
     </div> 
     <div className="promptresponse">
-    {postId && <MusicPrompt postId={postId} />}
+    {postId && <MusicPrompt  postId={postId} setOutput={setOutput} output={output} />}
     </div>
-    
     </div>
+    <button className="begin-button" onClick={handleClickCreatePage}>
+        BEGIN
+    </button> 
     </>
     );
 };
