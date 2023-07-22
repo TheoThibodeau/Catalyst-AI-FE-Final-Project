@@ -8,20 +8,6 @@ const Landing = () => {
     const [output, setOutput] = useState("");
     const [responseID, setResponseID] = useState("");
 
-    // useEffect(() => {
-    //     axios
-    //     .post('https://catalyst-x226.onrender.com/api/welcome/generate/')
-    //         .then((response) => {
-    //             setResponseID(response.data.id)
-    //             .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`,{
-    //         })
-    //             .then((response) => {
-    //             setOutput(response.data.output)
-    //         })
-    //         .catch((error) => {console.log(error)})
-    //     }, [responseID, output])
-    // })
-
     const Navigate = useNavigate()
 
     const handleClickCreativeWriting = () => {
@@ -40,7 +26,9 @@ const Landing = () => {
 return (
 <div>
 <div>
-    <h2> 🌶{output}</h2>
+
+
+    <h2> Generated Welcome {output}</h2>
 </div>
 <div>
     <h4>What medium are you working in today? </h4>

@@ -8,6 +8,7 @@ import Music from './components/mediums/music';
 import VisualArt from './components/mediums/visualart';
 import CreativeWriting from './components/mediums/creativewriting.jsx'
 import NavBar from './components/navbar.jsx';
+import Folio from './components/folio.jsx';
 import PromptParents from './components/promptparents/promptshare.jsx'
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         <Route path ="/movement" element={<Movement postId={postId}/>} /> 
         <Route path ="/music" element={<Music postId={postId}/>} /> 
         <Route path ="/visualart" element={<VisualArt postId={postId}/>} />  
+        <Route path ="/create" element={<Create postId={postId}/>} /> 
+        <Route path ="/folio" element={<Folio postId={postId} />} />
         {/* <Route path ="/archive" element={<Archive postId={postId}/>} /> */}
     </Route>
     </Routes>

@@ -11,17 +11,34 @@ const NavBar = () => {
   const handleClickMusic = () => {};
   const handleClickVisualArt = () => {};
   const handleClickCreate = () => {};
-  const handleClickNotebook = () => {};
+  const handleClickFolio = () => {};
   const handleClickArchive = () => {};
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <>
     <h3>____________________________________________________</h3>
       <div className="navbar">
-        <Link to="/" onClick={handleClickPrompt}>PROMPT</Link>
+                <div onClick={toggleDropdown}>
+              <span>PROMPT</span>
+              {isDropdownOpen && (
+                <div className="dropdown-options">
+                  <Link to="/creativewriting">CREATIVE WRITING</Link>
+                  <br></br>
+                  <Link to="/movement">MOVEMENT</Link>
+                  <br></br>
+                  <Link to="/music">MUSIC</Link>
+                  <br></br>
+                  <Link to="/visualart">VISUAL ART</Link>
+                </div>
+              )}
+            </div>
         <Link to="/create" onClick={handleClickCreate}>CREATE</Link>
-        <Link to="/notebook" onClick={handleClickNotebook}>NOTEBOOK</Link>
-        <Link to="/archive" onClick={handleClickArchive}>PROFILE</Link>
+        <Link to="/folio" onClick={handleClickFolio}>FOLIO</Link>
+        {/* <Link to="/archive" onClick={handleClickArchive}>PROFILE</Link> */}
       </div>
       <h3>____________________________________________________</h3>
       <Outlet />
@@ -30,6 +47,14 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+
+
+// <Dropdown isOpen={isOpen} onToggle={setIsOpen}>
+//             <Link to="/about">About</Link>
+//             <Link to="/contact">Contact</Link>
+//           </Dropdown>
+
 
 
   /* <li className={isDropdownOpen ? "drowpdown-open" : ""}>
