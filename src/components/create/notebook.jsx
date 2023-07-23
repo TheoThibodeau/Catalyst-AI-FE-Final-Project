@@ -4,13 +4,14 @@ import React, { useState, useEffect, useRef } from 'react';
 const Notebook = () => {
     const [value, setValue] = useState("");
     const inputRef = useRef(null);
+    const [noteId, setNoteId] = useState(null)
     
 
     useEffect(() => {
         inputRef.current.focus();
         // input.current.selectionStart = 0;
       }, []);
-    
+
 return(
    
 <input
