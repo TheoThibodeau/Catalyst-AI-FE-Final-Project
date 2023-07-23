@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 
-
 const NavBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
@@ -20,27 +19,28 @@ const NavBar = () => {
 
   return (
     <>
-    <h3>____________________________________________________</h3>
-      <div className="navbar">
-                <div onClick={toggleDropdown}>
-              <span>PROMPT</span>
-              {isDropdownOpen && (
-                <div className="dropdown-options">
-                  <Link to="/creativewriting">CREATIVE WRITING</Link>
-                  <br></br>
-                  <Link to="/movement">MOVEMENT</Link>
-                  <br></br>
-                  <Link to="/music">MUSIC</Link>
-                  <br></br>
-                  <Link to="/visualart">VISUAL ART</Link>
-                </div>
-              )}
+      <div className="flex items-center justify-between p-20 font-serif text-2xl max min-w-fit">
+        <div onClick={toggleDropdown}>
+          <span>PROMPT</span>
+          {isDropdownOpen && (
+            <div className="text-base">
+              <Link to="/creativewriting">CREATIVE WRITING</Link>
+              <br></br>
+              <Link to="/movement">MOVEMENT</Link>
+              <br></br>
+              <Link to="/music">MUSIC</Link>
+              <br></br>
+              <Link to="/visualart">VISUAL ART</Link>
             </div>
-        <Link to="/create" onClick={handleClickCreate}>CREATE</Link>
-        <Link to="/folio" onClick={handleClickFolio}>FOLIO</Link>
-        {/* <Link to="/archive" onClick={handleClickArchive}>PROFILE</Link> */}
+          )}
+        </div>
+        <Link to="/create" onClick={handleClickCreate}>
+          CREATE
+        </Link>
+        <Link to="/folio" onClick={handleClickFolio}>
+          FOLIO
+        </Link>
       </div>
-      <h3>____________________________________________________</h3>
       <Outlet />
     </>
   );
@@ -48,16 +48,12 @@ const NavBar = () => {
 
 export default NavBar;
 
-
-
 // <Dropdown isOpen={isOpen} onToggle={setIsOpen}>
 //             <Link to="/about">About</Link>
 //             <Link to="/contact">Contact</Link>
 //           </Dropdown>
 
-
-
-  /* <li className={isDropdownOpen ? "drowpdown-open" : ""}>
+/* <li className={isDropdownOpen ? "drowpdown-open" : ""}>
   <li>
     <Link to="/creative-writing" onClick={handleClickCreativeWriting}>
       Creative Writing
@@ -79,4 +75,3 @@ export default NavBar;
     </Link>
   </li>
 </li> */
-

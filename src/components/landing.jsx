@@ -24,20 +24,16 @@ const Landing = () => {
     }
 
 return (
-<div>
-<div>
-
-
-    <h2> Generated Welcome {output}</h2>
-</div>
-<div>
+<div className="items-center justify-center h-screen">
+<div className="w-full">
+    <h2 className=""> Generated Welcome {output}</h2>
     <h4>What medium are you working in today? </h4>
 </div>
-<div>
-    <button onClick={handleClickCreativeWriting}>CREATIVE WRITING</button>
-    <button onClick={handleClickMusic}>MUSIC</button>
-    <button onClick={handleClickMovement}>MOVEMENT</button>
-    <button onClick={handleClickVisualArt}>VISUAL ART</button>
+<div className= "flex justify-between p-20"  >
+    <button className="p-3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-serif rounded-md"onClick={handleClickCreativeWriting}>CREATIVE WRITING</button>
+    <button className="p-3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-serif rounded-md"onClick={handleClickMusic}>MUSIC</button>
+    <button className="p-3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-serif rounded-md"onClick={handleClickMovement}>MOVEMENT</button>
+    <button className="p-3 bg-gray-300 hover:bg-gray-400 text-gray-800 font-serif rounded-md"onClick={handleClickVisualArt}>VISUAL ART</button>
 </div>
 </div>
 
