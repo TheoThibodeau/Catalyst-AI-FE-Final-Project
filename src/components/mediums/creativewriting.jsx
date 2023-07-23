@@ -73,6 +73,8 @@ const CreativeWriting = ( { setOutput, output, setGenerativeSpace } ) => {
 return (
 <>
     <h1>Creative Writing</h1>
+    <h1 className="text-3xl font-bold text-red-500 underline text-center">Hello world!</h1> 
+
     <h2>MEDIUM</h2>
 
     <div>
