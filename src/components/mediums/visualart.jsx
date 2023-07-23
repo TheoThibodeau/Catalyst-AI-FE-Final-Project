@@ -4,7 +4,7 @@ import data from "/prompt.json";
 import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
 import {useNavigate} from 'react-router-dom'
 
-const VisualArt = ({ setOutput, output, setGenerativeSpace }) => {
+const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
     const [visualArtMedium, setVisualArtMedium] = useState("");
     const [emotion, setEmotion] = useState("");
@@ -53,7 +53,7 @@ const VisualArt = ({ setOutput, output, setGenerativeSpace }) => {
     }
 
     const handleClickCreatePage = () => {
-        setGenerativeSpace(true)
+        setVisualArtGenerativeSpace(true)
     }
 
 const mappedVisualArtThemes = data.visualArtThemes
@@ -143,6 +143,9 @@ return (
     </button>   
     
     {postId && <VisualArtPrompt  postId={postId} setOutput={setOutput} output={output} />}
+    <button className="begin-button" onClick={handleClickCreatePage}>
+        BEGIN
+    </button> 
 </>
 )}
 

@@ -1,26 +1,25 @@
 import React, { useState } from "react";
-import CreativeWriting from "../mediums/creativewriting";
+import Movement from "../mediums/movement";
 import Create from "../create.jsx";
 
-const PromptParents = ({ postId }) => {
+const MovementPromptParent = ({ postId }) => {
   const [output, setOutput] = useState("");
   const [note, setNote] = useState("");
-  const [generativeSpace, setGenerativeSpace] = useState(false);
   const [movementGenerativeSpace, setMovementGenerativeSpace] = useState(false);
 
   return (
     <>
-      {generativeSpace ? (
+      {movementGenerativeSpace ? (
         <Create postId={postId} output={output} />
       ) : (
-        <CreativeWriting
+        <Movement
           setOutput={setOutput}
           output={output}
-          setGenerativeSpace={setGenerativeSpace}
+          setMovementGenerativeSpace={setMovementGenerativeSpace}
         />
       )}
     </>
   );
 };
 
-export default PromptParents;
+export default MovementPromptParent;

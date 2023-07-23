@@ -4,7 +4,7 @@ import data from "/prompt.json";
 import MusicPrompt from "../promptresponse/musicprompt.jsx";
 import {useNavigate} from 'react-router-dom'
 
-const Music = ({ setOutput, output, setGenerativeSpace }) => {
+const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     const [explorations, setExplorations] = useState("");
     const [concepts, setConcepts] = useState("");
     const [elements, setElements] = useState("");
@@ -53,7 +53,7 @@ const Music = ({ setOutput, output, setGenerativeSpace }) => {
     }
 
     const handleClickCreatePage = () => {
-        setGenerativeSpace(true)
+        setMusicGenerativeSpace(true)
     }
 
 const mappedExplorations = data.explorations
