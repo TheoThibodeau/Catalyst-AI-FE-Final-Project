@@ -9,7 +9,7 @@ import VisualArt from './components/mediums/visualart';
 import CreativeWriting from './components/mediums/creativewriting.jsx'
 import NavBar from './components/navbar.jsx';
 import Folio from './components/folio.jsx';
-import PromptParents from './components/promptparents/promptshare.jsx'
+import PromptParents from './components/promptparents/promptshare.jsx';
 
 function App() {
     const [postId, setPostId] = useState(null);
