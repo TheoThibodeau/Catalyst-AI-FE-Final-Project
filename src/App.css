@@ -1,4 +1,4 @@
-/* #root {
+#root {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
@@ -47,7 +47,7 @@ button{
 .promptReturn{
   border:black solid 2px;
   padding:20px;
-  max-width= 200px;
+  max-width: 200px;
   justify-content: center;
 
 }
@@ -77,4 +77,4 @@ button{
   .create-display {
     padding: 38px;
     margin: 20px;
-  } */
+  }

@@ -4,7 +4,7 @@ import data from "/prompt.json";
 import MovementPrompt from "../promptresponse/movementprompt.jsx";
 import {useNavigate} from 'react-router-dom'
 
-const Movement = ({ setOutput, output, setGenerativeSpace }) => {
+const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [movementSomatics, setMovementSomatics] = useState("");
     const [movementThemes, setMovementThemes] = useState("");
     const [emotion, setEmotion] = useState("");
@@ -47,24 +47,19 @@ const Movement = ({ setOutput, output, setGenerativeSpace }) => {
         console.log(selectedSentiment)
     }
 
-    const handleTemperature = (selectedTemperature) => {
-        setTemperature(selectedTemperature);
-        console.log(selectedTemperature)
-    }
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
     }
 
-    const handleClickCreatePage = () => {
-        setGenerativeSpace(true)
+    const handleMovementClickCreatePage = () => {
+        setMovementGenerativeSpace(true)
     }
 
 const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedTemperature = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',]
 const mappedPromptLength = ['one word', 'three words', 'prompt']
 
 return (
@@ -146,7 +141,7 @@ return (
     <div className="promptbox">
     {postId && <MovementPrompt  postId={postId} setOutput={setOutput} output={output} />}
     </div>
-    <button className="begin-button" onClick={handleClickCreatePage}>
+    <button className="begin-button" onClick={handleMovementClickCreatePage}>
         BEGIN
     </button> 
 </>
