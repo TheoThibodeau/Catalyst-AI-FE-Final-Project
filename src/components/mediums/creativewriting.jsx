@@ -78,9 +78,9 @@ return (
     <div>
             <h3> Selected Writing Style: <br></br> {writingStyle}</h3>
         </div>
-        <div>
+        <div className="flex">
             {mappedWritingStyle.map((style) => (
-            <button key={style} onClick={() => handleWritingStyle(style)}>
+            <button className="button-25" key={style} onClick={() => handleWritingStyle(style)}>
                 {style}
             </button>
             ))}
@@ -93,9 +93,9 @@ return (
         <div>
             <h3> Selected Theme: <br></br> {themes}</h3>
         </div>
-        <div>
+        <div className="flex">
             {mappedThemes.map((theme) => (
-            <button key={theme} onClick={() => handleThemeChange(theme)}>
+            <button className="button-25" key={theme} onClick={() => handleThemeChange(theme)}>
                 {theme}
             </button>
             ))}
@@ -107,9 +107,9 @@ return (
         <div>
             <h3>Selected Category : <br></br> {categories}</h3>
         </div>
-        <div>
+        <div className="flex-wrap">
             {mappedCategories.map((category) => (
-                <button key={category} onClick={() => handleCategoryChange(category)}>
+                <button className="button-25" key={category} onClick={() => handleCategoryChange(category)}>
                     {category}
                 </button>
             ))}
@@ -120,9 +120,9 @@ return (
     <div>
         <h3>Selected Emotion: <br></br> {emotion}</h3>
     </div>   
-    <div>
+    <div className="flex"> 
         {mappedEmotion.map((emotion) => (
-            <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
+            <button className="button-25" key={emotion} onClick={() => handleEmotionChange(emotion)}>
                 {emotion}
             </button>
         ))}
@@ -133,9 +133,9 @@ return (
         <div>
             <h3>Selected Sentiment: <br></br> {sentiment}</h3>
         </div>   
-        <div>
+        <div className="flex">
             {mappedSentiment.map((sentiment) => (
-                <button key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
+                <button className="button-25" key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
                     {sentiment}
                 </button>
             ))}
@@ -146,9 +146,9 @@ return (
     <div>
         <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
     </div>   
-    <div>
+    <div className="flex flex-wrap">
         {mappedPromptLength.map((promptLength) => (
-            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
+            <button className="button-25" key={promptLength} onClick={() => handlePromptLength(promptLength)}>
                 {promptLength}
             </button>
         ))}

@@ -3,10 +3,14 @@ module.exports = {
     purge: [],
     darkMode: false,
     theme: {
-        extend:{},
+        extend:{
+            
+        },
     },
     variants:{
         extend:{},
     },
     plugins: [],
 }
+
+

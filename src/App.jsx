@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import './index.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from './components/landing.jsx';
 import Create from './components/create.jsx'
