@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const MovementPrompt = ({ postId }) => {
-  const [output, setOutput] = useState("");
+const MovementPrompt = ({ postId, setOutput, output }) => {
 
   useEffect(() => {
     axios
@@ -16,7 +15,6 @@ const MovementPrompt = ({ postId }) => {
 
   return (
     <>
-      
       <h3>{output}</h3>
     </>
   );

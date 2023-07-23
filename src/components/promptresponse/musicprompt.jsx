@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const MusicPrompt = ({ postId }) => {
-  const [output, setOutput] = useState("");
+const MusicPrompt = ({ postId, setOutput, output  }) => {
 
   useEffect(() => {
     axios

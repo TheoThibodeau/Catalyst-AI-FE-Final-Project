@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const VisualArtPrompt = ({ postId }) => {
-  const [output, setOutput] = useState("");
+const VisualArtPrompt = ({ postId, setOutput, output  }) => {
 
   useEffect(() => {
     axios
