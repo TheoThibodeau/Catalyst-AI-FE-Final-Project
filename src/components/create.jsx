@@ -4,6 +4,8 @@ import Stopwatch from "../components/create/stopwatch";
 import Metronome from "../components/create/metronome";
 import Audio from "../components/create/audio";
 import Notebook from "../components/create/notebook";
+import Dictionary from "../components/create/dictionary";
+
 
 const Create = ( {postId, output} ) => {
 
@@ -14,6 +16,7 @@ const Create = ( {postId, output} ) => {
     Stopwatch: <Stopwatch />,
     PomodoroTimer: <PomodoroTimer />,
     Notebook: <Notebook />,
+    Dictionary: <Dictionary />,
   };
 
   return (
@@ -27,7 +30,7 @@ const Create = ( {postId, output} ) => {
         <button onClick={() => setActiveComponent("Metronome")}>Metronome</button>
         <button onClick={() => setActiveComponent("PomodoroTimer")}>Pomodoro Timer</button>
         <button onClick={() => setActiveComponent("Notebook")}>Notebook</button>
-        <button>Dictionary</button>
+        <button onClick={() => setActiveComponent("Dictionary")}>Dictionary</button>
       </div>
       <div className="create-display">
       {components[activeComponent]}
