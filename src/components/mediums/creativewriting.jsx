@@ -72,15 +72,16 @@ const CreativeWriting = ( { setOutput, output, setGenerativeSpace } ) => {
 
 return (
 <>
-    <h1>Creative Writing</h1>
+<div className="flex flex-col font-mono text items-center justify-center space-y-2">
+    <h1 className="text-center  ">Creative Writing</h1>
     <h2>MEDIUM</h2>
 
     <div>
             <h3> Selected Writing Style: <br></br> {writingStyle}</h3>
         </div>
-        <div className="flex">
+        <div className="flex flex-wrap">
             {mappedWritingStyle.map((style) => (
-            <button className="button-25" key={style} onClick={() => handleWritingStyle(style)}>
+            <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={style} onClick={() => handleWritingStyle(style)}>
                 {style}
             </button>
             ))}
@@ -93,9 +94,9 @@ return (
         <div>
             <h3> Selected Theme: <br></br> {themes}</h3>
         </div>
-        <div className="flex">
+        <div className="flex flex-wrap">
             {mappedThemes.map((theme) => (
-            <button className="button-25" key={theme} onClick={() => handleThemeChange(theme)}>
+            <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={theme} onClick={() => handleThemeChange(theme)}>
                 {theme}
             </button>
             ))}
@@ -107,9 +108,9 @@ return (
         <div>
             <h3>Selected Category : <br></br> {categories}</h3>
         </div>
-        <div className="flex-wrap">
+        <div className="flex flex-wrap">
             {mappedCategories.map((category) => (
-                <button className="button-25" key={category} onClick={() => handleCategoryChange(category)}>
+                <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={category} onClick={() => handleCategoryChange(category)}>
                     {category}
                 </button>
             ))}
@@ -122,7 +123,7 @@ return (
     </div>   
     <div className="flex"> 
         {mappedEmotion.map((emotion) => (
-            <button className="button-25" key={emotion} onClick={() => handleEmotionChange(emotion)}>
+            <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={emotion} onClick={() => handleEmotionChange(emotion)}>
                 {emotion}
             </button>
         ))}
@@ -135,7 +136,7 @@ return (
         </div>   
         <div className="flex">
             {mappedSentiment.map((sentiment) => (
-                <button className="button-25" key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
+                <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
                     {sentiment}
                 </button>
             ))}
@@ -148,23 +149,24 @@ return (
     </div>   
     <div className="flex flex-wrap">
         {mappedPromptLength.map((promptLength) => (
-            <button className="button-25" key={promptLength} onClick={() => handlePromptLength(promptLength)}>
+            <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={promptLength} onClick={() => handlePromptLength(promptLength)}>
                 {promptLength}
             </button>
         ))}
     </div>
     <br></br>
 
-    <button className="button-64" onClick={handlePost}>
+    <button className="flex items-center justify-center p-3 m-3 h-20 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" onClick={handlePost}>
         GENERATE
     </button>   
    <br></br>   
-    <div className="promptbox">
+    <div className="border ">
     {postId && <CreativeWritingPrompt postId={postId} setOutput={setOutput} output={output}/>}
     </div>
-    <button className="begin-button" onClick={handleClickCreatePage}>
+    <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" onClick={handleClickCreatePage}>
         BEGIN
     </button> 
+    </div>
 </>
 )}
 

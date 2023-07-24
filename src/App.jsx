@@ -18,7 +18,7 @@ import VisualArtPromptParent from './components/promptparents/visualartpromptsha
 function App() {
     const [postId, setPostId] = useState(null);
   return (
-    <>
+    <div className="bg-white">
     <BrowserRouter>
     <Routes>
     <Route element={<NavBar />}>
@@ -34,7 +34,7 @@ function App() {
     </Routes>
    </BrowserRouter>
    
-    </>
+    </div>
   )
 }
 
