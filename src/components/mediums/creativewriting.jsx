@@ -155,7 +155,7 @@ return (
     </div>
     <br></br>
 
-    <button className="generate-button" onClick={handlePost}>
+    <button className="button-64" onClick={handlePost}>
         GENERATE
     </button>   
    <br></br>   
