@@ -19,7 +19,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className=" flex items-center justify-between p-20 font-serif text-2xl max min-w-fit">
+      <div className="flex items-center justify-between p-20 font-serif text-2xl max min-w-fit">
         <div onClick={toggleDropdown}>
           <span>PROMPT</span>
           {isDropdownOpen && (
