@@ -47,31 +47,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-// <Dropdown isOpen={isOpen} onToggle={setIsOpen}>
-//             <Link to="/about">About</Link>
-//             <Link to="/contact">Contact</Link>
-//           </Dropdown>
-
-/* <li className={isDropdownOpen ? "drowpdown-open" : ""}>
-  <li>
-    <Link to="/creative-writing" onClick={handleClickCreativeWriting}>
-      Creative Writing
-    </Link>
-  </li>
-  <li>
-    <Link to="/movement" onClick={handleClickMovement}>
-      Movement
-    </Link>
-  </li>
-  <li>
-    <Link to="/music" onClick={handleClickMusic}>
-      Music
-    </Link>
-  </li>
-  <li>
-    <Link to="/visual-art" onClick={handleClickVisualArt}>
-      Visual Art
-    </Link>
-  </li>
-</li> */

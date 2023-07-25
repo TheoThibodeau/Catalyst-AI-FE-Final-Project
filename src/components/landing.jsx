@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Landing = () => {
   const [output, setOutput] = useState('');
@@ -22,79 +22,48 @@ const Landing = () => {
   const Navigate = useNavigate();
 
   const handleClickCreativeWriting = () => {
-    Navigate('/creativewriting');
+    Navigate("/creativewriting");
   };
   const handleClickMusic = () => {
-    Navigate('/music');
+    Navigate("/music");
   };
   const handleClickMovement = () => {
-    Navigate('/movement');
+    Navigate("/movement");
   };
   const handleClickVisualArt = () => {
-    Navigate('/visualart');
+    Navigate("/visualart");
   };
 
   return (
     <>
-    <h3 className="font-mono max-w-md justify-center p-10">Welcome to our app! Discover a world of creativity and inspiration through creative writing, music, movement, and visual art. Unleash your imagination and embark on a journey of self-expression and growth with our diverse range of prompts and activities. Let's start creating and exploring together!"</h3>
-      <div
-        className="flex items-center justify-center h-screen" 
-      >
-        <div className="max-w-fit">
-          <div className="flex justify-center">
-            <div
-              className="text-center font-roboto text-shadow-sm justify-center"
-              style={{ display: 'flex', flexWrap: 'wrap' }}
-            >
-              <a href="/creativewriting" className="relative inline-block">
-                <img
-                  src="src/images/0012_Scan 2020-5-18 18.28.07.jpg"
-                  alt="Creative Writing"
-                  style={{ maxWidth: '200px', opacity: 0.5 }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  CREATIVE WRITING
-                </div>
-              </a>
-
-              <a href="/music" className="relative inline-block">
-                <img
-                  src="src/images/0015_Scan 2020-5-18 18.24.17.jpg"
-                  alt="/music"
-                  style={{ maxWidth: '200px', opacity: 0.5 }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  MUSIC
-                </div>
-              </a>
-
-              <a href="/movement" className="relative inline-block">
-                <img
-                  src="src/images/0020_Scan 2020-5-18 18.00.22.jpg"
-                  alt="/Movement"
-                  style={{ maxWidth: '200px', opacity: 0.5 }}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  MOVEMENT
-                </div>
-              </a>
-
-              <a href="/visualart" className="relative inline-block">
-                <img
-                  src="src/images/0027_Scan 2020-5-18 17.58.47.jpg"
-                  alt="Visual Art"
-                  style={{ maxWidth: '200px' , opacity: 0.5}}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                 VISUAL ART
-                </div>
-              </a>
-            </div>
+<BackgroundLines />
+     <div className="flex justify-end">
+     <h3 className="font-mono max-w-md p-10 pr-5 pb-5 text-right text-gray-500 bg-slate-200">
+        Welcome to our app! Discover a world of creativity and inspiration
+        through creative writing, music, movement, and visual art. Unleash your
+        imagination and embark on a journey of self-expression and growth with
+        our diverse range of prompts and activities. Let's start creating and
+        exploring together!"
+      </h3>
+      <div className="fixed bottom-0 text-left p-4">
+        <div>
+        <div className="flex flex-col gap-2 text-6xl text-slate-500 hover:text-slate-200">
+            <Link to="/creativewriting"   className="hover:text-gray-500" onClick={handleClickCreativeWriting}>
+              CREATIVE WRITING
+            </Link>
+            <Link to="/movement" className="hover:text-gray-500" onClick={handleClickMovement}>
+              MOVEMENT
+            </Link>
+            <Link to="/music" className="hover:text-gray-500" onClick={handleClickMusic}>
+              MUSIC
+            </Link>
+            <Link to="/visualart" className="hover:text-gray-500" onClick={handleClickVisualArt}>
+              VISUAL ART
+            </Link>
           </div>
         </div>
       </div>
-
-
+      </div>
     </>
   );
 };
