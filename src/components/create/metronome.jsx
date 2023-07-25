@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const Metronome = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [bpm, setBpm] = useState(120);
   const [intervalId, setIntervalId] = useState(null);
-  const audioContextRef = React.useRef(new (window.AudioContext || window.webkitAudioContext)());
+  const audioContextRef = React.useRef(
+    new (window.AudioContext || window.webkitAudioContext)()
+  );
 
   useEffect(() => {
     if (isRunning) {
@@ -27,7 +29,7 @@ const Metronome = () => {
 
   const playTickSound = () => {
     const oscillator = audioContextRef.current.createOscillator();
-    oscillator.type = 'square';
+    oscillator.type = "square";
     oscillator.frequency.value = 1000; // Adjust this to change the pitch of the metronome tick
     oscillator.connect(audioContextRef.current.destination);
     oscillator.start();
@@ -68,7 +70,7 @@ const Metronome = () => {
         />
       </div>
       <button onClick={handleStartStopClick}>
-        {isRunning ? 'Stop' : 'Start'}
+        {isRunning ? "Stop" : "Start"}
       </button>
     </div>
   );
