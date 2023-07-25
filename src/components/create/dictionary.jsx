@@ -30,8 +30,9 @@ const Dictionary = ({}) => {
 
     return (
         <>
+        <div className="border p-4">
             <form onSubmit={handlePost}>
-                <label>Don't recognize a word?</label>
+                <label>Define : </label>
                 <input
                     type="text"
                     value={word}
@@ -42,9 +43,10 @@ const Dictionary = ({}) => {
                         padding: '8px'
                     }}
                 />
-                <button className="button-25" type="submit">Ask ChatGPT</button>
+                <button className="border p-4 m-4" type="submit">Ask ChatGPT</button>
             </form>
             <h2>Definition: {definition}</h2>
+            </div>
         </>
     );
 };

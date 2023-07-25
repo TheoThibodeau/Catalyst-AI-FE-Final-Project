@@ -44,8 +44,8 @@ const Stopwatch = () => {
   };
 
   return (
-    <div>
-      <h2>Stopwatch</h2>
+    <div className="border p-4">
+      
       <div>
         <span>Time: {formatTime(time)}</span>
       </div>

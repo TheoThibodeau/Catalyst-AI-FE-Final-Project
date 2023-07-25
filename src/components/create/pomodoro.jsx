@@ -55,8 +55,8 @@ const PomodoroTimer = () => {
   };
 
   return (
-    <div>
-      <h2>Pomodoro Timer</h2>
+    <div className="border p-4">
+     
       <div>
         <span>Time remaining: {formatTime(secondsLeft)}</span>
       </div>

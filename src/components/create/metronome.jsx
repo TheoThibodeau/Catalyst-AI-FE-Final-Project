@@ -21,7 +21,6 @@ const Metronome = () => {
   }, [isRunning, bpm, intervalId]);
 
   const tick = () => {
-    // Play sound or perform any other action on each tick
     console.log('Tick!');
   };
 
@@ -40,8 +39,8 @@ const Metronome = () => {
   };
 
   return (
-    <div>
-      <h2>Metronome</h2>
+    <div className="border p-4 ">
+   
       <div>
         <label htmlFor="bpm">BPM:</label>
         <input

@@ -34,18 +34,19 @@ const Landing = () => {
 
     const Navigate = useNavigate();
 
-  const handleClickCreativeWriting = () => {
-    Navigate("/creativewriting");
-  };
-  const handleClickMusic = () => {
-    Navigate("/music");
-  };
-  const handleClickMovement = () => {
-    Navigate("/movement");
-  };
-  const handleClickVisualArt = () => {
-    Navigate("/visualart");
-  };
+    const handleClickCreativeWriting = () => {
+        Navigate('/creativewriting');
+      };
+      const handleClickMusic = () => {
+        Navigate('/music');
+      };
+      const handleClickMovement = () => {
+        Navigate('/movement');
+      };
+      const handleClickVisualArt = () => {
+        Navigate('/visualart');
+      };
+    
 
   return (
     <>
