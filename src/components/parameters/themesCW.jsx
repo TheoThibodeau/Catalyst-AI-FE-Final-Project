@@ -20,7 +20,7 @@ const ThemesCWParameters = () => {
                 </div>
                 <div className="flex flex-wrap">
                     {mappedThemes.map((theme) => (
-                        <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={theme} onClick={() => handleThemeChange(theme)}>
+                        <button className="flex items-center justify-center p-3 m-3 h-15 bg-indigo-100 border border-black hover:bg-gray-200 text-black font-sans rounded-md" key={theme} onClick={() => handleThemeChange(theme)}>
                             {theme}
                         </button>
                     ))}

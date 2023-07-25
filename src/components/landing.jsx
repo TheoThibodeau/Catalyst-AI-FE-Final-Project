@@ -52,7 +52,7 @@ const Landing = () => {
     <>
 <BackgroundLines />
      <div className="flex justify-end">
-     <h3 className="font-mono max-w-md p-10 pr-5 pb-5 text-right text-gray-500 bg-slate-200">
+     <h3 className="font-mono max-w-md p-10 mt-20 mr-5 pr-5 pb-5 text-right text-gray-500 bg-slate-200">
         Welcome to our app! Discover a world of creativity and inspiration
         through creative writing, music, movement, and visual art. Unleash your
         imagination and embark on a journey of self-expression and growth with

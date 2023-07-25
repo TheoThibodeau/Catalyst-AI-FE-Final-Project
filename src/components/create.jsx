@@ -27,12 +27,12 @@ const Create = ({ postId, output }) => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full p-4">
-      <div className="w-full lg:w-3/4 xl:w-1/2 pb-4">
-        <div className="text-center font-extralight text-xl">
+    <div className="flex flex-wrap items-center w-full p-4">
+      <div className="w-full lg:w-3/4 xl:w-1/2 pb-4 pl-10 pr-10">
+        <div className="font-roboto text-center p-7 pr-10 pl-10 mt-20 border font-extralight text-xl">
           Prompt: {output}
         </div>
-        <div className="flex flex-row space-y-4 mt-4">
+        <div className="flex flex-row space-y-4 mt-4 pt-10">
           <button
             className="w-full px-4 py-2 hover:underline text-gray-800 font-mono text-center"
             onClick={() => setActiveComponent("Stopwatch")}
@@ -65,7 +65,7 @@ const Create = ({ postId, output }) => {
           </button>
         </div>
       </div>
-      <div className="w-full p-4 flex flex-grow lg:w-1/2 justify-center">
+      <div className="w-full p-4 pb-10 flex flex-grow lg:w-1/2 justify-center">
         {components[activeComponent]}
       </div>
       <div className="w-full p-4">
