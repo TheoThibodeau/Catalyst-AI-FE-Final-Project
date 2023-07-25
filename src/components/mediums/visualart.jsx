@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import ParameterComponent from "../parameters/ParameterComponent.jsx";
 
 const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
@@ -11,6 +12,8 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [sentiment, setSentiment] = useState("");
     const [promptLength, setPromptLength] = useState("");
     const [postId, setPostId] = useState(null);
+    const [activeElement, setActiveElement] = useState("themes");
+
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -60,11 +63,41 @@ const mappedVisualArtThemes = data.visualArtThemes
 const mappedVisualArtMedium = data.visualArtMedium
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedPromptLength = ['one word', 'three words', 'prompt']
+const mappedPromptLength = data.promptLength
+
+const handleStateSet = (key, value) => {
+    if (key === "Themes") {
+        handleVisualArtThemes(value)
+        setActiveElement("themes")
+    }
+    if (key === "Elements") {
+        console.log("key", key)
+        console.log("value", value)
+        handleElements(value)
+        setActiveElement("concepts")
+    }
+    if (key === "Concepts") {
+        handleConcepts(value)
+        setActiveElement("emotion")
+    }
+    if (key === "Emotions") {
+        handleEmotionChange(value)
+        setActiveElement("promptLength")
+    }
+    if (key === "Prompt Length") {
+        handlePromptLength(value)
+    }
+}
+
+const keys = ["themes", "elements", "concepts", "emotion", "promptLength"]
+
 
 return (
 <>
-    <h1>VISUAL ART</h1>
+
+<ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
+
+    {/* <h1>VISUAL ART</h1>
     <h2>THEMES</h2>
 
     <div>
@@ -102,7 +135,7 @@ return (
     </div>   
     <div>
         {mappedEmotion.map((emotion) => (
-            <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
+            <button key={emotion} onClick={() => hand             leEmotionChange(emotion)}>
                 {emotion}
             </button>
         ))}
@@ -133,7 +166,7 @@ return (
             </button>
         ))}
     </div>
-    <br></br>
+    <br></br> */}
 
     <button className="generate-button" onClick={handlePost}>
         GENERATE

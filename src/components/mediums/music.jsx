@@ -13,6 +13,7 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     const [promptLength, setPromptLength] = useState("");
     const [postId, setPostId] = useState(null);
     const [activeElement, setActiveElement] = useState("explorations");
+    const [generateButton, setGenerateButton] = useState(false);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -29,158 +30,90 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
             setPostId(response.data.id)
         })}
     
-    const handleExplorations = (selectedExplorations) => {
-        setExplorations(selectedExplorations);
-        }
+        const handleExplorations = (selectedExplorations) => {
+            setExplorations(selectedExplorations);
+            }
         console.log("explorations", explorations)
+
+        const handleElements = (selectedElements) => {
+            setElements(selectedElements);
+        }
+        console.log("elements", elements)
         
-    const handleConcepts = (selectedConcepts) => {
-        setConcepts(selectedConcepts);
-        console.log(selectedConcepts)
-    }
+        const handleConcepts = (selectedConcepts) => {
+            setConcepts(selectedConcepts);
+        }
+        console.log("concepts", concepts)
+        
+        const handleEmotionChange = (selectedEmotion) => {
+            setEmotion(selectedEmotion);
+            console.log("emotion", emotion)
+        }
 
-    const handleEmotionChange = (selectedEmotion) => {
-        setEmotion(selectedEmotion);
-        console.log(selectedEmotion)
-    }
+        const handlePromptLength = (selectedPromptLength) => {
+            setPromptLength(selectedPromptLength);
+            setGenerateButton(true);
+        }
+        console.log("promptLength", promptLength)
 
-    const handleElements = (selectedElements) => {
-        setElements(selectedElements);
-    }
-    console.log("elements", elements)
-
-    const handlePromptLength = (selectedPromptLength) => {
-        setPromptLength(selectedPromptLength);
-        console.log(selectedPromptLength)
-    }
-
-    const handleClickCreatePage = () => {
-        setMusicGenerativeSpace(true)
-    }
+        const handleClickCreatePage = () => {
+            setMusicGenerativeSpace(true)
+        }
 
 const mappedExplorations = data.explorations
 const mappedConcepts = data.concepts
 const mappedEmotion = data.emotion
 const mappedElements = data.elements
-const mappedPromptLength = ['one word', 'three words', 'prompt']
+const mappedPromptLength = data.promptLength
 
 const handleStateSet = (key, value) => {
     if (key === "Music Explorations") {
-        console.log("key", key)
-        console.log("value", value)
         handleExplorations(value)
         setActiveElement("elements")
     }
     if (key === "Elements") {
+        console.log("key", key)
+        console.log("value", value)
         handleElements(value)
+        setActiveElement("concepts")
     }
-    // if (key === "explorations") {
-    //     handleExplorations(value)
-    // }
-    // if (key === "explorations") {
-    //     handleExplorations(value)
-    // }
-    // if (key === "explorations") {
-    //     handleExplorations(value)
-    // }
-    // if (key === "explorations") {
-    //     handleExplorations(value)
-    // }
+    if (key === "Concepts") {
+        handleConcepts(value)
+        setActiveElement("emotion")
+    }
+    if (key === "Emotions") {
+        handleEmotionChange(value)
+        setActiveElement("promptLength")
+    }
+    if (key === "Prompt Length") {
+        handlePromptLength(value)
+    }
 }
-// const renderActiveState = (key) => {
-//     if key === 
-// }
-const keys = ["explorations", "elements"]
+
+const keys = ["explorations", "elements", "concepts", "emotion", "promptLength"]
 
 return (
-<>
+    <>
+    <ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
 
-    {/* <h1>MUSIC</h1>
-    <h2>EXPLORATIONS</h2> */}
-    {/* {keys.map(key => ( */}
-        <ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
-    {/* ))} */}
-
-    {/* <div>
-            <h3> Selected Explorations: <br></br> {explorations}</h3>
-        </div>
-        <div>
-            {mappedExplorations.map((explorations) => (
-            <button key={explorations} onClick={() => handleExplorations(explorations)}>
-                {explorations}
-            </button>
-            ))}
-
-            </div>    
-        <br></br>
-
-    <h2>ELEMENTS</h2>
-
-        <div>
-            <h3> Selected Element: <br></br> {elements}</h3>
-        </div>
-        <div>
-            {mappedElements.map((elements) => (
-            <button key={elements} onClick={() => handleElements(elements)}>
-                {elements}
-            </button>
-            ))}
-
-            </div>    
-        <br></br>
-
-    <h2>CONCEPTS</h2>
-        <div>
-            <h3>Selected Concept : <br></br> {concepts}</h3>
-        </div>
-        <div>
-            {mappedConcepts.map((concepts) => (
-                <button key={concepts} onClick={() => handleConcepts(concepts)}>
-                    {concepts}
-                </button>
-            ))}
+    {generateButton ? (
+        <>
+            <div>
+            <div>
+                <button className="generate-button" onClick={handlePost}>
+                    GENERATE
+                </button>     
+            </div> 
+            <div className="promptresponse">
+            {postId && <MusicPrompt  postId={postId} setOutput={setOutput} output={output} />}
             </div>
-        <br></br>
-    
-    <h2>EMOTION</h2>
-    <div>
-        <h3>Selected Emotion: <br></br> {emotion}</h3>
-    </div>   
-    <div>
-        {mappedEmotion.map((emotion) => (
-            <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
-                {emotion}
-            </button>
-        ))}
-    </div>
-    <br></br>
-    
-
-    <h2>PROMPT LENGTH</h2>
-    <div>
-        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
-    </div>   
-    <div>
-        {mappedPromptLength.map((promptLength) => (
-            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
-                {promptLength}
-            </button>
-        ))}
-    </div>
-    <br></br> */}
-<div>
-    <div>
-    <button className="generate-button" onClick={handlePost}>
-        GENERATE
-    </button>     
-    </div> 
-    <div className="promptresponse">
-    {postId && <MusicPrompt  postId={postId} setOutput={setOutput} output={output} />}
-    </div>
-    </div>
-    <button className="begin-button" onClick={handleClickCreatePage}>
-        BEGIN
-    </button> 
+            </div>
+            <button className="begin-button" onClick={handleClickCreatePage}>
+                BEGIN
+            </button> 
+        </>
+    ) : (<></>)
+    }
     </>
     );
 };
