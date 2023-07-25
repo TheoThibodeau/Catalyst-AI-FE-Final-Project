@@ -27,14 +27,17 @@
         "Loss"
       ]},
 
-    "categories": [
+    "categories": {
+      "title": "Categories",
+      "data":
+      [
       "Discovery and Exploration",
 			"Identity and Belonging", 
 			"Nature and Environment", 
 			"Historical",
 			"Transformation and Metamorphosis",
 			"Mythology and Folklore"
-    ],
+    ]},
 
     "sentiment": {
       "title": "Sentiment",
@@ -59,7 +62,10 @@
         "Grief"
     ]},
     
-    "visualArtMedium" :[
+    "visualArtMedium": {
+      "title": "Medium",
+      "data":
+      [
       "painting",
       "drawing",
       "sculpture",
@@ -68,16 +74,19 @@
       "illustration",
       "photography",
       "mixed media"
-    ],
+    ]},
 
-    "visualArtThemes":[
+    "visualArtThemes":{
+      "title": "Visual Art Themes",
+      "data":
+      [
 			"Nature and Landscape", 
 			"Portraiture and Human Expression",
 			"Abstract and Non-Representational", 
 			"Surrealism",
 			"Fantasy and Mythology",
 			"Mood and Atmosphere"
-    ],
+    ]},
 
     "movementThemes": {
       "title": "Movement Themes",
