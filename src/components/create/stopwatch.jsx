@@ -47,12 +47,12 @@ const Stopwatch = () => {
     <div className="border p-4">
       
       <div>
-        <span>Time: {formatTime(time)}</span>
+        <span className="center-item">Time: {formatTime(time)}</span>
       </div>
-      <div>
-        <button onClick={start}>Start</button>
-        <button onClick={pause}>Pause</button>
-        <button onClick={reset}>Reset</button>
+      <div className="">
+        <button className="p-4" onClick={start}>Start</button>
+        <button className="p-4" onClick={pause}>Pause</button>
+        <button className="p-4"onClick={reset}>Reset</button>
       </div>
     </div>
   );
