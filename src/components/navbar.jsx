@@ -24,13 +24,13 @@ const NavBar = () => {
           <span>PROMPT</span>
           {isDropdownOpen && (
             <div className="text-base">
-              <Link to="/creativewriting">CREATIVE WRITING</Link>
+              <Link to="/creativewriting" onClick={handleClickCreativeWriting}>CREATIVE WRITING</Link>
               <br></br>
-              <Link to="/movement">MOVEMENT</Link>
+              <Link to="/movement" onClick={handleClickMovement}>MOVEMENT</Link>
               <br></br>
-              <Link to="/music">MUSIC</Link>
+              <Link to="/music" onClick={handleClickMusic}>MUSIC</Link>
               <br></br>
-              <Link to="/visualart">VISUAL ART</Link>
+              <Link to="/visualart" onClick={handleClickVisualArt}>VISUAL ART</Link>
             </div>
           )}
         </div>
