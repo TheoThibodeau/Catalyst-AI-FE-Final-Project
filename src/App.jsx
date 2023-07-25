@@ -17,7 +17,7 @@ function App() {
     <div className="bg-white">
     <BrowserRouter>
     <Routes>
-    <Route element={<NavBar />}>
+    <Route>
         <Route path="/" element={<Landing />} />
         <Route path ="/creativewriting" element={<PromptParents postId={postId} />} /> 
         <Route path ="/movement" element={<MovementPromptParent postId={postId} />} /> 
