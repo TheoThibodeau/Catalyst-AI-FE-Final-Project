@@ -116,7 +116,9 @@
         "mindful movement",
         "kenisthetics"
       ],
-      "explorations": [
+      "explorations": {
+        "title": "Music Explorations",
+        "data": [
         "Cinematic Score",
         "Collaborative Composition",
         "Genre Fusion",
@@ -132,7 +134,7 @@
         "Nature Soundscape",
         "One-Note Challenge",
         "Rhythmic Exploration"
-      ],
+      ]},
 
       "concepts": [
         "Dynamics",
@@ -146,7 +148,10 @@
         "Pitch"
         ],
         
-        "elements": [
+        "elements": {
+          "title": "Elements",
+          "data":
+          [
             "Fire",
             "Water",
             "Earth",
@@ -157,5 +162,5 @@
             "Movement",
             "Time",
             "Space"
-          ]
+          ]}
 }
