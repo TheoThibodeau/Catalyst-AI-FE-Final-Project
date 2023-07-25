@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
+import MediumsCWParameters from "../parameters/mediumsCW/";
+import ThemesCWParameters from "../parameters/themesCW/";
 import {useNavigate} from 'react-router-dom'
 
 const CreativeWriting = ( { setOutput, output, setGenerativeSpace } ) => {
@@ -166,7 +168,7 @@ return (
     <button className="flex items-center justify-center p-3 m-3 h-15 bg-white border border-black hover:bg-gray-200 text-black font-sans rounded-md" onClick={handleClickCreatePage}>
         BEGIN
     </button> 
-    </div>
+</div>
 </>
 )}
 
