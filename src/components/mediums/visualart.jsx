@@ -12,8 +12,8 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [sentiment, setSentiment] = useState("");
     const [promptLength, setPromptLength] = useState("");
     const [postId, setPostId] = useState(null);
-    const [activeElement, setActiveElement] = useState("themes");
-
+    const [activeElement, setActiveElement] = useState("visualArtThemes");
+    const [generateButton, setGenerateButton] = useState(false);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -53,6 +53,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
+        setGenerateButton(true);
     }
 
     const handleClickCreatePage = () => {
@@ -66,22 +67,22 @@ const mappedSentiment = data.sentiment
 const mappedPromptLength = data.promptLength
 
 const handleStateSet = (key, value) => {
-    if (key === "Themes") {
+    if (key === "Visual Art Themes") {
         handleVisualArtThemes(value)
-        setActiveElement("themes")
+        setActiveElement("visualArtMedium")
     }
-    if (key === "Elements") {
+    if (key === "Medium") {
         console.log("key", key)
         console.log("value", value)
-        handleElements(value)
-        setActiveElement("concepts")
-    }
-    if (key === "Concepts") {
-        handleConcepts(value)
+        handleVisualArtMedium(value)
         setActiveElement("emotion")
     }
     if (key === "Emotions") {
         handleEmotionChange(value)
+        setActiveElement("sentiment")
+    }
+    if (key === "Sentiment") {
+        handleSentimentChange(value)
         setActiveElement("promptLength")
     }
     if (key === "Prompt Length") {
@@ -89,7 +90,7 @@ const handleStateSet = (key, value) => {
     }
 }
 
-const keys = ["themes", "elements", "concepts", "emotion", "promptLength"]
+const keys = ["visualArtThemes", "visualArtMedium", "emotion", "sentiment", "promptLength"]
 
 
 return (
@@ -97,88 +98,24 @@ return (
 
 <ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
 
-    {/* <h1>VISUAL ART</h1>
-    <h2>THEMES</h2>
-
-    <div>
-        <h3> Selected Theme: <br></br> {visualArtThemes}</h3>
-    </div>
-    <div>
-    {mappedVisualArtThemes.map((visualArtThemes) => (
-    <button key={visualArtThemes} onClick={() => handleVisualArtThemes(visualArtThemes)}>
-        {visualArtThemes}
-    </button>
-    ))}
-
-    </div>    
-<br></br>
-
-    <h2>MEDIUM</h2>
-
-        <div>
-            <h3> Selected Medium: <br></br> {visualArtMedium}</h3>
-        </div>
-        <div>
-            {mappedVisualArtMedium.map((visualArtMedium) => (
-            <button key={visualArtMedium} onClick={() => handleVisualArtMedium(visualArtMedium)}>
-                {visualArtMedium}
-            </button>
-            ))}
-
-            </div>    
-        <br></br>
-
-    
-    <h2>EMOTION</h2>
-    <div>
-        <h3>Selected Emotion: <br></br> {emotion}</h3>
-    </div>   
-    <div>
-        {mappedEmotion.map((emotion) => (
-            <button key={emotion} onClick={() => hand             leEmotionChange(emotion)}>
-                {emotion}
-            </button>
-        ))}
-    </div>
-    <br></br>
-
-    <h2>SENTIMENT</h2>
-        <div>
-            <h3>Selected Sentiment: <br></br> {sentiment}</h3>
-        </div>   
-        <div>
-            {mappedSentiment.map((sentiment) => (
-                <button key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
-                    {sentiment}
-                </button>
-            ))}
-        </div>
-        <br></br>
-
-    <h2>PROMPT LENGTH</h2>
-    <div>
-        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
-    </div>   
-    <div>
-        {mappedPromptLength.map((promptLength) => (
-            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
-                {promptLength}
-            </button>
-        ))}
-    </div>
-    <br></br> */}
-
-    <button className="generate-button" onClick={handlePost}>
-        GENERATE
-    </button>    
-    <button className="begin-button" onClick={handleClickCreatePage}>
-        BEGIN
-    </button>   
-    
-    {postId && <VisualArtPrompt  postId={postId} setOutput={setOutput} output={output} />}
-    <button className="begin-button" onClick={handleClickCreatePage}>
-        BEGIN
-    </button> 
+{generateButton ? (
+        <>
+            <div>
+            <div>
+                <button className="generate-button" onClick={handlePost}>
+                    GENERATE
+                </button>     
+            </div> 
+            <div className="promptresponse">
+            {postId && <VisualArtPrompt  postId={postId} setOutput={setOutput} output={output} />}
+            </div>
+            </div>
+            <button className="begin-button" onClick={handleClickCreatePage}>
+                BEGIN
+            </button> 
+        </>
+    ) : (<></>)
+    }
 </>
 )}
 

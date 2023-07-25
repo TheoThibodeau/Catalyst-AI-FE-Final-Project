@@ -13,6 +13,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [sentiment, setSentiment] = useState("");
     const [promptLength, setPromptLength] = useState("");
     const [activeElement, setActiveElement] = useState("movementSomatics");
+    const [generateButton, setGenerateButton] = useState(false);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -51,6 +52,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
 
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
+        setGenerateButton(true);
         console.log(selectedPromptLength)
     }
 
@@ -98,16 +100,24 @@ return (
 <>
 <ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
 
-    <br></br>
-    <button className="generate-button" onClick={handlePost}>
-        GENERATE
-    </button>      
-    <div className="promptbox">
-    {postId && <MovementPrompt  postId={postId} setOutput={setOutput} output={output} />}
-    </div>
-    <button className="begin-button" onClick={handleMovementClickCreatePage}>
-        BEGIN
-    </button> 
+{generateButton ? (
+        <>
+            <div>
+            <div>
+                <button className="generate-button" onClick={handlePost}>
+                    GENERATE
+                </button>     
+            </div> 
+            <div className="promptresponse">
+            {postId && <MovementPrompt  postId={postId} setOutput={setOutput} output={output} />}
+            </div>
+            </div>
+            <button className="begin-button" onClick={handleMovementClickCreatePage}>
+                BEGIN
+            </button> 
+        </>
+    ) : (<></>)
+    }
 </>
 )}
 
