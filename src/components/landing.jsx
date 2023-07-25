@@ -4,21 +4,21 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Landing = () => {
-  const [output, setOutput] = useState("");
-  const [responseID, setResponseID] = useState("");
+  const [output, setOutput] = useState('');
+  const [responseID, setResponseID] = useState('');
 
-
-  const BackgroundLines = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="absolute top-20 left-0 w-full h-full"
-      preserveAspectRatio="none"
-      viewBox="0 0 100 100"
-    >
-      <line x1="0" y1="20" x2="100" y2="50" stroke="#ccc" strokeWidth="0.5" />
-      <line x1="0" y1="0" x2="20" y2="100" stroke="#ccc" strokeWidth="0.5" />
-    </svg>
-  );
+    // useEffect(()=> {
+    //     axios
+    //     .post('https://catalyst-x226.onrender.com/api/welcome/generate/')
+    //     .then((response) => {
+    //         setResponseID(response.data.id)
+    //     }) 
+    //     axios
+    //         .get(`https://catalyst-x226.onrender.com/api/welcome/${responseID}`)
+    //         .then((response) => {
+    //             setOutput(response.data.output)}) 
+    // },[])
+  
   const Navigate = useNavigate();
 
   const handleClickCreativeWriting = () => {

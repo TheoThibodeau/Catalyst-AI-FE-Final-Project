@@ -4,10 +4,6 @@ import './index.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from './components/landing.jsx';
 import Create from './components/create.jsx'
-import Movement from './components/mediums/movement.jsx';
-import Music from './components/mediums/music';
-import VisualArt from './components/mediums/visualart';
-import CreativeWriting from './components/mediums/creativewriting.jsx'
 import NavBar from './components/navbar.jsx';
 import Folio from './components/folio.jsx';
 import PromptParents from './components/promptparents/promptshare.jsx';
