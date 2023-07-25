@@ -3,6 +3,7 @@ import axios from "axios";
 import data from "/prompt.json";
 import MusicPrompt from "../promptresponse/musicprompt.jsx";
 import {useNavigate} from 'react-router-dom'
+import ParameterComponent from "../parameters/ParameterComponent.jsx";
 
 const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     const [explorations, setExplorations] = useState("");
@@ -11,6 +12,7 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     const [emotion, setEmotion] = useState("");
     const [promptLength, setPromptLength] = useState("");
     const [postId, setPostId] = useState(null);
+    const [activeElement, setActiveElement] = useState("explorations");
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -29,9 +31,9 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     
     const handleExplorations = (selectedExplorations) => {
         setExplorations(selectedExplorations);
-        console.log(selectedExplorations)
         }
-    
+        console.log("explorations", explorations)
+        
     const handleConcepts = (selectedConcepts) => {
         setConcepts(selectedConcepts);
         console.log(selectedConcepts)
@@ -44,8 +46,8 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
 
     const handleElements = (selectedElements) => {
         setElements(selectedElements);
-        console.log(selectedElements)
     }
+    console.log("elements", elements)
 
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
@@ -62,12 +64,44 @@ const mappedEmotion = data.emotion
 const mappedElements = data.elements
 const mappedPromptLength = ['one word', 'three words', 'prompt']
 
+const handleStateSet = (key, value) => {
+    if (key === "Music Explorations") {
+        console.log("key", key)
+        console.log("value", value)
+        handleExplorations(value)
+        setActiveElement("elements")
+    }
+    if (key === "Elements") {
+        handleElements(value)
+    }
+    // if (key === "explorations") {
+    //     handleExplorations(value)
+    // }
+    // if (key === "explorations") {
+    //     handleExplorations(value)
+    // }
+    // if (key === "explorations") {
+    //     handleExplorations(value)
+    // }
+    // if (key === "explorations") {
+    //     handleExplorations(value)
+    // }
+}
+// const renderActiveState = (key) => {
+//     if key === 
+// }
+const keys = ["explorations", "elements"]
+
 return (
 <>
-    <h1>MUSIC</h1>
-    <h2>EXPLORATIONS</h2>
 
-    <div>
+    {/* <h1>MUSIC</h1>
+    <h2>EXPLORATIONS</h2> */}
+    {/* {keys.map(key => ( */}
+        <ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
+    {/* ))} */}
+
+    {/* <div>
             <h3> Selected Explorations: <br></br> {explorations}</h3>
         </div>
         <div>
@@ -133,7 +167,7 @@ return (
             </button>
         ))}
     </div>
-    <br></br>
+    <br></br> */}
 <div>
     <div>
     <button className="generate-button" onClick={handlePost}>
