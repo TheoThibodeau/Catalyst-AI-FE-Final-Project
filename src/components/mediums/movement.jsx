@@ -2,7 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import data from "/prompt.json";
 import MovementPrompt from "../promptresponse/movementprompt.jsx";
-import {useNavigate} from 'react-router-dom'
+import {useNavigate} from 'react-router-dom';
+import ParameterComponent from "../parameters/ParameterComponent.jsx";
 
 const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [movementSomatics, setMovementSomatics] = useState("");
@@ -11,6 +12,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [postId, setPostId] = useState(null);
     const [sentiment, setSentiment] = useState("");
     const [promptLength, setPromptLength] = useState("");
+    const [activeElement, setActiveElement] = useState("movementSomatics");
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -60,79 +62,41 @@ const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
-const mappedPromptLength = ['one word', 'three words', 'prompt']
+const mappedPromptLength = data.promptLength
+
+const handleStateSet = (key, value) => {
+    if (key === "Movement Somatics") {
+        handleMovementSomatics(value)
+        setActiveElement("movementThemes")
+        console.log("key", key)
+        console.log("value", value)
+    }
+    if (key === "Movement Themes") {
+        handleMovementThemes(value)
+        setActiveElement("emotion")
+        console.log("key", key)
+        console.log("value", value)
+    }    
+    if (key === "Emotions") {
+            handleEmotionChange(value)
+            setActiveElement("sentiment")
+        }
+    if (key === "Sentiment") {
+        handleSentimentChange(value)
+        setActiveElement("promptLength")
+    }
+
+    if (key === "Prompt Length") {
+        handlePromptLength(value)
+        
+    }
+}
+
+const keys = ["movementSomatics", "movementThemes", "emotion", "sentiment", "promptLength"]
 
 return (
 <>
-    <h1>MOVEMENT</h1>
-    <h2>MOVEMENT SOMATIC</h2>
-
-    <div>
-        <h3> Selected Movement Somatics: <br></br> {movementSomatics}</h3>
-        </div>
-        <div>
-            {mappedMovementSomatics.map((movementSomatics) => (
-            <button key={movementSomatics} onClick={() => handleMovementSomatics(movementSomatics)}>
-                {movementSomatics}
-            </button>
-            ))}
-
-            </div>    
-        <br></br>
-
-    <h2>MOVEMENT THEMES</h2>
-
-        <div>
-            <h3> Selected Theme: <br></br> {movementThemes}</h3>
-        </div>
-        <div>
-            {mappedMovementThemes.map((theme) => (
-            <button key={theme} onClick={() => handleMovementThemes(theme)}>
-                {theme}
-            </button>
-            ))}
-
-            </div>    
-        <br></br>
-    
-        <h2>EMOTION</h2>
-    <div>
-        <h3>Selected Emotion: <br></br> {emotion}</h3>
-    </div>   
-    <div>
-        {mappedEmotion.map((emotion) => (
-            <button key={emotion} onClick={() => handleEmotionChange(emotion)}>
-                {emotion}
-            </button>
-        ))}
-    </div>
-    <br></br>
-
-    <h2>SENTIMENT</h2>
-        <div>
-            <h3>Selected Sentiment: <br></br> {sentiment}</h3>
-        </div>   
-        <div>
-            {mappedSentiment.map((sentiment) => (
-                <button key={sentiment} onClick={() => handleSentimentChange(sentiment)}>
-                    {sentiment}
-                </button>
-            ))}
-        </div>
-        <br></br>
-
-    <h2>PROMPT LENGTH</h2>
-    <div>
-        <h3>Selected Prompt Length: <br></br> {promptLength}</h3>
-    </div>   
-    <div>
-        {mappedPromptLength.map((promptLength) => (
-            <button key={promptLength} onClick={() => handlePromptLength(promptLength)}>
-                {promptLength}
-            </button>
-        ))}
-    </div>
-    <br></br>
+<ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
 
     <br></br>
     <button className="generate-button" onClick={handlePost}>

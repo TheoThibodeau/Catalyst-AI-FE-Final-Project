@@ -15,138 +15,113 @@
         "descriptive"
     ], 
 
-    "themes": [
-      "association",
-      "emotion",
-      "exploration",
-      "historical and cultural",
-      "conceptual"
-    ],
+    "themes": {
+      "title": "Themes",
+      "data":
+      [
+        "Relationships and Love",
+        "Survival",
+        "Injustice",
+        "Redemption",
+        "Good versus Evil",
+        "Loss"
+      ]},
 
     "categories": [
-      "relationship and love",
-      "mythology and folklore",
-      "surrealism and dreams",
-      "history",
-      "identity and diversity",
-      "nature and environment",
-      "personal growth and reflection",
-      "social issues and advocacy",
-      "imagery and symbolism"
+      "Discovery and Exploration",
+			"Identity and Belonging", 
+			"Nature and Environment", 
+			"Historical",
+			"Transformation and Metamorphosis",
+			"Mythology and Folklore"
     ],
-    "sentiment": [
-      "harmony",
-      "resilience",
-      "fragility",
-      "majesty",
-      "serenity",
-      "wonder",
-      "transience",
-      "connection",
-      "solitude",
-      "renewal"
-    ],
-    "emotion": [
-      "joy",
-      "courage",
-      "melancholy",
-      "euphoria",
-      "longing",
-      "hope",
-      "awe",
-      "bliss",
-      "anguish",
-      "grief"
-    ],
+
+    "sentiment": {
+      "title": "Sentiment",
+      "data":
+      [
+      "Compassion",
+      "Gratitude", 
+			"Ambivalence", 
+			"Cynicism",
+			"Hopelessness", 
+			"Optimism"  
+    ]},
+    "emotion": {
+      "title": "Emotions",
+      "data":
+      [
+        "Joy",
+        "Surprise",
+        "Disappointment",
+        "Regret",
+        "Hope",
+        "Grief"
+    ]},
     
     "visualArtMedium" :[
-    "painting",
-    "drawing",
-    "sculpture",
-    "printmaking",
-    "digital art",
-    "illustration",
-    "photography",
-    "mixed media"
+      "painting",
+      "drawing",
+      "sculpture",
+      "printmaking",
+      "digital art",
+      "illustration",
+      "photography",
+      "mixed media"
     ],
 
     "visualArtThemes":[
-      "portraiture",
-      "abstraction",
-      "collage and mixed media",
-      "texture",
-      "experimentation",
-      "symbolism",
-      "social commentary",
-      "conceptual",
-      "minimalism",
-      "nature and landscapes",
-      "movement and energy",
-      "storytelling and narrative",
-      "light and shadow",
-      "harmony and balance"
+			"Nature and Landscape", 
+			"Portraiture and Human Expression",
+			"Abstract and Non-Representational", 
+			"Surrealism",
+			"Fantasy and Mythology",
+			"Mood and Atmosphere"
     ],
 
-    "movementThemes": [
-        "spacial awareness",
-        "rhythm and flow",
-        "nature in motion",
-        "emotional landscape",
-        "abstract expression",
-        "cultural fusion",
-        "expressive gestures",
-        "personal narratives",
-        "human connection"
-      ],
+    "movementThemes": {
+      "title": "Movement Themes",
+      "data":
+      [
+				"Nature and Elements",
+				"Storytelling and Narrative",
+				"Abstract Expression", 
+        "Spacial Awareness",
+        "Rhythm and Flow",
+				"Emotional Landscape"
+      ]},
 
-      "movementSomatics": [
-        "nature in motion",
-        "abstract expression",
-        "cultural fusion",
-        "expressive gestures",
-        "personal narratives",
-        "human connection",
-        "embodied awareness",
-        "breath and movement",
-        "body-mind connection",
-        "anatomy",
-        "authentic movement",
-        "grounding and centering",
-        "body mapping",
-        "mindful movement",
-        "kenisthetics"
-      ],
+      "movementSomatics": {
+        "title": "Movement Somatics",
+        "data":
+        [
+          "Cultural Fusion",
+          "Expressive Gestures",
+          "Embodied Awareness",
+          "Breath and Movement", 
+          "Authentic Movement"
+      ]},
       "explorations": {
         "title": "Music Explorations",
         "data": [
-        "Cinematic Score",
-        "Collaborative Composition",
-        "Genre Fusion",
-        "Incorporate Unconventional Instruments",
-        "Minimalism",
-        "Mood-based Composition",
-        "Mashup or Remix",
-        "Musical Haiku",
-        "Musical Storytelling",
-        "Musical Time Travel",
-        "Music for Visuals",
-        "Music Inspired by Art",
-        "Nature Soundscape",
-        "One-Note Challenge",
-        "Rhythmic Exploration"
+          "Collaborative Composition",
+          "Genre Fusion",
+          "Minimalism",
+          "Mood-based Composition",
+          "Nature Soundscape",
+          "Rhythmic Exploration"  
       ]},
 
-      "concepts": [
-        "Dynamics",
-        "Tempo",
-        "Timbre",
-        "Melody",
-        "Rhythm",
-        "Texture",
-        "Form",
-        "Expression",
-        "Pitch"
-        ],
+      "concepts": {
+        "title": "Concepts",
+        "data":
+        [
+          "Dynamics",
+          "Timbre",
+          "Melody",
+          "Rhythm",
+          "Expression"
+        ]},
         
         "elements": {
           "title": "Elements",
@@ -156,11 +131,15 @@
             "Water",
             "Earth",
             "Air",
-            "Light",
-            "Darkness",
-            "Sound",
-            "Movement",
-            "Time",
-            "Space"
-          ]}
+            "Light"
+          ]},
+        
+        "promptLength":{
+          "title": "Prompt Length",
+          "data":[
+            "one word",
+            "three words",
+            "prompt"
+          ]
+        }
 }

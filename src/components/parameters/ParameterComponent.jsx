@@ -8,7 +8,9 @@ const ParameterComponent = ({ data, handler }) => {
     console.log(data)
   return (
     <>
-    <h1 className="pb-4 text-slate-400">
+
+    <h1 className="pb-4 text-red-500 flex flex-col justify-center align-center w-full space-y-4">
+
         {title}
     </h1>
       {entries.map((entry) => (
