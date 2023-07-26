@@ -110,7 +110,7 @@ return (
         <>
             <div>
             <div>
-                <button className="generate-button" onClick={handlePost}>
+                <button  className="text-4xl" onClick={handlePost}>
                     GENERATE
                 </button>     
             </div> 
