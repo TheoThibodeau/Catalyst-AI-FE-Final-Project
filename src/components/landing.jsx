@@ -61,7 +61,7 @@ const Landing = () => {
       </h3>
       <div className="fixed bottom-0 text-left p-4">
         <div>
-        <div className="flex flex-col gap-2 text-6xl text-slate-500 hover:text-slate-200 space-y-4 ">
+        <div className="flex flex-col gap-2 text-6xl text-slate-500 hover:text-slate-200 space-y-4 mb-10 ">
             <Link to="/creativewriting"   className="hover:text-gray-500" onClick={handleClickCreativeWriting}>
               CREATIVE WRITING
             </Link>
