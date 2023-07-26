@@ -29,6 +29,9 @@ const Create = ({ postId, output }) => {
   return (
     <div className="flex flex-wrap items-center w-full p-4">
       <div className="w-full lg:w-3/4 xl:w-1/2 pb-4 pl-10 pr-10">
+        <div className="fixed-top-0 text-xl font-bold text-right">
+            folio   
+            </div>
         <div className="font-roboto text-center p-7 pr-10 pl-10 mt-20 border font-extralight text-xl">
           Prompt: {output}
         </div>
@@ -68,7 +71,12 @@ const Create = ({ postId, output }) => {
       <div className="w-full p-4 pb-10 flex flex-grow lg:w-1/2 justify-center">
         {components[activeComponent]}
       </div>
-      <div className="w-full p-4">
+      <div className="flex flex-end"> {/* Add this div */}
+    <button className="p-4 border m-4 lg:w-auto block mx-auto" onClick={log}>
+      Save
+    </button>
+  </div>
+      <div className="w-full p-4 ">
         <Editor
           apiKey='5c49z6msz9y26e8fv03ptpphkxydj6nybm6x070w4arrr81l'
           onInit={(evt, editor) => editorRef.current = editor}
@@ -88,9 +96,6 @@ const Create = ({ postId, output }) => {
             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
           }}
         />
-        <button className="p-4 border m-4 lg:w-auto block mx-auto" onClick={log}>
-          Save
-        </button>
       </div>
     </div>
   );
