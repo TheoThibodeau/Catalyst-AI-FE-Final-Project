@@ -11,4 +11,4 @@ const BackgroundLines = () => (
     </svg>
   );
 
-  r
+  
