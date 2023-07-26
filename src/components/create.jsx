@@ -33,7 +33,7 @@ const Create = ({ postId, output }) => {
             folio   
             </div>
         <div className="font-roboto text-center p-7 pr-10 pl-10 mt-20 border font-extralight text-xl">
-          Prompt: {output}
+           {output}
         </div>
         <div className="flex flex-row space-y-4 mt-4 pt-10">
           <button
