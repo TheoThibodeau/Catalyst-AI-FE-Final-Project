@@ -11,12 +11,12 @@ const ParameterComponent = ({ data, handler }) => {
     return (
         <>
       
-           <h1 className="pb-4 font-mono text-slate-900 text-6xl flex flex-col justify-center align-center w-full space-y-4">
+           <h1 className="pb-4 font-mono text-slate-500 text-6xl flex flex-col justify-center align-center w-full space-y-4">
         
                 {title}
             </h1>
               {entries.map((entry) => (
-                <div key={entry} className="flex flex-col justify-center align-center w-full space-y-6 pb-4 text-3xl pt-7">
+                <div key={entry} className="flex flex-col justify-center align-center w-full space-y-5 pb-4 text-3xl pt-4">
                     <button key={entry} onClick={() => handler(title, entry)}>
                         {entry}
                     </button>
