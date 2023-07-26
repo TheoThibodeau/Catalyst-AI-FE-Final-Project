@@ -16,7 +16,7 @@ const ParameterComponent = ({ data, handler }) => {
                 {title}
             </h1>
               {entries.map((entry) => (
-                <div key={entry} className="flex flex-col justify-center align-center w-full space-y-5 pb-4 text-3xl pt-4">
+                <div key={entry} className="flex flex-col justify-center align-center w-full space-y-5 pb-4 text-3xl pt-4 hover:underline">
                     <button key={entry} onClick={() => handler(title, entry)}>
                         {entry}
                     </button>
