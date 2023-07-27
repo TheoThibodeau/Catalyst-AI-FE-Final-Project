@@ -15,8 +15,14 @@ const VisualArtPrompt = ({ postId, setOutput, output  }) => {
         setIsLoading(false)
       })
       .catch((error) => console.error(error));
+      const timer = setTimeout(() => {
+        VisualArtPrompt({postId, setOutput, output});
+      }, 5000);
+
+      return () => clearTimeout(timer);
+      })
   },
-    [postId]);
+    [postId];
 
   return (
     <>
