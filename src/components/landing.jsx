@@ -53,7 +53,7 @@ const Landing = () => {
   return (
     <>
       <div className="bg-slate-100 py-4 border border-slate-300">
-        <div className="pt-2 pb-4 space-x-4 text-right pr-4 text-slate-300 ">
+        <div className="pt-2 pb-4 space-x-4 text-right pr-4 text-slate-300">
           <Link to="/create" onClick={handleClickCreate}>
             CREATE
           </Link>
@@ -102,7 +102,7 @@ const Landing = () => {
           <Link
             key={medium.title}
             to={medium.path}
-            className="text-gray-100 border bg-slate-400 pl-1"
+            className="text-gray-100 border border-slate-500 bg-slate-400 pl-1"
             onClick={medium.handler}
           >
             {medium.title}

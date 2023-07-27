@@ -102,12 +102,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const handleActiveNav = (newValue) => {
     // find object that is set to true and turn it to false -oldValue(false) newValue(true)
     // find object that matches the key and turn it to true
-    // let oldTarget = navData.filter((datum) => datum.isActive)[0];
-    // oldTarget.isActive = false;
-    // let newTarget = navData.filter(
-    //   (datum) => datum.title.toLowerCase() === newValue
-    // )[0];
-    // newTarget.isActive = true;
+
 
     const newState = navData.map(datum => {
         if (datum.isActive) {
@@ -164,7 +159,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     <>
       <div></div>
 
-      <div>
+      <div >
         <ParameterComponent
           key={activeElement}
           data={data[activeElement]}
@@ -178,11 +173,13 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
           <>
             <div>
               <div>
-                <button className="text-4xl" onClick={handlePost}>
+
+                <button 
+                className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500" onClick={handlePost}>
                   GENERATE
                 </button>
               </div>
-              <div className="promptresponse">
+              <div className="border border-slate-500 p-10">
                 {postId && (
                   <CreativeWritingPrompt
                     postId={postId}
@@ -190,9 +187,10 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                     output={output}
                   />
                 )}
+                <br></br>
               </div>
             </div>
-            <button className="begin-button" onClick={handleClickCreatePage}>
+            <button className="m-5 border border-slate-500 p-4" onClick={handleClickCreatePage}>
               BEGIN
             </button>
           </>
