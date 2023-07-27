@@ -11,22 +11,14 @@ const VisualArtPrompt = ({ postId, setOutput, output  }) => {
       .get(`https://catalyst-x226.onrender.com/api/response/visual_art/${postId}`)
       .then((response) => {
         setOutput(response.data.output);
-        
         setIsLoading(false)
       })
       .catch((error) => console.error(error));
-      const timer = setTimeout(() => {
-        VisualArtPrompt({postId, setOutput, output});
-      }, 5000);
-
-      return () => clearTimeout(timer);
-      })
   },
-    [postId];
+    [postId]);
 
   return (
     <>
-    
     {isLoading ?(
         <LoadingRobot/>
     ):(<h3>{output}</h3>)}
