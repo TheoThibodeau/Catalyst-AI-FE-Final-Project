@@ -14,8 +14,10 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [postId, setPostId] = useState(null);
     const [activeElement, setActiveElement] = useState("visualArtThemes");
     const [generateButton, setGenerateButton] = useState(false);
+   
 
     const handlePost = (e) => {
+        
         e.preventDefault();
         axios
         .post('https://catalyst-x226.onrender.com/api/visual_art/generate/',{
@@ -100,6 +102,9 @@ return (
 
 {generateButton ? (
         <>
+        <div className="container">
+        <div className="robot"></div>
+        </div>
             <div>
             <div>
                 <button className="generate-button" onClick={handlePost}>
