@@ -25,7 +25,7 @@ export default function LoadingRobot() {
             <div className="arm-right"></div>
             <div className="right-arm-connect"></div>
             <div className="shoulder-left"></div>
-            <div clasName="arm-left"></div>
+            <div className="arm-left"></div>
             <div className="left-arm-connect"></div>
         </div>
 

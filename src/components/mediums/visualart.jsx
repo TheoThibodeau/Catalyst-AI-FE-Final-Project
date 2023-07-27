@@ -4,7 +4,7 @@ import data from "/prompt.json";
 import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
 import {useNavigate} from 'react-router-dom';
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
-
+import MediumNav from "../parameters/MediumNav.jsx"; 
 
 const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
@@ -15,10 +15,31 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [postId, setPostId] = useState(null);
     const [activeElement, setActiveElement] = useState("visualArtThemes");
     const [generateButton, setGenerateButton] = useState(false);
-   
+    const initialNavDataValues = [
+        {
+            title: "Themes",
+            isActive: true,
+        },
+        {
+            title: "Medium", 
+            isActive: false,
+        },
+        {
+            title: "Emotion",
+            isActive: false,
+        },
+        {
+            title: "Sentiment",
+            isActive: false,
+        },
+        {
+            title: "Length",
+            isActive: false,
+        },
+    ];
+    const [navData, setNavData] = useState(initialNavDataValues);
 
     const handlePost = (e) => {
-        
         e.preventDefault();
         axios
         .post('https://catalyst-x226.onrender.com/api/visual_art/generate/',{
@@ -69,24 +90,49 @@ const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
 const mappedPromptLength = data.promptLength
 
+const handleActiveNav = (newValue) => {
+    const newState = navData.map(datum => {
+        if (datum.isActive) {
+            datum.isActive = false
+            return datum
+        }
+
+        if (datum.title.toLowerCase() === newValue) {
+            datum.isActive = true
+            return datum
+        }
+
+        return datum
+    })
+
+    setNavData(newState)
+};
+
 const handleStateSet = (key, value) => {
     if (key === "Visual Art Themes") {
         handleVisualArtThemes(value)
-        setActiveElement("visualArtMedium")
+        const newActiveElement = "visualArtMedium";
+        setActiveElement(newActiveElement);
+        handleActiveNav(newActiveElement);
+        
     }
     if (key === "Medium") {
-        console.log("key", key)
-        console.log("value", value)
         handleVisualArtMedium(value)
-        setActiveElement("emotion")
+        const newActiveElement = "emotion";
+        setActiveElement(newActiveElement);
+        handleActiveNav(newActiveElement);
     }
     if (key === "Emotions") {
         handleEmotionChange(value)
-        setActiveElement("sentiment")
+        const newActiveElement = "sentiment";
+        setActiveElement(newActiveElement);
+        handleActiveNav(newActiveElement);
     }
     if (key === "Sentiment") {
         handleSentimentChange(value)
-        setActiveElement("promptLength")
+        const newActiveElement = "promptLength";
+        setActiveElement(newActiveElement);
+        handleActiveNav("length");
     }
     if (key === "Prompt Length") {
         handlePromptLength(value)
@@ -98,9 +144,17 @@ const keys = ["visualArtThemes", "visualArtMedium", "emotion", "sentiment", "pro
 
 return (
 <>
+<div></div>
 
-<ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
-
+<div>
+<ParameterComponent 
+key={activeElement} 
+data={data[activeElement]} 
+handler={handleStateSet}
+mediumNavComponent={<MediumNav navData={navData} />}
+        />
+    </div>
+    <div>
 {generateButton ? (
         <>
         <div className="container">
@@ -113,16 +167,24 @@ return (
                 </button>     
             </div> 
             <div className="promptresponse">
-            {postId && <VisualArtPrompt  postId={postId} setOutput={setOutput} output={output} />}
+            {postId && (
+                <VisualArtPrompt  
+                postId={postId} 
+                setOutput={setOutput} 
+                output={output} 
+             />
+            )}
             </div>
             </div>
             <button className="begin-button" onClick={handleClickCreatePage}>
                 BEGIN
             </button> 
         </>
-    ) : (<></>)
-    }
+    ) : (
+        <></>
+    )}
+    </div>
 </>
-)}
-
+);
+};
 export default VisualArt;
