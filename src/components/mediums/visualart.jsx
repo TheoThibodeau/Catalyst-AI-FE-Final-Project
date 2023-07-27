@@ -5,6 +5,7 @@ import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
 import {useNavigate} from 'react-router-dom';
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 
+
 const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
     const [visualArtMedium, setVisualArtMedium] = useState("");

@@ -22,6 +22,7 @@ export default function LoadingRobot() {
     </div>
     <div className="torso"></div>
         <div className="chest"></div>
+        <div className="muse">muse</div>
         <div className="light-left"></div>
         <div className="light-middle"></div>
         <div className="light-right"></div>
