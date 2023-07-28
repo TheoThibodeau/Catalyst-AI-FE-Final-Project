@@ -5,6 +5,12 @@ import "./robot.css";
 export default function LoadingRobot() {
     return (
 <div className="container">
+    <div className="bubble-container">
+        <div class="triangle-bottom"></div>
+        <div class="speech-box">
+            <p>Click to generate a prompt.</p>
+        </div>
+        </div>
     <div className="robot">
         <div className="head">
             <div className="mouth"></div>
@@ -14,6 +20,8 @@ export default function LoadingRobot() {
             <div className="right-pupil"></div>
             <div className="left-dot"></div>
             <div className="right-dot"></div>
+            <div className="blink-right"></div>
+            <div className="blink-left"></div>
         </div>
         <div className="torso">
             <div className="chest"></div>
