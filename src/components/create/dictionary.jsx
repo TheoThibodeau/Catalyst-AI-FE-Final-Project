@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
-import axios from "axios";
+import axios from 'axios';
 
-const Dictionary = ({}) => {
-    
-    const [word, setWord] = useState("");
-    const [define, setDefine] = useState("");
-    const [synonym, setSynonym] = useState("");
-    const [antonym, setAntonym] = useState("");
-    const [sentence, setSentence] = useState("");
-    const [joke, setJoke] = useState("");
-    const [color, setColor] = useState("");
-    const [defineId, setDefineId] = useState("");
+const Dictionary = () => {
+  const [word, setWord] = useState('');
+  const [define, setDefine] = useState('');
+  const [synonym, setSynonym] = useState('');
+  const [antonym, setAntonym] = useState('');
+  const [sentence, setSentence] = useState('');
+  const [joke, setJoke] = useState('');
+  const [color, setColor] = useState('');
 
-    const handlePost = async (e) => {
-        e.preventDefault();
-        const res = await axios.post('https://catalyst-x226.onrender.com/api/definition/generate/', {
-                word: word,
-            })
-            .then((response) => {
-                setDefineId(response.data.id); 
-                });
-    const getResponse = await axios.get(`https://catalyst-x226.onrender.com/api/definition/${defineId}`)
-            .then((response) => {
-                setWord(response.data.word);
-                setDefinition(response.data.definition);
-                setSynonym(response.data.synonym);
-                setAntonym(response.data.antonym);
-                setSentence(response.data.sentence);
-                setJoke(response.data.joke);
-                setColor(response.data.color);
-            });
-    }
+  const handlePost = (e) => {
+    e.preventDefault();
+    axios
+      .post('https://catalyst-x226.onrender.com/api/definition/generate/', {
+        word: word,
+      })
+      .then((response) => {
+        const defineId = response.data.id;
+        axios
+          .get(`https://catalyst-x226.onrender.com/api/definition/${defineId}`)
+          .then((response) => {
+            setDefine(response.data.define);
+            setSynonym(response.data.synonym);
+            setAntonym(response.data.antonym);
+            setSentence(response.data.sentence);
+            setJoke(response.data.joke);
+            setColor(response.data.color);
+          });
+      })
+      .catch((error) => console.error(error));
+  };
     
     const handleInputChange = (e) => {
         setWord(e.target.value);
@@ -69,7 +69,7 @@ const Dictionary = ({}) => {
     return (
         <>
         <div className="border p-4">
-            <form onSubmit={handlePost}>
+            <form>
                 <label>Define : </label>
                 <input
                     type="text"
@@ -81,9 +81,10 @@ const Dictionary = ({}) => {
                         padding: '8px'
                     }}
                 />
-                <button className="border p-4 m-4" type="submit">Ask ChatGPT</button>
+                <button onClick={handlePost} className="border p-4 m-4" type="submit">Ask ChatGPT</button>
             </form>
             <div>
+                <h1>{word} {synonym} {define}</h1>
                 <div>
                 <button onClick={handleDefine}>define</button>
                 {define && <p>{define}</p>}
@@ -93,7 +94,7 @@ const Dictionary = ({}) => {
                 {synonym && <p>{synonym}</p>}
                 </div>
                 <div>
-                <button onClick={handleAntonym}>antonym</button>
+                <button onClick={handleAntonym}>antonym{antonym}</button>
                 {antonym && <p>{antonym}</p>}
                 </div>
                 <div>
@@ -116,8 +117,3 @@ const Dictionary = ({}) => {
 };
 
 export default Dictionary;
-
-{/* <button onClick={handleClick}>antonym</button>
-                <button onClick={handleClick}>sentence</button>
-                <button onClick={handleClick}>joke</button>
-                <button onClick={handleClick}>color</button> */}
