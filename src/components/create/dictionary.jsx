@@ -84,7 +84,6 @@ const Dictionary = () => {
                 <button onClick={handlePost} className="border p-4 m-4" type="submit">Ask ChatGPT</button>
             </form>
             <div>
-                <h1>{word} {synonym} {define}</h1>
                 <div>
                 <button onClick={handleDefine}>define</button>
                 {define && <p>{define}</p>}

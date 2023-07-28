@@ -6,14 +6,6 @@ import VisualArtFolio from './foliocomponents/visualartfolio';
 import CreativeWritingFolio from './foliocomponents/creativewritingfolio';
 
 const Folio = () => {
-  const [folios, setFolios] = useState([]);
-  const [output, setOutput] = useState([]);
-  const [created_at, setCreated_at] = useState([]);
-  const [note, setNote] = useState([]);
-  const [concept, setConcept] = useState([]);
-  const [element, setElement] = useState([]);
-  const [emotion, setEmotion] = useState([]);
-  const [exploration, setExploration] = useState([]);
 
   return (
     <>
