@@ -77,7 +77,6 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
             setPromptLength(selectedPromptLength);
             setGenerateButton(true);
         }
-        
 
         const handleClickCreatePage = () => {
             setMusicGenerativeSpace(true)
