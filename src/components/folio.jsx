@@ -31,6 +31,3 @@ const Folio = () => {
 };
 
 export default Folio;
-
-
-// user notes 

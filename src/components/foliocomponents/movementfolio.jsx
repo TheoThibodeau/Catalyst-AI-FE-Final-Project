@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 const MovementFolio = () => {
   const [folios, setFolios] = useState([]);
@@ -40,7 +41,7 @@ const MovementFolio = () => {
       {movementVisible && (
         <div>
           <h3>A.I Generate Prompt: {output}</h3>
-          <h3>Date of Creation: {created_at}</h3>
+          <h3>Date of Creation: {dayjs(created_at).format('MM-DD-YYYY HH:mm:ss')}</h3>
           <h3>Notes: {note}</h3>
           <h3>Prompt Parameters: {somatic} {theme} {emotion} {sentiment} {promptLength}</h3>
         </div>

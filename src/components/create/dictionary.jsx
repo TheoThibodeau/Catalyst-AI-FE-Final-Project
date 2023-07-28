@@ -12,23 +12,24 @@ const Dictionary = ({}) => {
     const [color, setColor] = useState("");
     const [defineId, setDefineId] = useState("");
 
-    const handlePost = async (e) => {
+    const handlePost = (e) => {
         e.preventDefault();
-        const res = await axios.post('https://catalyst-x226.onrender.com/api/definition/generate/', {
+        axios
+        .post('https://catalyst-x226.onrender.com/api/definition/generate/', {
                 word: word,
             })
             .then((response) => {
                 setDefineId(response.data.id); 
                 });
-    const getResponse = await axios.get(`https://catalyst-x226.onrender.com/api/definition/${defineId}`)
+        axios
+            .get(`https://catalyst-x226.onrender.com/api/definition/${defineId}`)
             .then((response) => {
-                setWord(response.data.word);
-                setDefinition(response.data.definition);
-                setSynonym(response.data.synonym);
-                setAntonym(response.data.antonym);
-                setSentence(response.data.sentence);
-                setJoke(response.data.joke);
-                setColor(response.data.color);
+                setDefine(response.data[0].define);
+                setSynonym(response.data[0].synonym);
+                setAntonym(response.data[0].antonym);
+                setSentence(response.data[0].sentence);
+                setJoke(response.data[0].joke);
+                setColor(response.data[0].color);
             });
     }
     
@@ -69,7 +70,7 @@ const Dictionary = ({}) => {
     return (
         <>
         <div className="border p-4">
-            <form onSubmit={handlePost}>
+            <form>
                 <label>Define : </label>
                 <input
                     type="text"
@@ -81,7 +82,7 @@ const Dictionary = ({}) => {
                         padding: '8px'
                     }}
                 />
-                <button className="border p-4 m-4" type="submit">Ask ChatGPT</button>
+                <button onClick={handlePost} className="border p-4 m-4" type="submit">Ask ChatGPT</button>
             </form>
             <div>
                 <div>
@@ -116,8 +117,3 @@ const Dictionary = ({}) => {
 };
 
 export default Dictionary;
-
-{/* <button onClick={handleClick}>antonym</button>
-                <button onClick={handleClick}>sentence</button>
-                <button onClick={handleClick}>joke</button>
-                <button onClick={handleClick}>color</button> */}
