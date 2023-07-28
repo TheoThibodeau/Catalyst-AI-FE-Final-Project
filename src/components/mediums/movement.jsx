@@ -4,6 +4,7 @@ import data from "/prompt.json";
 import MovementPrompt from "../promptresponse/movementprompt.jsx";
 import {useNavigate} from 'react-router-dom';
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
+import MediumNav from "../parameters/MediumNav.jsx"; 
 
 const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [movementSomatics, setMovementSomatics] = useState("");
@@ -14,6 +15,25 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [promptLength, setPromptLength] = useState("");
     const [activeElement, setActiveElement] = useState("movementSomatics");
     const [generateButton, setGenerateButton] = useState(false);
+    const initialNavDataValues = [
+        {
+            title: "Somatics",
+            isActive: true,
+        },
+        {
+            title: "Themes", 
+            isActive: false,
+        },
+        {
+            title: "Emotion",
+            isActive: false,
+        },
+        {
+            title: "Sentiment",
+            isActive: false,
+        },
+    ];
+    const [navData, setNavData] = useState(initialNavDataValues);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -66,26 +86,53 @@ const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
 const mappedPromptLength = data.promptLength
 
+const handleActiveNav = (newValue) => {
+    const newState = navData.map(datum => {
+        if (datum.isActive) {
+            datum.isActive = false
+            return datum
+        }
+
+        if (datum.title.toLowerCase() === newValue) {
+            datum.isActive = true
+            return datum
+        }
+
+        return datum
+    })
+
+    setNavData(newState);
+};
+console.log("navData", navData)
+
 const handleStateSet = (key, value) => {
     if (key === "Movement Somatics") {
-        handleMovementSomatics(value)
-        setActiveElement("movementThemes")
+        handleMovementSomatics(value);
+        const newActiveElement = "themes";
+        setActiveElement(newActiveElement);
+        handleActiveNav(newActiveElement);
         console.log("key", key)
         console.log("value", value)
     }
-    if (key === "Movement Themes") {
-        handleMovementThemes(value)
-        setActiveElement("emotion")
+    if (key === "Themes") {
+        handleMovementThemes(value);
+        const newActiveElement = "emotion";
+        setActiveElement(newActiveElement);
+        handleActiveNav(newActiveElement);
         console.log("key", key)
         console.log("value", value)
     }    
     if (key === "Emotions") {
-            handleEmotionChange(value)
-            setActiveElement("sentiment")
-        }
+        handleEmotionChange(value);
+        const newActiveElement = "sentiment";
+        setActiveElement(newActiveElement);
+        handleActiveNav(newActiveElement);
+    }
     if (key === "Sentiment") {
-        handleSentimentChange(value)
-        setActiveElement("promptLength")
+        handleSentimentChange(value);
+        const newActiveElement = "promptLength";
+        setActiveElement(newActiveElement);
+        handleActiveNav("length");
     }
 
     if (key === "Prompt Length") {
@@ -98,27 +145,45 @@ const keys = ["movementSomatics", "movementThemes", "emotion", "sentiment", "pro
 
 return (
 <>
-<ParameterComponent key={activeElement} data={data[activeElement]} handler={handleStateSet} />
+    <div></div>
 
-{generateButton ? (
+    <div>
+        <ParameterComponent 
+        key={activeElement} 
+        data={data[activeElement]} 
+        handler={handleStateSet} 
+        mediumNavComponent={<MediumNav navData={navData} />}
+        />
+    </div>
+    <div>
+    {generateButton ? (
         <>
+        <div>
             <div>
-            <div>
-                <button className="generate-button" onClick={handlePost}>
+                <button className="text-4xl" onClick={handlePost}>
                     GENERATE
                 </button>     
             </div> 
             <div className="promptresponse">
-            {postId && <MovementPrompt  postId={postId} setOutput={setOutput} output={output} />}
+            {postId && (
+                <MovementPrompt
+                postId={postId} 
+                setOutput={setOutput} 
+                output={output} 
+             />
+            )}
             </div>
             </div>
             <button className="begin-button" onClick={handleMovementClickCreatePage}>
                 BEGIN
             </button> 
         </>
-    ) : (<></>)
-    }
+    ) : (
+        <></>
+    )}
+    </div>
 </>
-)}
+);
+};
 
 export default Movement;
