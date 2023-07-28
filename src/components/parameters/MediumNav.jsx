@@ -8,7 +8,7 @@ const MediumNav = ({ navData }) => {
           <div
             key={`${datum.title}-${datum.isActive}`}
             className={[
-              datum.isActive ? "text-slate-700" : "text-slate-300",
+              datum.isActive ? "text-slate-700" : "text-white",
             ].join(" ")}
           >
             {datum.title}

@@ -157,7 +157,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   return (
     <>
-      <div></div>
+
 
       <div >
         <ParameterComponent
