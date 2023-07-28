@@ -29,7 +29,7 @@ const Landing = () => {
 
   const mediums = [
     {
-      title: "CREATIVE WRITING",
+      title: "WRITING",
       handler: handleClickCreativeWriting,
       path: "/creativewriting",
     },
@@ -52,7 +52,7 @@ const Landing = () => {
 
   return (
     <>
-      <div className="bg-slate-100 py-4 border border-slate-300">
+      <div className="bg-slate-200 py-4 border border-slate-300">
         <div className="pt-2 pb-4 space-x-4 text-right pr-4 text-slate-300">
           <Link to="/create" onClick={handleClickCreate}>
             CREATE
@@ -61,7 +61,7 @@ const Landing = () => {
             FOLIO
           </Link>
         </div>
-        <div className="font-mono text-left text-6xl text-gray-500 pl-10 ">
+        <div className="font-mono text-left text-6xl text-gray-500 pl-6 ">
           <div className="">catalyst</div>
           <div className="text-md pl-20 pt-3 ">artist, in the loop</div>
         </div>
@@ -77,7 +77,7 @@ const Landing = () => {
 
         ].join(" ")}
       >
-        <p>
+        <p style={{ fontFamily: "IBM Plex Mono"}}>
           Discover a world of creativity and inspiration through creative
           writing, music, movement, visual art, and AI.{" "}
         </p>
@@ -102,7 +102,7 @@ const Landing = () => {
           <Link
             key={medium.title}
             to={medium.path}
-            className="text-gray-100 border border-slate-500 bg-slate-400 pl-1"
+            className="text-gray-100 border border-slate-500 bg-slate-400  pl-2  pt-2 pb-2"
             onClick={medium.handler}
           >
             {medium.title}
