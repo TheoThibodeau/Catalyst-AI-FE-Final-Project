@@ -1,5 +1,8 @@
+
+
 const Footer = () => {
     const handleClickBack = () => {
+
       console.log("Back!", handelClickBack)
     };
   
@@ -7,6 +10,7 @@ const Footer = () => {
         console.log("Forward!", handelClickForward)
     };
   
+    feather.replace()
     return (
       <>
         <div className="fixed bottom-0 left-0 right-0 flex justify-between bg-slate-50 border border-slate-200 p-3">
