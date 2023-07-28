@@ -77,7 +77,7 @@ const Landing = () => {
 
         ].join(" ")}
       >
-        <p>
+        <p style={{ fontFamily: "IBM Plex Mono"}}>
           Discover a world of creativity and inspiration through creative
           writing, music, movement, visual art, and AI.{" "}
         </p>
