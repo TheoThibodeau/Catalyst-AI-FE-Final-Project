@@ -108,13 +108,13 @@ const handleActiveNav = (newValue) => {
   };
 
 const handleStateSet = (key, value) => {
-    if (key === "Explorations") {
+    if (key === "Music Explorations") {
         handleExplorations(value)
         const newActiveElement = "elements";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }
-    if (key === "Element") {
+    if (key === "Elements") {
         console.log("key", key)
         console.log("value", value)
         handleElements(value)
@@ -122,7 +122,7 @@ const handleStateSet = (key, value) => {
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }
-    if (key === "Concept") {
+    if (key === "Concepts") {
         const newActiveElement = "emotion";
         handleConcepts(value)
         setActiveElement(newActiveElement);
