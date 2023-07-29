@@ -150,10 +150,18 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     }
     if (key === "Prompt Length") {
       handlePromptLength(value);
-    }
+      const newActiveElement = "generate";
+      setActiveElement(newActiveElement);
+      setGenerateButton(true);
+      handleActiveNav(newActiveElement);
+  }
+
+  if (key === "Generate Button"){
+ 
+  }
   };
 
-  const keys = ["themes", "categories", "emotion", "sentiment", "promptLength"];
+  const keys = ["themes", "categories", "emotion", "sentiment", "promptLength", "generate"];
 
   return (
     <>

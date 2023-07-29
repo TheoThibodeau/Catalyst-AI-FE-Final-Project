@@ -155,7 +155,7 @@
         "generate":{
           "title": "Generate Button",
           "data":[
-            "Generate"
+            ""
           ]
         }
 }
