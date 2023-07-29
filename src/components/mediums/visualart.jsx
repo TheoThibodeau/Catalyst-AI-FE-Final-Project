@@ -15,6 +15,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [postId, setPostId] = useState(null);
     const [activeElement, setActiveElement] = useState("visualArtThemes");
     const [generateButton, setGenerateButton] = useState(false);
+    const [beginButtonVisible, setBeginButtonVisible] = useState(false);
     const initialNavDataValues = [
         {
             title: "Themes",
@@ -50,8 +51,9 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
-            console.log(response.data)
-            setPostId(response.data.id)
+            console.log(response.data);
+            setPostId(response.data.id);
+            setBeginButtonVisible(true);
         })}
 
     const handleVisualArtThemes = (selectedVisualArtThemes) => {
@@ -79,6 +81,11 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         console.log(selectedPromptLength)
         setGenerateButton(true);
     }
+
+    const handleGenerate = (selectedGenerate) => {
+        setGenerate(selectedGenerate);
+        setBeginButtonVisible(true);
+      };    
 
     const handleClickCreatePage = () => {
         setVisualArtGenerativeSpace(true)
@@ -145,7 +152,7 @@ const handleStateSet = (key, value) => {
     }
 
     if (key === "Generate Button"){
-
+        handleGenerate(value);
     }
 }
 
@@ -154,8 +161,6 @@ const keys = ["visualArtThemes", "visualArtMedium", "emotion", "sentiment", "pro
 
 return (
 <>
-<div></div>
-
 <div>
 <ParameterComponent 
 key={activeElement} 
@@ -165,34 +170,39 @@ mediumNavComponent={<MediumNav navData={navData} />}
         />
     </div>
     <div>
-{generateButton ? (
-        <>
-        <div className="container">
-        <div className="robot"></div>
-        </div>
+    {generateButton ? (
+          <>
             <div>
-            <div>
-                <button className="generate-button" onClick={handlePost}>
-                    GENERATE
-                </button>     
-            </div> 
-            <div className="promptresponse">
-            {postId && (
-                <VisualArtPrompt  
-                postId={postId} 
-                setOutput={setOutput} 
-                output={output} 
-             />
-            )}
+              <div>
+
+                <button 
+                className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500" 
+                onClick={handlePost}
+                key="generateButton"
+                >
+                  GENERATE
+                </button>
+              </div>
+              <div className="border border-slate-500 p-10">
+                {postId && (
+                  <VisualArtPrompt
+                    postId={postId}
+                    setOutput={setOutput}
+                    output={output}
+                  />
+                )}
+                <br></br>
+              </div>
             </div>
-            </div>
-            <button className="begin-button" onClick={handleClickCreatePage}>
+            {beginButtonVisible && (
+              <button className="begin-button" onClick={handleClickCreatePage}>
                 BEGIN
-            </button> 
-        </>
-    ) : (
-        <></>
-    )}
+              </button>
+            )}
+          </>
+        ) : (
+          <></>
+        )}
     </div>
 </>
 );

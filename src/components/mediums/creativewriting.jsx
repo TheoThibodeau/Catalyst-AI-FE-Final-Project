@@ -16,6 +16,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [promptLength, setPromptLength] = useState("");
   const [activeElement, setActiveElement] = useState("themes");
   const [generateButton, setGenerateButton] = useState(false);
+  const [beginButtonVisible, setBeginButtonVisible] = useState(false);
   const initialNavDataValues = [
     {
       title: "Themes",
@@ -54,12 +55,8 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       .then((response) => {
         console.log(response.data);
         setPostId(response.data.id);
+        setBeginButtonVisible(true);
       });
-  };
-
-  const handleWritingStyle = (selectedStyle) => {
-    setWritingStyle(selectedStyle);
-    console.log(selectedStyle);
   };
 
   const handleThemeChange = (selectedTheme) => {
@@ -88,6 +85,10 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     console.log(selectedPromptLength);
   };
 
+  const handleGenerate = (selectedGenerate) => {
+    setGenerate(selectedGenerate);
+  };    
+
   const handleClickCreatePage = () => {
     setGenerativeSpace(true);
   };
@@ -100,9 +101,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const mappedPromptLength = data.promptLength;
 
   const handleActiveNav = (newValue) => {
-    // find object that is set to true and turn it to false -oldValue(false) newValue(true)
-    // find object that matches the key and turn it to true
-
 
     const newState = navData.map(datum => {
         if (datum.isActive) {
@@ -156,8 +154,8 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       handleActiveNav(newActiveElement);
   }
 
-  if (key === "Generate Button"){
- 
+  if (key === "generateButton"){
+    handleGenerate(value);
   }
   };
 
@@ -165,8 +163,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   return (
     <>
-
-
       <div >
         <ParameterComponent
           key={activeElement}
@@ -183,7 +179,10 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
               <div>
 
                 <button 
-                className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500" onClick={handlePost}>
+                className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500" 
+                onClick={handlePost}
+                key="generateButton"
+                >
                   GENERATE
                 </button>
               </div>
@@ -198,9 +197,11 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                 <br></br>
               </div>
             </div>
-            <button className="m-5 border border-slate-500 p-4" onClick={handleClickCreatePage}>
-              BEGIN
-            </button>
+            {beginButtonVisible && (
+              <button className="begin-button" onClick={handleClickCreatePage}>
+                BEGIN
+              </button>
+            )}
           </>
         ) : (
           <></>

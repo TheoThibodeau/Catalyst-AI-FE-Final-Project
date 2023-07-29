@@ -15,6 +15,7 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     const [postId, setPostId] = useState(null);
     const [activeElement, setActiveElement] = useState("explorations");
     const [generateButton, setGenerateButton] = useState(false);
+    const [beginButtonVisible, setBeginButtonVisible] = useState(false);
     const initialNavDataValues = [
         {
           title: "Explorations",
@@ -49,8 +50,9 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
-            console.log(response.data)
-            setPostId(response.data.id)
+            console.log(response.data);
+            setPostId(response.data.id);
+            setBeginButtonVisible(true);
         });
     };
     
@@ -179,9 +181,11 @@ return (
                 )}
                 </div>
                 </div>
-                <button className="begin-button" onClick={handleClickCreatePage}>
-                    BEGIN
-                </button> 
+                {beginButtonVisible && (
+              <button className="begin-button" onClick={handleClickCreatePage}>
+                BEGIN
+              </button>
+            )}
             </>
             ) : (
             <></>
