@@ -1,13 +1,16 @@
+import React from "react";
 
 
-const Footer = () => {
+const Footer = ({ }) => {
+  
     const handleClickBack = () => {
-
-      console.log("Back!", handelClickBack)
+    window.history.back();
+    console.log("Back!", handleClickBack)
     };
   
     const handleClickForward = () => {
-        console.log("Forward!", handelClickForward)
+      window.history.forward();
+      console.log("Forward!", handleClickForward)
     };
   
     feather.replace()

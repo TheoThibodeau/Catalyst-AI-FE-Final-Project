@@ -5,6 +5,7 @@ import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
 import {useNavigate} from 'react-router-dom';
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx"; 
+import LoadingRobot from "./../robot.jsx";
 
 const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
@@ -39,6 +40,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         },
     ];
     const [navData, setNavData] = useState(initialNavDataValues);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -51,10 +53,16 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
+            setIsLoading(true);
             console.log(response.data);
             setPostId(response.data.id);
             setBeginButtonVisible(true);
-        })}
+            })
+        .finally(() => {
+        const timeout = setTimeout(() => {
+            setIsLoading(false)}, 3000)
+    })
+    }
 
     const handleVisualArtThemes = (selectedVisualArtThemes) => {
         setVisualArtThemes(selectedVisualArtThemes);
@@ -158,53 +166,61 @@ const handleStateSet = (key, value) => {
 
 const keys = ["visualArtThemes", "visualArtMedium", "emotion", "sentiment", "promptLength", "generate"]
 
-
 return (
-<>
-<div>
-<ParameterComponent 
-key={activeElement} 
-data={data[activeElement]} 
-handler={handleStateSet}
-mediumNavComponent={<MediumNav navData={navData} />}
-        />
-    </div>
-    <div>
-    {generateButton ? (
-          <>
-            <div>
-              <div>
-
-                <button 
-                className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500" 
-                onClick={handlePost}
-                key="generateButton"
-                >
-                  GENERATE
-                </button>
-              </div>
-              <div className="border border-slate-500 p-10">
-                {postId && (
-                  <VisualArtPrompt
-                    postId={postId}
-                    setOutput={setOutput}
-                    output={output}
-                  />
+    <>
+      <div className="flex flex-col items-center justify-center space-y-10 h-screen">
+        <div>
+            {isLoading ?(
+                <LoadingRobot/>
+            ) : (
+          <div className="flex flex-col items-center ">
+            {generateButton ? (
+              <>
+                <div>
+                  <div className="flex justify-center">
+                    <button
+                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
+                      onClick={handlePost}
+                      key="generateButton"
+                    >
+                      GENERATE
+                    </button>
+                  </div>
+                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-40">
+                    {postId && (
+                      <VisualArtPrompt
+                        postId={postId}
+                        setOutput={setOutput}
+                        output={output}
+                      />
+                    )}
+                  </div>
+                </div>
+                {beginButtonVisible && (
+                  <button
+                    className="begin-button border border-slate-400 p-4"
+                    onClick={handleClickCreatePage}
+                  >
+                    BEGIN
+                  </button>
                 )}
-                <br></br>
-              </div>
-            </div>
-            {beginButtonVisible && (
-              <button className="begin-button" onClick={handleClickCreatePage}>
-                BEGIN
-              </button>
+              </>
+            ) : (
+              <ParameterComponent
+                key={activeElement}
+                data={data[activeElement]}
+                handler={handleStateSet}
+                mediumNavComponent={<MediumNav navData={navData} />}
+              />
             )}
-          </>
-        ) : (
-          <></>
-        )}
-    </div>
-</>
-);
-};
+          </div>
+            )}
+        </div>
+      </div>
+    </>
+  );
+  
+            }  
+   
+           
 export default VisualArt;
