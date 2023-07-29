@@ -5,12 +5,12 @@ import "./robot.css";
 export default function LoadingRobot() {
     return (
 <div className="container">
-    <div className="bubble-container">
+    {/* <div className="bubble-container">
         <div class="triangle-bottom"></div>
         <div class="speech-box">
             <p>Click to generate a prompt.</p>
         </div>
-        </div>
+        </div> */}
     <div className="robot">
         <div className="head">
             <div className="mouth"></div>

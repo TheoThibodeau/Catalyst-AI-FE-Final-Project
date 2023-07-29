@@ -5,8 +5,8 @@
 
     .container {
         position: absolute;
-        top: 100%;
-        left: 40%
+        top: 40%;
+        left: 10%
     }
 body {
     display: flex;
@@ -17,14 +17,16 @@ body {
   }
   
   .robot {
-    width: 150px;
-    height: 200px;
-    position: relative;
+    width: 300px;
+    height: 400px;
+    position: absolute;
+    top: 0%;
+    left:0%;
   }
 
   .head {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 0.2em;
@@ -36,7 +38,7 @@ body {
   }
 
   .mouth {
-    width: 3px;
+    width: 6px;
     height: 1px;
     background-color: #334155;
     border-radius: 50%;
@@ -47,8 +49,8 @@ body {
   
   .left-eye {
     left: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #cbd5e1;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -59,8 +61,8 @@ body {
 
   .blink-left {
     left: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #64748b;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -71,8 +73,8 @@ body {
   
   .right-eye {
     right: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #cbd5e1;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -83,8 +85,8 @@ body {
 
   .blink-right {
     right: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #64748b;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -123,8 +125,8 @@ body {
 
   .left-pupil {
     left: 24%;
-    width: 4px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
     background-color: #475569;
     border: 1px solid  #475569;
     border-radius: 50%;
@@ -134,8 +136,8 @@ body {
   
   .right-pupil {
     right: 22%;
-    width: 4px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
     background-color: #475569;
     border: 1px solid  #475569;
     border-radius: 50%;
@@ -166,8 +168,8 @@ body {
   } */
   
   .torso {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 0.2em;
@@ -180,8 +182,8 @@ body {
 
   .light-left {
     right: 64%;
-    width: 3px;
-    height: 3px;
+    width: 6px;
+    height: 6px;
     background-color: #86efac;
     border-radius: 50%;
     position: absolute;
@@ -190,8 +192,8 @@ body {
 
   .light-middle {
     right: 46%;
-    width: 3px;
-    height: 3px;
+    width: 6px;
+    height: 6px;
     background-color: #fde68a;
     border-radius: 50%;
     position: absolute;
@@ -200,8 +202,8 @@ body {
 
   .light-right {
     right: 30%;
-    width: 3px;
-    height: 3px;
+    width: 6px;
+    height: 6px;
     background-color: #bae6fd;
     border-radius: 50%;
     position: absolute;
@@ -210,8 +212,8 @@ body {
   }
 
   .chest { 
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-top-left-radius: 15em;
@@ -226,8 +228,8 @@ body {
   }
   
   .bottom {
-    width: 70px;
-    height: 30px;
+    width: 140px;
+    height: 60px;
     background-color: #475569;
     border: 4px solid #94a3b8;
     border-radius: 5em;
@@ -240,8 +242,8 @@ body {
 
 
   .waist {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #F5F5F5;
     border-bottom-left-radius: 0.75em;
     border-bottom-right-radius: 0.75em;
@@ -254,8 +256,8 @@ body {
 
 
   .left-wheel {
-    width: 21px;
-    height: 21px;
+    width: 44px;
+    height: 44px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -267,8 +269,8 @@ body {
 
 
   .left-wheel-inner {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -278,9 +280,9 @@ body {
 
   .left-cross-vertical {
         background: white;
-        height: 20px;
+        height: 40px;
         position: absolute;
-        width: 3px;
+        width: 6px;
         top: 0%;
         left: 14%;
         animation-name: spin; 
@@ -291,9 +293,9 @@ body {
     .left-cross-horizontal {
         position: absolute;
         background: white;
-        height: 3px;
+        height: 6px;
         position: absolute;
-        width: 20px;
+        width: 40px;
         top: 37%;
         left: 3%;
         animation-name: spin; 
@@ -303,8 +305,8 @@ body {
     }
 
   .middle-wheel {
-    width: 21px;
-    height: 21px;
+    width: 42px;
+    height: 42px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -315,8 +317,8 @@ body {
   }
 
   .middle-wheel-inner {
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -326,9 +328,9 @@ body {
 
   .middle-cross-vertical {
     background: white;
-    height: 20px;
+    height: 40px;
     position: absolute;
-    width: 3px;
+    width: 6px;
     top: 0%;
     left: 49%;
     animation-name: spin; 
@@ -340,9 +342,9 @@ body {
 .middle-cross-horizontal {
     position: absolute;
     background: white;
-    height: 3px;
+    height: 6px;
     position: absolute;
-    width: 20px;
+    width: 40px;
     top: 37%;
     left: 36%;
     animation-name: spin; 
@@ -352,8 +354,8 @@ body {
 }
 
   .right-wheel {
-    width: 21px;
-    height: 21px;
+    width: 42px;
+    height: 42px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -364,8 +366,8 @@ body {
   }
 
   .right-wheel-inner {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -375,9 +377,9 @@ body {
 
   .right-cross-vertical {
     background: white;
-    height: 20px;
+    height: 40px;
     position: absolute;
-    width: 3px;
+    width: 6px;
     top: 0%;
     left: 81%;
     animation-name: spin; 
@@ -389,9 +391,9 @@ body {
 .right-cross-horizontal {
     position: absolute;
     background: white;
-    height: 3px;
+    height: 6px;
     position: absolute;
-    width: 20px;
+    width: 40px;
     top: 37%;
     left: 69%;
     animation-name: spin; 
@@ -404,15 +406,15 @@ body {
     color: #334155; 
     position: absolute;
     font-family: 'roboto mono';
-    font-size: 8px;
+    font-size: 16px;
     font-weight: 500;
     top: 15%;
     left: 25%;
 }
 
   .right-arm-connect { 
-    width: 5px;
-    height: 10px;
+    width: 10px;
+    height: 20px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -425,8 +427,8 @@ body {
   }
 
   .shoulder-right {
-    width: 7px;
-    height: 25px;
+    width: 14px;
+    height: 50px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -439,8 +441,8 @@ body {
   } 
 
   .shoulder-left {
-    width: 7px;
-    height: 25px;
+    width: 14px;
+    height: 50px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -452,8 +454,8 @@ body {
   }
 
   .left-arm-connect { 
-    width: 5px;
-    height: 10px;
+    width: 10px;
+    height: 20px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -463,7 +465,7 @@ body {
     box-shadow: inset -.5px -.5px 3px #555B6E;
     
   }
-
+/* 
   .speech-box {
     position: absolute;
     width: 250px;
@@ -510,7 +512,7 @@ body {
   border-bottom: 20px solid transparent;
   border-left: 30px solid  #cbd5e1;
   }
-  
+   */
  
    
     
