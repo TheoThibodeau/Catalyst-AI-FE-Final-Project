@@ -5,6 +5,7 @@ import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 import { useNavigate } from "react-router-dom";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
+import Footer from "../footer.jsx";
 
 const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [themes, setThemes] = useState("");
@@ -206,6 +207,9 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
         ) : (
           <></>
         )}
+      </div>
+      <div>
+      <Footer handleGoBack={handleGoBack} handleGoForward={handleGoForward} />
       </div>
     </>
   );
