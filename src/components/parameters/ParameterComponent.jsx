@@ -9,15 +9,17 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
   console.log(data);
 
   return (
-    <>
-      <div className="flex flex-col pt-5 pb-4 pl-2 font-mono text-slate-500 bg-orange-200 text-5xl justify-center align-center w-full space-y-4">
-            {mediumNavComponent}
+    <div className="flex flex-col h-screen">
+      <div className="flex flex-row justify-between pt-8 pb-6 pl-2 font-mono text-slate-500 bg-slate-400 text-5xl items-center w-full space-y-4">
+        {mediumNavComponent}
       </div>
-      <div className="flex flex-col pb-20 pt-40 items-center justify-center space-y-10">
+
+      
+      <div className="flex flex-col pb-20 items-center justify-center space-y-10 flex-grow">
         {entries.map((entry) => (
           <div
             key={entry}
-            className="flex flex-col align-center w-60 h-50  justify-center text-lg text-slate-500 border bg-slate-200"
+            className="flex flex-col align-center w-60 h-50 justify-center text-lg text-slate-500 border bg-slate-200"
           >
             <button
               className=""
@@ -28,10 +30,9 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
             </button>
           </div>
         ))}
-        <Footer />
       </div>
-    </>
+      <Footer />
+    </div>
   );
-};
-
+        }
 export default ParameterComponent;

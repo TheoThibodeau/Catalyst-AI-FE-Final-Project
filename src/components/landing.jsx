@@ -53,7 +53,7 @@ const Landing = () => {
   return (
     <>
       <div className="bg-slate-200 py-4 border border-slate-300">
-        <div className="pt-2 pb-4 space-x-4 text-right pr-4 text-slate-300">
+        <div className="pt-2 pb-4 space-x-4 text-right pr-4 text-slate-400">
           <Link to="/create" onClick={handleClickCreate}>
             CREATE
           </Link>
@@ -82,7 +82,7 @@ const Landing = () => {
           writing, music, movement, visual art, and AI.{" "}
         </p>
         <p style={{ fontFamily: "IBM Plex Mono"}}>
-          Select a medium, {" "}
+          Select a medium {" "}
         </p>
       </div>
       <div
@@ -90,11 +90,11 @@ const Landing = () => {
           "flex",
           "flex-col",
           "gap-2",
-          "text-5xl",
+          "text-4xl",
           "text-slate-300",
           "hover:text-slate-200",
           "space-y-6",
-          "pl-4",
+          "pl-6",
           "pt-10",
         ].join(" ")}
       >
