@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
-import { useNavigate } from "react-router-dom";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
 
@@ -163,51 +162,58 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   return (
     <>
-      <div >
-        <ParameterComponent
-          key={activeElement}
-          data={data[activeElement]}
-          handler={handleStateSet}
-          mediumNavComponent={<MediumNav navData={navData} />}
-        />
-      </div>
-
+    <div className="flex flex-col pb-20 items-center space-y-10">
       <div>
-        {generateButton ? (
-          <>
-            <div>
+        <div className="font-serif text-3xl text-center pr-6 pl-6 ">
+           
+          {postId && (
+            <CreativeWritingPrompt
+              postId={postId}
+              setOutput={setOutput}
+              output={output}
+              
+            />
+            
+          )}
+        
+        </div>
+        <div className="flex flex-col items-center ">
+          {generateButton ? (
+            <>
               <div>
-
-                <button 
-                className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500" 
-                onClick={handlePost}
-                key="generateButton"
-                >
-                  GENERATE
+                <div>
+                  <button
+                    className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500 pt-"
+                    onClick={handlePost}
+                    key="generateButton"
+                  >
+                    GENERATE
+                  </button>
+                </div>
+              </div>
+              {beginButtonVisible && (
+                <button className="begin-button border border-slate-400 p-4" onClick={handleClickCreatePage}>
+                  BEGIN
                 </button>
-              </div>
-              <div className="border border-slate-500 p-10">
-                {postId && (
-                  <CreativeWritingPrompt
-                    postId={postId}
-                    setOutput={setOutput}
-                    output={output}
-                  />
-                )}
-                <br></br>
-              </div>
-            </div>
-            {beginButtonVisible && (
-              <button className="begin-button" onClick={handleClickCreatePage}>
-                BEGIN
-              </button>
-            )}
-          </>
-        ) : (
-          <></>
-        )}
+              )}
+            </>
+          ) : (
+            <ParameterComponent
+              key={activeElement}
+              data={data[activeElement]}
+              handler={handleStateSet}
+              mediumNavComponent={<MediumNav navData={navData} />}
+            />
+          )}
+        </div>
       </div>
-    </>
+    </div>
+  </>
+  
+  
+  
+   
+  
   );
 };
 
