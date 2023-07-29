@@ -81,7 +81,7 @@ const Landing = () => {
           Discover a world of creativity and inspiration through creative
           writing, music, movement, visual art, and AI.{" "}
         </p>
-        <p>
+        <p style={{ fontFamily: "IBM Plex Mono"}}>
           Select a medium, {" "}
         </p>
       </div>

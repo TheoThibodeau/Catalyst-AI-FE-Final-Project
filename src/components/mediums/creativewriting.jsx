@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
-import { useNavigate } from "react-router-dom";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
 
@@ -165,48 +164,51 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   return (
     <>
-
-
-      <div >
-        <ParameterComponent
-          key={activeElement}
-          data={data[activeElement]}
-          handler={handleStateSet}
-          mediumNavComponent={<MediumNav navData={navData} />}
-        />
-      </div>
-
-      <div>
+    <div>
+    <div>
+      <div className="flex flex-col items-center">
         {generateButton ? (
           <>
-            <div>
-              <div>
-
-                <button 
-                className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500" onClick={handlePost}>
-                  GENERATE
-                </button>
-              </div>
-              <div className="border border-slate-500 p-10">
-                {postId && (
-                  <CreativeWritingPrompt
-                    postId={postId}
-                    setOutput={setOutput}
-                    output={output}
-                  />
-                )}
-                <br></br>
-              </div>
+            <div className="font-serif text-4xl text-center p-4 pt-32">
+              {postId && (
+                <CreativeWritingPrompt
+                  postId={postId}
+                  setOutput={setOutput}
+                  output={output}
+                  
+                />
+              )}
+              <br />
             </div>
-            <button className="m-5 border border-slate-500 p-4" onClick={handleClickCreatePage}>
+            <div>
+              <button
+                className="text-4xl justify-center ml-17 m-7 p-8 bg-slate-200 border border-slate-500"
+                onClick={handlePost}
+              >
+                GENERATE
+              </button>
+            </div>
+            <button
+              className="m-2 border border-slate-500 p-4"
+              onClick={handleClickCreatePage}
+            >
               BEGIN
             </button>
           </>
         ) : (
-          <></>
+          <> <ParameterComponent
+          key={activeElement}
+          data={data[activeElement]}
+          handler={handleStateSet}
+          mediumNavComponent={<MediumNav navData={navData} />}
+        /></>
         )}
       </div>
-    </>
+    </div>
+    </div>
+  </>
+   
+  
   );
 };
 

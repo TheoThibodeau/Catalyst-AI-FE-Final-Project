@@ -1,0 +1,3 @@
+ <i data-feather="arrow-left"></i>
+    <i data-feather="arrow-right"></i>
+    <i data-feather="refresh-cw"></i>
