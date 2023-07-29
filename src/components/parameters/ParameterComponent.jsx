@@ -9,21 +9,17 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
   console.log(data);
 
   return (
-    <>
-      <div className="pb-4 border-slate-300 ">
-        <div className="pl-2">
-          <h2 className="text-slate-400 font-mono text-3xl pt-3 ">WRITING</h2>
-          <h1 className="pt-5 pb-4 font-mono text-slate-500 text-6xl flex flex-col justify-center align-center w-full space-y-4">
-            {mediumNavComponent}
-          </h1>
-        </div>
+    <div className="flex flex-col h-screen">
+      <div className="flex flex-row justify-between pt-8 pb-6 pl-2 font-mono text-slate-500 bg-slate-400 text-5xl items-center w-full space-y-4">
+        {mediumNavComponent}
       </div>
-      <div className="h-20"></div>
-      <div className="flex flex-col space-y-7 pl-20  pt-6 justify-center ">
+
+      
+      <div className="flex flex-col pb-20 items-center justify-center space-y-10 flex-grow">
         {entries.map((entry) => (
           <div
             key={entry}
-            className="flex flex-col align-center w-60 h-50 justify-center space- text-lg text-slate-500 border bg-slate-200 border-slate-300"
+            className="flex flex-col align-center w-60 h-50 justify-center text-lg text-slate-500 border bg-slate-200"
           >
             <button
               className=""
@@ -32,12 +28,11 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
             >
               {entry}
             </button>
-            <Footer />
           </div>
         ))}
       </div>
-    </>
+      <Footer />
+    </div>
   );
-};
-
+        }
 export default ParameterComponent;
