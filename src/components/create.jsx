@@ -6,6 +6,7 @@ import Audio from "../components/create/audio";
 import Notebook from "../components/create/notebook";
 import Dictionary from "../components/create/dictionary";
 import { Editor } from '@tinymce/tinymce-react';
+import Timer from "./create/timer";
 
 const Create = ({ postId, output }) => {
   const [activeComponent, setActiveComponent] = useState("");
@@ -16,6 +17,7 @@ const Create = ({ postId, output }) => {
     PomodoroTimer: <PomodoroTimer />,
     Notebook: <Notebook />,
     Dictionary: <Dictionary />,
+    Timer: <Timer />
   };
 
   const editorRef = useRef(null);
@@ -27,78 +29,47 @@ const Create = ({ postId, output }) => {
   };
 
   return (
-    <div className="flex flex-wrap items-center w-full p-4">
-      <div className="w-full lg:w-3/4 xl:w-1/2 pb-4 pl-10 pr-10">
-        <div className="fixed-top-0 text-xl font-bold text-right">
-            folio   
+    <>
+      <div className="flex flex-wrap items-center w-full p-4">
+        <div className="flex-end">FOLIO</div>
+        <div className="w-full pb-4 pl-4 pr-4">
+          <div className="font-serif text-center p-7 pr-5 pl-5 mt- border font-extralight text-md">
+            {output}
+          </div>
+          <div>
+            <div className="grid grid-cols-2 gap-4 mt-2 pt-4">
+              <button
+                className="w-full px-4 py-2 border border-slate-300 text-gray-800 font-mono text-center"
+                onClick={() => setActiveComponent("Timer")}
+              >
+                Timer
+              </button>
+              <button
+                className="w-full px-4 py-2 border border-slate-300 text-gray-800 font-mono text-center"
+                onClick={() => setActiveComponent("Notebook")}
+              >
+                Notebook
+              </button>
+              <button
+                className="w-full px-4 py-2 border border-slate-300 text-gray-800 font-mono text-center"
+                onClick={() => setActiveComponent("PomodoroTimer")}
+              >
+                Pomodoro
+              </button>
+              <button
+                className="w-full px-4 py-2 border border-slate-300 text-gray-800 font-mono text-center"
+                onClick={() => setActiveComponent("Dictionary")}
+              >
+                Dictionary
+              </button>
             </div>
-        <div className="font-roboto text-center p-7 pr-10 pl-10 mt-20 border font-extralight text-xl">
-           {output}
-        </div>
-        <div className="flex flex-row space-y-4 mt-4 pt-10">
-          <button
-            className="w-full px-4 py-2 hover:underline text-gray-800 font-mono text-center"
-            onClick={() => setActiveComponent("Stopwatch")}
-          >
-            Stopwatch
-          </button>
-          <button
-            className="w-full px-4 py-2 hover:underline text-gray-800 font-mono text-center"
-            onClick={() => setActiveComponent("Audio")}
-          >
-            Audio Play
-          </button>
-          <button
-            className="w-full px-4 py-2 hover:underline text-gray-800 font-mono text-center"
-            onClick={() => setActiveComponent("Metronome")}
-          >
-            Metronome
-          </button>
-          <button
-            className="w-full px-4 py-2 hover:underline text-gray-800 font-mono text-center"
-            onClick={() => setActiveComponent("PomodoroTimer")}
-          >
-            Pomodoro Timer
-          </button>
-          <button
-            className="w-full px-4 py-2 hover:underline text-gray-800 font-mono text-center"
-            onClick={() => setActiveComponent("Dictionary")}
-          >
-            Dictionary
-          </button>
+          </div>
         </div>
       </div>
-      <div className="w-full p-4 pb-10 flex flex-grow lg:w-1/2 justify-center">
+      <div className="text- w-full p-4 pb-8 flex flex-grow lg:w-1/2 font-serif justify-center">
         {components[activeComponent]}
       </div>
-      <div className="flex flex-end"> {/* Add this div */}
-    <button className="p-4 border m-4 lg:w-auto block mx-auto" onClick={log}>
-      Save
-    </button>
-  </div>
-      <div className="w-full p-4 ">
-        <Editor
-          apiKey='5c49z6msz9y26e8fv03ptpphkxydj6nybm6x070w4arrr81l'
-          onInit={(evt, editor) => editorRef.current = editor}
-          initialValue="<p>Take notes ... </p>"
-          init={{
-            height: 500,
-            menubar: false,
-            plugins: [
-              'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-              'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-              'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
-            ],
-            toolbar: 'undo redo | blocks | ' +
-              'bold italic forecolor | alignleft aligncenter ' +
-              'alignright alignjustify | bullist numlist outdent indent | ' +
-              'removeformat | help',
-            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-          }}
-        />
-      </div>
-    </div>
+    </>
   );
 };
-
 export default Create;
