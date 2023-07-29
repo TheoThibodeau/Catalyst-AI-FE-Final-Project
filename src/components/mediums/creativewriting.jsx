@@ -164,22 +164,26 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     <>
     <div className="flex flex-col pb-20 items-center space-y-10">
       <div>
-        <div className="font-serif text-3xl text-center pr-6 pl-6">
+        <div className="font-serif text-3xl text-center pr-6 pl-6 ">
+           
           {postId && (
             <CreativeWritingPrompt
               postId={postId}
               setOutput={setOutput}
               output={output}
+              
             />
+            
           )}
+        
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center ">
           {generateButton ? (
             <>
               <div>
                 <div>
                   <button
-                    className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500"
+                    className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500 pt-"
                     onClick={handlePost}
                     key="generateButton"
                   >
