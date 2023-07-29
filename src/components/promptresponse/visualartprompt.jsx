@@ -16,8 +16,9 @@ const VisualArtPrompt = ({ postId, setOutput, output  }) => {
           })
       })
       .catch((error) => console.error(error));
+      return () => clearTimeout(timeout)
   },
-    [postId]);
+    [postId];
 
   return (
     <>
