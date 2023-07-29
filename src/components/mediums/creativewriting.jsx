@@ -162,59 +162,53 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   return (
     <>
-    <div className="flex flex-col pb-20 items-center space-y-10">
-      <div>
-        <div className="font-serif text-3xl text-center pr-6 pl-6 ">
-           
-          {postId && (
-            <CreativeWritingPrompt
-              postId={postId}
-              setOutput={setOutput}
-              output={output}
-              
-            />
-            
-          )}
-        
-        </div>
-        <div className="flex flex-col items-center ">
-          {generateButton ? (
-            <>
-              <div>
+      <div className="flex flex-col items-center justify-center space-y-10 h-screen">
+        <div>
+          <div className="flex flex-col items-center ">
+            {generateButton ? (
+              <>
                 <div>
-                  <button
-                    className="text-4xl justify-center ml-17 m-10 p-8 bg-slate-200 border border-slate-500 pt-"
-                    onClick={handlePost}
-                    key="generateButton"
-                  >
-                    GENERATE
-                  </button>
+                  <div className="flex justify-center">
+                    <button
+                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
+                      onClick={handlePost}
+                      key="generateButton"
+                    >
+                      GENERATE
+                    </button>
+                  </div>
+                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-40">
+                    {postId && (
+                      <CreativeWritingPrompt
+                        postId={postId}
+                        setOutput={setOutput}
+                        output={output}
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
-              {beginButtonVisible && (
-                <button className="begin-button border border-slate-400 p-4" onClick={handleClickCreatePage}>
-                  BEGIN
-                </button>
-              )}
-            </>
-          ) : (
-            <ParameterComponent
-              key={activeElement}
-              data={data[activeElement]}
-              handler={handleStateSet}
-              mediumNavComponent={<MediumNav navData={navData} />}
-            />
-          )}
+                {beginButtonVisible && (
+                  <button
+                    className="begin-button border border-slate-400 p-4"
+                    onClick={handleClickCreatePage}
+                  >
+                    BEGIN
+                  </button>
+                )}
+              </>
+            ) : (
+              <ParameterComponent
+                key={activeElement}
+                data={data[activeElement]}
+                handler={handleStateSet}
+                mediumNavComponent={<MediumNav navData={navData} />}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>
-  </>
-  
-  
-  
-   
-  
+    </>
   );
-};
-
+  
+            };  
 export default CreativeWriting;
