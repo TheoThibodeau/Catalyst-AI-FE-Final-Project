@@ -19,9 +19,11 @@ const VisualArtPrompt = ({ postId, setOutput, output  }) => {
 
   return (
     <>
+    <div>
     {isLoading ?(
         <LoadingRobot/>
     ):(<h3>{output}</h3>)}
+    </div>
         
     </>
   );

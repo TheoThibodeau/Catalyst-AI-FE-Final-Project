@@ -134,11 +134,19 @@ const handleStateSet = (key, value) => {
         handleActiveNav("length");
     }
     if (key === "Prompt Length") {
-        handlePromptLength(value)
+        handlePromptLength(value);
+        const newActiveElement = "generate";
+        setActiveElement(newActiveElement);
+        setGenerateButton(true);
+        handleActiveNav(newActiveElement);
+    }
+
+    if (key === "Generate Button"){
+
     }
 };
 
-const keys = ["explorations", "elements", "concepts", "emotion", "promptLength"]
+const keys = ["explorations", "elements", "concepts", "emotion", "promptLength", "generate"]
 
 return (
     <>

@@ -15,7 +15,6 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [promptLength, setPromptLength] = useState("");
     const [activeElement, setActiveElement] = useState("movementSomatics");
     const [generateButton, setGenerateButton] = useState(false);
-    const [generate, setGenerate] = useState("");
     const initialNavDataValues = [
         {
             title: "Somatics",
@@ -74,11 +73,6 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const handlePromptLength = (selectedPromptLength) => {
         setPromptLength(selectedPromptLength);
         console.log(selectedPromptLength)
-    }
-
-    const handleGenerate = (selectedGenerate) => {
-        setGenerate(selectedGenerate);
-        setGenerateButton(true);
     }
 
     const handleMovementClickCreatePage = () => {
@@ -141,13 +135,15 @@ const handleStateSet = (key, value) => {
     }
 
     if (key === "Prompt Length") {
-        handlePromptLength(value)
+        handlePromptLength(value);
         const newActiveElement = "generate";
         setActiveElement(newActiveElement);
+        setGenerateButton(true);
+        handleActiveNav(newActiveElement);
     }
 
     if (key === "Generate Button"){
-        handleGenerate(value);
+
     }
 }
 

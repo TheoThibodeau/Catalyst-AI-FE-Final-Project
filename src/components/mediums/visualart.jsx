@@ -128,18 +128,28 @@ const handleStateSet = (key, value) => {
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }
+    
     if (key === "Sentiment") {
         handleSentimentChange(value)
         const newActiveElement = "promptLength";
         setActiveElement(newActiveElement);
         handleActiveNav("length");
     }
+              
     if (key === "Prompt Length") {
-        handlePromptLength(value)
+        handlePromptLength(value);
+        const newActiveElement = "generate";
+        setActiveElement(newActiveElement);
+        setGenerateButton(true);
+        handleActiveNav(newActiveElement);
+    }
+
+    if (key === "Generate Button"){
+
     }
 }
 
-const keys = ["visualArtThemes", "visualArtMedium", "emotion", "sentiment", "promptLength"]
+const keys = ["visualArtThemes", "visualArtMedium", "emotion", "sentiment", "promptLength", "generate"]
 
 
 return (
