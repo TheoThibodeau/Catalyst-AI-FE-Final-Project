@@ -68,7 +68,7 @@ body {
     border-radius: 50%;
     position: absolute;
     top: 15%;
-    animation: blink 5s linear infinite;
+    animation: blink 3s linear infinite;
   }
   
   .right-eye {
@@ -92,7 +92,7 @@ body {
     border-radius: 50%;
     position: absolute;
     top: 15%;
-    animation: blink 5s linear infinite;
+    animation: blink 3s linear infinite;
   }
 
   @keyframes blink {
@@ -317,8 +317,8 @@ body {
   }
 
   .middle-wheel-inner {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
