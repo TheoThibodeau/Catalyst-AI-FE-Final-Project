@@ -10,8 +10,10 @@ const VisualArtPrompt = ({ postId, setOutput, output  }) => {
     axios
       .get(`https://catalyst-x226.onrender.com/api/response/visual_art/${postId}`)
       .then((response) => {
-        setOutput(response.data.output);
-        // setIsLoading(false)
+        const timeout = setTimeout(() => {
+            setOutput(response.data.output)
+            setIsLoading(false)}, 3000)
+          })
       })
       .catch((error) => console.error(error));
   },
