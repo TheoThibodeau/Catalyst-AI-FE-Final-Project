@@ -209,7 +209,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
         </div>
       </div>
       <div>
-      <Footer handleGoBack={handleGoBack} handleGoForward={handleGoForward} />
       </div>
     </>
   );
