@@ -15,6 +15,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const [promptLength, setPromptLength] = useState("");
     const [activeElement, setActiveElement] = useState("movementSomatics");
     const [generateButton, setGenerateButton] = useState(false);
+    const [beginButtonVisible, setBeginButtonVisible] = useState(false);
     const initialNavDataValues = [
         {
             title: "Somatics",
@@ -46,8 +47,9 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
-            console.log(response.data)
-            setPostId(response.data.id)
+            console.log(response.data);
+            setPostId(response.data.id);
+            setBeginButtonVisible(true);
         })}
 
     const handleMovementSomatics = (selectedMovementSomatics) => {
@@ -75,8 +77,8 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
         console.log(selectedPromptLength)
     }
 
-    const handleMovementClickCreatePage = () => {
-        setMovementGenerativeSpace(true)
+    const handleClickCreatePage = () => {
+        setVisualArtGenerativeSpace(true)
     }
 
 const mappedMovementSomatics = data.movementSomatics
@@ -180,9 +182,11 @@ return (
             )}
             </div>
             </div>
-            <button className="begin-button" onClick={handleMovementClickCreatePage}>
+            {beginButtonVisible && (
+              <button className="begin-button" onClick={handleClickCreatePage}>
                 BEGIN
-            </button> 
+              </button>
+            )}
         </>
     ) : (
         <></>

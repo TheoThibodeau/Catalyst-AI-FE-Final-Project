@@ -26,7 +26,7 @@ const VisualArtPrompt = ({ postId, setOutput, output  }) => {
     </div>
         
     </>
-  );
+  )
 };
 
 export default VisualArtPrompt;
