@@ -4,6 +4,7 @@ import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
+import Footer from "../footer.jsx";
 
 const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [themes, setThemes] = useState("");
@@ -206,6 +207,8 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
             )}
           </div>
         </div>
+      </div>
+      <div>
       </div>
     </>
   );
