@@ -98,6 +98,15 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         setVisualArtGenerativeSpace(true)
     }
 
+    const handleBack = () => {
+      const currentActiveIndex = keys.indexOf(activeElement);
+      const previousActiveIndex = currentActiveIndex - 1;
+      
+      if (previousActiveIndex >= 0) {
+        setActiveElement(keys[previousActiveIndex]);
+      }
+    };
+
 const mappedVisualArtThemes = data.visualArtThemes
 const mappedVisualArtMedium = data.visualArtMedium
 const mappedEmotion = data.emotion
@@ -216,6 +225,9 @@ return (
             )}
         </div>
       </div>
+      <button onClick={handleBack}>
+        Back
+      </button>
     </>
   );
   
