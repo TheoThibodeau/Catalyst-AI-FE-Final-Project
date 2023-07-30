@@ -57,7 +57,7 @@ const Landing = () => {
           <Link to="/create" onClick={handleClickCreate}>
             CREATE
           </Link>
-          <Link to="/create" onClick={handleClickFolio}>
+          <Link to="/folio" onClick={handleClickFolio}>
             FOLIO
           </Link>
         </div>
