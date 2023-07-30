@@ -1,53 +1,74 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
 const MusicFolio = () => {
   const [folios, setFolios] = useState([]);
+  const [selectedFolio, setSelectedFolio] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(null);
   const [output, setOutput] = useState([]);
-  const [created_at, setCreated_at] = useState([]);
   const [note, setNote] = useState([]);
   const [concept, setConcept] = useState([]);
   const [element, setElement] = useState([]);
   const [emotion, setEmotion] = useState([]);
   const [exploration, setExploration] = useState([]);
   const [promptLength, setPromptLength] = useState([]);
-  const [musicVisible, setMusicVisible] = useState(false);
+//   const [musicVisible, setMusicVisible] = useState(false);
 
-  const handleMusicPost = (e) => {
+  useEffect(() => {
       axios
         .get(`https://catalyst-x226.onrender.com/api/music/`)
         .then((response) => {
+          setFolios(response.data);
           setOutput(response.data[0].output);
-          setCreated_at(response.data[0].created_at);
           setNote(response.data[0].note);
           setConcept(response.data[0].concept);
           setElement(response.data[0].element);
           setEmotion(response.data[0].emotion);
           setExploration(response.data[0].exploration);
           setPromptLength(response.data[0].promptLength);
-          setMusicVisible(true);
+        //   setMusicVisible(true);
         })
         .catch((error) => console.error(error));
-    }
+    }, []);
 
-  return (
-    <>
-      <div>
-          <button onClick={handleMusicPost}>Music</button>
-      </div>
+    const handleDateClick = (date) => {
+        if (selectedDate === date) {
+          setSelectedDate(null);
+          setSelectedFolio(null);
+        } else {
+          setSelectedDate(date);
+          setSelectedFolio(folios.find((folio) => dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') === date));
+        }
+      };
 
-      {musicVisible && (
+      return (
         <div>
-          <h3>A.I Generate Prompt: {output}</h3>
-          <h3>Date of Creation: {dayjs(created_at).format('MM-DD-YYYY HH:mm:ss')}</h3>
-          <h3>Notes: {note}</h3>
-          <h3>Prompt Parameters: {concept} {element} {emotion} {exploration} {promptLength}</h3>
+          {folios.map((folio, index) => (
+            <div key={index}>
+              <button className="border border-slate-400 p-4 m-1 ml-10" onClick={() => handleDateClick(dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss'))}>
+                Date Created: {dayjs(folio.created_at).format('MM-DD-YYYY')}
+              </button>
+              {selectedDate === dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') && (
+                <>
+                <div className=" border border-slate-400 p-4 m-2 space-y-3">
+                  <h3 className="font-bold">A.I Generated Prompt</h3> 
+                  <h4>{folio.output}</h4>
+                  <h3 h3 className="font-bold">
+                    Prompt Parameters </h3>
+                    <h4> {folio.concept} , {folio.element}, {folio.emotion}
+                    {folio.exploration}, {folio.promptLength}
+                  </h4>
+                  <h3 className="font-bold">Notes </h3>
+                   <h4>{folio.note}</h4>
+                 
+                  </div>
+                </>
+              )}
+            </div>
+          ))}
         </div>
-      )}
-
-    </>
-  );
-};
+      );
+    };
 
 export default MusicFolio;

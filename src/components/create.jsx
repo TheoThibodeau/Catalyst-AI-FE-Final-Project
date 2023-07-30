@@ -60,7 +60,7 @@ const Create = ({ postId, output }) => {
                 className="w-full px-4 py-2 border border-slate-300 text-gray-800 font-mono text-center"
                 onClick={() => setActiveComponent("Dictionary")}
               >
-                Dictionary
+                Lexicon
               </button>
             </div>
           </div>
