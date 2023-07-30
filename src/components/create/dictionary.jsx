@@ -51,10 +51,10 @@ const Dictionary = () => {
     return (
 <>
     <div>
-    {isLoading && <SmallLoadingRobot />}
+    {isLoading && <SmallLoadingRobot/>}
     {!isLoading && (
             <form>
-                <label>Define : </label>
+                <label>Word   </label>
                 <input
                     type="text"
                     value={word}
@@ -69,29 +69,30 @@ const Dictionary = () => {
             </form>
     )}
     
-            <div id="accordionExample">
+<div id="accordionExample">
   <div
-    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
-    <h2 class="mb-0" id="headingOne">
+    <h2 className="mb-0" id="headingZero">
     
       <button
-        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
+        data-te-collapse-collapsed
         data-te-target="#collapseZero"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-controls="collapseZero">
         Definition
         <span
-          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6">
+            className="h-6 w-6">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -103,13 +104,13 @@ const Dictionary = () => {
         )}
     <div
       id="collapseZero"
-      class="!visible"
+      className="!visible hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingZero"
       data-te-parent="#accordionExample">
         {!isLoading && (
-      <div class="px-5 py-4">
+      <div className="px-5 py-4">
       {definition && <p>{definition}</p>}
       </div>
         )}
@@ -120,27 +121,28 @@ const Dictionary = () => {
 
 <div id="accordionExample">
   <div
-    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
-    <h2 class="mb-0" id="headingOne">
+    <h2 className="mb-0" id="headingOne">
     
       <button
-        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
+        data-te-collapse-collapsed
         data-te-target="#collapseOne"
         aria-expanded="true"
         aria-controls="collapseOne">
         Synonyms
         <span
-          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6">
+            className="h-6 w-6">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -152,13 +154,13 @@ const Dictionary = () => {
     )}
     <div
       id="collapseOne"
-      class="!visible"
+      className="!visible hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingOne"
       data-te-parent="#accordionExample">
         {!isLoading && (
-      <div class="px-5 py-4">
+      <div className="px-5 py-4">
       {synonym && <p>{synonym}</p>}
       </div>
         )}
@@ -166,12 +168,12 @@ const Dictionary = () => {
   </div>
 <br />
   <div
-    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
-    <h2 class="mb-0" id="headingTwo">
+    <h2 className="mb-0" id="headingTwo">
     
       <button
-        class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
         data-te-collapse-collapsed
@@ -180,14 +182,14 @@ const Dictionary = () => {
         aria-controls="collapseTwo">
         Antonyms
         <span
-          class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6">
+            className="h-6 w-6">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -199,12 +201,12 @@ const Dictionary = () => {
     )}
     <div
       id="collapseTwo"
-      class="!visible hidden"
+      className="!visible hidden"
       data-te-collapse-item
       aria-labelledby="headingTwo"
       data-te-parent="#accordionExample">
         {!isLoading && (
-      <div class="px-5 py-4">
+      <div className="px-5 py-4">
       {antonym && <p>{antonym}</p>}
       </div>
         )}
@@ -212,27 +214,28 @@ const Dictionary = () => {
   </div>
 <br />
 <div
-    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
-    <h2 class="mb-0" id="headingFour">
+    <h2 className="mb-0" id="headingThree">
     
       <button
-        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
-        data-te-target="#collapse"
-        aria-expanded="true"
+        data-te-collapse-collapsed
+        data-te-target="#collapseThree"
+        aria-expanded="false"
         aria-controls="collapseThree">
         Joke
         <span
-          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6">
+            className="h-6 w-6">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -245,13 +248,13 @@ const Dictionary = () => {
     )}
     <div
       id="collapseThree"
-      class="!visible"
+      className="!visible hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingThree"
       data-te-parent="#accordionExample">
         {!isLoading && (
-      <div class="px-5 py-4">
+      <div className="px-5 py-4">
       {joke && <p>{joke}</p>}
       </div>
         )}
@@ -260,27 +263,28 @@ const Dictionary = () => {
 </div>
 <br />
 <div
-    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
-    <h2 class="mb-0" id="headingFour">
+    <h2 className="mb-0" id="headingFour">
     
       <button
-        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
+        data-te-collapse-collapsed
         data-te-target="#collapseFour"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-controls="collapseFour">
         Use the word in a sentence
         <span
-          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6">
+            className="h-6 w-6">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -293,13 +297,13 @@ const Dictionary = () => {
     )}
     <div
       id="collapseFour"
-      class="!visible"
+      className="!visible hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingFour"
       data-te-parent="#accordionExample">
         {!isLoading && (
-      <div class="px-5 py-4">
+      <div className="px-5 py-4">
       {sentence && <p>{sentence}</p>}
       </div>
         )}
@@ -307,26 +311,27 @@ const Dictionary = () => {
   </div>
 <br />
   <div
-    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
-    <h2 class="mb-0" id="headingFour">
+    <h2 className="mb-0" id="headingFive">
       <button
-        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
+        data-te-collapse-collapsed
         data-te-target="#collapseFive"
-        aria-expanded="true"
+        aria-expanded="false"
         aria-controls="collapseFive">
             Color Association
         <span
-          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="h-6 w-6">
+            className="h-6 w-6">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -338,13 +343,13 @@ const Dictionary = () => {
         )}
     <div
       id="collapseFive"
-      class="!visible"
+      className="!visible hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingFive"
       data-te-parent="#accordionExample">
         {!isLoading && (
-      <div class="px-5 py-4">
+      <div className="px-5 py-4">
         {color && <p>{color}</p>}
       </div>
         )}
