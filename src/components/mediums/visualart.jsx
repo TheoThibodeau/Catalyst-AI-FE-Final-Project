@@ -54,7 +54,6 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         })
         .then((response) => {
             setIsLoading(true);
-            console.log(response.data);
             setPostId(response.data.id);
             setBeginButtonVisible(true);
             })

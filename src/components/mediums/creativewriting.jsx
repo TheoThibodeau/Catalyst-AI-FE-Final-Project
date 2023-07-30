@@ -4,6 +4,7 @@ import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
+import LoadingRobot from "./../robot.jsx";
 
 const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [themes, setThemes] = useState("");
@@ -39,6 +40,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     },
   ];
   const [navData, setNavData] = useState(initialNavDataValues);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handlePost = (e) => {
     e.preventDefault();
@@ -52,10 +54,14 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
         prompt_length: promptLength,
       })
       .then((response) => {
-        console.log(response.data);
+        setIsLoading(true);
         setPostId(response.data.id);
         setBeginButtonVisible(true);
-      });
+      })
+      .finally(() => {
+        const timeout = setTimeout(() => {
+            setIsLoading(false)}, 3000)
+      })
   };
 
   const handleThemeChange = (selectedTheme) => {
@@ -164,6 +170,9 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">
         <div>
+            {isLoading ?(
+                <LoadingRobot/>
+            ) : (
           <div className="flex flex-col items-center ">
             {generateButton ? (
               <>
@@ -205,6 +214,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
               />
             )}
           </div>
+            )}
         </div>
       </div>
     </>
