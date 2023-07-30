@@ -1,8 +1,8 @@
 import React from "react";
-import "./robot.css";
+import "./robotdict.css";
 
 
-export default function LoadingRobot() {
+export default function SmallLoadingRobot() {
     return (
 <div className="container">
 

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Collapse, initTE } from "tw-elements";
+import SmallLoadingRobot from "./../robotdict.jsx";
   
 const Dictionary = () => {
   const [word, setWord] = useState('');
@@ -10,16 +11,19 @@ const Dictionary = () => {
   const [sentence, setSentence] = useState('');
   const [joke, setJoke] = useState('');
   const [color, setColor] = useState('');
+  const [isLoading, setisLoading] = useState(false);
 
   initTE({ Collapse });
 
   const handlePost = (e) => {
     e.preventDefault();
+    setisLoading(true)
     axios
       .post('https://catalyst-x226.onrender.com/api/definition/generate/', {
         word: word,
       })
       .then((response) => {
+        
         const defineId = response.data.id;
         axios
           .get(`https://catalyst-x226.onrender.com/api/definition/${defineId}`)
@@ -30,7 +34,8 @@ const Dictionary = () => {
             setSentence(response.data.sentence);
             setJoke(response.data.joke);
             setColor(response.data.color);
-          });
+          })
+          .finally(() => setisLoading(false))
       })
       .catch((error) => console.error(error));
   };
@@ -47,6 +52,8 @@ const Dictionary = () => {
     return (
 <>
     <div className="border p-4">
+    {isLoading && <SmallLoadingRobot />}
+    {!isLoading && (
             <form>
                 <label>Define : </label>
                 <input
@@ -61,10 +68,14 @@ const Dictionary = () => {
                 />
                 <button onClick={handlePost} className="border p-4 m-4" type="submit">Ask Muse</button>
             </form>
+    )}
+    
             <div id="accordionExample">
   <div
     class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+        {!isLoading && (
     <h2 class="mb-0" id="headingOne">
+    
       <button
         class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
@@ -90,6 +101,7 @@ const Dictionary = () => {
         </span>
       </button>
     </h2>
+        )}
     <div
       id="collapseZero"
       class="!visible"
@@ -97,17 +109,22 @@ const Dictionary = () => {
       data-te-collapse-show
       aria-labelledby="headingZero"
       data-te-parent="#accordionExample">
+        {!isLoading && (
       <div class="px-5 py-4">
       {definition && <p>{definition}</p>}
       </div>
+        )}
     </div>
   </div>
   </div>
+        
 
 <div id="accordionExample">
   <div
     class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    {!isLoading && (
     <h2 class="mb-0" id="headingOne">
+    
       <button
         class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
@@ -133,6 +150,7 @@ const Dictionary = () => {
         </span>
       </button>
     </h2>
+    )}
     <div
       id="collapseOne"
       class="!visible"
@@ -140,15 +158,19 @@ const Dictionary = () => {
       data-te-collapse-show
       aria-labelledby="headingOne"
       data-te-parent="#accordionExample">
+        {!isLoading && (
       <div class="px-5 py-4">
       {synonym && <p>{synonym}</p>}
       </div>
+        )}
     </div>
   </div>
 
   <div
     class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    {!isLoading && (
     <h2 class="mb-0" id="headingTwo">
+    
       <button
         class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
@@ -175,21 +197,26 @@ const Dictionary = () => {
         </span>
       </button>
     </h2>
+    )}
     <div
       id="collapseTwo"
       class="!visible hidden"
       data-te-collapse-item
       aria-labelledby="headingTwo"
       data-te-parent="#accordionExample">
+        {!isLoading && (
       <div class="px-5 py-4">
       {antonym && <p>{antonym}</p>}
       </div>
+        )}
     </div>
   </div>
 
   <div
     class="rounded-b-lg border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+        {!isLoading && (
     <h2 class="accordion-header mb-0" id="headingThree">
+    
       <button
         class="group relative flex w-full items-center border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)] [&[data-te-collapse-collapsed]]:rounded-b-[15px] [&[data-te-collapse-collapsed]]:transition-none"
         type="button"
@@ -215,24 +242,31 @@ const Dictionary = () => {
           </svg>
         </span>
       </button>
+    
     </h2>
+    )}
     <div
       id="collapseThree"
       class="!visible hidden"
       data-te-collapse-item
       aria-labelledby="headingThree"
       data-te-parent="#accordionExample">
+        {!isLoading && (
       <div class="px-5 py-4">
       {joke && <p>{joke}</p>}
       </div>
+        )}
     </div>
   </div>
 </div>
 </div>
 
+
 <div
     class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+        {!isLoading && (
     <h2 class="mb-0" id="headingFour">
+    
       <button
         class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
@@ -257,7 +291,9 @@ const Dictionary = () => {
           </svg>
         </span>
       </button>
+    
     </h2>
+    )}
     <div
       id="collapseFour"
       class="!visible"
@@ -265,14 +301,17 @@ const Dictionary = () => {
       data-te-collapse-show
       aria-labelledby="headingFour"
       data-te-parent="#accordionExample">
+        {!isLoading && (
       <div class="px-5 py-4">
       {sentence && <p>{sentence}</p>}
       </div>
+        )}
     </div>
   </div>
 
   <div
     class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+        {!isLoading && (
     <h2 class="mb-0" id="headingFour">
       <button
         class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
@@ -299,6 +338,7 @@ const Dictionary = () => {
         </span>
       </button>
     </h2>
+        )}
     <div
       id="collapseFive"
       class="!visible"
@@ -306,11 +346,14 @@ const Dictionary = () => {
       data-te-collapse-show
       aria-labelledby="headingFive"
       data-te-parent="#accordionExample">
+        {!isLoading && (
       <div class="px-5 py-4">
         {color && <p>{color}</p>}
       </div>
+        )}
     </div>
   </div>
+        
 
             {/* <div>
                 <div>
@@ -340,9 +383,11 @@ const Dictionary = () => {
                 
                 </div>
             </div> */}
+    
 
 </>
     );
 };
+
 
 export default Dictionary;

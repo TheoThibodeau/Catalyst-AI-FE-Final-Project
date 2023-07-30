@@ -45,6 +45,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   const handlePost = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     axios
       .post("https://catalyst-x226.onrender.com/api/write/generate/", {
         style: writingStyle,
@@ -55,7 +56,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
         prompt_length: promptLength,
       })
       .then((response) => {
-        setIsLoading(true);
         setPostId(response.data.id);
         setBeginButtonVisible(true);
       })
