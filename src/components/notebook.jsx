@@ -22,4 +22,5 @@ const Folio = () => {
 
   const handlePromptLengthChange = (length) => {
     setPromptLength(length);
-  };
+  }
+}

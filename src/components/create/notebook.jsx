@@ -12,6 +12,9 @@ const Notebook = () => {
 
   return (
     <>
+    <div>
+    <button className="h-10 p-2 w-20 border m-2 justify-center"onClick={log}>Save</button>
+    <div>
       <Editor
         apiKey='5c49z6msz9y26e8fv03ptpphkxydj6nybm6x070w4arrr81l'
         onInit={(evt, editor) => editorRef.current = editor}
@@ -31,15 +34,11 @@ const Notebook = () => {
           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
         }}
       />
-      <button className="p-4 border m-4"onClick={log}>Save</button>
+</div>
+     
+      </div>
     </>
   );
 };
 
 export default Notebook;
-{/* <button
-className="w-full px-4 py-2 hover:underline text-gray-800 font-mono "
-onClick={() => setActiveComponent("Notebook")}
->
-Notebook
-</button> */}
