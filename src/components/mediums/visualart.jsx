@@ -43,6 +43,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const handlePost = (e) => {
+        setIsLoading(true);
         e.preventDefault();
         axios
         .post('https://catalyst-x226.onrender.com/api/visual_art/generate/',{
@@ -53,13 +54,12 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
-            setIsLoading(true);
             setPostId(response.data.id);
             setBeginButtonVisible(true);
             })
         .finally(() => {
         const timeout = setTimeout(() => {
-            setIsLoading(false)}, 3000)
+            setIsLoading(false)}, 1000)
     })
     }
 
