@@ -4,6 +4,7 @@ import data from "/prompt.json";
 import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
+import LoadingRobot from "./../robot.jsx";
 
 
 const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
@@ -57,12 +58,13 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
         setIsLoading(true);
         setPostId(response.data.id);
         setBeginButtonVisible(true);
+      })
       .finally(() => {
         const timeout = setTimeout(() => {
             setIsLoading(false)}, 3000)
       })
   };
-  };
+
 
   const handleThemeChange = (selectedTheme) => {
     setThemes(selectedTheme);
@@ -216,8 +218,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
           </div>
             )}
         </div>
-      </div>
-      <div>
       </div>
     </>
   );
