@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
-
 const CreativeWritingFolio = () => {
   const [folios, setFolios] = useState([]);
   const [selectedFolio, setSelectedFolio] = useState(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [output, setOutput] = useState([]);
   const [note, setNote] = useState([]);
-  const [category, setCategory] = useState([]); // Corrected variable name
+  const [category, setCategory] = useState([]);
   const [somatic, setSomatic] = useState([]);
   const [theme, setTheme] = useState([]);
   const [emotion, setEmotion] = useState([]);
@@ -28,44 +27,31 @@ const CreativeWritingFolio = () => {
         setEmotion(response.data[0].emotion);
         setSentiment(response.data[0].sentiment);
         setPromptLength(response.data[0].promptLength);
-        setCategory(response.data[0].category); // Corrected variable name
+        setCategory(response.data[0].category);
       })
       .catch((error) => console.error(error));
   }, []);
 
   const handleDateClick = (date) => {
     if (selectedDate === date) {
-        setSelectedDate(null);
-        setSelectedFolio(null);
-      } else {
-        setSelectedDate(date);
-        setSelectedFolio(folios.find((folio) => dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') === date));
-      }
-    };
+      setSelectedDate(null);
+      setSelectedFolio(null);
+    } else {
+      setSelectedDate(date);
+      setSelectedFolio(folios.find((folio) => dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') === date));
+    }
+  };
 
   return (
-    <>
-      <div>
-        {folios.map((folio) => (
-          <button
-            key={folio.id}
-            onClick={() =>
-              handleDateClick(dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss'))
-            }
-          >
-            {dayjs(folio.created_at).format('MMMM D, YYYY - HH:mm')}
-          </button>
-        ))}
-      </div>
-
+    <div>
       {selectedDate && (
         <div>
-          <h3>Date of Creation: {selectedDate}</h3>
+          <button onClick={() => handleDateClick(selectedDate)}> Date of Creation: {selectedDate}</button>
           {selectedFolio && (
             <>
               <h3>A.I Generate Prompt:{output}</h3>
               <h3>
-                Prompt Parameters: {theme} {category}{somatic}
+                Prompt Parameters: {theme} {category} {somatic}
                 {emotion} {sentiment} {promptLength}
               </h3>
               <h3>Notes: {note}</h3>
@@ -73,7 +59,7 @@ const CreativeWritingFolio = () => {
           )}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
