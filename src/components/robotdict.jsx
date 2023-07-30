@@ -2,7 +2,7 @@ import React from "react";
 import "./robotdict.css";
 
 
-export default function SmallLoadingRobot() {
+const SmallLoadingRobot = () => {
     return (
 <div className="container">
 
@@ -47,4 +47,5 @@ export default function SmallLoadingRobot() {
         </div>
     </div>
 </div> 
-)}
+)};
+export default SmallLoadingRobot;

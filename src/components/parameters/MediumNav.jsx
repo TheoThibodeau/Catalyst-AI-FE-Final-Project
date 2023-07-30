@@ -1,5 +1,4 @@
 const MediumNav = ({ navData }) => {
-  console.log(navData);
 
   return (
     <>
