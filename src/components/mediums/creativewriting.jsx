@@ -178,7 +178,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                       GENERATE
                     </button>
                   </div>
-                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-40">
+                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-16">
                     {postId && (
                       <CreativeWritingPrompt
                         postId={postId}

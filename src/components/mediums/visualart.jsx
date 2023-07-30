@@ -5,6 +5,7 @@ import VisualArtPrompt from "../promptresponse/visualartprompt.jsx";
 import {useNavigate} from 'react-router-dom';
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx"; 
+import LoadingRobot from "./../robot.jsx";
 
 const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
@@ -39,6 +40,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         },
     ];
     const [navData, setNavData] = useState(initialNavDataValues);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handlePost = (e) => {
         e.preventDefault();
@@ -51,10 +53,16 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
+            setIsLoading(true);
             console.log(response.data);
             setPostId(response.data.id);
             setBeginButtonVisible(true);
-        })}
+            })
+        .finally(() => {
+        const timeout = setTimeout(() => {
+            setIsLoading(false)}, 3000)
+    })
+    }
 
     const handleVisualArtThemes = (selectedVisualArtThemes) => {
         setVisualArtThemes(selectedVisualArtThemes);
@@ -162,6 +170,9 @@ return (
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">
         <div>
+            {isLoading ?(
+                <LoadingRobot/>
+            ) : (
           <div className="flex flex-col items-center ">
             {generateButton ? (
               <>
@@ -203,12 +214,13 @@ return (
               />
             )}
           </div>
+            )}
         </div>
       </div>
     </>
   );
   
-            };  
+            }  
    
            
 export default VisualArt;
