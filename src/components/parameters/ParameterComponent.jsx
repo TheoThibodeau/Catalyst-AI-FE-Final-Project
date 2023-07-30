@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import MovementPrompt from "../promptresponse/movementprompt.jsx";
-import Footer from "../footer.jsx";
+// import Footer from "../footer.jsx";
 
 const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
   const title = data.title;
@@ -31,7 +31,7 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
           </div>
         ))}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
         }

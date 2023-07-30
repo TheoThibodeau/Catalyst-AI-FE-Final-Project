@@ -88,6 +88,15 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
         setVisualArtGenerativeSpace(true)
     }
 
+    const handleBack = () => {
+      const currentActiveIndex = keys.indexOf(activeElement);
+      const previousActiveIndex = currentActiveIndex - 1;
+      
+      if (previousActiveIndex >= 0) {
+        setActiveElement(keys[previousActiveIndex]);
+      }
+    };
+
 const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
 const mappedEmotion = data.emotion
@@ -209,6 +218,9 @@ return (
             )}
         </div>
       </div>
+      <button onClick={handleBack}>
+        Back
+      </button>
     </>
   );
   

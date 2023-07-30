@@ -90,6 +90,15 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
             setMusicGenerativeSpace(true)
         }
 
+        const handleBack = () => {
+          const currentActiveIndex = keys.indexOf(activeElement);
+          const previousActiveIndex = currentActiveIndex - 1;
+          
+          if (previousActiveIndex >= 0) {
+            setActiveElement(keys[previousActiveIndex]);
+          }
+        };
+
 const mappedExplorations = data.explorations
 const mappedConcepts = data.concepts
 const mappedEmotion = data.emotion
@@ -207,6 +216,9 @@ return (
             )}
         </div>
       </div>
+      <button onClick={handleBack}>
+        Back
+      </button>
     </>
   );
   
