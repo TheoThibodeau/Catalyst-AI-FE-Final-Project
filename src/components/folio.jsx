@@ -21,12 +21,12 @@ const Folio = () => {
   return (
     <>
       
-      <div className="flex gap-4 pt-5 justify-center">
+      <div className="flex bg-slate-200 p-6 gap-4 pt-5 justify-center ">
         {componentData.map((component) => (
           <button
             key={component.name}
             className={`${
-              selectedComponent === component.name ? 'border-blue-500' : 'border-gray-500'
+              selectedComponent === component.name ? 'border-slate-100' : 'border-gray-500'
             } border p-2`}
             onClick={() => handleComponentClick(component.name)}
           >

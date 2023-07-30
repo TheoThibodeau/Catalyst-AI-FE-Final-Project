@@ -44,21 +44,29 @@ const CreativeWritingFolio = () => {
 
   return (
     <div>
-      {selectedDate && (
-        <div>
-          <button onClick={() => handleDateClick(selectedDate)}> Date of Creation: {selectedDate}</button>
-          {selectedFolio && (
+      {folios.map((folio, index) => (
+        <div key={index}>
+          <button className="border border-slate-400 p-4 m-1 ml-10" onClick={() => handleDateClick(dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss'))}>
+            Date of Creation: {dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss')}
+          </button>
+          {selectedDate === dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') && (
             <>
-              <h3>A.I Generate Prompt:{output}</h3>
-              <h3>
-                Prompt Parameters: {theme} {category} {somatic}
-                {emotion} {sentiment} {promptLength}
-              </h3>
-              <h3>Notes: {note}</h3>
+            <div className=" border border-slate-400 p-4 m-2 space-y-3">
+              <h3 className="font-bold">A.I Generated Prompt</h3> 
+              <h4>{folio.output}</h4>
+              <h3 h3 className="font-bold">
+                Prompt Parameters </h3>
+                <h4> {folio.theme} , {folio.category}, {folio.somatic}
+                {folio.emotion}, {folio.sentiment}, {folio.promptLength}
+              </h4>
+              <h3 className="font-bold">Notes </h3>
+               <h4>{folio.note}</h4>
+             
+              </div>
             </>
           )}
         </div>
-      )}
+      ))}
     </div>
   );
 };
