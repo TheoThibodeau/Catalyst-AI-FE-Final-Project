@@ -4,7 +4,7 @@ import { Collapse, initTE } from "tw-elements";
   
 const Dictionary = () => {
   const [word, setWord] = useState('');
-  const [define, setDefine] = useState('');
+  const [definition, setDefinition] = useState('');
   const [synonym, setSynonym] = useState('');
   const [antonym, setAntonym] = useState('');
   const [sentence, setSentence] = useState('');
@@ -24,7 +24,7 @@ const Dictionary = () => {
         axios
           .get(`https://catalyst-x226.onrender.com/api/definition/${defineId}`)
           .then((response) => {
-            setDefine(response.data.define);
+            setDefinition(response.data.definition);
             setSynonym(response.data.synonym);
             setAntonym(response.data.antonym);
             setSentence(response.data.sentence);
@@ -35,40 +35,14 @@ const Dictionary = () => {
       .catch((error) => console.error(error));
   };
   
+  const updateColorAssociation = () => {
+    const container = document.getElementById("colorAssociationContainer");
+    container.style.backgroundColor = color; // Use the 'color' state value as the background color
+  };
     
     const handleInputChange = (e) => {
         setWord(e.target.value);
     };
-
-    const handleDefine = (selectedDefine) => {
-        setDefine(selectedDefine);
-        console.log(selectedDefine)
-    }
-
-    const handleSynonym = (selectedSynonym) => {
-        setSynonym(selectedSynonym);
-        console.log(selectedSynonym)
-    }
-
-    const handleAntonym = (selectedAntonym) => {
-        setAntonym(selectedAntonym);
-        console.log(selectedAntonym)
-    }
-
-    const handleSentence = (selectedSentence) => {
-        setSentence(selectedSentence);
-        console.log(selectedSentence)
-    }
-
-    const handleJoke = (selectedJoke) => {
-        setJoke(selectedJoke);
-        console.log(selectedJoke)
-    }
-
-    const handleColor = (selectedColor) => {
-        setColor(selectedColor);
-        console.log(selectedColor)
-    }
 
     return (
 <>
@@ -85,9 +59,52 @@ const Dictionary = () => {
                         padding: '8px'
                     }}
                 />
-                <button onClick={handlePost} className="border p-4 m-4" type="submit">Ask ChatGPT</button>
+                <button onClick={handlePost} className="border p-4 m-4" type="submit">Ask Muse</button>
             </form>
             <div id="accordionExample">
+  <div
+    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    <h2 class="mb-0" id="headingOne">
+      <button
+        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        type="button"
+        data-te-collapse-init
+        data-te-target="#collapseZero"
+        aria-expanded="true"
+        aria-controls="collapseZero">
+        Definition
+        <span
+          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+      </button>
+    </h2>
+    <div
+      id="collapseZero"
+      class="!visible"
+      data-te-collapse-item
+      data-te-collapse-show
+      aria-labelledby="headingZero"
+      data-te-parent="#accordionExample">
+      <div class="px-5 py-4">
+      {definition && <p>{definition}</p>}
+      </div>
+    </div>
+  </div>
+  </div>
+
+<div id="accordionExample">
   <div
     class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     <h2 class="mb-0" id="headingOne">
@@ -128,6 +145,7 @@ const Dictionary = () => {
       </div>
     </div>
   </div>
+
   <div
     class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     <h2 class="mb-0" id="headingTwo">
@@ -168,6 +186,7 @@ const Dictionary = () => {
       </div>
     </div>
   </div>
+
   <div
     class="rounded-b-lg border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     <h2 class="accordion-header mb-0" id="headingThree">
@@ -210,6 +229,88 @@ const Dictionary = () => {
   </div>
 </div>
 </div>
+
+<div
+    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    <h2 class="mb-0" id="headingFour">
+      <button
+        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        type="button"
+        data-te-collapse-init
+        data-te-target="#collapseFour"
+        aria-expanded="true"
+        aria-controls="collapseFour">
+        Use the word in a sentence
+        <span
+          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+      </button>
+    </h2>
+    <div
+      id="collapseFour"
+      class="!visible"
+      data-te-collapse-item
+      data-te-collapse-show
+      aria-labelledby="headingFour"
+      data-te-parent="#accordionExample">
+      <div class="px-5 py-4">
+      {sentence && <p>{sentence}</p>}
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="rounded-t-lg border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    <h2 class="mb-0" id="headingFour">
+      <button
+        class="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        type="button"
+        data-te-collapse-init
+        data-te-target="#collapseFive"
+        aria-expanded="true"
+        aria-controls="collapseFive">
+            Color Association
+        <span
+          class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="h-6 w-6">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+          </svg>
+        </span>
+      </button>
+    </h2>
+    <div
+      id="collapseFive"
+      class="!visible"
+      data-te-collapse-item
+      data-te-collapse-show
+      aria-labelledby="headingFive"
+      data-te-parent="#accordionExample">
+      <div class="px-5 py-4">
+        {color && <p>{color}</p>}
+      </div>
+    </div>
+  </div>
 
             {/* <div>
                 <div>
