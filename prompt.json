@@ -147,8 +147,8 @@
           "title": "Prompt Length",
           "data":[
             "one word",
-            "three words",
-            "prompt"
+            "a few words",
+            "a sentence or two"
           ]
         },
 
