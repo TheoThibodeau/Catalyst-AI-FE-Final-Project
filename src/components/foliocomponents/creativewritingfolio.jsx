@@ -47,7 +47,7 @@ const CreativeWritingFolio = () => {
       {folios.map((folio, index) => (
         <div key={index}>
           <button className="border border-slate-400 p-4 m-1 ml-10" onClick={() => handleDateClick(dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss'))}>
-            Date of Creation: {dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss')}
+            Date Created: {dayjs(folio.created_at).format('MM-DD-YYYY')}
           </button>
           {selectedDate === dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') && (
             <>
