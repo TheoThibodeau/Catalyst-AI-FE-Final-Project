@@ -85,7 +85,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     }
 
     const handleClickCreatePage = () => {
-        setVisualArtGenerativeSpace(true)
+      setMovementGenerativeSpace(true)
     }
 
     const handleBack = () => {
