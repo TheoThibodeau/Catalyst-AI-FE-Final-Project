@@ -40,6 +40,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
 
     const handlePost = (e) => {
         e.preventDefault();
+        setIsLoading(true);
         axios
         .post('https://catalyst-x226.onrender.com/api/movement/generate/',{
             somatic: movementSomatics,
@@ -49,7 +50,6 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
-            setIsLoading(true);
             setPostId(response.data.id);
             setBeginButtonVisible(true);
         })
@@ -87,6 +87,15 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
     const handleClickCreatePage = () => {
         setVisualArtGenerativeSpace(true)
     }
+
+    const handleBack = () => {
+      const currentActiveIndex = keys.indexOf(activeElement);
+      const previousActiveIndex = currentActiveIndex - 1;
+      
+      if (previousActiveIndex >= 0) {
+        setActiveElement(keys[previousActiveIndex]);
+      }
+    };
 
 const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
@@ -209,6 +218,9 @@ return (
             )}
         </div>
       </div>
+      <button onClick={handleBack}>
+        Back
+      </button>
     </>
   );
   

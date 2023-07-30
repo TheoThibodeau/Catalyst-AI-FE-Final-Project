@@ -43,6 +43,7 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
       const [isLoading, setIsLoading] = useState(false);
     const handlePost = (e) => {
         e.preventDefault();
+        setIsLoading(true);
         axios
         .post('https://catalyst-x226.onrender.com/api/music/generate/',{
             exploration: explorations,
@@ -52,8 +53,6 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
-            setIsLoading(true);
-            console.log(response.data);
             setPostId(response.data.id);
             setBeginButtonVisible(true);
         })
@@ -90,6 +89,15 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
         const handleClickCreatePage = () => {
             setMusicGenerativeSpace(true)
         }
+
+        const handleBack = () => {
+          const currentActiveIndex = keys.indexOf(activeElement);
+          const previousActiveIndex = currentActiveIndex - 1;
+          
+          if (previousActiveIndex >= 0) {
+            setActiveElement(keys[previousActiveIndex]);
+          }
+        };
 
 const mappedExplorations = data.explorations
 const mappedConcepts = data.concepts
@@ -208,6 +216,9 @@ return (
             )}
         </div>
       </div>
+      <button onClick={handleBack}>
+        Back
+      </button>
     </>
   );
   

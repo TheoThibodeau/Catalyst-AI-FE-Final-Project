@@ -6,7 +6,6 @@ import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
 import LoadingRobot from "./../robot.jsx";
 
-
 const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [themes, setThemes] = useState("");
   const [categories, setCategories] = useState("");
@@ -18,6 +17,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [activeElement, setActiveElement] = useState("themes");
   const [generateButton, setGenerateButton] = useState(false);
   const [beginButtonVisible, setBeginButtonVisible] = useState(false);
+  const [backButton, setBackButton] = useState("");
   const initialNavDataValues = [
     {
       title: "Themes",
@@ -45,6 +45,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   const handlePost = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     axios
       .post("https://catalyst-x226.onrender.com/api/write/generate/", {
         style: writingStyle,
@@ -55,7 +56,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
         prompt_length: promptLength,
       })
       .then((response) => {
-        setIsLoading(true);
         setPostId(response.data.id);
         setBeginButtonVisible(true);
       })
@@ -64,7 +64,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
             setIsLoading(false)}, 3000)
       })
   };
-
 
   const handleThemeChange = (selectedTheme) => {
     setThemes(selectedTheme);
@@ -100,6 +99,15 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     setGenerativeSpace(true);
   };
 
+  const handleBack = () => {
+    const currentActiveIndex = keys.indexOf(activeElement);
+    const previousActiveIndex = currentActiveIndex - 1;
+    
+    if (previousActiveIndex >= 0) {
+      setActiveElement(keys[previousActiveIndex]);
+    }
+  };
+  
   const mappedWritingStyle = data.writingStyle;
   const mappedThemes = data.themes;
   const mappedCategories = data.categories;
@@ -219,8 +227,10 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
             )}
         </div>
       </div>
+      <button onClick={handleBack}>
+        Back
+      </button>
     </>
   );
-  
-            };  
+};  
 export default CreativeWriting;
