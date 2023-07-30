@@ -8,11 +8,6 @@ const Footer = ({ }) => {
     console.log("Back!", handleClickBack)
     };
   
-    const handleClickForward = () => {
-      window.history.forward();
-      console.log("Forward!", handleClickForward)
-    };
-  
     feather.replace()
     return (
       <>
@@ -23,14 +18,6 @@ const Footer = ({ }) => {
           onClick={handleClickBack}
         >
           Back
-        </button>
-      </div>
-      <div className="flex items-center">
-        <button
-          className="text-1xl text-slate-500"
-          onClick={handleClickForward}
-        >
-          Forward
         </button>
       </div>
     </div>

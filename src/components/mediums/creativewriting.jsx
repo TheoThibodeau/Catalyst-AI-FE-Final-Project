@@ -127,7 +127,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   };
   console.log("navData",navData)
 
-  const handleStateSet = (key, value) => {
+  const handleStateSet = (key, value, setActiveElement) => {
     console.log("key", key);
     if (key === "Themes") {
       handleThemeChange(value);
@@ -155,15 +155,14 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     }
     if (key === "Prompt Length") {
       handlePromptLength(value);
-      const newActiveElement = "generate";
       setActiveElement(newActiveElement);
       setGenerateButton(true);
       handleActiveNav(newActiveElement);
-  }
+    }
 
-  if (key === "generateButton"){
-    handleGenerate(value);
-  }
+    if (key === "generateButton"){
+      handleGenerate(value);
+    }
   };
 
   const keys = ["themes", "categories", "emotion", "sentiment", "promptLength", "generate"];
@@ -221,6 +220,5 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       </div>
     </>
   );
-  
-            };  
+  };  
 export default CreativeWriting;
