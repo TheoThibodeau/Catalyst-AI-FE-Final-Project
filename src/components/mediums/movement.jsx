@@ -40,6 +40,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
 
     const handlePost = (e) => {
         e.preventDefault();
+        setIsLoading(true);
         axios
         .post('https://catalyst-x226.onrender.com/api/movement/generate/',{
             somatic: movementSomatics,
@@ -49,7 +50,6 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
             prompt_length: promptLength,
         })
         .then((response) => {
-            setIsLoading(true);
             setPostId(response.data.id);
             setBeginButtonVisible(true);
         })
