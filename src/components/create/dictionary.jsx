@@ -23,7 +23,6 @@ const Dictionary = () => {
         word: word,
       })
       .then((response) => {
-        
         const defineId = response.data.id;
         axios
           .get(`https://catalyst-x226.onrender.com/api/definition/${defineId}`)

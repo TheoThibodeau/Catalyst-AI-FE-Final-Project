@@ -205,24 +205,31 @@ return (
                 )}
               </>
             ) : (
+            <div>
               <ParameterComponent
                 key={activeElement}
                 data={data[activeElement]}
                 handler={handleStateSet}
                 mediumNavComponent={<MediumNav navData={navData} />}
               />
+              <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
+                <div className="flex items-center">
+                  <button
+                    className="text-1xl text-slate-500"
+                    onClick={handleBack}>
+                    Back
+                  </button>
+                </div>
+              </div>
+          </div>
             )}
           </div>
             )}
         </div>
       </div>
-      <button onClick={handleBack}>
-        Back
-      </button>
     </>
   );
-  
-            };  
+  };  
              
 
 export default Music;
