@@ -11,8 +11,7 @@ const CreativeWritingPrompt = ({ postId, setOutput, output }) => {
         setOutput(response.data.output);
         setNote(response.data.note);
       })
-      .catch((error) => console.error(error));
-  },
+   },
     [postId, setOutput]);
 
   return (

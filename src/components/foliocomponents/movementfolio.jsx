@@ -45,9 +45,9 @@ const MovementFolio = () => {
           {folios.map((folio, index) => (
             <div key={index}>
               <button className="border border-slate-400 p-4 m-1 ml-10" onClick={() => handleDateClick(dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss'))}>
-                Date Created: {dayjs(folio.created_at).format('MMM DD YYYY')}
+                Date Created: {dayjs(folio.created_at).format('MM-DD-YYYY')}
               </button>
-              {selectedDate === dayjs(folio.created_at).format('MMM DD, YYYY HH:mm:ss') && (
+              {selectedDate === dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') && (
                 <>
                 <div className=" border border-slate-400 p-4 m-2 space-y-3">
                   <h3 className="font-bold">A.I Generated Prompt</h3> 
