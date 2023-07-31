@@ -38,11 +38,6 @@ const Dictionary = () => {
       })
       .catch((error) => console.error(error));
   };
-  
-  const updateColorAssociation = () => {
-    const container = document.getElementById("colorAssociationContainer");
-    container.style.backgroundColor = color; // Use the 'color' state value as the background color
-  };
     
     const handleInputChange = (e) => {
         setWord(e.target.value);

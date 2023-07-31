@@ -17,7 +17,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [activeElement, setActiveElement] = useState("themes");
   const [generateButton, setGenerateButton] = useState(false);
   const [beginButtonVisible, setBeginButtonVisible] = useState(false);
-  const [backButton, setBackButton] = useState("");
+  const [isClicked, setIsClicked] = useState(false);
   const initialNavDataValues = [
     {
       title: "Themes",
@@ -58,6 +58,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       .then((response) => {
         setPostId(response.data.id);
         setBeginButtonVisible(true);
+        setIsClicked(true);
       })
       .finally(() => {
         const timeout = setTimeout(() => {
@@ -188,13 +189,22 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
               <>
                 <div>
                   <div className="flex justify-center">
-                    <button
-                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
+                    {isClicked ?
+                      <button 
                       onClick={handlePost}
-                      key="generateButton"
-                    >
-                      GENERATE
-                    </button>
+                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
+                      >
+                        REGENERATE
+                      </button>
+                      :
+                      <button
+                        className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
+                        onClick={handlePost}
+                        key="generateButton"
+                      >
+                        GENERATE
+                      </button>
+                    }
                   </div>
                   <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-16">
                     {postId && (

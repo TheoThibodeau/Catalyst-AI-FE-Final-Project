@@ -78,11 +78,12 @@ const Landing = () => {
         ].join(" ")}
       >
         <p style={{ fontFamily: "IBM Plex Mono"}}>
-          Discover a world of creativity and inspiration through creative
-          writing, music, movement, visual art, and AI.{" "}
+          Discover a world of creativity and inspiration through 
+          the power of artificial intelligence.{" "}
         </p>
         <p style={{ fontFamily: "IBM Plex Mono"}}>
-          Select a medium {" "}
+          Select an art form, customize your unique A.I.
+          generated prompt, and start creating!{" "}
         </p>
       </div>
       <div
