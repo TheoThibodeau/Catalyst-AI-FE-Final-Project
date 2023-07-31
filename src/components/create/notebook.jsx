@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import axios from 'axios';
+import CreativeWritingSave from '../notebooksave/creativewritingsave';
 
-const Notebook = () => {
+const Notebook = ({ postId }) => {
+
   const editorRef = useRef(null);
 
   const log = () => {
@@ -13,7 +16,7 @@ const Notebook = () => {
   return (
     <>
     <div>
-    <button className="h-10 p-2 w-20 border m-2 justify-center"onClick={log}>Save</button>
+      <CreativeWritingSave postId={postId}/>
     <div>
       <Editor
         apiKey='5c49z6msz9y26e8fv03ptpphkxydj6nybm6x070w4arrr81l'
