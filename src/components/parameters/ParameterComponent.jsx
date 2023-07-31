@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import MovementPrompt from "../promptresponse/movementprompt.jsx";
-// import Footer from "../footer.jsx";
+import NavBar from "../navbar.jsx";
 
 const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
   const title = data.title;
@@ -14,7 +14,6 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
         {mediumNavComponent}
       </div>
 
-      
       <div className="flex flex-col pb-20 items-center justify-center space-y-10 flex-grow">
         {entries.map((entry) => (
           <div
@@ -33,5 +32,5 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
       </div>
     </div>
   );
-        }
+};
 export default ParameterComponent;
