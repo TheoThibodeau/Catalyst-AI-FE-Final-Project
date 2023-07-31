@@ -5,6 +5,7 @@ import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
 import LoadingRobot from "./../robot.jsx";
+import NavBar from "../navbar.jsx";
 
 const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [themes, setThemes] = useState("");
@@ -252,3 +253,4 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   );
 };  
 export default CreativeWriting;
+     
