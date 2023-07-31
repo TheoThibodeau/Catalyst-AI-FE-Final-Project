@@ -34,9 +34,12 @@ const Create = ({ postId, output }) => {
     <NavBar />
       <div className="flex flex-wrap items-center w-full ">
         <div className="w-full pb-4 pl-4 pr-4">
-          <div className="font-serif text-center p-8 pr-5 pl-5  bg-slate-100 border border-slate-500 font-extralight text-lg">
+          <div className={activeComponent ? "font-serif text-center p-8 pr-5 pl-5  bg-slate-100 border border-slate-500 font-extralight text-lg" : ""}>
             {output}
           </div>
+      <div className="text- w-full pb-8 flex flex-grow lg:w-1/2 font-serif justify-center">
+        {components[activeComponent]}
+      </div>
           <div>
             <div className="grid grid-cols-2 gap-2 pt-4">
               <button
@@ -67,9 +70,7 @@ const Create = ({ postId, output }) => {
           </div>
         </div>
       </div>
-      <div className="text- w-full pb-8 flex flex-grow lg:w-1/2 font-serif justify-center">
-        {components[activeComponent]}
-      </div>
+      
     </>
   );
 };
