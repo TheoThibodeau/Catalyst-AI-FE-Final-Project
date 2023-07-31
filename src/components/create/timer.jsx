@@ -30,7 +30,7 @@ const Timer = () => {
 
   return (
     <div className="mt-10 text-center">
-      <div className="text-8xl space-y-3">
+      <div className="text-7xl space-y-3">
         <p>
           {hours.toString().padStart(2, '0')}:
           {minutes.toString().padStart(2, '0')}:
@@ -38,7 +38,7 @@ const Timer = () => {
         </p>
       </div>
 
-      <div className="flex  text-4xl justify-center items-center space-x-3 mt-4 pr-4">
+      <div className="flex  text-4xl justify-center items-center space-x-8 mt-4 pr-4">
         <button onClick={handleStart}>Start</button>
         <button onClick={handleStop}>Stop</button>
       </div>
