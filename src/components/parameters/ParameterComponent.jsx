@@ -31,7 +31,6 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
           </div>
         ))}
       </div>
-      {/* <Footer /> */}
     </div>
   );
         }

@@ -29,18 +29,25 @@ const Timer = () => {
   const hours = Math.floor(totalSeconds / 3600);
 
   return (
-    <div className="mt-10 text-center">
-      <div className="text-7xl space-y-3">
+    <div className="timer-container">
+      <div className="timer-text">
         <p>
           {hours.toString().padStart(2, '0')}:
           {minutes.toString().padStart(2, '0')}:
           {seconds.toString().padStart(2, '0')}
         </p>
       </div>
-
-      <div className="flex  text-4xl justify-center items-center space-x-8 mt-4 pr-4">
+      <div className="clear">
+            <button>Clear</button>
+        </div>
+      <div className="button-container">
+        <div class="timer-start">
         <button onClick={handleStart}>Start</button>
+        </div>
+        <div class="timer-stop">
         <button onClick={handleStop}>Stop</button>
+        </div>
+        
       </div>
     </div>
   );

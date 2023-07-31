@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./../time.css"
 
 const Stopwatch = () => {
   const [time, setTime] = useState(0);
@@ -44,13 +45,13 @@ const Stopwatch = () => {
   };
 
   return (
-    <div className="border p-4">
+    <div className="container">
       
       <div>
         <span className="center-item">Time: {formatTime(time)}</span>
       </div>
-      <div className="">
-        <button className="p-4" onClick={start}>Start</button>
+      <div className="buttons">
+        <button className="start" onClick={start}>Start</button>
         <button className="p-4" onClick={pause}>Pause</button>
         <button className="p-4"onClick={reset}>Reset</button>
       </div>

@@ -1,0 +1,176 @@
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 345px;
+    height: 525px;
+    justify-content: center;
+    margin-top: -50px;
+    align-items: center;
+    background-color: #cbd5e1;
+    border-radius: 0.1em;
+    box-shadow: inset 3px 3px 10px #555B6E,
+                inset -10px -10px 20px #555B6E,
+                inset 5px 5px 15px white;
+}
+
+.time-container {
+    display: flex;
+    width: 315px;
+    margin-top: 40px;
+    background-color: #e2e8f0;
+    justify-content: center;
+    border: 2px solid #cbd5e1;
+    box-shadow: inset 10px 10px 30px #555B6E,
+                inset -12px -12px 35px #555B6E;
+
+}
+
+.time {
+    font-size: 110px;
+    font-family: "Istok Web";
+    border-radius: 0.1em;
+}
+
+.timer-text {
+    font-size: 80px;
+    font-family: "Istok Web";
+    margin-top: 90px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 0.1em;
+    background-color: #e2e8f0;
+    border: 1px solid #cbd5e1;
+    box-shadow: inset 10px 10px 30px #555B6E,
+                inset -10px -10px 30px #555B6E;
+    
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+}
+.start {
+    font-size: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-right: 5px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    
+    border: 1px solid black;
+    font-family: "Istok Web";
+    border-radius: 0.1em;
+    box-shadow: inset 3px 3px 10px #555B6E,
+                inset -5px -5px 10px #555B6E,
+                inset 5px 5px 15px white;
+}
+
+
+.stop {
+    font-size: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    margin-left: 5px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    border: 1px solid black;
+    font-family: "Istok Web";
+    border-radius: 0.1em;
+    box-shadow: inset 3px 3px 10px #555B6E,
+                inset -5px -5px 10px #555B6E,
+                inset 5px 5px 15px white;
+}
+
+
+.timer-start {
+    font-size: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-right: 10px;
+    margin-top: 50px;
+    border-radius: 0.1em;
+    margin-bottom: 90px;
+    border: 1px solid black;
+    font-family: "Istok Web";
+    box-shadow: inset 3px 3px 10px #555B6E,
+                inset -5px -5px 10px #555B6E,
+                inset 5px 5px 15px white;
+}
+
+.timer-stop {
+    font-size: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 0.1em;
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-bottom: 90px;
+    border: 1px solid black;
+    font-family: "Istok Web";
+    box-shadow: inset 3px 3px 10px #555B6E,
+                inset -5px -5px 10px #555B6E,
+                inset 5px 5px 15px white;
+}
+
+.start:hover, .stop:hover {
+    background-color: #bfdbfe; 
+}
+
+.timer-start:hover, .timer-stop:hover, .clear:hover, .start:hover, .stop:hover {
+    background-color: #bfdbfe; 
+}
+
+.round-container {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+}
+.round {
+    font-size: 30px;
+    padding: 10px;
+    font-family: "Istok Web";
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    height: 525px;
+    justify-content: center;
+    margin-top: 20px;
+    align-items: center;
+    background-color: #cbd5e1;
+    border-radius: 0.1em;
+    box-shadow: inset 3px 3px 10px #555B6E,
+                inset -10px -10px 20px #555B6E,
+                inset 5px 5px 15px white;
+}
+
+.clear {
+    font-size: 30px;
+    border: 1px solid black;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 0.1em;
+    margin-top: 30px;
+    /* margin-left: 10px; */
+    /* margin-bottom:  */
+    font-family: "Istok Web";
+    box-shadow: inset 3px 3px 10px #555B6E,
+                inset -5px -5px 10px #555B6E,
+                inset 5px 5px 15px white;
+}
