@@ -9,7 +9,6 @@ import LoadingRobot from "./../robot.jsx";
 
 const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const [visualArtThemes, setVisualArtThemes] = useState("");
-    const [visualArtMedium, setVisualArtMedium] = useState("");
     const [emotion, setEmotion] = useState("");
     const [sentiment, setSentiment] = useState("");
     const [promptLength, setPromptLength] = useState("");
@@ -22,10 +21,6 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         {
             title: "Themes",
             isActive: true,
-        },
-        {
-            title: "Medium", 
-            isActive: false,
         },
         {
             title: "Emotion",
@@ -49,7 +44,6 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         axios
         .post('https://catalyst-x226.onrender.com/api/visual_art/generate/',{
             theme: visualArtThemes,
-            medium: visualArtMedium,
             sentiment: sentiment,
             emotion: emotion,
             prompt_length: promptLength,
@@ -68,11 +62,6 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     const handleVisualArtThemes = (selectedVisualArtThemes) => {
         setVisualArtThemes(selectedVisualArtThemes);
         console.log(selectedVisualArtThemes)
-        }
-    
-    const handleVisualArtMedium = (selectedVisualArtMedium) => {
-        setVisualArtMedium(selectedVisualArtMedium);
-        console.log(selectedVisualArtMedium)
         }
 
     const handleEmotionChange = (selectedEmotion) => {
@@ -110,7 +99,6 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     };
 
 const mappedVisualArtThemes = data.visualArtThemes
-const mappedVisualArtMedium = data.visualArtMedium
 const mappedEmotion = data.emotion
 const mappedSentiment = data.sentiment
 const mappedPromptLength = data.promptLength
@@ -136,17 +124,12 @@ const handleActiveNav = (newValue) => {
 const handleStateSet = (key, value) => {
     if (key === "Visual Art Themes") {
         handleVisualArtThemes(value)
-        const newActiveElement = "visualArtMedium";
+        const newActiveElement = "emotion";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
         
     }
-    if (key === "Medium") {
-        handleVisualArtMedium(value)
-        const newActiveElement = "emotion";
-        setActiveElement(newActiveElement);
-        handleActiveNav(newActiveElement);
-    }
+
     if (key === "Emotions") {
         handleEmotionChange(value)
         const newActiveElement = "sentiment";
@@ -174,7 +157,7 @@ const handleStateSet = (key, value) => {
     }
 }
 
-const keys = ["visualArtThemes", "visualArtMedium", "emotion", "sentiment", "promptLength", "generate"]
+const keys = ["visualArtThemes", "emotion", "sentiment", "promptLength", "generate"]
 
 return (
     <>
