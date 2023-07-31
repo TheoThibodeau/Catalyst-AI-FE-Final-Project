@@ -3,6 +3,7 @@ import MusicFolio from './foliocomponents/musicfolio';
 import MovementFolio from './foliocomponents/movementfolio';
 import VisualArtFolio from './foliocomponents/visualartfolio';
 import CreativeWritingFolio from './foliocomponents/creativewritingfolio';
+import NavBar from './navbar';
 
 const Folio = () => {
   const [selectedComponent, setSelectedComponent] = useState(null);
@@ -20,14 +21,14 @@ const Folio = () => {
 
   return (
     <>
-      
-      <div className="flex bg-slate-200 p-6 gap-4 pt-5 justify-center ">
+      <NavBar />
+      <div className="flex p-6 gap-4 pt-5 justify-center ">
         {componentData.map((component) => (
           <button
             key={component.name}
             className={`${
-              selectedComponent === component.name ? 'border-slate-100' : 'border-gray-500'
-            } border p-2`}
+              selectedComponent === component.name ? 'border-slate-500' : 'border-gray-300'
+            } border p-2 bg-slate-100`}
             onClick={() => handleComponentClick(component.name)}
           >
             {component.label}
