@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import NavBar from "./navbar";
 
 const Landing = () => {
   const Navigate = useNavigate();
@@ -52,20 +53,14 @@ const Landing = () => {
 
   return (
     <>
-      <div className="bg-slate-200 py-4 border border-slate-300">
-        <div className="pt-2 pb-4 space-x-4 text-right pr-4 text-slate-400">
-          <Link to="/create" onClick={handleClickCreate}>
-            CREATE
-          </Link>
-          <Link to="/folio" onClick={handleClickFolio}>
-            FOLIO
-          </Link>
-        </div>
-        <div className="font-mono text-left text-6xl text-gray-500 pl-6 ">
+    <div className="bg-slate-200">
+      <NavBar />
+      </div>
+        <div className="font-mono text-left text-6xl bg-slate-200 pb-5 text-gray-500 pl-4 ">
           <div className="">catalyst</div>
           <div className="text-md pl-20 pt-3 ">artist, in the loop</div>
         </div>
-      </div>
+     
 
       <div
         className={[
