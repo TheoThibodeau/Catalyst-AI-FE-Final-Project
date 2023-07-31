@@ -4,7 +4,7 @@ import "./robot.css";
 
 export default function LoadingRobot() {
     return (
-<div className="container">
+<div className="robot-container">
 
     <div className="robot">
         <div className="head">
