@@ -51,7 +51,6 @@ const Dictionary = () => {
     {!isLoading && (
             <form className="lexi-form">
                 <div className='word-and-input'>
-                <label className='word'>Enter A Word</label>
                 <input className="text-field"
                     type="text"
                     value={word}
@@ -62,14 +61,14 @@ const Dictionary = () => {
                         padding: '8px'
                     }}
                 />
+                    <button onClick={handlePost} className="border p-1 m-1" type="submit">Ask Muse</button>
                 </div>
-                <button onClick={handlePost} className="border p-3 m-3" type="submit">Ask Muse</button>
             </form>
     )}
     
 <div id="accordionExample">
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="mt-4 rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingZero">
     
@@ -83,7 +82,7 @@ const Dictionary = () => {
         aria-controls="collapseZero">
         <div className='font'>Definition</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#a9a9a9] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -119,7 +118,7 @@ const Dictionary = () => {
 
 <div id="accordionExample">
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
     <h2 className="mb-0" id="headingOne">
     
@@ -133,7 +132,7 @@ const Dictionary = () => {
         aria-controls="collapseOne">
         <div className="font">Synonyms</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#a3a4a5] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -166,7 +165,7 @@ const Dictionary = () => {
   </div>
 <br />
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
     <h2 className="mb-0" id="headingTwo">
     
@@ -180,7 +179,7 @@ const Dictionary = () => {
         aria-controls="collapseTwo">
         <div className='font'>Antonyms</div>
         <span
-          className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#b0b0b2] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -212,7 +211,7 @@ const Dictionary = () => {
   </div>
 <br />
 <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingThree">
     
@@ -226,7 +225,7 @@ const Dictionary = () => {
         aria-controls="collapseThree">
         <div className='font'>Joke</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#b1b2b5] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -261,7 +260,7 @@ const Dictionary = () => {
 </div>
 <br />
 <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingFour">
     
@@ -275,7 +274,7 @@ const Dictionary = () => {
         aria-controls="collapseFour">
         <div className="font">Use the word in a sentence</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#9e9fa1] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -309,7 +308,7 @@ const Dictionary = () => {
   </div>
 <br />
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingFive">
       <button
@@ -322,7 +321,7 @@ const Dictionary = () => {
         aria-controls="collapseFive">
             <div className='font'>Color Association</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#aeafb1] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
