@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CreativeWritingSave from "../create/notebook";
 
 const CreativeWritingPrompt = ({ postId, setOutput, output }) => {
   const [note, setNote] = useState("");
@@ -18,6 +19,7 @@ const CreativeWritingPrompt = ({ postId, setOutput, output }) => {
     <>
       <h3>{output}</h3>
       <h3>{note}</h3>
+      <CreativeWritingSave postId={postId}/>
     </>
   );
 };

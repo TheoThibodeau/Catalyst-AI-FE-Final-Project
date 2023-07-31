@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CreativeWritingSave = ({ postId }) => {
+const CreativeWritingSaves = ({ postId }) => {
     const [note, setNote] = useState("");
 
   const handlePatch = (e) => {
@@ -25,4 +25,4 @@ const CreativeWritingSave = ({ postId }) => {
   );
 };
 
-export default CreativeWritingSave;
+export default CreativeWritingSaves;
