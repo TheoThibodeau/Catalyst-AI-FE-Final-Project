@@ -2,8 +2,8 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 345px;
-    height: 500px;
+    width: 350px;
+    height: 450px;
     justify-content: center;
     margin-top: 10px;
     align-items: center;
@@ -142,8 +142,8 @@
 .timer-container {
     display: flex;
     flex-direction: column;
-    width: 340px;
-    height: 500px;
+    width: 350px;
+    height: 450px;
     justify-content: center;
     margin-top: 10px;
     align-items: center;
