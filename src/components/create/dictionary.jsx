@@ -12,6 +12,7 @@ const Dictionary = () => {
   const [sentence, setSentence] = useState('');
   const [joke, setJoke] = useState('');
   const [color, setColor] = useState('');
+  const [hex, setHex] = useState('');
   const [isLoading, setisLoading] = useState(false);
 
   initTE({ Collapse });
@@ -34,6 +35,7 @@ const Dictionary = () => {
             setSentence(response.data.sentence);
             setJoke(response.data.joke);
             setColor(response.data.color);
+            setHex(response.data.hex);
           })
           .finally(() => setisLoading(false))
       })
@@ -51,24 +53,24 @@ const Dictionary = () => {
     {!isLoading && (
             <form className="lexi-form">
                 <div className='word-and-input'>
+                <label className='word'>Enter A Word</label>
                 <input className="text-field"
                     type="text"
-                    value={word}
                     onChange={handleInputChange} 
                     style={{
                         border: '1px solid black',
-                        borderRadius: '4px',
                         padding: '8px'
                     }}
                 />
-                    <button onClick={handlePost} className="border p-1 m-1" type="submit">Ask Muse</button>
+                
                 </div>
+                <button onClick={handlePost} className="border p-3 m-3" style={{ backgroundColor: '#9ca3af'}} type="submit">Ask Muse</button>
             </form>
     )}
     
 <div id="accordionExample">
   <div
-    className="mt-4 rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingZero">
     
@@ -82,7 +84,7 @@ const Dictionary = () => {
         aria-controls="collapseZero">
         <div className='font'>Definition</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#a9a9a9] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -114,11 +116,10 @@ const Dictionary = () => {
     </div>
   </div>
   </div>
-        <br />
 
 <div id="accordionExample">
   <div
-    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
     <h2 className="mb-0" id="headingOne">
     
@@ -132,7 +133,7 @@ const Dictionary = () => {
         aria-controls="collapseOne">
         <div className="font">Synonyms</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#a3a4a5] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -163,9 +164,9 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-<br />
+
   <div
-    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
     <h2 className="mb-0" id="headingTwo">
     
@@ -179,7 +180,7 @@ const Dictionary = () => {
         aria-controls="collapseTwo">
         <div className='font'>Antonyms</div>
         <span
-          className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#b0b0b2] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -209,9 +210,9 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-<br />
+
 <div
-    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingThree">
     
@@ -225,7 +226,7 @@ const Dictionary = () => {
         aria-controls="collapseThree">
         <div className='font'>Joke</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#b1b2b5] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -258,9 +259,9 @@ const Dictionary = () => {
     </div>
   </div>
 </div>
-<br />
+
 <div
-    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingFour">
     
@@ -274,7 +275,7 @@ const Dictionary = () => {
         aria-controls="collapseFour">
         <div className="font">Use the word in a sentence</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#9e9fa1] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -306,13 +307,12 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-<br />
   <div
-    className="rounded-none border border-slate-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingFive">
       <button
-        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
         data-te-collapse-collapsed
@@ -321,7 +321,7 @@ const Dictionary = () => {
         aria-controls="collapseFive">
             <div className='font'>Color Association</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#aeafb1] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-slate-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -329,6 +329,7 @@ const Dictionary = () => {
             stroke-width="1.5"
             stroke="currentColor"
             className="h-6 w-6">
+            
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -339,6 +340,7 @@ const Dictionary = () => {
     </h2>
         )}
     <div
+      style={{ backgroundColor: hex }}
       id="collapseFive"
       className="!visible hidden"
       data-te-collapse-item
