@@ -1,0 +1,30 @@
+
+.text-field {
+    text-align: center;
+    font-family: "IBM Plex Mono";
+    margin-bottom: 10px;
+}
+
+.lexi-form {
+    display: flex; 
+    flex-direction: column;
+    font-family: "IBM Plex Mono"
+}
+
+.word {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    
+}
+
+.font {
+    font-family: "IBM Plex Mono"
+}
+
+.word-and-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -15px;
+}
