@@ -3,11 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-const UserAuthentication = ({ updateToken }) => {
+const UserAuthentication = ({ setToken }) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [token, setToken] = useState('');
     const [showRegistrationForm, setShowRegistrationForm] = useState(false);
     const [showLoginForm, setShowLoginForm] = useState(false);
     const [logoutMessage, setLogoutMessage] = useState('');
@@ -20,7 +19,7 @@ const UserAuthentication = ({ updateToken }) => {
             password: password,
             })
             .then((res) => {
-            updateToken(res.data.auth_token);
+            setToken(res.data.auth_token);
             localStorage.setItem('token', res.data.auth_token);
             });
             console.log(handleRegister)
@@ -34,7 +33,7 @@ const UserAuthentication = ({ updateToken }) => {
             password: password,
             })
             .then((res) => {
-            updateToken(res.data.auth_token);
+            setToken(res.data.auth_token);
             localStorage.setItem('token', res.data.auth_token);
             });
         };
@@ -62,8 +61,8 @@ const UserAuthentication = ({ updateToken }) => {
         };
 
     const toggleRegistrationForm = () => {
-    setShowRegistrationForm(!showRegistrationForm);
-    };
+        setShowRegistrationForm(!showRegistrationForm);
+        };
 
     const toggleLoginForm = () => {
         setShowLoginForm(!showLoginForm);
