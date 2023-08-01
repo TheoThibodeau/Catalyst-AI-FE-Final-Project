@@ -160,9 +160,9 @@
           "title": "Prompt Length",
           "data":[
             "Choose the length of your A.I. generated art prompt:",
-            "one word",
-            "a few words",
-            "a sentence or two"
+            "One word",
+            "A few words",
+            "A sentence or two"
           ]
         },
 
