@@ -22,6 +22,9 @@ export default function LoadingRobot() {
             <div className="light-left"></div>
             <div className="light-middle"></div>
             <div className="light-right"></div>
+            <div className="light-left-blink"></div>
+            <div className="light-middle-blink"></div>
+            <div className="light-right-blink"></div>
             <div className="shoulder-right"></div>
             <div className="arm-right"></div>
             <div className="right-arm-connect"></div>
