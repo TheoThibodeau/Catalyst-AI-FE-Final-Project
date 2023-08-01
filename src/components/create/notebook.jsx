@@ -10,7 +10,7 @@ const CreativeWritingSave = ({ postId }) => {
     e.preventDefault();
     axios
       .patch(`https://catalyst-x226.onrender.com/api/response/write/${postId}`, {
-        note: 'hi',
+        note: editorRef.current.getContent(),
       })
       .then((response) => {
         setNote(response.data.note);
@@ -24,6 +24,7 @@ const CreativeWritingSave = ({ postId }) => {
       console.log(editorRef.current.getContent());
     }
   };
+
 console.log(postId)
   return (
     <>

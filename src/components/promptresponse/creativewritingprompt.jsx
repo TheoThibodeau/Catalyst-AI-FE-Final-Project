@@ -19,7 +19,7 @@ const CreativeWritingPrompt = ({ postId, setOutput, output }) => {
     <>
       <h3>{output}</h3>
       <h3>{note}</h3>
-      <CreativeWritingSave postId={postId}/>
+      {/* <CreativeWritingSave postId={postId}/> */}
     </>
   );
 };
