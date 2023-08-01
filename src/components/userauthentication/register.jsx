@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import NavBar from "../navbar";
 
-const UserAuthentication = ({ setToken }) => {
+const UserAuthentication = ({ setToken, token }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
