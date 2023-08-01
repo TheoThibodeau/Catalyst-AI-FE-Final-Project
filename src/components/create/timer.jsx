@@ -37,9 +37,7 @@ const Timer = () => {
           {seconds.toString().padStart(2, '0')}
         </p>
       </div>
-      <div className="clear">
-            <button>Clear</button>
-        </div>
+      
       <div className="button-container">
         <div class="timer-start">
         <button onClick={handleStart}>Start</button>

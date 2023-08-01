@@ -2,8 +2,8 @@
 .container {
     display: flex;
     flex-direction: column;
-    width: 345px;
-    height: 500px;
+    width: 350px;
+    height: 450px;
     justify-content: center;
     margin-top: 10px;
     align-items: center;
@@ -15,7 +15,7 @@
 .time-container {
     display: flex;
     width: 315px;
-    margin-top: 40px;
+    margin-top: 20px;
     background-color: #e2e8f0;
     justify-content: center;
     border: 2px solid white;
@@ -35,7 +35,7 @@
     font-family: "Istok Web";
     margin-top: 90px;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 15px;
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 0.1em;
@@ -120,11 +120,11 @@
 }
 
 .start:hover, .stop:hover {
-    background-color: #bfdbfe; 
+    background-color: #dddddd; 
 }
 
 .timer-start:hover, .timer-stop:hover, .clear:hover, .start:hover, .stop:hover {
-    background-color: #bfdbfe; 
+    background-color: dddddd; 
 }
 
 .round-container {
@@ -142,8 +142,8 @@
 .timer-container {
     display: flex;
     flex-direction: column;
-    width: 340px;
-    height: 500px;
+    width: 350px;
+    height: 450px;
     justify-content: center;
     margin-top: 10px;
     align-items: center;

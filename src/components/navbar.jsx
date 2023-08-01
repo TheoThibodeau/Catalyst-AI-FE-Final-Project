@@ -29,9 +29,6 @@ const NavBar = () => {
         <Link to="/" onClick={handleClickCreate}>
           HOME
         </Link>
-        <Link to="/create" onClick={handleClickCreate}>
-          CREATE
-        </Link>
         <Link to="/folio" onClick={handleClickFolio}>
           FOLIO
         </Link>

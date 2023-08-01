@@ -12,6 +12,7 @@ const Dictionary = () => {
   const [sentence, setSentence] = useState('');
   const [joke, setJoke] = useState('');
   const [color, setColor] = useState('');
+  const [hex, setHex] = useState('');
   const [isLoading, setisLoading] = useState(false);
 
   initTE({ Collapse });
@@ -34,6 +35,7 @@ const Dictionary = () => {
             setSentence(response.data.sentence);
             setJoke(response.data.joke);
             setColor(response.data.color);
+            setHex(response.data.hex);
           })
           .finally(() => setisLoading(false))
       })
@@ -54,16 +56,15 @@ const Dictionary = () => {
                 <label className='word'>Enter A Word</label>
                 <input className="text-field"
                     type="text"
-                    value={word}
                     onChange={handleInputChange} 
                     style={{
                         border: '1px solid black',
-                        borderRadius: '4px',
                         padding: '8px'
                     }}
                 />
+                
                 </div>
-                <button onClick={handlePost} className="border p-3 m-3" type="submit">Ask Muse</button>
+                <button onClick={handlePost} className="border p-3 m-3" style={{ backgroundColor: '#9ca3af'}} type="submit">Ask Muse</button>
             </form>
     )}
     
@@ -115,7 +116,6 @@ const Dictionary = () => {
     </div>
   </div>
   </div>
-        <br />
 
 <div id="accordionExample">
   <div
@@ -164,7 +164,7 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-<br />
+
   <div
     className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
@@ -210,7 +210,7 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-<br />
+
 <div
     className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
@@ -259,7 +259,7 @@ const Dictionary = () => {
     </div>
   </div>
 </div>
-<br />
+
 <div
     className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
@@ -307,13 +307,12 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-<br />
   <div
     className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingFive">
       <button
-        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="group relative flex w-full items-center rounded-t-[15px] border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
         data-te-collapse-collapsed
@@ -330,6 +329,7 @@ const Dictionary = () => {
             stroke-width="1.5"
             stroke="currentColor"
             className="h-6 w-6">
+            
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -340,6 +340,7 @@ const Dictionary = () => {
     </h2>
         )}
     <div
+      style={{ backgroundColor: hex }}
       id="collapseFive"
       className="!visible hidden"
       data-te-collapse-item
