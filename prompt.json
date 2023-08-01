@@ -146,20 +146,20 @@
         "visualArtElements": {
             "title": "Visual Art Elements",
             "data": [
-                "texture",
-                "contrast",
-                "perspective",
-                "movement",
-                "pattern"
+                "Texture",
+                "Contrast",
+                "Perspective",
+                "Movement",
+                "Pattern"
             ]
         },
         
         "promptLength":{
           "title": "Prompt Length",
           "data":[
-            "one word",
-            "a few words",
-            "a sentence or two"
+            "One word",
+            "A few words",
+            "A sentence or two"
           ]
         },
 
