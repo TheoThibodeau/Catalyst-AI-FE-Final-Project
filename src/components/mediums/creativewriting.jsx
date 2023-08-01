@@ -128,6 +128,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
     if (previousActiveIndex >= 0) {
       setActiveElement(keys[previousActiveIndex]);
+    
     }
   };
 
@@ -138,6 +139,14 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const mappedSentiment = data.sentiment;
   const mappedPromptLength = data.promptLength;
 
+  const instruction = {
+    themes: "Choose a theme as the central concept of your writing prompt",
+    categories: "Choose a category to establish an area of focus for your writing prompt",
+    emotion: "Choose an emotion to bring feeling to your writing prompt",
+    sentiment: "Choose a sentiment to set the overall mood and tone of your writing prompt",
+    length: "How long will your creative writing prompt be"
+
+  };
   const handleActiveNav = (newValue) => {
     const newState = navData.map((datum) => {
       if (datum.isActive) {
@@ -196,14 +205,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     }
   };
 
-  const keys = [
-    "themes",
-    "categories",
-    "emotion",
-    "sentiment",
-    "promptLength",
-    "generate",
-  ];
+  const keys = ["themes", "categories", "emotion", "sentiment", "promptLength", "generate"];
 
   return (
     <>
@@ -254,13 +256,25 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                 )}
               </>
             ) : (
+               
               <div>
+                
+                
                 <ParameterComponent
                   key={activeElement}
                   data={data[activeElement]}
                   handler={handleStateSet}
-                  mediumNavComponent={<MediumNav navData={navData} />}
+                  mediumNavComponent={<MediumNav navData={navData} />}  
                 />
+              <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
+                <div className="flex items-center">
+                  <button
+                    className="text-1xl text-slate-500"
+                    onClick={handleBack}>
+                    Back
+                  </button>
+                </div>
+              </div>
               </div>
             )}
           </div>

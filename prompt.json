@@ -11,12 +11,12 @@
         "Loss"
       ]},
 
+
     "categories": {
       "title": "Categories",
       "data":
       [
-      "Choose a category to contextualize your prompt: ",
-      "Discovery and Exploration",
+   
 			"Identity and Belonging", 
 			"Nature and Environment", 
 			"Historical",
@@ -39,7 +39,6 @@
       "title": "Emotions",
       "data":
       [
-        "Choose an emotion to bring your prompt to life: ",
         "Joy",
         "Surprise",
         "Disappointment",
@@ -157,3 +156,5 @@
           ]
         }
 }
+
+ 
