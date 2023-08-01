@@ -10,6 +10,7 @@ import PromptParents from './components/promptparents/promptshare.jsx';
 import MovementPromptParent from './components/promptparents/movementpromptshare.jsx';
 import MusicPromptParent from './components/promptparents/musicpromptshare.jsx';
 import VisualArtPromptParent from './components/promptparents/visualartpromptshare.jsx';
+import UserAuthentication from './components/userauthentication/register';
 
 function App() {
     const [postId, setPostId] = useState(null);
@@ -25,7 +26,7 @@ function App() {
         <Route path ="/visualart" element={<VisualArtPromptParent postId={postId} />} /> 
         <Route path ="/create" element={<Create postId={postId}/>} /> 
         <Route path ="/folio" element={<Folio postId={postId} />} />
-        {/* <Route path ="/archive" element={<Archive postId={postId}/>} /> */}
+        <Route path ="/login" element={<UserAuthentication />} />
     </Route>
     </Routes>
    </BrowserRouter>
