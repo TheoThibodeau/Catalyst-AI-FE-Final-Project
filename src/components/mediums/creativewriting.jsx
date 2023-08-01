@@ -251,6 +251,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       </div>
     </>
   );
-};  
+};
+
 export default CreativeWriting;
-     

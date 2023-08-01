@@ -22,6 +22,7 @@ const Folio = () => {
   return (
     <>
       <NavBar />
+      <h1 className='flex justify-center'>FOLIO</h1>
       <div className="flex p-6 gap-4 pt-5 justify-center ">
         {componentData.map((component) => (
           <button
