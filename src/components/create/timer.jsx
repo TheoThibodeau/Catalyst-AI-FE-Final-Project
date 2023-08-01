@@ -39,10 +39,10 @@ const Timer = () => {
       </div>
       
       <div className="button-container">
-        <div class="timer-start">
+        <div className="timer-start">
         <button onClick={handleStart}>Start</button>
         </div>
-        <div class="timer-stop">
+        <div className="timer-stop">
         <button onClick={handleStop}>Stop</button>
         </div>
         
