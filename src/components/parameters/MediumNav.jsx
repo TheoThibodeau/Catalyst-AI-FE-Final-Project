@@ -5,7 +5,7 @@ const MediumNav = ({ navData }) => {
   return (
     <>
     
-      <div className={["flex flex-row w-full space-x-3 text-sm pr-4"].join(" ")}>
+      <div className={["flex flex-row min-w-full space-x-3 text-sm pr-4"].join(" ")}>
         {navData.map((datum) => (
           <div
             key={`${datum.title}-${datum.isActive}`}
