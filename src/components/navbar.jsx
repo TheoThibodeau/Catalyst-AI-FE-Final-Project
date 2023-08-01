@@ -12,6 +12,10 @@ const NavBar = () => {
     setDropdownOpen(false);
   };
 
+  const handleClickLogin = () => {
+    setDropdownOpen(false);
+  }
+
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
@@ -32,6 +36,7 @@ const NavBar = () => {
         <Link to="/folio" onClick={handleClickFolio}>
           FOLIO
         </Link>
+        <Link to="/login" onCLick={handleClickLogin}
       </div>
       <Outlet />
     </div>
