@@ -21,10 +21,10 @@ function App() {
     <Routes>
     <Route>
         <Route path="/" element={<Landing />} />
-        <Route path ="/creativewriting" element={<PromptParents setPostId={setPostId} />} /> 
-        <Route path ="/movement" element={<MovementPromptParent setPostId={setPostId} />} /> 
-        <Route path ="/music" element={<MusicPromptParent setPostId={setPostId} />} /> 
-        <Route path ="/visualart" element={<VisualArtPromptParent setPostId={setPostId} />} /> 
+        <Route path ="/creativewriting" element={<PromptParents setPostId={setPostId} postId={postId}/>} /> 
+        <Route path ="/movement" element={<MovementPromptParent setPostId={setPostId} postId={postId}/>} /> 
+        <Route path ="/music" element={<MusicPromptParent setPostId={setPostId} postId={postId}/>} /> 
+        <Route path ="/visualart" element={<VisualArtPromptParent setPostId={setPostId} postId={postId}/>} /> 
         <Route path ="/create" element={<Create postId={postId}/>} /> 
         <Route path ="/folio" element={<Folio postId={postId} token={token}/>} />
         <Route path ="/login" element={<UserAuthentication setToken={setToken}/>} />

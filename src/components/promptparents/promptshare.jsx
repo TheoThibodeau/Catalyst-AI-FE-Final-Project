@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CreativeWriting from "../mediums/creativewriting";
 import Create from "../create.jsx";
 
-const PromptParents = ({ postId }) => {
+const PromptParents = ({ setPostId, postId }) => {
   const [output, setOutput] = useState("");
   const [note, setNote] = useState("");
   const [generativeSpace, setGenerativeSpace] = useState(false);
@@ -11,9 +11,11 @@ const PromptParents = ({ postId }) => {
   return (
     <>
       {generativeSpace ? (
-        <Create postId={postId} output={output} />
+        <Create output={output} postId={postId}/>
       ) : (
         <CreativeWriting
+          postId={postId}
+          setPostId={setPostId}
           setOutput={setOutput}
           output={output}
           setGenerativeSpace={setGenerativeSpace}
