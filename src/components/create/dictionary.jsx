@@ -16,7 +16,7 @@ const Dictionary = () => {
   const [isLoading, setisLoading] = useState(false);
 
   initTE({ Collapse });
-
+//   const textColor = {color: 'white'}
   const handlePost = (e) => {
     e.preventDefault();
     setisLoading(true)
@@ -349,7 +349,7 @@ const Dictionary = () => {
       data-te-parent="#accordionExample">
         {!isLoading && (
       <div className="px-5 py-4">
-        {color && <p>{color}</p>}
+        {color && <p style={{ color: '#6b7280' }}>{color}</p>}
       </div>
         )}
     </div>
