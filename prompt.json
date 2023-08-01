@@ -15,6 +15,7 @@
       "title": "Categories",
       "data":
       [
+      "Choose a category to contextualize your prompt: ",
       "Discovery and Exploration",
 			"Identity and Belonging", 
 			"Nature and Environment", 
@@ -38,6 +39,7 @@
       "title": "Emotions",
       "data":
       [
+        "Choose an emotion to bring your prompt to life: ",
         "Joy",
         "Surprise",
         "Disappointment",
@@ -130,20 +132,21 @@
         "visualArtElements": {
             "title": "Visual Art Elements",
             "data": [
-                "texture",
-                "contrast",
-                "perspective",
-                "movement",
-                "pattern"
+                "Texture",
+                "Contrast",
+                "Perspective",
+                "Movement",
+                "Pattern"
             ]
         },
         
         "promptLength":{
           "title": "Prompt Length",
           "data":[
-            "one word",
-            "a few words",
-            "a sentence or two"
+            "Choose the length of your A.I. generated art prompt:",
+            "One word",
+            "A few words",
+            "A sentence or two"
           ]
         },
 

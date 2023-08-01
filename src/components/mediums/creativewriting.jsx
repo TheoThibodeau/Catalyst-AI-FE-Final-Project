@@ -209,77 +209,71 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">
         <div>
-          {isLoading ? (
-            <LoadingRobot />
-          ) : (
-            <div className="flex flex-col items-center ">
-              {generateButton ? (
-                <>
-                  <div>
-                    <div className="flex justify-center">
-                      {isClicked ? (
-                        <button
-                          onClick={handlePost}
-                          className="begin-button border border-slate-400 p-4"
-                        >
-                          REGENERATE
-                        </button>
-                      ) : (
-                        <button
-                          className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
-                          onClick={handlePost}
-                          key="generateButton"
-                        >
-                          GENERATE
-                        </button>
-                      )}
-                    </div>
-                    <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-16">
-                      {postId && (
-                        <CreativeWritingPrompt
-                          postId={postId}
-                          setOutput={setOutput}
-                          output={output}
-                        />
-                      )}
-                    </div>
-                  </div>
-                  {beginButtonVisible && (
-                    <button
-                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-300"
-                      onClick={handleClickCreatePage}
-                    >
-                      BEGIN
-                    </button>
-                  )}
-                </>
-              ) : (
+            {isLoading ?(
+                <LoadingRobot/>
+            ) : (
+          <div className="flex flex-col items-center ">
+            {generateButton ? (
+              <>
                 <div>
-                  <ParameterComponent
-                    key={activeElement}
-                    data={data[activeElement]}
-                    handler={handleStateSet}
-                    mediumNavComponent={
-                      <MediumNav
-                        navData={navData}
-                        setActiveElement={setActiveElement}
-                      />
-                    }
-                  />
-                  <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
-                    <div className="flex items-center">
-                      <button
-                        className="text-1xl text-slate-500"
-                        onClick={handleBack}
+                  <div className="flex justify-center">
+                    {isClicked ?
+                      <button 
+                      onClick={handlePost}
+                      className="begin-button border border-slate-400 p-4"
                       >
-                        Back
+                        REGENERATE
                       </button>
-                    </div>
+                      :
+                      <button
+                        className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
+                        onClick={handlePost}
+                        key="generateButton"
+                      >
+                        GENERATE
+                      </button>
+                    }
+                  </div>
+                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-16">
+                    {postId && (
+                      <CreativeWritingPrompt
+                        postId={postId}
+                        setOutput={setOutput}
+                        output={output}
+                      />
+                    )}
                   </div>
                 </div>
-              )}
-            </div>
-          )}
+                {beginButtonVisible && (
+                  <button
+                  className="text-4xl m-10 p-8 bg-slate-200 border border-slate-300"
+                  onClick={handleClickCreatePage}
+                  >
+                    BEGIN
+                  </button>
+                )}
+              </>
+            ) : (
+              <div>
+                <ParameterComponent
+                  key={activeElement}
+                  data={data[activeElement]}
+                  handler={handleStateSet}
+                  mediumNavComponent={<MediumNav navData={navData} />}
+                />
+              <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
+                <div className="flex items-center">
+                  <button
+                    className="text-1xl text-slate-500"
+                    onClick={handleBack}>
+                    Back
+                  </button>
+                </div>
+              </div>
+              </div>
+            )}
+          </div>
+            )}
         </div>
       </div>
     </>
