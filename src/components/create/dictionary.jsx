@@ -68,9 +68,9 @@ const Dictionary = () => {
             </form>
     )}
     
-<div id="accordionExample">
+
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingZero">
     
@@ -115,11 +115,11 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-  </div>
+  
 
-<div id="accordionExample">
+
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
     <h2 className="mb-0" id="headingOne">
     
@@ -166,7 +166,7 @@ const Dictionary = () => {
   </div>
 
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
     {!isLoading && (
     <h2 className="mb-0" id="headingTwo">
     
@@ -212,7 +212,7 @@ const Dictionary = () => {
   </div>
 
 <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingThree">
     
@@ -258,10 +258,10 @@ const Dictionary = () => {
         )}
     </div>
   </div>
-</div>
+
 
 <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingFour">
     
@@ -308,7 +308,7 @@ const Dictionary = () => {
     </div>
   </div>
   <div
-    className="rounded-none border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
+    className="rounded-none border-neutral-200 bg-white dark:border-neutral-600 dark:bg-white">
         {!isLoading && (
     <h2 className="mb-0" id="headingFive">
       <button

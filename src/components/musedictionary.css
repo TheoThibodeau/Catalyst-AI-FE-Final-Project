@@ -35,13 +35,23 @@
 
     100% {
         opacity: 0;
+    } 
+  }
+
+  @keyframes flicker {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
   }
 
     .muse-container {
         position: absolute;
-        top: 60%;
-        left:30%
+        top: 40%;
+        left: 10%
     }
 
     body {
@@ -53,16 +63,16 @@
     }
   
   .robot-dict {
-    width: 150px;
-    height: 200px;
+    width: 300px;
+    height: 400px;
     position: absolute;
     top: 0%;
     left:0%;
   }
 
   .head-dict {
-    width: 30px;
-    height: 30px;
+    width: 60px;
+    height: 60px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 0.2em;
@@ -74,7 +84,7 @@
   }
 
   .mouth-dict {
-    width: 3px;
+    width: 6px;
     height: 1px;
     background-color: #334155;
     border-radius: 50%;
@@ -83,10 +93,10 @@
     left: 44%;
   }
   
-  .left-eye-dict{
+  .left-eye-dict {
     left: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #cbd5e1;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -97,8 +107,8 @@
 
   .blink-left-dict {
     left: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #64748b;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -109,8 +119,8 @@
   
   .right-eye-dict {
     right: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #cbd5e1;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -121,8 +131,8 @@
 
   .blink-right-dict {
     right: 7%;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #64748b;
     border: 2px solid #64748b;
     border-radius: 50%;
@@ -135,8 +145,8 @@
 
   .left-pupil-dict {
     left: 24%;
-    width: 4px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
     background-color: #475569;
     border: 1px solid  #475569;
     border-radius: 50%;
@@ -146,8 +156,8 @@
   
   .right-pupil-dict {
     right: 22%;
-    width: 4px;
-    height: 4px;
+    width: 8px;
+    height: 8px;
     background-color: #475569;
     border: 1px solid  #475569;
     border-radius: 50%;
@@ -156,8 +166,8 @@
   }
 
   .torso-dict {
-    width: 40px;
-    height: 40px;
+    width: 80px;
+    height: 80px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 0.2em;
@@ -170,18 +180,19 @@
 
   .light-left-dict {
     right: 64%;
-    width: 3px;
-    height: 3px;
+    width: 7px;
+    height: 7px;
     background-color: #86efac;
     border-radius: 50%;
     position: absolute;
     top: 12%; 
+    
   }
 
-  .light-middle-dict {
+  .light-middle-dict{
     right: 46%;
-    width: 3px;
-    height: 3px;
+    width: 7px;
+    height: 7px;
     background-color: #fde68a;
     border-radius: 50%;
     position: absolute;
@@ -190,8 +201,8 @@
 
   .light-right-dict {
     right: 30%;
-    width: 3px;
-    height: 3px;
+    width: 7px;
+    height: 7px;
     background-color: #bae6fd;
     border-radius: 50%;
     position: absolute;
@@ -199,9 +210,42 @@
     
   }
 
+  .light-left-blink-dict {
+    right: 64%;
+    width: 7px;
+    height: 7px;
+    background-color: #064e3b;
+    border-radius: 50%;
+    position: absolute;
+    top: 12%; 
+    animation: flicker 1s linear infinite;
+  }
+
+  .light-middle-blink-dict {
+    right: 46%;
+    width: 7px;
+    height: 7px;
+    background-color: #854d0e;
+    border-radius: 50%;
+    position: absolute;
+    top: 12%; 
+    animation: flicker 0.7s linear infinite;
+  }
+
+  .light-right-blink-dict {
+    right: 30%;
+    width: 7px;
+    height: 7px;
+    background-color: #3730a3;
+    border-radius: 50%;
+    position: absolute;
+    top: 12%;
+    animation: flicker 0.8s linear infinite;
+    
+  }
   .chest-dict { 
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-top-left-radius: 15em;
@@ -216,8 +260,8 @@
   }
   
   .bottom-dict {
-    width: 70px;
-    height: 30px;
+    width: 140px;
+    height: 60px;
     background-color: #475569;
     border: 4px solid #94a3b8;
     border-radius: 5em;
@@ -230,13 +274,13 @@
 
 
   .waist-dict {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #F5F5F5;
     border-bottom-left-radius: 0.75em;
     border-bottom-right-radius: 0.75em;
     position: absolute;
-    top: -46%;
+    top: -40%;
     left: 42%;
     box-shadow: inset 1px 1px 4px #334155,
                 inset -1px -1px 1px #e4e4e7;
@@ -244,8 +288,8 @@
 
 
   .left-wheel-dict {
-    width: 21px;
-    height: 21px;
+    width: 44px;
+    height: 44px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -257,8 +301,8 @@
 
 
   .left-wheel-inner-dict {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -268,9 +312,9 @@
 
   .left-cross-vertical-dict {
         background: white;
-        height: 20px;
+        height: 40px;
         position: absolute;
-        width: 3px;
+        width: 6px;
         top: 0%;
         left: 14%;
         animation-name: spin; 
@@ -281,9 +325,9 @@
     .left-cross-horizontal-dict {
         position: absolute;
         background: white;
-        height: 3px;
+        height: 6px;
         position: absolute;
-        width: 20px;
+        width: 40px;
         top: 37%;
         left: 3%;
         animation-name: spin; 
@@ -293,8 +337,8 @@
     }
 
   .middle-wheel-dict {
-    width: 21px;
-    height: 21px;
+    width: 42px;
+    height: 42px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -305,8 +349,8 @@
   }
 
   .middle-wheel-inner-dict {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -316,9 +360,9 @@
 
   .middle-cross-vertical-dict {
     background: white;
-    height: 20px;
+    height: 40px;
     position: absolute;
-    width: 3px;
+    width: 6px;
     top: 0%;
     left: 49%;
     animation-name: spin; 
@@ -330,9 +374,9 @@
 .middle-cross-horizontal-dict {
     position: absolute;
     background: white;
-    height: 3px;
+    height: 6px;
     position: absolute;
-    width: 20px;
+    width: 40px;
     top: 37%;
     left: 36%;
     animation-name: spin; 
@@ -342,8 +386,8 @@
 }
 
   .right-wheel-dict {
-    width: 21px;
-    height: 21px;
+    width: 42px;
+    height: 42px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -354,8 +398,8 @@
   }
 
   .right-wheel-inner-dict {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     position: absolute;
     border: 1px solid #1e293b;
     border-radius: 50%;
@@ -365,9 +409,9 @@
 
   .right-cross-vertical-dict {
     background: white;
-    height: 20px;
+    height: 40px;
     position: absolute;
-    width: 3px;
+    width: 6px;
     top: 0%;
     left: 81%;
     animation-name: spin; 
@@ -379,9 +423,9 @@
 .right-cross-horizontal-dict {
     position: absolute;
     background: white;
-    height: 3px;
+    height: 6px;
     position: absolute;
-    width: 20px;
+    width: 40px;
     top: 37%;
     left: 69%;
     animation-name: spin; 
@@ -394,15 +438,15 @@
     color: #334155; 
     position: absolute;
     font-family: 'roboto mono';
-    font-size: 8px;
+    font-size: 16px;
     font-weight: 500;
     top: 15%;
     left: 25%;
 }
 
   .right-arm-connect-dict { 
-    width: 5px;
-    height: 10px;
+    width: 10px;
+    height: 20px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -415,8 +459,8 @@
   }
 
   .shoulder-right-dict {
-    width: 7px;
-    height: 25px;
+    width: 14px;
+    height: 50px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -429,8 +473,8 @@
   } 
 
   .shoulder-left-dict {
-    width: 7px;
-    height: 25px;
+    width: 14px;
+    height: 50px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;
@@ -442,8 +486,8 @@
   }
 
   .left-arm-connect-dict { 
-    width: 5px;
-    height: 10px;
+    width: 10px;
+    height: 20px;
     background-color: #F5F5F5;
     border: 1px solid #d4d4d4;
     border-radius: 50%;

@@ -5,7 +5,6 @@ import "./musedictionary.css";
 const SmallLoadingRobot = () => {
     return (
 <div className="muse-container">
-
     <div className="robot-dict">
         <div className="head-dict">
             <div className="mouth-dict"></div>
@@ -22,6 +21,9 @@ const SmallLoadingRobot = () => {
             <div className="light-left-dict"></div>
             <div className="light-middle-dict"></div>
             <div className="light-right-dict"></div>
+            <div className="light-left-blink-dict"></div>
+            <div className="light-middle-blink-dict"></div>
+            <div className="light-right-blink-dict"></div>
             <div className="shoulder-right-dict"></div>
             <div className="arm-right-dict"></div>
             <div className="right-arm-connect-dict"></div>

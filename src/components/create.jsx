@@ -43,8 +43,8 @@ const Create = ({ postId, output }) => {
           <button
             onClick={handleToggle}
             className={activeComponent
-              ? "font-serif text-center p-8 pr-5 pl-5 bg-slate-100 border border-slate-500 font-extralight text-lg"
-              : "border border-slate-200 text-3xl font-serif p-8 mt-5 mb-5 text-center "
+              ? "font-serif w-full text-center p-8 pr-5 pl-5 bg-slate-100 border border-slate-500 font-extralight text-lg"
+              : "border border-slate-200 text-3xl w-full font-serif p-8 mt-5 mb-5 text-center "
             }
           >
             {output}
@@ -52,11 +52,7 @@ const Create = ({ postId, output }) => {
           <div className="text- w-full pb-4 flex flex-grow lg:w-1/2 font-serif justify-center">
             {components[activeComponent]}
           </div>
-          <div>
-            <h2>
-              Welcome to the "CreativeWriting" Create page. If you don't know a word, need a timer, or want write down your thoughts, let our handy tools help guide you in your creative process. Now take your A.I. generated prompt and start creating!!
-            </h2>
-          </div>
+         
           <div>
             <div className="grid grid-cols-2 gap-2">
               <button
