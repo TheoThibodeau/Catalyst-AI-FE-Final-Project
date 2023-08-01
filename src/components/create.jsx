@@ -52,11 +52,7 @@ const Create = ({ postId, output }) => {
           <div className="text- w-full pb-4 flex flex-grow lg:w-1/2 font-serif justify-center">
             {components[activeComponent]}
           </div>
-          <div>
-            <h2>
-              Welcome to the "CreativeWriting" Create page. If you don't know a word, need a timer, or want write down your thoughts, let our handy tools help guide you in your creative process. Now take your A.I. generated prompt and start creating!!
-            </h2>
-          </div>
+
           <div>
             <div className="grid grid-cols-2 gap-2">
               <button
