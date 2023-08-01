@@ -7,11 +7,10 @@ import MediumNav from "../parameters/MediumNav.jsx";
 import LoadingRobot from "./../robot.jsx";
 import NavBar from "../navbar.jsx";
 
-const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
+const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, postId }) => {
   const [themes, setThemes] = useState("");
   const [categories, setCategories] = useState("");
   const [writingStyle, setWritingStyle] = useState("");
-  const [postId, setPostId] = useState(null);
   const [emotion, setEmotion] = useState("");
   const [sentiment, setSentiment] = useState("");
   const [promptLength, setPromptLength] = useState("");
