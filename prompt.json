@@ -142,6 +142,17 @@
             "Air",
             "Light"
           ]},
+
+        "visualArtElements": {
+            "title": "Visual Art Elements",
+            "data": [
+                "texture",
+                "contrast",
+                "perspective",
+                "movement",
+                "pattern"
+            ]
+        },
         
         "promptLength":{
           "title": "Prompt Length",
