@@ -1,7 +1,7 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
+import NavBar from "../navbar";
 
 const UserAuthentication = ({ setToken }) => {
   const [username, setUsername] = useState("");
@@ -21,7 +21,6 @@ const UserAuthentication = ({ setToken }) => {
         setToken(res.data.auth_token);
         localStorage.setItem("token", res.data.auth_token);
       });
-    console.log(handleRegister);
   };
 
   const handleSubmit = (e) => {
@@ -69,83 +68,104 @@ const UserAuthentication = ({ setToken }) => {
 
   return (
     <>
-      <button
-        className="button registration-button"
-        onClick={toggleRegistrationForm}
-      >
-        {showRegistrationForm
-          ? "Hide Registration Form"
-          : "Click For New Account"}
-      </button>
-      {showRegistrationForm && (
-        <form className="form" onSubmit={handleRegister}>
-          <div>New User Sign Up</div>
-          <div></div>
-          <div>
-            <label>Username </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Choose a Username..."
-              value={username}
-              onChange={handleUsername}
-              required
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type="text"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Choose a Password..."
-              required
-            />
-          </div>
-          <div>
-            <input type="submit" className="button" value="Register" />
-          </div>
-        </form>
-      )}
+    <NavBar />
+      <div className="flex justify-center mt-52 h-screen">
+        <div className="space-y-5 space-x-2">
+          <button
+            className="border border-slate-400 p-4"
+            onClick={toggleRegistrationForm}
+          >
+            {showRegistrationForm ? "Hide Registration Form" : "New Account"}
+          </button>
 
-      <button className="button login-button" onClick={toggleLoginForm}>
-        {showLoginForm ? "Hide Login Form" : "Show Login Form"}
-      </button>
-      {showLoginForm && (
-        <form className="form" onSubmit={handleSubmit}>
-          <div>
-            <label>Username</label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={username}
-              onChange={handleUsername}
-              required
-            />
-          </div>
-          <div>
-            <label>Password</label>
-            <input
-              type="text"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div>
-            <input type="submit" className="button" value="Login" />
-          </div>
-        </form>
-      )}
+          {showRegistrationForm && (
+            <form
+              className="border border-slate-300 p-4"
+              onSubmit={handleRegister}
+            >
+              
+              <div className="space-x-1">
+                <label>New Username</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Choose a Username..."
+                  value={username}
+                  onChange={handleUsername}
+                  required
+                />
+              </div>
 
-      <button className="button" onClick={handleLogout}>
-        Logout
-      </button>
-      {logoutMessage && <div>{logoutMessage}</div>}
+              <div className="space-x-1">
+                <label>New Password</label>
+                <input
+                  type="text"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder=" Choose a Password..."
+                  required
+                />
+              </div>
+              <div>
+                <button className="border border-slate-300 mt-4 p-2">
+                  <input type="submit" className="button" value="Register" />
+                </button>
+              </div>
+            </form>
+          )}
+
+          <button
+            className="border border-slate-400 p-4"
+            onClick={toggleLoginForm}
+          >
+            {showLoginForm ? "Hide Login Form" : "Login"}
+          </button>
+
+          {showLoginForm && (
+            <form
+              className="border border-slate-300 p-4"
+              onSubmit={handleSubmit}
+            >
+              <div className="space-x-1">
+                <label>Username</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  value={username}
+                  onChange={handleUsername}
+                  required
+                />
+              </div>
+              <div className="space-x-1">
+                <label>Password</label>
+                <input
+                  type="text"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <button className="border border-slate-300 mt-4 p-2">
+                  <input type="submit" className="button" value="Login" />
+                </button>
+              </div>
+            </form>
+          )}
+
+          <button
+            className="border border-slate-400 p-4"
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
+          {logoutMessage && <div>{logoutMessage}</div>}
+        </div>
+      </div>
     </>
   );
 };

@@ -36,7 +36,9 @@ const NavBar = () => {
         <Link to="/folio" onClick={handleClickFolio}>
           FOLIO
         </Link>
-        <Link to="/login" onCLick={handleClickLogin}
+        <Link to="/login" onCLick={handleClickLogin}>
+            LOGIN
+        </Link>
       </div>
       <Outlet />
     </div>
