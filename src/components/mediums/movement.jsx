@@ -22,18 +22,42 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
         {
             title: "Somatics",
             isActive: true,
+            onClick: () => {
+                setActiveElement("Movement Somatics");
+                handleActiveNav("Movement Somatics");
+              },
         },
         {
             title: "Themes", 
             isActive: false,
+            onClick: () => {
+                setActiveElement("themes");
+                handleActiveNav("themes");
+              },
         },
         {
             title: "Emotion",
             isActive: false,
+            onClick: () => {
+                setActiveElement("emotion");
+                handleActiveNav("emotion");
+              },
         },
         {
             title: "Sentiment",
             isActive: false,
+            onClick: () => {
+                setActiveElement("sentiment");
+                handleActiveNav("sentiment");
+              },
+        },
+        {
+            title: "Length",
+            isActive: false,
+            onClick: () => {
+                setActiveElement("promptLength");
+                handleActiveNav("length");
+              },
         },
     ];
     const [navData, setNavData] = useState(initialNavDataValues);
@@ -206,7 +230,7 @@ return (
                       </button>
                     }
                   </div>
-                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-40">
+                  <div className="font-serif text-3xl text-center pr-6 pt-24 pl-6 pb-24 ">
                     {postId && (
                       <MovementPrompt
                         postId={postId}
@@ -218,10 +242,10 @@ return (
                 </div>
                 {beginButtonVisible && (
                   <button
-                    className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
+                    className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
                     onClick={handleClickCreatePage}
                   >
-                    BEGIN
+                    CREATE
                   </button>
                 )}
               </>
@@ -233,18 +257,7 @@ return (
                   handler={handleStateSet}
                   mediumNavComponent={<MediumNav navData={navData} />}
                 />
-              <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
-                <div className="flex items-center">
-                  <button
-                    className="text-1xl text-slate-500"
-                    onClick={handleBack}>
-                    Back
-                  </button>
-                  <div className='instruction'>
-                    <div>{instruction[activeElement]}</div>
-                </div>
-                </div>
-              </div>
+             
               </div>
             )}
           </div>
