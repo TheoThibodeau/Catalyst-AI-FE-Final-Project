@@ -18,7 +18,7 @@ const ParameterComponent = ({ data, handler, mediumNavComponent }) => {
         {entries.map((entry) => (
           <div
             key={entry}
-            className="flex flex-col align-center w-60 h-50 justify-center text-lg text-slate-500 border bg-slate-200 border border-slate-400 p-2"
+            className="flex flex-col align-center w-60 h-50 justify-center text-lg text-slate-500 bg-slate-200 border border-slate-400 p-2"
           >
             <button
               className=""

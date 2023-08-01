@@ -219,7 +219,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                 </div>
                 {beginButtonVisible && (
                   <button
-                  className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
+                  className="text-4xl m-10 p-8 bg-slate-200 border border-slate-300"
                   onClick={handleClickCreatePage}
                   >
                     BEGIN
