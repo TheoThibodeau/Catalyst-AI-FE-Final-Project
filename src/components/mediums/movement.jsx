@@ -169,6 +169,14 @@ const handleStateSet = (key, value) => {
 
 const keys = ["movementSomatics", "movementThemes", "emotion", "sentiment", "promptLength", "generate"]
 
+const instruction = {
+    themes: "Choose a theme to set the foundation of your movement prompt",
+    categories: "Choose a category to establish an area of focus for your movement prompt",
+    emotion: "Choose an emotion to be the driving force behind your movement prompt",
+    sentiment: "Choose a sentiment to set the overall mood and tone of your movement prompt",
+    length: "How long will your movement prompt be?"
+
+  };
 return (
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">
@@ -232,6 +240,9 @@ return (
                     onClick={handleBack}>
                     Back
                   </button>
+                  <div className='instruction'>
+                    <div>{instruction[activeElement]}</div>
+                </div>
                 </div>
               </div>
               </div>

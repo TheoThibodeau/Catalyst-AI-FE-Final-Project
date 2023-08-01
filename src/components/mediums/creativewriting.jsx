@@ -16,8 +16,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const [sentiment, setSentiment] = useState("");
   const [promptLength, setPromptLength] = useState("");
   const [activeElement, setActiveElement] = useState("themes");
-//   const [themesInstruction, setThemesInstruction] = useState("");
-//   const [activeInstruction, setActiveInstruction] = useState("themesInstruction");
   const [generateButton, setGenerateButton] = useState(false);
   const [beginButtonVisible, setBeginButtonVisible] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
@@ -121,11 +119,11 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const mappedPromptLength = data.promptLength;
 
   const instruction = {
-    themes: "Choose a theme to set the atmosphere of your writing prompt",
+    themes: "Choose a theme as the central concept of your writing prompt",
     categories: "Choose a category to establish an area of focus for your writing prompt",
     emotion: "Choose an emotion to bring feeling to your writing prompt",
     sentiment: "Choose a sentiment to set the overall mood and tone of your writing prompt",
-    length: "How long of a writing prompt do you want?"
+    length: "How long will your creative writing prompt be"
 
   };
   const handleActiveNav = (newValue) => {
