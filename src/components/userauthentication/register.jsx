@@ -42,7 +42,7 @@ const UserAuthentication = ({ updateToken }) => {
     const handleLogout = () => {
         axios
             .post(
-            'https://questionapi.onrender.com/auth/token/logout/',
+            'https://catalyst-x226.onrender.com/auth/token/logout/',
             {},
             {
             headers: {
