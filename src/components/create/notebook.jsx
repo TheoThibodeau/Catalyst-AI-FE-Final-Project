@@ -29,7 +29,7 @@ console.log(postId)
   return (
     <>
     <div>
-    <button className="h-10 p-2 w-20 border m-2 justify-center" onClick={handlePatch}>Save</button>``
+    <button className="h-10 p-2 w-20 border m-2 justify-center" onClick={handlePatch}>Save</button>
     <div>
       <Editor
         apiKey='5c49z6msz9y26e8fv03ptpphkxydj6nybm6x070w4arrr81l'
