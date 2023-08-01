@@ -16,7 +16,8 @@
       "title": "Categories",
       "data":
       [
-   
+      
+      "Discovery and Exploration",
 			"Identity and Belonging", 
 			"Nature and Environment", 
 			"Historical",
@@ -39,6 +40,7 @@
       "title": "Emotions",
       "data":
       [
+
         "Joy",
         "Surprise",
         "Disappointment",
@@ -142,7 +144,6 @@
         "promptLength":{
           "title": "Prompt Length",
           "data":[
-            "Choose the length of your A.I. generated art prompt:",
             "One word",
             "A few words",
             "A sentence or two"
