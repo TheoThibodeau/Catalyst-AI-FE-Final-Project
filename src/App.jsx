@@ -27,7 +27,7 @@ function App() {
         <Route path ="/visualart" element={<VisualArtPromptParent setPostId={setPostId} postId={postId}/>} /> 
         <Route path ="/create" element={<Create postId={postId}/>} /> 
         <Route path ="/folio" element={<Folio postId={postId} token={token}/>} />
-        <Route path ="/login" element={<UserAuthentication setToken={setToken}/>} />
+        <Route path ="/login" element={<UserAuthentication setToken={setToken} token={token}/>} />
     </Route>
     </Routes>
    </BrowserRouter>
