@@ -1,6 +1,7 @@
 import NavBar from "../navbar";
 const MediumNav = ({ navData }) => {
 
+
   return (
     <>
     
@@ -11,6 +12,7 @@ const MediumNav = ({ navData }) => {
             className={[
               datum.isActive ? "text-slate-700" : "text-white",
             ].join(" ")}
+            onClick={datum.onClick}
           >
             {datum.title}
           </div>

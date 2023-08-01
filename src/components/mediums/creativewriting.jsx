@@ -23,22 +23,42 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     {
       title: "Themes",
       isActive: true,
+      onClick: () => {
+        setActiveElement("themes");
+        handleActiveNav("themes");
+      },
     },
     {
       title: "Categories",
       isActive: false,
+      onClick: () => {
+        setActiveElement("categories");
+        handleActiveNav("categories");
+      },
     },
     {
       title: "Emotion",
       isActive: false,
+      onClick: () => {
+        setActiveElement("emotion");
+        handleActiveNav("emotion");
+      },
     },
     {
       title: "Sentiment",
       isActive: false,
+      onClick: () => {
+        setActiveElement("sentiment");
+        handleActiveNav("sentiment");
+      },
     },
     {
       title: "Length",
       isActive: false,
+      onClick: () => {
+        setActiveElement("promptLength");
+        handleActiveNav("length");
+      },
     },
   ];
   const [navData, setNavData] = useState(initialNavDataValues);
@@ -63,8 +83,9 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       })
       .finally(() => {
         const timeout = setTimeout(() => {
-            setIsLoading(false)}, 3000)
-      })
+          setIsLoading(false);
+        }, 3000);
+      });
   };
 
   const handleThemeChange = (selectedTheme) => {
@@ -95,7 +116,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   const handleGenerate = (selectedGenerate) => {
     setGenerate(selectedGenerate);
-  };    
+  };
 
   const handleClickCreatePage = () => {
     setGenerativeSpace(true);
@@ -104,12 +125,12 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const handleBack = () => {
     const currentActiveIndex = keys.indexOf(activeElement);
     const previousActiveIndex = currentActiveIndex - 1;
-    
+
     if (previousActiveIndex >= 0) {
       setActiveElement(keys[previousActiveIndex]);
     }
   };
-  
+
   const mappedWritingStyle = data.writingStyle;
   const mappedThemes = data.themes;
   const mappedCategories = data.categories;
@@ -118,24 +139,23 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const mappedPromptLength = data.promptLength;
 
   const handleActiveNav = (newValue) => {
+    const newState = navData.map((datum) => {
+      if (datum.isActive) {
+        datum.isActive = false;
+        return datum;
+      }
 
-    const newState = navData.map(datum => {
-        if (datum.isActive) {
-           datum.isActive = false
-           return datum
-        }
-      
-        if (datum.title.toLowerCase() === newValue) {
-          datum.isActive = true
-          return datum
-        }
-      
-        return datum
-      })
+      if (datum.title.toLowerCase() === newValue) {
+        datum.isActive = true;
+        return datum;
+      }
+
+      return datum;
+    });
 
     setNavData(newState);
   };
-  console.log("navData",navData)
+  console.log("navData", navData);
 
   const handleStateSet = (key, value) => {
     console.log("key", key);
@@ -169,84 +189,97 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       setActiveElement(newActiveElement);
       setGenerateButton(true);
       handleActiveNav(newActiveElement);
-  }
+    }
 
-  if (key === "generateButton"){
-    handleGenerate(value);
-  }
+    if (key === "generateButton") {
+      handleGenerate(value);
+    }
   };
 
-  const keys = ["themes", "categories", "emotion", "sentiment", "promptLength", "generate"];
+  const keys = [
+    "themes",
+    "categories",
+    "emotion",
+    "sentiment",
+    "promptLength",
+    "generate",
+  ];
 
   return (
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">
         <div>
-            {isLoading ?(
-                <LoadingRobot/>
-            ) : (
-          <div className="flex flex-col items-center ">
-            {generateButton ? (
-              <>
+          {isLoading ? (
+            <LoadingRobot />
+          ) : (
+            <div className="flex flex-col items-center ">
+              {generateButton ? (
+                <>
+                  <div>
+                    <div className="flex justify-center">
+                      {isClicked ? (
+                        <button
+                          onClick={handlePost}
+                          className="begin-button border border-slate-400 p-4"
+                        >
+                          REGENERATE
+                        </button>
+                      ) : (
+                        <button
+                          className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
+                          onClick={handlePost}
+                          key="generateButton"
+                        >
+                          GENERATE
+                        </button>
+                      )}
+                    </div>
+                    <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-16">
+                      {postId && (
+                        <CreativeWritingPrompt
+                          postId={postId}
+                          setOutput={setOutput}
+                          output={output}
+                        />
+                      )}
+                    </div>
+                  </div>
+                  {beginButtonVisible && (
+                    <button
+                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-300"
+                      onClick={handleClickCreatePage}
+                    >
+                      BEGIN
+                    </button>
+                  )}
+                </>
+              ) : (
                 <div>
-                  <div className="flex justify-center">
-                    {isClicked ?
-                      <button 
-                      onClick={handlePost}
-                      className="begin-button border border-slate-400 p-4"
-                      >
-                        REGENERATE
-                      </button>
-                      :
-                      <button
-                        className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
-                        onClick={handlePost}
-                        key="generateButton"
-                      >
-                        GENERATE
-                      </button>
-                    }
-                  </div>
-                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-16">
-                    {postId && (
-                      <CreativeWritingPrompt
-                        postId={postId}
-                        setOutput={setOutput}
-                        output={output}
+                  <ParameterComponent
+                    key={activeElement}
+                    data={data[activeElement]}
+                    handler={handleStateSet}
+                    mediumNavComponent={
+                      <MediumNav
+                        navData={navData}
+                        setActiveElement={setActiveElement}
                       />
-                    )}
+                    }
+                  />
+                  <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
+                    <div className="flex items-center">
+                      <button
+                        className="text-1xl text-slate-500"
+                        onClick={handleBack}
+                      >
+                        Back
+                      </button>
+                    </div>
                   </div>
                 </div>
-                {beginButtonVisible && (
-                  <button
-                  className="text-4xl m-10 p-8 bg-slate-200 border border-slate-300"
-                  onClick={handleClickCreatePage}
-                  >
-                    BEGIN
-                  </button>
-                )}
-              </>
-            ) : (
-              <div>
-                <ParameterComponent
-                  key={activeElement}
-                  data={data[activeElement]}
-                  handler={handleStateSet}
-                  mediumNavComponent={<MediumNav navData={navData} />}
-                />
-              <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
-                <div className="flex items-center">
-                  <button
-                    className="text-1xl text-slate-500"
-                    onClick={handleBack}>
-                    Back
-                  </button>
-                </div>
-              </div>
-              </div>
-            )}
-          </div>
-            )}
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>

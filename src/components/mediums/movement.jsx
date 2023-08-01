@@ -22,18 +22,34 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
         {
             title: "Somatics",
             isActive: true,
+            onClick: () => {
+                setActiveElement("somatics");
+                handleActiveNav("movementSomatics");
+              },
         },
         {
             title: "Themes", 
             isActive: false,
+            onClick: () => {
+                setActiveElement("themes");
+                handleActiveNav("themes");
+              },
         },
         {
             title: "Emotion",
             isActive: false,
+            onClick: () => {
+                setActiveElement("emotion");
+                handleActiveNav("emotion");
+              },
         },
         {
             title: "Sentiment",
             isActive: false,
+            onClick: () => {
+                setActiveElement("sentiment");
+                handleActiveNav("sentiment");
+              },
         },
     ];
     const [navData, setNavData] = useState(initialNavDataValues);
