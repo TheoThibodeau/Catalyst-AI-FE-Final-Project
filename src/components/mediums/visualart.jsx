@@ -178,6 +178,14 @@ const handleStateSet = (key, value) => {
 
 const keys = ["visualArtThemes", "emotion", "visualArtElements", "sentiment", "promptLength", "generate"]
 
+const instruction = {
+    themes: "Choose a theme to set the atmosphere for your visual art prompt",
+    element: "Choose an element as the building blocks for your visual art prompt",
+    emotion: "Choose an emotion as the driving force in your visual art prompt",
+    sentiment: "Choose a sentiment to set the overall mood and tone of your visual art prompt",
+    length: "How long will your visual art prompt be?"
+}
+
 return (
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">
@@ -207,7 +215,7 @@ return (
                       </button>
                     }
                   </div>
-                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-40">
+                  <div className="font-serif text-3xl text-center pr-6 pt-24 pl-6 pb-24 ">
                     {postId && (
                       <VisualArtPrompt
                         postId={postId}
@@ -219,10 +227,10 @@ return (
                 </div>
                 {beginButtonVisible && (
                   <button
-                    className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
+                    className="text-4xl  p-8 bg-slate-200 border border-slate-500"
                     onClick={handleClickCreatePage}
                   >
-                    BEGIN
+                    CREATE
                   </button>
                 )}
               </>
@@ -234,15 +242,7 @@ return (
                 handler={handleStateSet}
                 mediumNavComponent={<MediumNav navData={navData} />}
               />
-              <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
-                <div className="flex items-center">
-                  <button
-                    className="text-1xl text-slate-500"
-                    onClick={handleBack}>
-                    Back
-                  </button>
-                </div>
-              </div>
+             
           </div>
             )}
           </div>

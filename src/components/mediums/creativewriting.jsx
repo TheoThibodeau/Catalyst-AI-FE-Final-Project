@@ -23,22 +23,42 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
     {
       title: "Themes",
       isActive: true,
+      onClick: () => {
+        setActiveElement("themes");
+        handleActiveNav("themes");
+      },
     },
     {
       title: "Categories",
       isActive: false,
+      onClick: () => {
+        setActiveElement("categories");
+        handleActiveNav("categories");
+      },
     },
     {
       title: "Emotion",
       isActive: false,
+      onClick: () => {
+        setActiveElement("emotion");
+        handleActiveNav("emotion");
+      },
     },
     {
       title: "Sentiment",
       isActive: false,
+      onClick: () => {
+        setActiveElement("sentiment");
+        handleActiveNav("sentiment");
+      },
     },
     {
       title: "Length",
       isActive: false,
+      onClick: () => {
+        setActiveElement("promptLength");
+        handleActiveNav("length");
+      },
     },
   ];
   const [navData, setNavData] = useState(initialNavDataValues);
@@ -63,8 +83,9 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       })
       .finally(() => {
         const timeout = setTimeout(() => {
-            setIsLoading(false)}, 3000)
-      })
+          setIsLoading(false);
+        }, 3000);
+      });
   };
 
   const handleThemeChange = (selectedTheme) => {
@@ -95,7 +116,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
 
   const handleGenerate = (selectedGenerate) => {
     setGenerate(selectedGenerate);
-  };    
+  };
 
   const handleClickCreatePage = () => {
     setGenerativeSpace(true);
@@ -104,12 +125,13 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const handleBack = () => {
     const currentActiveIndex = keys.indexOf(activeElement);
     const previousActiveIndex = currentActiveIndex - 1;
-    
+
     if (previousActiveIndex >= 0) {
       setActiveElement(keys[previousActiveIndex]);
+    
     }
   };
-  
+
   const mappedWritingStyle = data.writingStyle;
   const mappedThemes = data.themes;
   const mappedCategories = data.categories;
@@ -117,25 +139,32 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
   const mappedSentiment = data.sentiment;
   const mappedPromptLength = data.promptLength;
 
-  const handleActiveNav = (newValue) => {
+  const instruction = {
+    themes: "Choose a theme as the central concept of your writing prompt",
+    categories: "Choose a category to establish an area of focus for your writing prompt",
+    emotion: "Choose an emotion to bring feeling to your writing prompt",
+    sentiment: "Choose a sentiment to set the overall mood and tone of your writing prompt",
+    length: "How long will your creative writing prompt be"
 
-    const newState = navData.map(datum => {
-        if (datum.isActive) {
-           datum.isActive = false
-           return datum
-        }
-      
-        if (datum.title.toLowerCase() === newValue) {
-          datum.isActive = true
-          return datum
-        }
-      
-        return datum
-      })
+  };
+  const handleActiveNav = (newValue) => {
+    const newState = navData.map((datum) => {
+      if (datum.isActive) {
+        datum.isActive = false;
+        return datum;
+      }
+
+      if (datum.title.toLowerCase() === newValue) {
+        datum.isActive = true;
+        return datum;
+      }
+
+      return datum;
+    });
 
     setNavData(newState);
   };
-  console.log("navData",navData)
+  console.log("navData", navData);
 
   const handleStateSet = (key, value) => {
     console.log("key", key);
@@ -169,11 +198,11 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       setActiveElement(newActiveElement);
       setGenerateButton(true);
       handleActiveNav(newActiveElement);
-  }
+    }
 
-  if (key === "generateButton"){
-    handleGenerate(value);
-  }
+    if (key === "generateButton") {
+      handleGenerate(value);
+    }
   };
 
   const keys = ["themes", "categories", "emotion", "sentiment", "promptLength", "generate"];
@@ -189,9 +218,6 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
             {generateButton ? (
               <>
                 <div>
-                <h2>
-                  Our A.I. robot "Muse" will take your selections and think of a totally unique artistic prompt. You've chosen the creative writing medium, so use this prompt to write a poem, a story, or even a screenplay!
-                </h2>
                   <div className="flex justify-center">
                     {isClicked ?
                       <button 
@@ -210,7 +236,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                       </button>
                     }
                   </div>
-                  <div className="font-serif text-3xl text-center pr-6 pt-10 pl-6 pb-16">
+                  <div className="font-serif text-3xl text-center pr-6 pt-24 pl-6 pb-24 ">
                     {postId && (
                       <CreativeWritingPrompt
                         postId={postId}
@@ -222,20 +248,23 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                 </div>
                 {beginButtonVisible && (
                   <button
-                  className="text-4xl m-10 p-8 bg-slate-200 border border-slate-300"
+                  className="text-4xl m-10 p-8 bg-slate-200 border border-slate-500"
                   onClick={handleClickCreatePage}
                   >
-                    Start Creating
+                   CREATE
                   </button>
                 )}
               </>
             ) : (
+               
               <div>
+                
+                
                 <ParameterComponent
                   key={activeElement}
                   data={data[activeElement]}
                   handler={handleStateSet}
-                  mediumNavComponent={<MediumNav navData={navData} />}
+                  mediumNavComponent={<MediumNav navData={navData} />}  
                 />
               <div className="fixed bottom-0 left-0 right-0 flex justify-center bg-slate-50 border border-slate-200 p-3">
                 <div className="flex items-center">

@@ -1,20 +1,4 @@
 {
-    "writingStyle": [
-        "stream of consciousness",
-        "time",
-        "poetry",
-        "character development",
-        "wordplay",
-        "story starter",
-        "image",
-        "storytelling through objects",
-        "flash",
-        "point of view shift",
-        "memoir",
-        "dialogue",
-        "descriptive"
-    ], 
-
     "themes": {
       "title": "Themes",
       "data":
@@ -27,12 +11,12 @@
         "Loss"
       ]},
 
+
     "categories": {
       "title": "Categories",
       "data":
       [
-      "Choose a category to contextualize your prompt: ",
-      "Discovery and Exploration",
+   
 			"Identity and Belonging", 
 			"Nature and Environment", 
 			"Historical",
@@ -55,7 +39,6 @@
       "title": "Emotions",
       "data":
       [
-        "Choose an emotion to bring your prompt to life: ",
         "Joy",
         "Surprise",
         "Disappointment",
@@ -173,3 +156,5 @@
           ]
         }
 }
+
+ 
