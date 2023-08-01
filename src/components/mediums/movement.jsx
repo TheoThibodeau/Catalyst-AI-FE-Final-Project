@@ -23,15 +23,15 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
             title: "Somatics",
             isActive: true,
             onClick: () => {
-                setActiveElement("Movement Somatics");
-                handleActiveNav("Movement Somatics");
+                setActiveElement("movementSomatics");
+                handleActiveNav("somatics");
               },
         },
         {
-            title: "Themes", 
+            title: "Movement Themes", 
             isActive: false,
             onClick: () => {
-                setActiveElement("themes");
+                setActiveElement("movementThemes");
                 handleActiveNav("themes");
               },
         },
@@ -81,7 +81,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
         })
         .finally(() => {
             const timeout = setTimeout(() => {
-                setIsLoading(false)}, 3000)
+                setIsLoading(false)}, 1000)
         })
     }
 
@@ -151,19 +151,15 @@ console.log("navData", navData)
 const handleStateSet = (key, value) => {
     if (key === "Movement Somatics") {
         handleMovementSomatics(value);
-        const newActiveElement = "themes";
+        const newActiveElement = "movementThemes";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
-        console.log("key", key)
-        console.log("value", value)
     }
-    if (key === "Themes") {
+    if (key === "Movement Themes") {
         handleMovementThemes(value);
         const newActiveElement = "emotion";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
-        console.log("key", key)
-        console.log("value", value)
     }    
     if (key === "Emotions") {
         handleEmotionChange(value);
@@ -186,7 +182,7 @@ const handleStateSet = (key, value) => {
         handleActiveNav(newActiveElement);
     }
 
-    if (key === "generateButton"){
+    if (key === "generateButton") {
         handleGenerate(value)
     }
 }

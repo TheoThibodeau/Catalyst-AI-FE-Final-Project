@@ -22,22 +22,42 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
         {
             title: "Themes",
             isActive: true,
+            onClick: () => {
+                setActiveElement("visualArtThemes");
+                handleActiveNav("themes");
+              },
         },
         {
             title: "Emotion",
             isActive: false,
+            onClick: () => {
+                setActiveElement("emotion");
+                handleActiveNav("emotion");
+              },
         },
         {
             title: "Elements",
             isActive: false,
+            onClick: () => {
+                setActiveElement("visualArtElements");
+                handleActiveNav("elements");
+              },
         },
         {
             title: "Sentiment",
             isActive: false,
+            onClick: () => {
+                setActiveElement("sentiment");
+                handleActiveNav("sentiment");
+              },
         },
         {
             title: "Length",
             isActive: false,
+            onClick: () => {
+                setActiveElement("promptLength");
+                handleActiveNav("length");
+              },
         },
     ];
     const [navData, setNavData] = useState(initialNavDataValues);

@@ -84,7 +84,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
       .finally(() => {
         const timeout = setTimeout(() => {
           setIsLoading(false);
-        }, 3000);
+        }, 1000);
       });
   };
 

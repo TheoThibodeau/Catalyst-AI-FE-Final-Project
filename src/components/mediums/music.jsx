@@ -6,6 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
 import LoadingRobot from "./../robot.jsx";
+import NavBar from "../navbar.jsx"; 
 
 const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     const [explorations, setExplorations] = useState("");
@@ -22,22 +23,42 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
         {
           title: "Explorations",
           isActive: true,
+          onClick: () => {
+            setActiveElement("explorations");
+            handleActiveNav("explorations");
+          },
         },
         {
           title: "Elements",
           isActive: false,
+          onClick: () => {
+            setActiveElement("elements");
+            handleActiveNav("elements");
+          },
         },
         {
           title: "Concepts",
           isActive: false,
+          onClick: () => {
+            setActiveElement("concepts");
+            handleActiveNav("concepts");
+          },
         },
         {
           title: "Emotion",
           isActive: false,
+          onClick: () => {
+            setActiveElement("emotion");
+            handleActiveNav("emotion");
+          },
         },
         {
           title: "Length",
           isActive: false,
+          onClick: () => {
+            setActiveElement("promptLength");
+            handleActiveNav("length");
+          },
         },
       ];
       const [navData, setNavData] = useState(initialNavDataValues);
@@ -60,7 +81,7 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
         })
         .finally(() => {
             const timeout = setTimeout(() => {
-                setIsLoading(false)}, 3000)
+                setIsLoading(false)}, 1000)
         })
     };
     
