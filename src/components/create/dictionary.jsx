@@ -53,18 +53,18 @@ const Dictionary = () => {
     {!isLoading && (
             <form className="lexi-form">
                 <div className='word-and-input'>
-                <label className='word'>Enter A Word</label>
                 <input className="text-field"
                     type="text"
                     onChange={handleInputChange} 
+                    placeholder="Enter a Word"
                     style={{
                         border: '1px solid black',
                         padding: '8px'
                     }}
                 />
-                
+                    <button onClick={handlePost} className="border border-slate-400 p-1 mb-3 bg-slate-200" type="submit">Ask Muse</button>
                 </div>
-                <button onClick={handlePost} className="border p-3 m-3" style={{ backgroundColor: '#d1d5db'}} type="submit">Ask Muse</button>
+              
             </form>
     )}
     
@@ -84,7 +84,7 @@ const Dictionary = () => {
         aria-controls="collapseZero">
         <div className='font'>Definition</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg]  transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -133,7 +133,7 @@ const Dictionary = () => {
         aria-controls="collapseOne">
         <div className="font">Synonyms</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg]  transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -180,7 +180,7 @@ const Dictionary = () => {
         aria-controls="collapseTwo">
         <div className='font'>Antonyms</div>
         <span
-          className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg]  transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -226,7 +226,7 @@ const Dictionary = () => {
         aria-controls="collapseThree">
         <div className='font'>Joke</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg]fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -275,7 +275,7 @@ const Dictionary = () => {
         aria-controls="collapseFour">
         <div className="font">Use the word in a sentence</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg]  transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -321,7 +321,7 @@ const Dictionary = () => {
         aria-controls="collapseFive">
             <div className='font'>Color Association</div>
         <span
-          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+          className="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#a4a4a4] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:group-[[data-te-collapse-collapsed]]:fill-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

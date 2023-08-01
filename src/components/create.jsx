@@ -31,7 +31,7 @@ console.log(postId)
   };
 
   const handleToggle = () => {
-    setActiveComponent(activeComponent ? "" : "Timer"); // Replace "Timer" with the default component you want to show when no component is active.
+    setActiveComponent(activeComponent ? "" : ""); 
   };
 
   return (
