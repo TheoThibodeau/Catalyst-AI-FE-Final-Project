@@ -38,6 +38,16 @@
     } 
   }
 
+  @keyframes flicker {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+  }
+
     .robot-container {
         position: absolute;
         top: 40%;
@@ -170,18 +180,19 @@
 
   .light-left {
     right: 64%;
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     background-color: #86efac;
     border-radius: 50%;
     position: absolute;
     top: 12%; 
+    
   }
 
   .light-middle {
     right: 46%;
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     background-color: #fde68a;
     border-radius: 50%;
     position: absolute;
@@ -190,8 +201,8 @@
 
   .light-right {
     right: 30%;
-    width: 6px;
-    height: 6px;
+    width: 7px;
+    height: 7px;
     background-color: #bae6fd;
     border-radius: 50%;
     position: absolute;
@@ -199,6 +210,39 @@
     
   }
 
+  .light-left-blink {
+    right: 64%;
+    width: 7px;
+    height: 7px;
+    background-color: #064e3b;
+    border-radius: 50%;
+    position: absolute;
+    top: 12%; 
+    animation: flicker 1s linear infinite;
+  }
+
+  .light-middle-blink {
+    right: 46%;
+    width: 7px;
+    height: 7px;
+    background-color: #854d0e;
+    border-radius: 50%;
+    position: absolute;
+    top: 12%; 
+    animation: flicker 0.7s linear infinite;
+  }
+
+  .light-right-blink {
+    right: 30%;
+    width: 7px;
+    height: 7px;
+    background-color: #3730a3;
+    border-radius: 50%;
+    position: absolute;
+    top: 12%;
+    animation: flicker 0.8s linear infinite;
+    
+  }
   .chest { 
     width: 50px;
     height: 50px;
@@ -236,7 +280,7 @@
     border-bottom-left-radius: 0.75em;
     border-bottom-right-radius: 0.75em;
     position: absolute;
-    top: -46%;
+    top: -40%;
     left: 42%;
     box-shadow: inset 1px 1px 4px #334155,
                 inset -1px -1px 1px #e4e4e7;

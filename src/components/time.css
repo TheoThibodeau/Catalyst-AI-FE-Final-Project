@@ -7,8 +7,10 @@
     justify-content: center;
     margin-top: 10px;
     align-items: center;
-    background-color: #cbd5e1;
+    /* background-color: #cbd5e1; */
     border-radius: 0.1em;
+    border: 0.5px solid #94a3b8;
+    background-color: #f3f4f6;
     
 }
 
@@ -16,9 +18,9 @@
     display: flex;
     width: 315px;
     margin-top: 20px;
-    background-color: #e2e8f0;
+    
     justify-content: center;
-    border: 2px solid white;
+    border: 0.5px solid #94a3b8;
     
 
 }
@@ -27,7 +29,7 @@
     font-size: 110px;
     font-family: "Istok Web";
     border-radius: 0.1em;
-    color: #334155;
+    color: #64748b;
 }
 
 .timer-text {
@@ -39,9 +41,9 @@
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 0.1em;
-    color: #334155;
-    background-color: #e2e8f0;
-    border: 2px solid white;
+    color: #64748b;
+    border: 0.5px solid #94a3b8;
+    
     
     
 }
@@ -62,11 +64,11 @@
     margin-right: 5px;
     margin-top: 30px;
     margin-bottom: 40px;
-    background-color: #e2e8f0;
-    border: 2px solid white;
+    
+    border: 0.5px solid #94a3b8;
     font-family: "Istok Web";
     border-radius: 0.1em;
-    color: #334155;
+    color: #64748b;
     
 }
 
@@ -78,11 +80,10 @@
     margin-left: 5px;
     margin-top: 30px;
     margin-bottom: 40px;
-    border: 2px solid white;
-    background-color: #e2e8f0;
+    border: 0.5px solid #94a3b8;
     font-family: "Istok Web";
     border-radius: 0.1em;
-    color: #334155;
+    color: #64748b;
     
 }
 
@@ -95,11 +96,11 @@
     padding-bottom: 5px;
     margin-right: 10px;
     margin-top: 50px;
-    color: #334155;
+    color: #64748b;
     border-radius: 0.1em;
     margin-bottom: 90px;
-    background-color: #e2e8f0;
-    border: 2px solid white;
+    background-color: #f3f4f6;;
+    border: 0.5px solid #94a3b8;
     font-family: "Istok Web";
 }
 
@@ -112,20 +113,20 @@
     border-radius: 0.1em;
     margin-top: 50px;
     margin-left: 10px;
-    color: #334155;
+    color: #64748b;
     margin-bottom: 90px;
-    background-color: #e2e8f0;
-    border: 2px solid white;
+    background-color: #f3f4f6;
+    border: 0.5px solid #94a3b8;
     font-family: "Istok Web";
 }
 
-.start:hover, .stop:hover {
+/* .start:hover, .stop:hover {
     background-color: #dddddd; 
 }
 
 .timer-start:hover, .timer-stop:hover, .clear:hover, .start:hover, .stop:hover {
     background-color: dddddd; 
-}
+} */
 
 .round-container {
     display: flex;
@@ -136,7 +137,7 @@
     font-size: 30px;
     padding: 10px;
     font-family: "Istok Web";
-    color: #334155;
+    color: #64748b;
 }
 
 .timer-container {
@@ -147,8 +148,9 @@
     justify-content: center;
     margin-top: 10px;
     align-items: center;
-    background-color: #cbd5e1;
+    background-color: #f3f4f6;;
     border-radius: 0.1em;
+    border: 0.5px solid #94a3b8;
     
 }
 

@@ -64,7 +64,7 @@ const Dictionary = () => {
                 />
                 
                 </div>
-                <button onClick={handlePost} className="border p-3 m-3" style={{ backgroundColor: '#9ca3af'}} type="submit">Ask Muse</button>
+                <button onClick={handlePost} className="border p-3 m-3" style={{ backgroundColor: '#d1d5db'}} type="submit">Ask Muse</button>
             </form>
     )}
     
