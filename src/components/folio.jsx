@@ -5,7 +5,7 @@ import VisualArtFolio from './foliocomponents/visualartfolio';
 import CreativeWritingFolio from './foliocomponents/creativewritingfolio';
 import NavBar from './navbar';
 
-const Folio = () => {
+const Folio = ({ token }) => {
   const [selectedComponent, setSelectedComponent] = useState(null);
 
   const componentData = [
