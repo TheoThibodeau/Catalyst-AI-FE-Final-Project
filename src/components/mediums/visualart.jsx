@@ -174,7 +174,7 @@ return (
                   {isClicked ?
                       <button 
                       onClick={handlePost}
-                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
+                      className="begin-button border border-slate-400 p-4"
                       >
                         REGENERATE
                       </button>
@@ -200,7 +200,7 @@ return (
                 </div>
                 {beginButtonVisible && (
                   <button
-                    className="begin-button border border-slate-400 p-4"
+                    className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
                     onClick={handleClickCreatePage}
                   >
                     BEGIN
