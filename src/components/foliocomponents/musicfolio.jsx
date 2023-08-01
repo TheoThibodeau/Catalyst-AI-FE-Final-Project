@@ -44,7 +44,9 @@ const MusicFolio = () => {
 
       return (
         <div>
-          {folios.map((folio, index) => (
+          {folios
+          .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+          .map((folio, index) => (
             <div key={index}>
               <button className="border border-slate-400 p-4 m-1 ml-10" onClick={() => handleDateClick(dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss'))}>
               {folio.output} {dayjs(folio.created_at).format('MM/DD/YY')}
