@@ -11,6 +11,7 @@ const VisualArtFolio = () => {
   const [theme, setTheme] = useState([]);
   const [sentiment, setSentiment] = useState([]);
   const [emotion, setEmotion] = useState([]);
+  const [element, setElement] = useState([]);
   const [promptLength, setPromptLength] = useState([]);
 //   const [visualArtDataVisible, setVisualArtDataVisible] = useState(false);
 
@@ -24,6 +25,7 @@ const VisualArtFolio = () => {
           setTheme(response.data[0].theme);
           setSentiment(response.data[0].sentiment);
           setEmotion(response.data[0].emotion);
+          setElement(response.data[0].element);
           setPromptLength(response.data[0].promptLength);
         //   setVisualArtDataVisible(true);
         })
@@ -55,7 +57,7 @@ const VisualArtFolio = () => {
                   <h4>{folio.output}</h4>
                   <h3 h3 className="font-bold">
                     Prompt Parameters </h3>
-                    <h4> {folio.theme} , {folio.sentiment},
+                    <h4> {folio.theme} , {folio.sentiment}, {folio.element},
                     {folio.emotion}, {folio.promptLength}
                   </h4>
                   <h3 className="font-bold">Notes </h3>

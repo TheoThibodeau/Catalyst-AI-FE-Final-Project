@@ -148,11 +148,11 @@
         "visualArtElements": {
             "title": "Visual Art Elements",
             "data": [
-                "texture",
-                "contrast",
-                "perspective",
-                "movement",
-                "pattern"
+                "Texture",
+                "Contrast",
+                "Perspective",
+                "Movement",
+                "Pattern"
             ]
         },
         
