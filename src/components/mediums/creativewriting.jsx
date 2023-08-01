@@ -193,7 +193,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                     {isClicked ?
                       <button 
                       onClick={handlePost}
-                      className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
+                      className="begin-button border border-slate-400 p-4"
                       >
                         REGENERATE
                       </button>
@@ -219,8 +219,8 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                 </div>
                 {beginButtonVisible && (
                   <button
-                    className="begin-button border border-slate-400 p-4"
-                    onClick={handleClickCreatePage}
+                  className="text-4xl m-10 p-8 bg-slate-200 border border-slate-100"
+                  onClick={handleClickCreatePage}
                   >
                     BEGIN
                   </button>

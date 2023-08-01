@@ -3,7 +3,7 @@ import PomodoroTimer from "../components/create/pomodoro";
 import Stopwatch from "../components/create/stopwatch";
 import Metronome from "../components/create/metronome";
 import Audio from "../components/create/audio";
-import Notebook from "../components/create/notebook";
+import CreativeWritingSave from "../components/create/notebook";
 import Dictionary from "../components/create/dictionary";
 import { Editor } from '@tinymce/tinymce-react';
 import Timer from "./create/timer";
@@ -11,16 +11,17 @@ import NavBar from "./navbar";
 
 const Create = ({ postId, output }) => {
   const [activeComponent, setActiveComponent] = useState("");
+  
   const components = {
     Audio: <Audio />,
     Metronome: <Metronome />,
     Stopwatch: <Stopwatch />,
     PomodoroTimer: <PomodoroTimer />,
-    Notebook: <Notebook />,
+    Notebook: <CreativeWritingSave postId={postId}/>,
     Dictionary: <Dictionary />,
     Timer: <Timer />
   };
-
+console.log(postId)
   const editorRef = useRef(null);
 
   const log = () => {
