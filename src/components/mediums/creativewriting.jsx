@@ -189,6 +189,9 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
             {generateButton ? (
               <>
                 <div>
+                <h2>
+                  Our A.I. robot "Muse" will take your selections and think of a totally unique artistic prompt. You've chosen the creative writing medium, so use this prompt to write a poem, a story, or even a screenplay!
+                </h2>
                   <div className="flex justify-center">
                     {isClicked ?
                       <button 
@@ -222,7 +225,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace }) => {
                   className="text-4xl m-10 p-8 bg-slate-200 border border-slate-300"
                   onClick={handleClickCreatePage}
                   >
-                    BEGIN
+                    Start Creating
                   </button>
                 )}
               </>

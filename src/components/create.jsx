@@ -52,6 +52,11 @@ console.log(postId)
             {components[activeComponent]}
           </div>
           <div>
+            <h2>
+              Welcome to the "CreativeWriting" Create page. If you don't know a word, need a timer, or want write down your thoughts, let our handy tools help guide you in your creative process. Now take your A.I. generated prompt and start creating!!
+            </h2>
+          </div>
+          <div>
             <div className="grid grid-cols-2 gap-2">
               <button
                 className="w-full px-4 py-2 border border-slate-400 text-gray-800 bg-slate-100 font-mono text-center"

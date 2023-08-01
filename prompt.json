@@ -31,6 +31,7 @@
       "title": "Categories",
       "data":
       [
+      "Choose a category to contextualize your prompt: ",
       "Discovery and Exploration",
 			"Identity and Belonging", 
 			"Nature and Environment", 
@@ -54,6 +55,7 @@
       "title": "Emotions",
       "data":
       [
+        "Choose an emotion to bring your prompt to life: ",
         "Joy",
         "Surprise",
         "Disappointment",
@@ -157,6 +159,7 @@
         "promptLength":{
           "title": "Prompt Length",
           "data":[
+            "Choose the length of your A.I. generated art prompt:",
             "one word",
             "a few words",
             "a sentence or two"
