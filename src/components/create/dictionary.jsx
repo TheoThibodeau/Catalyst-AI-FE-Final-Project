@@ -61,7 +61,7 @@ const Dictionary = () => {
                         padding: '8px'
                     }}
                 />
-                    <button onClick={handlePost} className="border p-1 m-1" type="submit">Ask Muse</button>
+                    <button onClick={handlePost} className="border border-slate-400 p-1 m-1 bg-slate-200" type="submit">Ask Muse</button>
                 </div>
             </form>
     )}
