@@ -198,6 +198,14 @@ const handleStateSet = (key, value) => {
 
 const keys = ["visualArtThemes", "emotion", "visualArtElements", "sentiment", "promptLength", "generate"]
 
+const instruction = {
+    themes: "Choose a theme to set the atmosphere for your visual art prompt",
+    element: "Choose an element as the building blocks for your visual art prompt",
+    emotion: "Choose an emotion as the driving force in your visual art prompt",
+    sentiment: "Choose a sentiment to set the overall mood and tone of your visual art prompt",
+    length: "How long will your visual art prompt be?"
+}
+
 return (
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">

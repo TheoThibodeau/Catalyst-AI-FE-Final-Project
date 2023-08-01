@@ -188,6 +188,14 @@ const handleStateSet = (key, value) => {
 
 const keys = ["explorations", "elements", "concepts", "emotion", "promptLength", "generate"]
 
+const instruction = {
+    explorations: "Choose an exploration to set the direction of your music prompt",
+    element: "Choose an element as a building block for your music prompt",
+    emotion: "Choose an emotion as the driving force of your visual art prompt",
+    concept: "Choose a sentiment to set the overall mood and tone of your music prompt",
+    length: "How long will your music prompt be?"
+}
+
 return (
     <>
       <div className="flex flex-col items-center justify-center space-y-10 h-screen">

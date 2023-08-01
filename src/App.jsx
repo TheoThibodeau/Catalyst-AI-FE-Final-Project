@@ -14,19 +14,20 @@ import UserAuthentication from './components/userauthentication/register';
 
 function App() {
     const [postId, setPostId] = useState(null);
+    const [token, setToken] = useState('');
   return (
     <div className="bg-white">
     <BrowserRouter>
     <Routes>
     <Route>
         <Route path="/" element={<Landing />} />
-        <Route path ="/creativewriting" element={<PromptParents postId={postId} />} /> 
-        <Route path ="/movement" element={<MovementPromptParent postId={postId} />} /> 
-        <Route path ="/music" element={<MusicPromptParent postId={postId} />} /> 
-        <Route path ="/visualart" element={<VisualArtPromptParent postId={postId} />} /> 
+        <Route path ="/creativewriting" element={<PromptParents setPostId={setPostId} />} /> 
+        <Route path ="/movement" element={<MovementPromptParent setPostId={setPostId} />} /> 
+        <Route path ="/music" element={<MusicPromptParent setPostId={setPostId} />} /> 
+        <Route path ="/visualart" element={<VisualArtPromptParent setPostId={setPostId} />} /> 
         <Route path ="/create" element={<Create postId={postId}/>} /> 
-        <Route path ="/folio" element={<Folio postId={postId} />} />
-        <Route path ="/login" element={<UserAuthentication />} />
+        <Route path ="/folio" element={<Folio postId={postId} token={token}/>} />
+        <Route path ="/login" element={<UserAuthentication setToken={setToken}/>} />
     </Route>
     </Routes>
    </BrowserRouter>
