@@ -37,19 +37,19 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, pos
       },
     },
     {
-      title: "Emotion",
+      title: "Emotions",
       isActive: false,
       onClick: () => {
-        setActiveElement("emotion");
-        handleActiveNav("emotion");
+        setActiveElement("emotions");
+        handleActiveNav("emotions");
       },
     },
     {
-      title: "Sentiment",
+      title: "Sentiments",
       isActive: false,
       onClick: () => {
-        setActiveElement("sentiment");
-        handleActiveNav("sentiment");
+        setActiveElement("sentiments");
+        handleActiveNav("sentiments");
       },
     },
     {
@@ -135,16 +135,16 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, pos
   const mappedWritingStyle = data.writingStyle;
   const mappedThemes = data.themes;
   const mappedCategories = data.categories;
-  const mappedEmotion = data.emotion;
-  const mappedSentiment = data.sentiment;
+  const mappedEmotion = data.emotions;
+  const mappedSentiment = data.sentiments;
   const mappedPromptLength = data.promptLength;
 
   const instruction = {
-    themes: "Choose a theme as the core concept of your writing prompt",
-    categories: "Select a category to establish the focus of your writing prompt",
-    emotion: "Pick an emotion to infuse feeling into your writing prompt",
-    sentiment: "Set the mood and tone of your writing prompt with a sentiment",
-    promptLength: "What is the optimal length for your creative writing prompt?"
+    themes: "Choose the core theme of your writing prompt",
+    categories: "Establish the focus of your writing prompt",
+    emotions: "Infuse feeling into your writing prompt",
+    sentiments: "Set the mood and tone of your writing prompt",
+    promptLength: "What is the optimal length for your writing prompt?"
 
   };
   const handleActiveNav = (newValue) => {
@@ -176,17 +176,17 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, pos
     }
     if (key === "Categories") {
       handleCategoryChange(value);
-      const newActiveElement = "emotion";
+      const newActiveElement = "emotions";
       setActiveElement(newActiveElement);
       handleActiveNav(newActiveElement);
     }
     if (key === "Emotions") {
       handleEmotionChange(value);
-      const newActiveElement = "sentiment";
+      const newActiveElement = "sentiments";
       setActiveElement(newActiveElement);
       handleActiveNav(newActiveElement);
     }
-    if (key === "Sentiment") {
+    if (key === "Sentiments") {
       handleSentimentChange(value);
       const newActiveElement = "promptLength";
       setActiveElement(newActiveElement);
@@ -205,7 +205,7 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, pos
     }
   };
 
-  const keys = ["themes", "categories", "emotion", "sentiment", "promptLength", "generate"];
+  const keys = ["themes", "categories", "emotions", "sentiments", "promptLength", "generate"];
 
   return (
     <>
