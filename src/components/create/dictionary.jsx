@@ -103,7 +103,7 @@ const Dictionary = () => {
         )}
     <div
       id="collapseZero"
-      className="!visible hidden"
+      className="hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingZero"
@@ -152,7 +152,7 @@ const Dictionary = () => {
     )}
     <div
       id="collapseOne"
-      className="!visible hidden"
+      className="hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingOne"
@@ -199,7 +199,7 @@ const Dictionary = () => {
     )}
     <div
       id="collapseTwo"
-      className="!visible hidden"
+      className="hidden"
       data-te-collapse-item
       aria-labelledby="headingTwo"
       data-te-parent="#accordionExample">
@@ -246,7 +246,7 @@ const Dictionary = () => {
     )}
     <div
       id="collapseThree"
-      className="!visible hidden"
+      className="hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingThree"
@@ -295,7 +295,7 @@ const Dictionary = () => {
     )}
     <div
       id="collapseFour"
-      className="!visible hidden"
+      className="hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingFour"
@@ -342,7 +342,7 @@ const Dictionary = () => {
     <div
       style={{ backgroundColor: hex }}
       id="collapseFive"
-      className="!visible hidden"
+      className="hidden"
       data-te-collapse-item
       data-te-collapse-show
       aria-labelledby="headingFive"
