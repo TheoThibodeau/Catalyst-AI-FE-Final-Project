@@ -3,6 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const NavBar = () => {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleClickCreate = () => {
     setDropdownOpen(false);
@@ -14,12 +15,16 @@ const NavBar = () => {
 
   const handleClickLogin = () => {
     setDropdownOpen(false);
+    setIsLoggedIn((prevState) => !prevState);
+    // I am not sure this is right  
   }
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
+   
+  
   return (
     <div className="flex items-center justify-end text-lg  text-slate-500 min-w-fit p-5 space-x-3">
     
@@ -36,8 +41,9 @@ const NavBar = () => {
         <Link to="/folio" onClick={handleClickFolio}>
           FOLIO
         </Link>
-        <Link to="/login" onCLick={handleClickLogin}>
-            LOGIN
+        <Link to="/login" onClick={handleClickLogin}>
+          {isLoggedIn ? "LOG OUT" : "LOG IN"}
+          {/* does a token go here?  */}
         </Link>
       </div>
       <Outlet />
