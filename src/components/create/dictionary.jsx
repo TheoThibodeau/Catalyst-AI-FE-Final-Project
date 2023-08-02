@@ -56,6 +56,7 @@ const Dictionary = () => {
                 <input className="text-field"
                     type="text"
                     onChange={handleInputChange} 
+                    value={word}
                     placeholder="Enter a Word"
                     style={{
                         border: '1px solid black',
@@ -75,7 +76,7 @@ const Dictionary = () => {
     <h2 className="mb-0" id="headingZero">
     
       <button
-        className="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+        className="font group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-white dark:text-black [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-black [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-white dark:[&:not([data-te-collapse-collapsed])]:text-black dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
         type="button"
         data-te-collapse-init
         data-te-collapse-collapsed
@@ -89,12 +90,12 @@ const Dictionary = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6">
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
@@ -105,7 +106,6 @@ const Dictionary = () => {
       id="collapseZero"
       className="hidden"
       data-te-collapse-item
-      data-te-collapse-show
       aria-labelledby="headingZero"
       data-te-parent="#accordionExample">
         {!isLoading && (
@@ -138,12 +138,12 @@ const Dictionary = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6">
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
@@ -154,7 +154,7 @@ const Dictionary = () => {
       id="collapseOne"
       className="hidden"
       data-te-collapse-item
-      data-te-collapse-show
+    
       aria-labelledby="headingOne"
       data-te-parent="#accordionExample">
         {!isLoading && (
@@ -185,12 +185,12 @@ const Dictionary = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6">
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
@@ -231,12 +231,12 @@ const Dictionary = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6">
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
@@ -248,7 +248,6 @@ const Dictionary = () => {
       id="collapseThree"
       className="hidden"
       data-te-collapse-item
-      data-te-collapse-show
       aria-labelledby="headingThree"
       data-te-parent="#accordionExample">
         {!isLoading && (
@@ -280,12 +279,12 @@ const Dictionary = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6">
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
@@ -297,7 +296,7 @@ const Dictionary = () => {
       id="collapseFour"
       className="hidden"
       data-te-collapse-item
-      data-te-collapse-show
+      
       aria-labelledby="headingFour"
       data-te-parent="#accordionExample">
         {!isLoading && (
@@ -326,13 +325,13 @@ const Dictionary = () => {
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6">
             
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
               d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
           </svg>
         </span>
@@ -340,16 +339,16 @@ const Dictionary = () => {
     </h2>
         )}
     <div
-      style={{ backgroundColor: hex }}
+      style={{ borderColor: hex, borderWidth: '20px' }}
       id="collapseFive"
       className="hidden"
       data-te-collapse-item
-      data-te-collapse-show
+      
       aria-labelledby="headingFive"
       data-te-parent="#accordionExample">
         {!isLoading && (
       <div className="px-5 py-4">
-        {color && <p style={{ color: '#6b7280' }}>{color}</p>}
+        {color && <p> {color}</p>}
       </div>
         )}
     </div>
