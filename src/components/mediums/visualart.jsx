@@ -28,7 +28,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
               },
         },
         {
-            title: "Emotion",
+            title: "Emotions",
             isActive: false,
             onClick: () => {
                 setActiveElement("emotion");
@@ -44,7 +44,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
               },
         },
         {
-            title: "Sentiment",
+            title: "Sentiments",
             isActive: false,
             onClick: () => {
                 setActiveElement("sentiment");
@@ -199,10 +199,10 @@ const handleStateSet = (key, value) => {
 const keys = ["visualArtThemes", "emotion", "visualArtElements", "sentiment", "promptLength", "generate"]
 
 const instruction = {
-    themes: "Choose a theme to set the atmosphere for your visual art prompt",
-    element: "Choose an element as the building blocks for your visual art prompt",
-    emotion: "Choose an emotion as the driving force in your visual art prompt",
-    sentiment: "Choose a sentiment to set the overall mood and tone of your visual art prompt",
+    visualArtThemes: "Select a theme to create the atmosphere of your visual art prompt",
+    visualArtElements: "Choose an element as the foundation for your visual art prompt",
+    emotion: "Pick an emotion to infuse feeling into your visual art prompt",
+    sentiment: "Set the mood and tone of your visual art prompt with a sentiment",
     length: "How long will your visual art prompt be?"
 }
 
@@ -267,6 +267,9 @@ return (
             )}
           </div>
             )}
+        </div>
+        <div className="instruction-container">
+        <h2 className='instruction'>{instruction[activeElement]}</h2>
         </div>
       </div>
     </>

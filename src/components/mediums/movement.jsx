@@ -28,7 +28,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
               },
         },
         {
-            title: "Movement Themes", 
+            title: "Themes", 
             isActive: false,
             onClick: () => {
                 setActiveElement("movementThemes");
@@ -36,7 +36,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
               },
         },
         {
-            title: "Emotion",
+            title: "Emotions",
             isActive: false,
             onClick: () => {
                 setActiveElement("emotion");
@@ -44,7 +44,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
               },
         },
         {
-            title: "Sentiment",
+            title: "Sentiments",
             isActive: false,
             onClick: () => {
                 setActiveElement("sentiment");
@@ -190,11 +190,11 @@ const handleStateSet = (key, value) => {
 const keys = ["movementSomatics", "movementThemes", "emotion", "sentiment", "promptLength", "generate"]
 
 const instruction = {
-    themes: "Choose a theme to set the foundation of your movement prompt",
-    categories: "Choose a category to establish an area of focus for your movement prompt",
-    emotion: "Choose an emotion to be the driving force behind your movement prompt",
-    sentiment: "Choose a sentiment to set the overall mood and tone of your movement prompt",
-    length: "How long will your movement prompt be?"
+    movementThemes: "Choose a theme to establish the foundation of your movement prompt",
+    movementSomatics: "Choose a somatic approach to shape your movement prompt",
+    emotion: "Pick an emotion to infuse feeling into your movement prompt",
+    sentiment: "Choose a sentiment to set the mood and tone of your movement prompt",
+    promptLength: "How long will your movement prompt be?"
 
   };
 return (
@@ -258,6 +258,9 @@ return (
             )}
           </div>
             )}
+        </div>
+        <div className="instruction-container">
+        <h2 className='instruction'>{instruction[activeElement]}</h2>
         </div>
       </div>
     </>

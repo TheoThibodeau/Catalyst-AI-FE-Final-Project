@@ -5,6 +5,7 @@ import CreativeWritingPrompt from "../promptresponse/creativewritingprompt.jsx";
 import ParameterComponent from "../parameters/ParameterComponent.jsx";
 import MediumNav from "../parameters/MediumNav.jsx";
 import LoadingRobot from "./../robot.jsx";
+import "./../instruction.css";
 import NavBar from "../navbar.jsx";
 
 const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, postId }) => {
@@ -139,11 +140,11 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, pos
   const mappedPromptLength = data.promptLength;
 
   const instruction = {
-    themes: "Choose a theme as the central concept of your writing prompt",
-    categories: "Choose a category to establish an area of focus for your writing prompt",
-    emotion: "Choose an emotion to bring feeling to your writing prompt",
-    sentiment: "Choose a sentiment to set the overall mood and tone of your writing prompt",
-    length: "How long will your creative writing prompt be"
+    themes: "Choose a theme as the core concept of your writing prompt",
+    categories: "Select a category to establish the focus of your writing prompt",
+    emotion: "Pick an emotion to infuse feeling into your writing prompt",
+    sentiment: "Set the mood and tone of your writing prompt with a sentiment",
+    promptLength: "What is the optimal length for your creative writing prompt?"
 
   };
   const handleActiveNav = (newValue) => {
@@ -265,11 +266,14 @@ const CreativeWriting = ({ setOutput, output, setGenerativeSpace, setPostId, pos
                   handler={handleStateSet}
                   mediumNavComponent={<MediumNav navData={navData} />}  
                 />
-           
               </div>
             )}
           </div>
             )}
+
+        </div>
+        <div className="instruction-container">
+        <h2 className='instruction'>{instruction[activeElement]}</h2>
         </div>
       </div>
     </>
