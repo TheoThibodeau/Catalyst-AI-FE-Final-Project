@@ -21,7 +21,7 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
     const [isClicked, setIsClicked] = useState(false);
     const initialNavDataValues = [
         {
-          title: "Explorations",
+          title: "Exploration",
           isActive: true,
           onClick: () => {
             setActiveElement("explorations");
@@ -189,11 +189,11 @@ const handleStateSet = (key, value) => {
 const keys = ["explorations", "elements", "concepts", "emotion", "promptLength", "generate"]
 
 const instruction = {
-    explorations: "Choose an exploration to set the direction of your music prompt",
-    element: "Choose an element as a building block for your music prompt",
-    emotion: "Choose an emotion as the driving force of your visual art prompt",
-    concept: "Choose a sentiment to set the overall mood and tone of your music prompt",
-    length: "How long will your music prompt be?"
+    explorations: "Select an exploration to guide your music prompt's direction",
+    elements: "Pick an element as inspiration in your music prompt",
+    emotion: "Pick an emotion to infuse feeling into your music prompt",
+    concepts: "Select a concept as the backbone of your music prompt",
+    promptLength: "What is the optimal length for your creative writing prompt?"
 }
 
 return (
@@ -257,6 +257,9 @@ return (
             )}
           </div>
             )}
+        </div>
+        <div className="instruction-container">
+        <h2 className='instruction'>{instruction[activeElement]}</h2>
         </div>
       </div>
     </>
