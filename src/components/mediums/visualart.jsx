@@ -199,7 +199,7 @@ const handleStateSet = (key, value) => {
 const keys = ["visualArtThemes", "emotion", "visualArtElements", "sentiment", "promptLength", "generate"]
 
 const instruction = {
-    visualArtThemes: "Select a theme to create the atmosphere of your visual art prompt",
+    visualArtThemes: "Select a theme to create the atmosphere of your prompt",
     visualArtElements: "Choose an element as the foundation for your visual art prompt",
     emotion: "Pick an emotion to infuse feeling into your visual art prompt",
     sentiment: "Set the mood and tone of your visual art prompt with a sentiment",
