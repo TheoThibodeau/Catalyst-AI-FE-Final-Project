@@ -31,8 +31,8 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
             title: "Emotions",
             isActive: false,
             onClick: () => {
-                setActiveElement("emotion");
-                handleActiveNav("emotion");
+                setActiveElement("emotions");
+                handleActiveNav("emotions");
               },
         },
         {
@@ -47,8 +47,8 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
             title: "Sentiments",
             isActive: false,
             onClick: () => {
-                setActiveElement("sentiment");
-                handleActiveNav("sentiment");
+                setActiveElement("sentiments");
+                handleActiveNav("sentiments");
               },
         },
         {
@@ -130,9 +130,9 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
     };
 
 const mappedVisualArtThemes = data.visualArtThemes
-const mappedEmotion = data.emotion
+const mappedEmotion = data.emotions
 const mappedVisualArtElements = data.visualArtElements
-const mappedSentiment = data.sentiment
+const mappedSentiment = data.sentiments
 const mappedPromptLength = data.promptLength
 
 const handleActiveNav = (newValue) => {
@@ -156,7 +156,7 @@ const handleActiveNav = (newValue) => {
 const handleStateSet = (key, value) => {
     if (key === "Visual Art Themes") {
         handleVisualArtThemes(value)
-        const newActiveElement = "emotion";
+        const newActiveElement = "emotions";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
         
@@ -171,12 +171,12 @@ const handleStateSet = (key, value) => {
 
     if (key === "Visual Art Elements") {
         handleVisualArtElements(value)
-        const newActiveElement = "sentiment";
+        const newActiveElement = "sentiments";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }
     
-    if (key === "Sentiment") {
+    if (key === "Sentiments") {
         handleSentimentChange(value)
         const newActiveElement = "promptLength";
         setActiveElement(newActiveElement);
@@ -199,11 +199,11 @@ const handleStateSet = (key, value) => {
 const keys = ["visualArtThemes", "emotion", "visualArtElements", "sentiment", "promptLength", "generate"]
 
 const instruction = {
-    visualArtThemes: "Select a theme to create the atmosphere of your visual art prompt",
-    visualArtElements: "Choose an element as the foundation for your visual art prompt",
-    emotion: "Pick an emotion to infuse feeling into your visual art prompt",
-    sentiment: "Set the mood and tone of your visual art prompt with a sentiment",
-    length: "How long will your visual art prompt be?"
+    visualArtThemes: "Create an atmosphere for your visual art prompt",
+    visualArtElements: "Choose a foundation for your visual art prompt",
+    emotions: "Infuse feeling into your visual art prompt",
+    sentiments: "Set the mood and tone of your visual art prompt",
+    length: "What is the optimal length for your visual art prompt?"
 }
 
 return (

@@ -48,7 +48,7 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
           title: "Emotion",
           isActive: false,
           onClick: () => {
-            setActiveElement("emotion");
+            setActiveElement("musicEmotion");
             handleActiveNav("emotion");
           },
         },
@@ -124,8 +124,8 @@ const Music = ({ setOutput, output, setMusicGenerativeSpace }) => {
 
 const mappedExplorations = data.explorations
 const mappedConcepts = data.concepts
-const mappedEmotion = data.emotion
-const mappedElements = data.elements
+const mappedEmotion = data.emotions
+const mappedElements = data.musicElements
 const mappedPromptLength = data.promptLength
 
 const handleActiveNav = (newValue) => {
@@ -162,12 +162,12 @@ const handleStateSet = (key, value) => {
         handleActiveNav(newActiveElement);
     }
     if (key === "Concepts") {
-        const newActiveElement = "emotion";
+        const newActiveElement = "musicEmotion";
         handleConcepts(value)
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }
-    if (key === "Emotions") {
+    if (key === "Emotion") {
         const newActiveElement = "promptLength";
         handleEmotionChange(value)
         setActiveElement(newActiveElement);
@@ -186,13 +186,13 @@ const handleStateSet = (key, value) => {
     }
 };
 
-const keys = ["explorations", "elements", "concepts", "emotion", "promptLength", "generate"]
+const keys = ["explorations", "elements", "concepts", "musicEmotion", "promptLength", "generate"]
 
 const instruction = {
-    explorations: "Select an exploration to guide your music prompt's direction",
+    explorations: "Set the direction of your music prompt",
     elements: "Pick an element as inspiration in your music prompt",
-    emotion: "Pick an emotion to infuse feeling into your music prompt",
-    concepts: "Select a concept as the backbone of your music prompt",
+    musicEmotion: "Infuse feeling into your music prompt",
+    concepts: "Select the backbone of your music prompt",
     promptLength: "What is the optimal length for your creative writing prompt?"
 }
 

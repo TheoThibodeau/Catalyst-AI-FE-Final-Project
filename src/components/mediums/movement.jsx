@@ -39,16 +39,16 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
             title: "Emotions",
             isActive: false,
             onClick: () => {
-                setActiveElement("emotion");
-                handleActiveNav("emotion");
+                setActiveElement("emotions");
+                handleActiveNav("emotions");
               },
         },
         {
             title: "Sentiments",
             isActive: false,
             onClick: () => {
-                setActiveElement("sentiment");
-                handleActiveNav("sentiment");
+                setActiveElement("sentiments");
+                handleActiveNav("sentiments");
               },
         },
         {
@@ -125,8 +125,8 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
 
 const mappedMovementSomatics = data.movementSomatics
 const mappedMovementThemes = data.movementThemes
-const mappedEmotion = data.emotion
-const mappedSentiment = data.sentiment
+const mappedEmotion = data.emotions
+const mappedSentiment = data.sentiments
 const mappedPromptLength = data.promptLength
 
 const handleActiveNav = (newValue) => {
@@ -157,17 +157,17 @@ const handleStateSet = (key, value) => {
     }
     if (key === "Movement Themes") {
         handleMovementThemes(value);
-        const newActiveElement = "emotion";
+        const newActiveElement = "emotions";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }    
     if (key === "Emotions") {
         handleEmotionChange(value);
-        const newActiveElement = "sentiment";
+        const newActiveElement = "sentiments";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }
-    if (key === "Sentiment") {
+    if (key === "Sentiments") {
         handleSentimentChange(value);
         const newActiveElement = "promptLength";
         setActiveElement(newActiveElement);
@@ -187,14 +187,14 @@ const handleStateSet = (key, value) => {
     }
 }
 
-const keys = ["movementSomatics", "movementThemes", "emotion", "sentiment", "promptLength", "generate"]
+const keys = ["movementSomatics", "movementThemes", "emotions", "sentiments", "promptLength", "generate"]
 
 const instruction = {
-    movementThemes: "Choose a theme to establish the foundation of your movement prompt",
-    movementSomatics: "Choose a somatic approach to shape your movement prompt",
-    emotion: "Pick an emotion to infuse feeling into your movement prompt",
-    sentiment: "Choose a sentiment to set the mood and tone of your movement prompt",
-    promptLength: "How long will your movement prompt be?"
+    movementThemes: "Choose the foundation of your movement prompt",
+    movementSomatics: "Select a somatic approach to shape your movement prompt",
+    emotion: "Infuse feeling into your movement prompt",
+    sentiments: "Set the mood and tone of your movement prompt",
+    promptLength: "What is the optimal length for your movement prompt?",
 
   };
 return (
