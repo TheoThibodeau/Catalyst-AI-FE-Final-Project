@@ -24,7 +24,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
             isActive: true,
             onClick: () => {
                 setActiveElement("movementSomatics");
-                handleActiveNav("somatics");
+                handleActiveNav("movementSomatics");
               },
         },
         {
@@ -32,7 +32,7 @@ const Movement = ({ setOutput, output, setMovementGenerativeSpace }) => {
             isActive: false,
             onClick: () => {
                 setActiveElement("movementThemes");
-                handleActiveNav("themes");
+                handleActiveNav("movementThemes");
               },
         },
         {
