@@ -43,24 +43,36 @@ const MusicFolio = () => {
       };
 
       return (
-        <div>
+        <div className="text-center items-center">
           {folios
           .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
           .map((folio, index) => (
             <div key={index}>
-              <button className="border border-slate-400 p-4 m-1 ml-10" onClick={() => handleDateClick(dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss'))}>
-              {folio.output} {dayjs(folio.created_at).format('MM/DD/YY')}
+              <button 
+              className="border border-slate-400 h-20 w-80 m-2" 
+              onClick={() => 
+              handleDateClick (
+                    dayjs(folio.created_at).format("MM-DD-YYYY HH:mm:ss")
+                  )
+                }
+              >
+                {`${dayjs(folio.created_at).format("MM/DD/YY")} `}
+                {folio.output.length > 20 && folio.output.slice(0, 20) + '...'}
               </button>
-              {selectedDate === dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') && (
+              
+              
+              {selectedDate === 
+              dayjs(folio.created_at).format('MM-DD-YYYY HH:mm:ss') && (
                 <>
-                <div className=" border border-slate-400 p-4 m-2 space-y-3">
-                  <h3 className="font-bold">A.I Generated Prompt</h3> 
-                  <h4>{folio.output}</h4>
-                  <h3 h3 className="font-bold">
-                    Prompt Parameters </h3>
-                    <h4> {folio.concept} , {folio.element}, {folio.emotion}
+                <div className=" border border-slate-400 p-4 m-2 space-y-2">
+                  <h3 className="font-bold">Prompt Parameters</h3> 
+                  <h4> {folio.concept} , {folio.element}, {folio.emotion}
                     {folio.exploration}, {folio.promptLength}
                   </h4>
+                  <h3 h3 className="font-bold">
+                    A.I Generated Prompt</h3>
+                    <h4>{folio.output}</h4>
+                    
                   <h3 className="font-bold">Notes </h3>
                    <h4>{folio.note}</h4>
                  
