@@ -16,7 +16,9 @@ const ParameterComponent = ({ data, handler, mediumNavComponent, instruction }) 
       <div className="flex flex-row justify-between pt-8 pb-6 pl-2 font-mono bg-slate-300 text-5xl items-center w-full space-y-4">
         {mediumNavComponent}
       </div>
+    <div className="m-10">
       <h2>{instruction}</h2>
+      </div>
       <div className="flex flex-col pb-20 items-center justify-center space-y-10 flex-grow">
       
         {entries.map((entry) => (

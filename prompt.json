@@ -25,8 +25,8 @@
 			"Mythology and Folklore"
     ]},
 
-    "sentiment": {
-      "title": "Sentiment",
+    "sentiments": {
+      "title": "Sentiments",
       "data":
       [
       "Compassion",
@@ -36,7 +36,7 @@
 			"Hopelessness", 
 			"Optimism"  
     ]},
-    "emotion": {
+    "emotions": {
       "title": "Emotions",
       "data":
       [
@@ -48,6 +48,19 @@
         "Hope",
         "Grief"
     ]},
+
+    "musicEmotion": {
+        "title": "Emotion",
+        "data":
+        [
+  
+          "Joy",
+          "Surprise",
+          "Disappointment",
+          "Regret",
+          "Hope",
+          "Grief"
+      ]},
     
     "visualArtMedium": {
       "title": "Medium",
