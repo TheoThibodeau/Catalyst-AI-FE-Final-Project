@@ -39,7 +39,7 @@ const VisualArt = ({ setOutput, output, setVisualArtGenerativeSpace }) => {
             title: "Elements",
             isActive: false,
             onClick: () => {
-                setActiveElement("visualArtElements");
+                setActiveElement("elements");
                 handleActiveNav("elements");
               },
         },
@@ -164,12 +164,12 @@ const handleStateSet = (key, value) => {
 
     if (key === "Emotions") {
         handleEmotionChange(value)
-        const newActiveElement = "visualArtElements";
+        const newActiveElement = "elements";
         setActiveElement(newActiveElement);
         handleActiveNav(newActiveElement);
     }
 
-    if (key === "Visual Art Elements") {
+    if (key === "Elements") {
         handleVisualArtElements(value)
         const newActiveElement = "sentiments";
         setActiveElement(newActiveElement);
@@ -200,10 +200,10 @@ const keys = ["visualArtThemes", "emotion", "visualArtElements", "sentiment", "p
 
 const instruction = {
     visualArtThemes: "Create an atmosphere for your visual art prompt",
-    visualArtElements: "Choose a foundation for your visual art prompt",
+    elements: "Choose a foundation for your visual art prompt",
     emotions: "Infuse feeling into your visual art prompt",
     sentiments: "Set the mood and tone of your visual art prompt",
-    length: "What is the optimal length for your visual art prompt?"
+    promptLength: "What is the optimal length for your visual art prompt?"
 }
 
 return (

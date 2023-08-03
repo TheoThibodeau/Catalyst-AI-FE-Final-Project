@@ -38,13 +38,6 @@ const NavBar = () => {
         <Link to="/" onClick={handleClickCreate}>
           HOME
         </Link>
-        <Link to="/folio" onClick={handleClickFolio}>
-          FOLIO
-        </Link>
-        <Link to="/login" onClick={handleClickLogin}>
-          {isLoggedIn ? "LOG OUT" : "LOG IN"}
-          {/* does a token go here?  */}
-        </Link>
       </div>
       <Outlet />
     </div>
