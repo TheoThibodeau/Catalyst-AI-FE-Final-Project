@@ -15,7 +15,7 @@ const MediumsCWParameters = () => {
 return (
 <>
 <div className="flex flex-col font-mono text items-center justify-center space-y-2">
-    <h1 className="text-center  ">Creative Writing</h1>
+    <h1 className="text-center ">Creative Writing</h1>
     <h2>MEDIUM</h2>
 
     <div>
