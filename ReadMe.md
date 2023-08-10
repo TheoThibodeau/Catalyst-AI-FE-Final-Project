@@ -1,5 +1,6 @@
 
 Catalyst
+whats up laura!!
 
 Catalyst is an app that puts the artist in the loop. Catalyst integrates with openAI’s API to create a responsive tool for generating unique and creative prompts. The prompts will then be used by the artist for inspiration and motivation to start creating. 
 
